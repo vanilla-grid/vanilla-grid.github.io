@@ -1,17 +1,17 @@
 function getSamples() {
     function Samples () {
         this.sample01 =
-`<div data-vanillagrid id="grid1">
-    <div data-vanillagrid-col id="col1" header="header;column1;text" dataType="text" width="200px"></div>
-    <div data-vanillagrid-col id="col2" header="header;column2;code" dataType="code" codes="A;B;C;D;E" width="60px"></div>
-    <div data-vanillagrid-col id="col3" header="header;column3;mask" dataType="mask" format="AAAA-999" width="120px"></div>
-    <div data-vanillagrid-col id="col4" header="header;column4;date" dataType="date" footer="MAX;MIN;SUM;AVG" width="120px"></div>
-    <div data-vanillagrid-col id="col5" header="header;column5;number" dataType="number" footer="$$MAX;$$MIN;$$SUM;$$AVG" format="$ #,##0.####" width="120px"></div>
-    <div data-vanillagrid-col id="col6" header="header;column6;select" dataType="select" width="120px"></div>
-    <div data-vanillagrid-col id="col7" header="header;column7;checkbox" dataType="checkbox" width="100px" footer="CHECK_COUNT"></div>
-    <div data-vanillagrid-col id="col8" header="header;column8;button" dataType="button" width="120px"></div>
-    <div data-vanillagrid-col id="col9" header="header;column9;link" dataType="link" width="150px"></div>
-</div>`;
+`<vanilla-grid id="grid1">
+    <v-col id="col1" header="header;column1;text" dataType="text" width="200px"></v-col>
+    <v-col id="col2" header="header;column2;code" dataType="code" codes="A;B;C;D;E" width="60px"></v-col>
+    <v-col id="col3" header="header;column3;mask" dataType="mask" format="AAAA-999" width="120px"></v-col>
+    <v-col id="col4" header="header;column4;date" dataType="date" footer="MAX;MIN;SUM;AVG" width="120px"></v-col>
+    <v-col id="col5" header="header;column5;number" dataType="number" footer="$$MAX;$$MIN;$$SUM;$$AVG" format="$ #,##0.####" width="120px"></v-col>
+    <v-col id="col6" header="header;column6;select" dataType="select" width="120px"></v-col>
+    <v-col id="col7" header="header;column7;checkbox" dataType="checkbox" width="100px" footer="CHECK_COUNT"></v-col>
+    <v-col id="col8" header="header;column8;button" dataType="button" width="120px"></v-col>
+    <v-col id="col9" header="header;column9;link" dataType="link" width="150px"></v-col>
+</vanilla-grid>`;
         this.data01 =
         [
             {
