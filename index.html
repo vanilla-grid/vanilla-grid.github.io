@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta name="apple-mobile-web-app-capable"content="yes"/>
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+	<meta property="og:url" content="https://vanilla-grid.github.io/">
+	<title>Vanillagrid</title>
+	<meta name="application-name" content="Vanillagrid">
+	<meta name="msapplication-tooltip" content="Vanillagrid">
+	<meta id="meta_og_title" property="og:title" content="Vanillagrid(only vanilla JS)">
+	<meta name="description" content="A simple Grid library using only Vanilla JS.">
+	<meta property="og:description" content="A simple Grid library using only Vanilla JS.">
+	<meta property="og:type" content="website">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
+	<script src="/Vanillagrid.min.1.0.0.js"></script>
+	<script src="/Sample.js"></script>
+	<script src="/Contents.js"></script>
+	<script src="/Component.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+	<style>
+	*, ::before, ::after {
+	    --tw-border-spacing-x: 0;
+	    --tw-border-spacing-y: 0;
+	    --tw-translate-x: 0;
+	    --tw-translate-y: 0;
+	    --tw-rotate: 0;
+	    --tw-skew-x: 0;
+	    --tw-skew-y: 0;
+	    --tw-scale-x: 1;
+	    --tw-scale-y: 1;
+	    --tw-pan-x: ;
+	    --tw-pan-y: ;
+	    --tw-pinch-zoom: ;
+	    --tw-scroll-snap-strictness: proximity;
+	    --tw-ordinal: ;
+	    --tw-slashed-zero: ;
+	    --tw-numeric-figure: ;
+	    --tw-numeric-spacing: ;
+	    --tw-numeric-fraction: ;
+	    --tw-ring-inset: ;
+	    --tw-ring-offset-width: 0px;
+	    --tw-ring-offset-color: #fff;
+	    --tw-ring-color: rgb(59 130 246 / 0.5);
+	    --tw-ring-offset-shadow: 0 0 #0000;
+	    --tw-ring-shadow: 0 0 #0000;
+	    --tw-shadow: 0 0 #0000;
+	    --tw-shadow-colored: 0 0 #0000;
+	    --tw-blur: ;
+	    --tw-brightness: ;
+	    --tw-contrast: ;
+	    --tw-grayscale: ;
+	    --tw-hue-rotate: ;
+	    --tw-invert: ;
+	    --tw-saturate: ;
+	    --tw-sepia: ;
+	    --tw-drop-shadow: ;
+	    --tw-backdrop-blur: ;
+	    --tw-backdrop-brightness: ;
+	    --tw-backdrop-contrast: ;
+	    --tw-backdrop-grayscale: ;
+	    --tw-backdrop-hue-rotate: ;
+	    --tw-backdrop-invert: ;
+	    --tw-backdrop-opacity: ;
+	    --tw-backdrop-saturate: ;
+	    --tw-backdrop-sepia: ;
+	    -webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+	html, body {
+		max-width: 100%;
+		overflow-x: hidden;
+	    border-width: 0;
+	}
+	body {
+		font-family: 'Noto Sans KR', sans-serif;
+		font-size: 1.2em;
+		overflow-y: auto;
+		overflow-x: hidden;
+		-webkit-overflow-scrolling: touch;
+	}
+	@font-face {
+		font-family: 'Noto Sans KR';
+	}
+	.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
+	    color: #333;
+	    background-color: #f4f4f4;
+	}
+	.dropdown>li.active>a, .dropdown>li.active>a:focus, .dropdown>li.active>a:hover {
+	    color: #333;
+	    background-color: #f4f4f4;
+	}
+	.nav .open>a {
+		border: none;
+	}
+	.nav-stacked {
+		position: fixed;
+	}
+	a {
+		color: #333;
+	}
+	a:hover {
+		color: #333;
+		background-color: #f8f8f8;
+	}
+	input:focus {
+		border-color: #ccc!important;
+		outline: none!important;
+		box-shadow: none!important;
+	}
+	table {
+		overflow-wrap: break-word;
+		table-layout: fixed;
+	}
+	th td {
+		overflow:hidden;
+		white-space : nowrap;
+		text-overflow: ellipsis;
+	}
+	.dot {
+		display: inline-block;
+		margin-right: 7px;
+	}
+	.grid-box, .explain-box {
+		width: 70%;
+		padding-left: 30px;
+	}
+	.margin-left {
+		margin-left: 10px;
+	}
+	.margin-right {
+		margin-right: 10px;
+	}
+	.padding-left {
+		padding-left: 10px;
+	}
+	.padding-right {
+		padding-right: 10px;
+	}
+	.padding-top {
+		padding-top: 10px;
+	}
+	.full-width {
+		width: 100%;
+	}
+	.bold-none {
+		font-weight: 300;
+	}
+	.h4 {
+		padding: 0 5px;
+		line-height: 1.5em;
+	}
+	.h5 {
+		padding: 0 8px;
+		font-size: 15px;
+		line-height: 1.5em;
+	}
+	.logo {
+		font-family: 'Georgia';
+		font-size: 36px;
+		padding: 5px 0;
+		cursor: pointer;
+		margin: 10px 0 20px 0;
+	}
+	@media (max-width: 2000px) {
+		.grid-box, .explain-box {
+			width: 95%;
+		}
+	}
+	@media (max-width: 600px) {
+		.explain-box {
+			padding:0 15px;
+			width: 100%;
+		}
+		.grid-box {
+			padding:0;
+			width: 100%;
+		}
+		.nav>li>a {
+	    padding: 15px 10px!important;
+ 	    font-size:0.9em;
+		}
+	}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<app-header
+		@on-location="onLocation"
+		></app-header>
+		<app-nav
+		:current-view="currentView"
+		@change-view="changeView"
+		@change-lang="changeLang"
+		></app-nav>
+		<app-body>
+			<app-intro
+			v-if="currentView === 'intro'"
+			:current-lang="currentLang"
+			:is-mobile-size="isMobileSize"
+			:is-mobile="isMobile"
+			:is-el-in-view="isElInView"
+			:get-common-comment="getCommonComment"
+			:get-vanillagrid-sample-code="getVanillagridSampleCode"
+			:get-href="getHref"
+			></app-intro>
+			<app-started
+			v-if="currentView === 'started'"
+			:current-lang="currentLang"
+			:is-mobile-size="isMobileSize"
+			:is-mobile="isMobile"
+			:is-el-in-view="isElInView"
+			:get-common-comment="getCommonComment"
+			:get-vanillagrid-sample-code="getVanillagridSampleCode"
+			:get-href="getHref"
+			:is-valid-hex-color="isValidHexColor"
+			></app-started>
+			<app-api
+			v-if="currentView === 'api'"
+			:current-lang="currentLang"
+			:is-mobile-size="isMobileSize"
+			:is-mobile="isMobile"
+			:is-el-in-view="isElInView"
+			:get-common-comment="getCommonComment"
+			:get-vanillagrid-sample-code="getVanillagridSampleCode"
+			:get-href="getHref"
+			></app-api>
+		</app-body>
+		<app-footer></app-footer>
+	</div>
+	<script>
+	const COMMENTS = getComments();
+	const COMPONENT = getComponents();
+	const SAMPLES = getSamples();
+
+	console.log(COMMENTS);
+	console.log(COMPONENT);
+	console.log(SAMPLES);
+	new Vue({
+	    el: '#app',
+	    mounted: function() {
+	    	this.handleResize();
+			window.addEventListener('resize', this.handleResize);
+			
+	        const urlParams = new URLSearchParams(window.location.search);
+	        let viewId = urlParams.get('view');
+	        let anchorId = urlParams.get('anchor');
+	        let lang = urlParams.get('lang');
+	        this.currentLang = lang ? lang : 'ENG';
+	        if(!viewId || ['intro','started','api'].indexOf(viewId) < 0) viewId = 'intro';
+	        this.currentView = viewId;
+	        this.scrollAnchor(anchorId, 1000);
+		},
+		beforeDestroy: function() {
+			window.removeEventListener('resize', this.handleResize);
+		},
+	    data: {
+	    	currentLang : null,
+	        currentView : null,
+	        navItems: [
+	            { id: 'intro', name: 'Intro' },
+	            { id: 'started', name: 'Getting started' },
+	            { id: 'api', name: 'API' },
+	        ],
+			langItems: [
+				{ id: 'ENG', name: 'ENG' },
+				{ id: 'KOR', name: 'KOR' },
+			],
+	        isMobileSize: window.innerWidth <= 600 ? true : false,
+	    },
+	    computed: {
+        	isMobile() {
+        		return (typeof window.orientation !== 'undefined') || (navigator.userAgent.indexOf('IEMobile') !== -1);
+        	}
+	    },
+	    methods: {
+	    	onLocation(link) {
+	    		window.history.replaceState(null, null, window.location.href.split('?')[0] + link ? link : '');
+	    		if(window.location.href === window.location.href.split('?')[0]) {
+	    			location.reload();
+	    		} else {
+		    		window.location.href = window.location.href.split('?')[0];
+	    		}
+	    	},
+	        changeView(id) {
+	    		window.history.replaceState(null, null, window.location.href.split('?')[0]);
+	            this.currentView = id;
+	        },
+	        changeLang(id) {
+	            this.currentLang = id;
+	        },
+	        handleResize() {
+	            if(this.resizeTimeout) {
+	                clearTimeout(this.resizeTimeout);
+	            }
+	            this.resizeTimeout = setTimeout(() => {
+		        	this.isMobileSize = window.innerWidth <= 600 ? true : false;
+	            }, 10);
+			},
+			isElInView(el) {
+				if(!el) return false;
+			    var rect = el.getBoundingClientRect();
+			    var windowHeight = (window.innerHeight || document.documentElement.clientHeight);
+			    var windowWidth = (window.innerWidth || document.documentElement.clientWidth);
+
+				return (
+				    rect.top >= 0 &&
+				    rect.left >= 0 &&
+				    rect.bottom <= windowHeight &&
+				    rect.right <= windowWidth
+				);
+			},
+        	getCommonComment(idx) {
+        		switch(this.currentLang) {
+        			case 'KOR' :
+        				return comments.common.kor[String(idx)];
+        				break;
+        			default :
+        				return comments.common.eng[String(idx)];
+        				break;
+        		}
+        	},
+        	getVanillagridSampleCode(sampleKey) {
+				return SAMPLES[sampleKey];
+        	},
+        	getHref(view, anchor) {
+        		return '?view=' + view + '&anchor=' + anchor + '&lang=' + this.currentLang
+        	},
+        	isValidHexColor(color) {
+        	    const regex = /^#?[0-9a-fA-F]{6}$/;
+        	    return regex.test(color);
+        	},
+        	scrollAnchor(anchorId, interval) {
+        		if(!anchorId) return;
+        		setTimeout(function() {
+        			const anchor = document.getElementById(anchorId);
+        			if(!anchor) return;
+        			anchor.scrollIntoView({
+						behavior: 'smooth',
+						block: 'start',
+					});
+        		}, interval ? interval : 500);
+        	},
+	    },
+	    components: {
+			//=============================================================
+			// level 1 components
+			//=============================================================
+	        'app-header': {
+	            template: COMPONENT.header,
+	            methods : {
+	            	onLocation(link) {
+	                    this.$emit('on-location', link);
+	                },
+	            }
+	        },
+	        'app-nav': {
+	            template: COMPONENT.nav,
+	            props: ['currentView'],
+	            data() {
+	                return {
+	                    navItems: this.$root.navItems,
+	                    langItems: this.$root.langItems,
+						ToggleClassNameLang: 'dropdown',
+	                }
+	            },
+	    	    computed : {
+	            	getLang() {
+	            		for(item of this.langItems) {
+	            			if(item.id === this.$root.currentLang) {
+	            				return item.name;
+	            			}
+	            		}
+	            	}
+	    	    },
+	            methods: {
+	                changeView(id) {
+	                    this.$emit('change-view', id);
+	                },
+					changeLang(id, e) {
+						this.$emit('change-lang', id);
+						this.toggleLang(e);
+					},
+					toggleLang(e) {
+						e.preventDefault();
+						if(this.ToggleClassNameLang.includes('open')) {
+							this.ToggleClassNameLang = 'dropdown'
+						} else {
+							this.ToggleClassNameLang = 'dropdown open'
+						}
+					},
+	            },
+	        },
+	        'app-body': {
+	            template: COMPONENT.body,
+	        },
+	        'app-footer': {
+	            template: COMPONENT.footer,
+	        },
+			//=============================================================
+			// level 2 components
+			//=============================================================
+			//=============================================================
+			// intro
+	        'app-intro': {
+	            template: COMPONENT.intro,
+	            props: ['currentLang','isMobileSize','getVanillagridSampleCode'],
+	            mounted: function() {
+					this.vg = getVanillagrid();
+					this.vg.create();
+					grid1.load(SAMPLES.data01);
+				},
+				beforeDestroy: function() {
+					// window.removeEventListener('scroll', this.handleScroll);
+					
+					vanillanote_onDestroy(this.vg);
+				},
+	            data() {
+					return {
+						vg : null,
+	            		currentSub : 'intro',
+	            		introSubs : ['intro','why','browser','license','contact'],
+					}
+				},
+	            computed: {
+	            	getIntroSubs() {
+	            		switch(this.currentLang) {
+	            			case 'KOR' :
+	            				return [
+			        	            { id: this.introSubs[0], name: 't123' },
+			        	            { id: this.introSubs[1], name: 't123' },
+			        	            { id: this.introSubs[2], name: 't123' },
+			        	            { id: this.introSubs[3], name: 't123' },
+			        	            { id: this.introSubs[4], name: 't123' },
+			        	        ];
+	            				break;
+	            			default :
+	            				return [
+			        	            { id: this.introSubs[0], name: 't123' },
+			        	            { id: this.introSubs[1], name: 't123' },
+			        	            { id: this.introSubs[2], name: 't123' },
+			        	            { id: this.introSubs[3], name: 't123' },
+			        	            { id: this.introSubs[4], name: 't123' },
+			        	        ];
+	            				break;
+	            		}
+	            	},
+	            	getMainClass() {
+	            		return this.isMobileSize ? 'col-xs-12': 'col-xs-9'
+	            	},
+	            },
+	            methods: {
+	            },
+	        },
+	    },
+	});
+	</script>
+	<script type="text/javascript">
+	vanillagrid_onBeforeCreate = function(e, vn) {
+		return false;
+	}
+	</script>
+</body>
+</html>
