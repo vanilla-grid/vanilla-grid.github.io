@@ -1,6 +1,6 @@
-function getComments() {
+function getContents() {
     const sampleKeysIntro = ['intro01'];
-    function Comments () {
+    function Contents () {
         this.VIEW_KEY_INTRO = "intro";
         this.VIEW_KEY_STARTED = "started";
         this.VIEW_KEY_DIVE = "dive";
@@ -120,5 +120,5 @@ function getComments() {
             this.eng.intro[key].anchor = "anchor_" + idx;
         })
     }
-    return new Comments();
+    return new Contents();
 }
