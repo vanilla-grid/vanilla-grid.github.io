@@ -51,22 +51,35 @@ function getComponents(SAMPLE_GRIDS) {
                 <div class="text-left" :class="getMainClass">
                     <br>
                     <div class="text-right padding-right">
-                        <a type="button" class="btn btn-default btn-md" href="https://github.com/vanilla-note/vanillanote.min" target="_blank">
-                            <span class="glyphicon glyphicon-download-alt padding-right" aria-hidden="true"></span>test
+                        <a type="button" class="btn btn-default btn-md" href="https://github.com/vanilla-grid/vanillanote.min" target="_blank">
+                            <span class="glyphicon glyphicon-download-alt padding-right" aria-hidden="true"></span>Get min.js (go github)
                         </a>
                     </div>
                     <br>
-                    <p class="h4 padding-top" :id="introSubs[0]"><span class="dot"><i class="fas fa-book-open"></i></span><b>test</b></p>
+                    <p class="h4 padding-top" :id="introSubs[0]"><span class="dot"><i class="fas fa-book-open"></i></span><b>{{getContent("INTRO-0001")}}</b></p>
                     <br>
-                    <div class="note-box">`
+                    <div class="grid-box">`
                     + SAMPLE_GRIDS.intro["intro01"] +
                     `</div>
                     <br>
                     <div class="explain-box">
-                        <p class="h6">test</p>
+                        <p class="h6">{{getCommonContent("COMMON-0001")}}</p>
                         <pre><code>{{SAMPLE_GRIDS.intro["intro01"]}}</code></pre>
                     </div>
                     <br><br>
+                    <br>
+                    <p class="h4 padding-top" :id="introSubs[0]"><span class="dot"><i class="fas fa-book-open"></i></span><b>{{getContent("INTRO-0002")}}</b></p>
+                    <br>
+                    <div class="grid-box">`
+                    + SAMPLE_GRIDS.intro["intro02"] +
+                    `</div>
+                    <br>
+                    <div class="explain-box">
+                        <p class="h6">{{getCommonContent("COMMON-0001")}}</p>
+                        <pre><code>{{SAMPLE_GRIDS.intro["intro01"]}}</code></pre>
+                    </div>
+                    <br><br>
+                    <br>
                 </div>
             </div>`;
         }
