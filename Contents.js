@@ -1,43 +1,124 @@
 function getComments() {
+    const sampleKeysIntro = ['intro01'];
     function Comments () {
-        this.common = {
-            kor: {
-                "1000" : "▼ 해당 속성은 아래와 같습니다.",
-                "1001" : "<div data-vanillanote></div>",
-                "1002" : "▼ 예시 코드는 아래와 같습니다.",
-                "1003" : "▼ 최 상단의 costomized된 editor는 해당 코드를 추가했습니다.",
-                "1004" : "변경 시 심각한 오류발생 가능성이 있음.",
-                "2000" : "문자열",
-                "2001" : "자연수",
-                "2002" : "부울",
-                "2003" : "정수",
-                "2004" : "배열",
-                "2005" : "객체",
-                "2006" : "요소",
-                "2007" : "함수",
-                "2008" : "양의 정수",
-                "3000" : "테스트 해보세요.",
-                "3001" : "해당 버튼을 클릭 후 콘솔창(F12)을 확인해 보세요.",
+        this.VIEW_KEY_INTRO = "intro";
+        this.VIEW_KEY_STARTED = "started";
+        this.VIEW_KEY_DIVE = "dive";
+        this.VIEW_KEY_API = "api";
+        this.SAMPLE_KEYS_INTRO = sampleKeysIntro;
+        this.kor = {
+            common: {
+                "COMMON-0001" : {
+                    text: "▼ 예시 코드는 아래와 같습니다."
+                },
             },
-            eng: {
-                "1000" : "The attributes are as follows.",
-                "1001" : "<div data-vanillanote></div>",
-                "1002" : "The example code is as follows.",
-                "1003" : "▼ Top customized editor has added this code",
-                "1004" : "There is a possibility of serious error when changing.",
-                "2000" : "String",
-                "2001" : "Natural number",
-                "2002" : "Boolean",
-                "2003" : "Integer",
-                "2004" : "Array",
-                "2005" : "Object",
-                "2006" : "Element",
-                "2007" : "Function",
-                "2008" : "positive integer",
-                "3000" : "Try it.",
-                "3001" : "Click the button beside and check the console window (F12).",
+            intro: {
+                sampleText : {
+                    [sampleKeysIntro[0]] : {
+                        "col1" : [
+                            {
+                                text : "해당 column은 text dataType입니다.",
+                            },
+                            {
+                                text : "Double-click을 하면 수정할 수 있습니다.",
+                            },
+                            {
+                                text : "F2키를 누르면 수정할 수 있습니다.",
+                            },
+                            {
+                                text : "엔터키를 누르면 editor에 들어가며,\n 내용을 select합니다.",
+                            },
+                            {
+                                text : "시도해 보세요!",
+                            },
+                        ]
+                    },
+                },
+                "INTRO-0001": {
+                    text: "Vanilla JS만을 활용한 simple grid.",
+                },
+                "INTRO-0002": {
+                    text: "Vanilla Grid는 각 30여개의 grid와 coloumn 속성, 30 여개의 customize 가능한 이벤트, 200여개 이상의 method가 있습니다.",
+                },
+                "INTRO-0003": {
+                    text: "해당 코드는 grid의 colorSet속성을 통해 ...",
+                },
+                "INTRO-0004": {
+                    text: "테스트.",
+                },
             },
-        }
+            started: {
+
+            },
+            dive: {
+
+            },
+            api: {
+
+            },
+        };
+        //intro view key, anchor id 삽입
+        Object.keys(this.kor.intro).forEach((key, idx) => {
+            this.kor.intro[key].view = this.VIEW_KEY_INTRO;
+            this.kor.intro[key].anchor = "anchor_" + idx;
+        })
+
+        this.eng = {
+            common: {
+                "COMMON-0001" : {
+                    text: "▼ 예시 코드는 아래와 같습니다."
+                },
+            },
+            intro: {
+                sampleText : {
+                    [sampleKeysIntro[0]] : {
+                        "col1" : [
+                            {
+                                text : "This is a text dataType",
+                            },
+                            {
+                                text : "Double-click to create an editor.",
+                            },
+                            {
+                                text : "Press F2 to create an editor.",
+                            },
+                            {
+                                text : "When you press the enter key,\n editor focus.",
+                            },
+                            {
+                                text : "Try it!",
+                            },
+                        ]
+                    },
+                },
+                "INTRO-0001": {
+                    text: "Simple grid using only Vanilla JS.",
+                },
+                "INTRO-0002": {
+                    text: "Vanilla Grid has over 30 grid and column properties, over 30 customizable events, and over 200 methods.",
+                },
+                "INTRO-0003": {
+                    text: "The code uses the colorSet property of the grid...",
+                },
+                "INTRO-0004": {
+                    text: "test...",
+                },
+            },
+            started: {
+
+            },
+            dive: {
+
+            },
+            api: {
+
+            },
+        };
+        //intro view key, anchor id 삽입
+        Object.keys(this.eng.intro).forEach((key, idx) => {
+            this.eng.intro[key].view = this.VIEW_KEY_INTRO;
+            this.eng.intro[key].anchor = "anchor_" + idx;
+        })
     }
     return new Comments();
 }
