@@ -1,6 +1,5 @@
-function getComponents() {
-    const SAMPLES = getSamples();
-    function Components () {
+function getComponents(SAMPLE_GRIDS) {
+    function Components (SAMPLE_GRIDS) {
         //=============================================================
         // level 2 components
         //=============================================================
@@ -60,15 +59,16 @@ function getComponents() {
                     <p class="h4 padding-top" :id="introSubs[0]"><span class="dot"><i class="fas fa-book-open"></i></span><b>test</b></p>
                     <br>
                     <div class="note-box">`
-                    + SAMPLES.sample01 +
+                    + SAMPLE_GRIDS.intro["intro01"] +
                     `</div>
+                    <br>
                     <div class="explain-box">
                         <p class="h6">test</p>
-                        <pre><code>{{getVanillagridSampleCode("sample01")}}</code></pre>
+                        <pre><code>{{SAMPLE_GRIDS.intro["intro01"]}}</code></pre>
                     </div>
                     <br><br>
                 </div>
             </div>`;
         }
-        return new Components();
+        return new Components(SAMPLE_GRIDS);
     };
