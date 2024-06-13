@@ -419,11 +419,12 @@
 					this.vg = getVanillagrid();
 					console.log(this.isMobileSize);
 					if(this.isMobileSize) {
-						this.vg.defaultGridCssInfo.sizeLevel = 7
-						this.vg.defaultGridCssInfo.cellMinHeight = 28
+						this.vg.defaultGridCssInfo.sizeLevel = 7;
+						this.vg.defaultGridCssInfo.cellMinHeight = 28;
+						this.vg.defaultGridCssInfo.height = '500px';
 					}
 					else {
-						this.vg.defaultGridCssInfo.height = '400px'
+						this.vg.defaultGridCssInfo.height = '400px';
 					}
 					this.vg.create();
 					this.loadGrid();
