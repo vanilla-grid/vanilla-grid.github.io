@@ -91,6 +91,15 @@ function getSampleDatas(COMMENTS) {
                     col9 : {value:"https://vanilla-note.github.io/",text:"go vanilla-note"},
                 },
             ],
+            [keysIntro[1]] :
+            [
+                {
+                    col1 : {value:"https://vanilla-grid.github.io/",text:"id", target:""},
+                    col2 : {value:"https://vanilla-grid.github.io/",text:"id"},
+                    col3 : {value:"https://vanilla-grid.github.io/",text:"onActiveCell"},
+                    col4 : {value:"https://vanilla-grid.github.io/",text:"getHeaderRowCount"},
+                },
+            ],
         }
 
         this.kor = {
@@ -100,7 +109,8 @@ function getSampleDatas(COMMENTS) {
                     [
                         {key : "col1", value : textKorIntro[keysIntro[0]].col1}
                     ]
-                )
+                ),
+                [keysIntro[1]] : intro[[keysIntro[1]]],
             },
         };
 
@@ -111,7 +121,8 @@ function getSampleDatas(COMMENTS) {
                     [
                         {key : "col1", value : textEngIntro[keysIntro[0]].col1}
                     ]
-                )
+                ),
+                [keysIntro[1]] : intro[[keysIntro[1]]],
             }
         };
     }
