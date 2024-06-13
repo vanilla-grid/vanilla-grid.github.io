@@ -129,10 +129,6 @@
 		display: inline-block;
 		margin-right: 7px;
 	}
-	.grid-box, .explain-box {
-		width: 70%;
-		padding-left: 30px;
-	}
 	.margin-left {
 		margin-left: 10px;
 	}
@@ -208,7 +204,7 @@
 			:is-mobile-size="isMobileSize"
 			:is-mobile="isMobile"
 			:is-el-in-view="isElInView"
-			:get-common-comment="getCommonComment"
+			:get-common-content="getCommonContent"
 			:get-href="getHref"
 			></app-intro>
 			<app-started
@@ -217,7 +213,7 @@
 			:is-mobile-size="isMobileSize"
 			:is-mobile="isMobile"
 			:is-el-in-view="isElInView"
-			:get-common-comment="getCommonComment"
+			:get-common-content="getCommonContent"
 			:get-href="getHref"
 			:is-valid-hex-color="isValidHexColor"
 			></app-started>
@@ -227,7 +223,7 @@
 			:is-mobile-size="isMobileSize"
 			:is-mobile="isMobile"
 			:is-el-in-view="isElInView"
-			:get-common-comment="getCommonComment"
+			:get-common-content="getCommonContent"
 			:get-href="getHref"
 			></app-dive>
 			<app-api
@@ -236,7 +232,7 @@
 			:is-mobile-size="isMobileSize"
 			:is-mobile="isMobile"
 			:is-el-in-view="isElInView"
-			:get-common-comment="getCommonComment"
+			:get-common-content="getCommonContent"
 			:get-href="getHref"
 			></app-api>
 		</app-body>
@@ -323,13 +319,13 @@
 				    rect.right <= windowWidth
 				);
 			},
-        	getCommonComment(idx) {
+        	getCommonContent(key) {
         		switch(this.currentLang) {
         			case 'KOR' :
-        				return comments.common.kor[String(idx)];
+        				return CONTENTS.kor.common[key].text;
         				break;
         			default :
-        				return comments.common.eng[String(idx)];
+        				return CONTENTS.eng.common[key].text;
         				break;
         		}
         	},
@@ -414,7 +410,7 @@
 			// intro
 	        'app-intro': {
 	            template: COMPONENT.intro,
-	            props: ['currentLang','isMobileSize'],
+	            props: ['currentLang','isMobileSize','getCommonContent'],
 	            mounted: function() {
 					this.vg = getVanillagrid();
 					console.log(this.isMobileSize);
@@ -478,11 +474,23 @@
 						switch(this.currentLang) {
 	            			case 'KOR' :
 								gridintro01.load(SAMPLE_DATAS.kor.intro["intro01"]);
+								gridintro02.load(SAMPLE_DATAS.kor.intro["intro02"]);
 	            				break;
 	            			default :
 								gridintro01.load(SAMPLE_DATAS.eng.intro["intro01"]);
+								gridintro02.load(SAMPLE_DATAS.eng.intro["intro02"]);
 	            				break;
 	            		}
+					},
+					getContent(key) {
+						switch(this.currentLang) {
+							case 'KOR' :
+								return CONTENTS.kor.intro[key].text;
+								break;
+							default :
+								return CONTENTS.eng.intro[key].text;
+								break;
+						}
 					},
 	            },
 	        },
