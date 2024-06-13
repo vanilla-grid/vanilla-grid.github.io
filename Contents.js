@@ -1,5 +1,6 @@
 function getContents() {
-    const sampleKeysIntro = ['intro01'];
+    const sampleKeysIntro = ['intro01', 'intro02'];
+    
     function Contents () {
         this.VIEW_KEY_INTRO = "intro";
         this.VIEW_KEY_STARTED = "started";
@@ -66,7 +67,7 @@ function getContents() {
         this.eng = {
             common: {
                 "COMMON-0001" : {
-                    text: "▼ 예시 코드는 아래와 같습니다."
+                    text: "▼ The example code is as follows."
                 },
             },
             intro: {
