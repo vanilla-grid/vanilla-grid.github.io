@@ -20,8 +20,9 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
 	<script src="/Vanillagrid.min.1.0.0.js"></script>
-	<script src="/Sample.js"></script>
 	<script src="/Contents.js"></script>
+	<script src="/SampleDatas.js"></script>
+	<script src="/SampleGrids.js"></script>
 	<script src="/Component.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
 	<style>
@@ -208,7 +209,6 @@
 			:is-mobile="isMobile"
 			:is-el-in-view="isElInView"
 			:get-common-comment="getCommonComment"
-			:get-vanillagrid-sample-code="getVanillagridSampleCode"
 			:get-href="getHref"
 			></app-intro>
 			<app-started
@@ -218,10 +218,18 @@
 			:is-mobile="isMobile"
 			:is-el-in-view="isElInView"
 			:get-common-comment="getCommonComment"
-			:get-vanillagrid-sample-code="getVanillagridSampleCode"
 			:get-href="getHref"
 			:is-valid-hex-color="isValidHexColor"
 			></app-started>
+			<app-dive
+			v-if="currentView === 'dive'"
+			:current-lang="currentLang"
+			:is-mobile-size="isMobileSize"
+			:is-mobile="isMobile"
+			:is-el-in-view="isElInView"
+			:get-common-comment="getCommonComment"
+			:get-href="getHref"
+			></app-dive>
 			<app-api
 			v-if="currentView === 'api'"
 			:current-lang="currentLang"
@@ -229,20 +237,17 @@
 			:is-mobile="isMobile"
 			:is-el-in-view="isElInView"
 			:get-common-comment="getCommonComment"
-			:get-vanillagrid-sample-code="getVanillagridSampleCode"
 			:get-href="getHref"
 			></app-api>
 		</app-body>
 		<app-footer></app-footer>
 	</div>
 	<script>
-	const COMMENTS = getComments();
-	const COMPONENT = getComponents();
-	const SAMPLES = getSamples();
+	const CONTENTS = getContents();
+	const SAMPLE_DATAS = getSampleDatas(CONTENTS);
+	const SAMPLE_GRIDS = getSampleGrids(CONTENTS);
+	const COMPONENT = getComponents(SAMPLE_GRIDS);
 
-	console.log(COMMENTS);
-	console.log(COMPONENT);
-	console.log(SAMPLES);
 	new Vue({
 	    el: '#app',
 	    mounted: function() {
@@ -254,7 +259,7 @@
 	        let anchorId = urlParams.get('anchor');
 	        let lang = urlParams.get('lang');
 	        this.currentLang = lang ? lang : 'ENG';
-	        if(!viewId || ['intro','started','api'].indexOf(viewId) < 0) viewId = 'intro';
+	        if(!viewId || ['intro','started','dive','api'].indexOf(viewId) < 0) viewId = 'intro';
 	        this.currentView = viewId;
 	        this.scrollAnchor(anchorId, 1000);
 		},
@@ -267,6 +272,7 @@
 	        navItems: [
 	            { id: 'intro', name: 'Intro' },
 	            { id: 'started', name: 'Getting started' },
+	            { id: 'dive', name: 'Deep dive' },
 	            { id: 'api', name: 'API' },
 	        ],
 			langItems: [
@@ -326,9 +332,6 @@
         				return comments.common.eng[String(idx)];
         				break;
         		}
-        	},
-        	getVanillagridSampleCode(sampleKey) {
-				return SAMPLES[sampleKey];
         	},
         	getHref(view, anchor) {
         		return '?view=' + view + '&anchor=' + anchor + '&lang=' + this.currentLang
@@ -411,11 +414,16 @@
 			// intro
 	        'app-intro': {
 	            template: COMPONENT.intro,
-	            props: ['currentLang','isMobileSize','getVanillagridSampleCode'],
+	            props: ['currentLang','isMobileSize'],
 	            mounted: function() {
 					this.vg = getVanillagrid();
+					console.log(this.isMobileSize);
+					if(this.isMobileSize) {
+						this.vg.defaultGridCssInfo.sizeLevel = 7
+						this.vg.defaultGridCssInfo.cellMinHeight = 28
+					}
 					this.vg.create();
-					grid1.load(SAMPLES.data01);
+					this.loadGrid();
 				},
 				beforeDestroy: function() {
 					// window.removeEventListener('scroll', this.handleScroll);
@@ -434,20 +442,20 @@
 	            		switch(this.currentLang) {
 	            			case 'KOR' :
 	            				return [
-			        	            { id: this.introSubs[0], name: 't123' },
-			        	            { id: this.introSubs[1], name: 't123' },
-			        	            { id: this.introSubs[2], name: 't123' },
-			        	            { id: this.introSubs[3], name: 't123' },
-			        	            { id: this.introSubs[4], name: 't123' },
+			        	            { id: this.introSubs[0], name: '소개' },
+			        	            { id: this.introSubs[1], name: '제작목적' },
+			        	            { id: this.introSubs[2], name: '브라우저 호환성' },
+			        	            { id: this.introSubs[3], name: '라이센스' },
+			        	            { id: this.introSubs[4], name: '문의하기' },
 			        	        ];
 	            				break;
 	            			default :
 	            				return [
-			        	            { id: this.introSubs[0], name: 't123' },
-			        	            { id: this.introSubs[1], name: 't123' },
-			        	            { id: this.introSubs[2], name: 't123' },
-			        	            { id: this.introSubs[3], name: 't123' },
-			        	            { id: this.introSubs[4], name: 't123' },
+			        	            { id: this.introSubs[0], name: 'Introduction' },
+			        	            { id: this.introSubs[1], name: 'Purpose of Prodution' },
+			        	            { id: this.introSubs[2], name: 'Browser compatibility' },
+			        	            { id: this.introSubs[3], name: 'License' },
+			        	            { id: this.introSubs[4], name: 'Contact' },
 			        	        ];
 	            				break;
 	            		}
@@ -456,7 +464,22 @@
 	            		return this.isMobileSize ? 'col-xs-12': 'col-xs-9'
 	            	},
 	            },
+				watch: {
+					currentLang(newLang, oldLang) {
+						this.loadGrid();
+					}
+				},
 	            methods: {
+					loadGrid() {
+						switch(this.currentLang) {
+	            			case 'KOR' :
+								gridintro01.load(SAMPLE_DATAS.kor.intro["intro01"]);
+	            				break;
+	            			default :
+								gridintro01.load(SAMPLE_DATAS.eng.intro["intro01"]);
+	            				break;
+	            		}
+					},
 	            },
 	        },
 	    },
