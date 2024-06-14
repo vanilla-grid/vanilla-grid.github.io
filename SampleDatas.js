@@ -94,10 +94,10 @@ function getSampleDatas(COMMENTS) {
             [keysIntro[1]] :
             [
                 {
-                    col1 : {value:"https://vanilla-grid.github.io/",text:"id", target:""},
-                    col2 : {value:"https://vanilla-grid.github.io/",text:"id"},
-                    col3 : {value:"https://vanilla-grid.github.io/",text:"onActiveCell"},
-                    col4 : {value:"https://vanilla-grid.github.io/",text:"getHeaderRowCount"},
+                    col1 : {value:"https://vanilla-grid.github.io/",text:"id", target:"_self"},
+                    col2 : {value:"https://vanilla-grid.github.io/",text:"id", target:"_self"},
+                    col3 : {value:"https://vanilla-grid.github.io/",text:"onActiveCell", target:"_self"},
+                    col4 : {value:"https://vanilla-grid.github.io/",text:"getHeaderRowCount", target:"_self"},
                 },
             ],
         }
