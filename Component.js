@@ -1,4 +1,11 @@
 function getComponents(SAMPLE_GRIDS) {
+    function a (c) {
+        const r = c.replace(/"([^"]*)"/g, (m) => {
+            return m.replace(/\n/g, ' ');
+        });
+        return r.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+    a(SAMPLE_GRIDS.intro["intro02"]);
     function Components (SAMPLE_GRIDS) {
         //=============================================================
         // level 2 components
@@ -76,7 +83,7 @@ function getComponents(SAMPLE_GRIDS) {
                     <br>
                     <div class="explain-box">
                         <p class="h6">{{getCommonContent("COMMON-0001")}}</p>
-                        <pre><code>{{SAMPLE_GRIDS.intro["intro01"]}}</code></pre>
+                        <pre><code>`+ a(SAMPLE_GRIDS.intro["intro02"]) +`</code></pre>
                     </div>
                     <br><br>
                     <br>
