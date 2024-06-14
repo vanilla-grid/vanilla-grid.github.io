@@ -1,12 +1,11 @@
-function getComponents(SAMPLE_GRIDS) {
+function getComponents(SAMPLE_DATAS, SAMPLE_GRIDS) {
     function a (c) {
         const r = c.replace(/"([^"]*)"/g, (m) => {
             return m.replace(/\n/g, ' ');
         });
         return r.replace(/</g, '&lt;').replace(/>/g, '&gt;');
     }
-    a(SAMPLE_GRIDS.intro["intro02"]);
-    function Components (SAMPLE_GRIDS) {
+    function Components (SAMPLE_DATAS, SAMPLE_GRIDS) {
         //=============================================================
         // level 2 components
         //=============================================================
@@ -63,7 +62,7 @@ function getComponents(SAMPLE_GRIDS) {
                         </a>
                     </div>
                     <br>
-                    <p class="h4 padding-top" :id="introSubs[0]"><span class="dot"><i class="fas fa-book-open"></i></span><b>{{getContent("INTRO-0001")}}</b></p>
+                    <p class="h4 padding-top" :id="introSubs[0]"><span class="dot"><i class="fas fa-book-open"></i></span><b>{{getContentText("INTRO-0001")}}</b></p>
                     <br>
                     <div class="grid-box">`
                     + SAMPLE_GRIDS.intro["intro01"] +
@@ -74,8 +73,19 @@ function getComponents(SAMPLE_GRIDS) {
                         <pre><code>{{SAMPLE_GRIDS.intro["intro01"]}}</code></pre>
                     </div>
                     <br><br>
-                    <br>
-                    <p class="h4 padding-top" :id="introSubs[0]"><span class="dot"><i class="fas fa-book-open"></i></span><b>{{getContent("INTRO-0002")}}</b></p>
+
+                    <p class="h4 padding-top" :id="introSubs[0]"><span class="dot"><i class="fas fa-book-open"></i></span><b>{{getContentText("INTRO-0100")}}</b></p>
+                    <div class="explain-box">
+                        <p class="h5">{{getContentText("INTRO-0101")}}</p>
+                        <p class="h5">{{getContentText("INTRO-0102")}}</p>
+                        <pre><code>{{getContentCode("INTRO-0103")}}</code></pre>
+                        <p class="h5">{{getContentText("INTRO-0104")}}</p>
+                        <pre><code>{{getContentCode("INTRO-0105")}}</code></pre>
+                        <p class="h5">{{getContentText("INTRO-0106")}}</p>
+                    </div>
+                    <br><br>
+
+                    <p class="h4 padding-top" :id="introSubs[0]"><span class="dot"><i class="fas fa-book-open"></i></span><b>{{getContentText("INTRO-0200")}}</b></p>
                     <br>
                     <div class="grid-box">`
                     + SAMPLE_GRIDS.intro["intro02"] +
@@ -85,10 +95,126 @@ function getComponents(SAMPLE_GRIDS) {
                         <p class="h6">{{getCommonContent("COMMON-0001")}}</p>
                         <pre><code>`+ a(SAMPLE_GRIDS.intro["intro02"]) +`</code></pre>
                     </div>
+                    <div class="explain-box">
+                        <p class="h5 text-success">{{getContentText("INTRO-0201")}}</p>
+                    </div>
                     <br><br>
+
+                    <p class="h4 padding-top" :id="introSubs[0]"><span class="dot"><i class="fas fa-book-open"></i></span><b>{{getContentText("INTRO-0300")}}</b></p>
+                    <div class="explain-box">
+                        <p class="h5">{{getContentText("INTRO-0301")}}</p>
+                        <p class="h5">{{getContentText("INTRO-0302")}}</p>
+                        <p class="h5">{{getContentText("INTRO-0303")}}</p>
+                        <p class="h5">{{getContentText("INTRO-0304")}}</p>
+                        <pre><code>{{getContentCode("INTRO-0305")}}</code></pre>
+                        <p class="h5">{{getContentText("INTRO-0306")}}</p>
+                        <p class="h5">{{getContentText("INTRO-0307")}}</p>
+                        <pre><code>{{getContentCode("INTRO-0308")}}</code></pre>
+                        <p class="h5">{{getContentText("INTRO-0309")}}</p>
+                        <pre><code>{{getContentCode("INTRO-0310")}}</code></pre>
+                        <p class="h5">{{getContentText("INTRO-0311")}}</p>
+                        <pre><code>{{getContentCode("INTRO-0312")}}</code></pre>
+                        <p class="h5">{{getContentText("INTRO-0313")}}</p>
+                    </div>
+                    <br><br>
+
+                    <p class="h4 padding-top" :id="introSubs[0]"><span class="dot"><i class="fas fa-book-open"></i></span><b>{{getContentText("INTRO-0400")}}</b></p>
+                    <div class="explain-box">
+                        <p class="h5">{{getContentText("INTRO-0401")}}</p><br>
+                        <p class="h5">{{getContentText("INTRO-0410")}}</p>
+                        <ul>
+							<li class="text-info">{{getContentText("INTRO-0411")}}</li>
+							<li class="text-info">{{getContentText("INTRO-0412")}}</li>
+							<li class="text-info">{{getContentText("INTRO-0413")}}</li>
+							<li class="text-info">{{getContentText("INTRO-0414")}}</li>
+							<li class="text-info">{{getContentText("INTRO-0415")}}</li>
+							<li class="text-info">{{getContentText("INTRO-0416")}}</li>
+							<li class="text-info">{{getContentText("INTRO-0417")}}</li>
+						</ul>
+                        <p class="h5">{{getContentText("INTRO-0430")}}</p>
+                        <ul>
+							<li class="text-danger">{{getContentText("INTRO-0431")}}</li>
+							<li class="text-danger">{{getContentText("INTRO-0432")}}</li>
+							<li class="text-danger">{{getContentText("INTRO-0433")}}</li>
+						</ul>
+                    </div>
+                    <br><br>
+
+                    <p class="h4 padding-top" :id="introSubs[0]"><span class="dot"><i class="fas fa-book-open"></i></span><b>{{getContentText("INTRO-0500")}}</b></p>
+                    <div class="explain-box">
+						<table class="table">
+							<tbody>
+								<tr>
+									<td class="col-xs-2 text-center">Device</th>
+									<td class="col-xs-4">Browser</th>
+									<td class="col-xs-6">Compatibility</td>
+								</tr>
+								<tr>
+									<td class="text-center" rowspan="5"><i class="fas fa-desktop"></i></th>
+									<td><i class="fab fa-chrome"></i>&nbsp;&nbsp;Chrome</th>
+									<td class="text-success">0</td>
+								</tr>
+								<tr>
+									<td><i class="fab fa-edge"></i>&nbsp;&nbsp;Edge</th>
+									<td class="text-success">0</td>
+								</tr>
+								<tr>
+									<td><i class="fab fa-safari"></i>&nbsp;&nbsp;Safari</th>
+									<td class="text-success">0</td>
+								</tr>
+								<tr>
+									<td><i class="fab fa-firefox"></i>&nbsp;&nbsp;Firefox</th>
+									<td class="text-success">0</td>
+								</tr>
+								<tr>
+									<td><i class="fab fa-opera"></i>&nbsp;&nbsp;Opera</th>
+									<td class="text-success">0</td>
+								</tr>
+								<tr>
+									<td class="text-center" rowspan="6"><i class="fas fa-mobile-alt"></i></th>
+									<td><i class="fab fa-chrome"></i>&nbsp;&nbsp;Chrome Android</th>
+									<td class="text-success">0</td>
+								</tr>
+								<tr>
+									<td><i class="fab fa-safari"></i>&nbsp;&nbsp;Safari on IOS</th>
+									<td class="text-success">0</td>
+								</tr>
+								<tr>
+									<td><i class="fab fa-firefox"></i>&nbsp;&nbsp;Firefox for Android</th>
+									<td class="text-danger">0</td>
+								</tr>
+								<tr>
+									<td><i class="fab fa-opera"></i>&nbsp;&nbsp;Opera Android</th>
+									<td class="text-success">0</td>
+								</tr>
+								<tr>
+									<td><i class="fas fa-globe"></i>&nbsp;&nbsp;Samsung Internet</th>
+									<td class="text-success">0</td>
+								</tr>
+								<tr>
+									<td><i class="fab fa-android"></i>&nbsp;&nbsp;WebView Android</th>
+									<td class="text-success">0</td>
+								</tr>
+							</tbody>
+						</table>
+                    </div>
+                    <br><br>
+
+                    <p class="h4 padding-top" :id="introSubs[0]"><span class="dot"><i class="fas fa-book-open"></i></span><b>{{getContentText("INTRO-0600")}}</b></p>
+                    <div class="explain-box">
+                        <p class="h5">MIT License</p><br>
+                    </div>
+                    <br><br>
+
+                    <p class="h4 padding-top" :id="introSubs[0]"><span class="dot"><i class="fas fa-book-open"></i></span><b>{{getContentText("INTRO-0700")}}</b></p>
+                    <div class="explain-box">
+                        <p class="h5">hison0319@gmail.com</p><br>
+                    </div>
+                    <br><br>
+
                     <br>
                 </div>
             </div>`;
         }
-        return new Components(SAMPLE_GRIDS);
+        return new Components(SAMPLE_DATAS, SAMPLE_GRIDS);
     };
