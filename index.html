@@ -125,6 +125,12 @@
 		white-space : nowrap;
 		text-overflow: ellipsis;
 	}
+	code {
+		font-family: Consolas, "Courier New", monospace;
+	}
+	code:lang(ko) {
+		font-family: 'Noto Sans KR';
+	}
 	.dot {
 		display: inline-block;
 		margin-right: 7px;
@@ -246,7 +252,9 @@
 	const CONTENTS = getContents();
 	const SAMPLE_DATAS = getSampleDatas(CONTENTS);
 	const SAMPLE_GRIDS = getSampleGrids(CONTENTS);
-	const COMPONENT = getComponents(SAMPLE_GRIDS);
+	const COMPONENT = getComponents(SAMPLE_DATAS, SAMPLE_GRIDS);
+	
+	console.log(CONTENTS);
 
 	new Vue({
 	    el: '#app',
@@ -484,13 +492,23 @@
 	            				break;
 	            		}
 					},
-					getContent(key) {
+					getContentText(key) {
 						switch(this.currentLang) {
 							case 'KOR' :
-								return CONTENTS.kor.intro[key].text;
+								return CONTENTS.kor.intro[key] ? CONTENTS.kor.intro[key].text : null;
 								break;
 							default :
-								return CONTENTS.eng.intro[key].text;
+								return CONTENTS.eng.intro[key] ? CONTENTS.eng.intro[key].text : null;
+								break;
+						}
+					},
+					getContentCode(key) {
+						switch(this.currentLang) {
+							case 'KOR' :
+								return CONTENTS.kor.intro[key] ? CONTENTS.kor.intro[key].code : null;
+								break;
+							default :
+								return CONTENTS.eng.intro[key] ? CONTENTS.eng.intro[key].code : null;
 								break;
 						}
 					},
