@@ -20,6 +20,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
 	<script src="Vanillagrid.min.1.0.0.js"></script>
+	<script src="Consts.js"></script>
 	<script src="Contents.js"></script>
 	<script src="SampleDatas.js"></script>
 	<script src="SampleGrids.js"></script>
@@ -249,7 +250,8 @@
 		<app-footer></app-footer>
 	</div>
 	<script>
-	const CONTENTS = getContents();
+	const CONSTS = getConsts();
+	const CONTENTS = getContents(CONSTS);
 	const SAMPLE_DATAS = getSampleDatas(CONTENTS);
 	const SAMPLE_GRIDS = getSampleGrids(CONTENTS);
 	const COMPONENT = getComponents(SAMPLE_DATAS, SAMPLE_GRIDS);
