@@ -57,7 +57,7 @@ function getComponents(SAMPLE_DATAS, SAMPLE_GRIDS) {
                 <div class="text-left" :class="getMainClass">
                     <br>
                     <div class="text-right padding-right">
-                        <a type="button" class="btn btn-default btn-md" href="https://github.com/vanilla-grid/vanillanote.min" target="_blank">
+                        <a type="button" class="btn btn-default btn-md" href="https://github.com/vanilla-grid/vanillagrid.min" target="_blank">
                             <span class="glyphicon glyphicon-download-alt padding-right" aria-hidden="true"></span>Get min.js (go github)
                         </a>
                     </div>
@@ -105,16 +105,17 @@ function getComponents(SAMPLE_DATAS, SAMPLE_GRIDS) {
                         <p class="h5">{{getContentText("INTRO-0301")}}</p>
                         <p class="h5">{{getContentText("INTRO-0302")}}</p>
                         <p class="h5">{{getContentText("INTRO-0303")}}</p>
-                        <p class="h5">{{getContentText("INTRO-0304")}}</p>
-                        <pre><code>{{getContentCode("INTRO-0305")}}</code></pre>
-                        <p class="h5">{{getContentText("INTRO-0306")}}</p>
+                        <pre><code>{{getContentCode("INTRO-0304")}}</code></pre>
+                        <p class="h5">{{getContentText("INTRO-0305")}}</p>
+                        <pre><code>{{getContentCode("INTRO-0306")}}</code></pre>
                         <p class="h5">{{getContentText("INTRO-0307")}}</p>
-                        <pre><code>{{getContentCode("INTRO-0308")}}</code></pre>
-                        <p class="h5">{{getContentText("INTRO-0309")}}</p>
-                        <pre><code>{{getContentCode("INTRO-0310")}}</code></pre>
-                        <p class="h5">{{getContentText("INTRO-0311")}}</p>
-                        <pre><code>{{getContentCode("INTRO-0312")}}</code></pre>
-                        <p class="h5">{{getContentText("INTRO-0313")}}</p>
+                        <p class="h5">{{getContentText("INTRO-0308")}}</p>
+                        <pre><code>{{getContentCode("INTRO-0309")}}</code></pre>
+                        <p class="h5">{{getContentText("INTRO-0310")}}</p>
+                        <pre><code>{{getContentCode("INTRO-0311")}}</code></pre>
+                        <p class="h5">{{getContentText("INTRO-0312")}}</p>
+                        <pre><code>{{getContentCode("INTRO-0313")}}</code></pre>
+                        <p class="h5">{{getContentText("INTRO-0314")}}</p>
                     </div>
                     <br><br>
 
