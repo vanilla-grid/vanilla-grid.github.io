@@ -19,33 +19,28 @@ function getSampleDatas(COMMENTS) {
             textEngIntro[keysIntro[0]].col1[r].row = r + 1;
             textEngIntro[keysIntro[0]].col1[r].colId = "col1";
         }
-        function f1 (data, arr) {
+        function setTextData (data, arr) {
             const _data = JSON.parse(JSON.stringify(data));
             arr.forEach(obj => {
                 _data.forEach((d, i) => {
                     Object.keys(d).forEach(k => {
                         if(k === obj.key) {
                             d[k] = obj.value[i].text;
-                            console.log(d[k]);
                         }
                     });
                 });
             });
             return _data;
         }
-        function f2 (data, arr) {
+        function setLinkData (data, arr) {
             const _data = JSON.parse(JSON.stringify(data));
             arr.forEach(obj => {
                 _data.forEach((d, i) => {
                     Object.keys(d).forEach(k => {
                         if(k === obj.key) {
-                            console.log(obj);
-                            if(obj.value) {
-                                d[k] = {
-                                    value: obj.value[i].value,
-                                    text: obj.value[i].text,
-                                    target : "_self",
-                                };
+                            if(obj.value[i]) {
+                                d[k].value = obj.value[i].value;
+                                d[k].text = obj.value[i].text;
                             }
                         }
                     });
@@ -112,50 +107,30 @@ function getSampleDatas(COMMENTS) {
                     col9 : {value:"https://vanilla-note.github.io/",text:"go vanilla-note"},
                 },
             ],
-            [keysIntro[1]] :
-            [
-                {
-                    col1 : {value: null, text: null, target:"_self"},
-                    col2 : {value:"https://vanilla-grid.github.io/",text:"id", target:"_self"},
-                    col3 : {value:"https://vanilla-grid.github.io/",text:"onActiveCell", target:"_self"},
-                    col4 : {value:"https://vanilla-grid.github.io/",text:"getHeaderRowCount", target:"_self"},
-                },
-                {
-                    col1 : {value: null, text: null, target:"_self"},
-                    col2 : {value:"https://vanilla-grid.github.io/",text:"name", target:"_self"},
-                    col3 : {value:"https://vanilla-grid.github.io/",text:"onActiveRow", target:"_self"},
-                    col4 : {value:"https://vanilla-grid.github.io/",text:"getHeaderText", target:"_self"},
-                },
-                {
-                    col1 : {value: null, text: null, target:"_self"},
-                    col2 : {value:"https://vanilla-grid.github.io/",text:"header", target:"_self"},
-                    col3 : {value:"https://vanilla-grid.github.io/",text:"onActiveCol", target:"_self"},
-                    col4 : {value:"https://vanilla-grid.github.io/",text:"setHeaderText", target:"_self"},
-                },
-                {
-                    col1 : {value: null, text: null, target:"_self"},
-                    col2 : {value:"https://vanilla-grid.github.io/",text:"footer", target:"_self"},
-                    col3 : {value:"https://vanilla-grid.github.io/",text:"onActiveCells", target:"_self"},
-                    col4 : {value:"https://vanilla-grid.github.io/",text:"reloadFilterValue", target:"_self"},
-                },
-                {
-                    col1 : {value: null, text: null, target:"_self"},
-                    col2 : {value:"https://vanilla-grid.github.io/",text:"dataType", target:"_self"},
-                    col3 : {value:"https://vanilla-grid.github.io/",text:"onActiveRows", target:"_self"},
-                    col4 : {value:"https://vanilla-grid.github.io/",text:"reloadColFilter", target:"_self"},
-                },
-            ],
+            [keysIntro[1]] : (() => {
+                const row = {
+                    col1 : {value: null, text: null, target: "_self"},
+                    col2 : {value: null, text: null, target: "_self"},
+                    col3 : {value: null, text: null, target: "_self"},
+                    col4 : {value: null, text: null, target: "_self"},
+                };
+                const rows = [];
+                for(let r = 0; r < textEngIntro[keysIntro[1]].col4.length; r++) {
+                    rows.push(row);
+                }
+                return rows;
+            })(),
         }
 
         this.kor = {
             intro : {
-                [keysIntro[0]] : f1(
+                [keysIntro[0]] : setTextData(
                     intro[[keysIntro[0]]],
                     [
                         {key : "col1", value : textKorIntro[keysIntro[0]].col1},
                     ]
                 ),
-                [keysIntro[1]] : f2(
+                [keysIntro[1]] : setLinkData(
                     intro[[keysIntro[1]]],
                     [
                         {key : "col1", value : textKorIntro[keysIntro[1]].col1},
@@ -169,13 +144,13 @@ function getSampleDatas(COMMENTS) {
 
         this.eng = {
             intro : {
-                [keysIntro[0]] : f1(
+                [keysIntro[0]] : setTextData(
                     intro[[keysIntro[0]]],
                     [
                         {key : "col1", value : textEngIntro[keysIntro[0]].col1},
                     ]
                 ),
-                [keysIntro[1]] : f2(
+                [keysIntro[1]] : setLinkData(
                     intro[[keysIntro[1]]],
                     [
                         {key : "col1", value : textEngIntro[keysIntro[1]].col1},
