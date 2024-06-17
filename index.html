@@ -17,7 +17,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
-	<script src="Vanillagrid.1.0.0.js"></script>
+	<script src="Vanillagrid.min.1.0.0.js"></script>
 	<script src="Consts.js"></script>
 	<script src="Contents.js"></script>
 	<script src="SampleDatas.js"></script>
@@ -330,14 +330,7 @@
 				);
 			},
         	getCommonContent(key) {
-        		switch(this.currentLang) {
-        			case 'KOR' :
-        				return CONTENTS.kor.common[key].text;
-        				break;
-        			default :
-        				return CONTENTS.eng.common[key].text;
-        				break;
-        		}
+				return CONTENTS[this.currentLang].common[key].text
         	},
         	getHref(view, anchor) {
         		return '?view=' + view + '&anchor=' + anchor + '&lang=' + this.currentLang
@@ -391,14 +384,41 @@
 	    	    },
 	            methods: {
 					onSearch(e) {
-						alert('test!!!');
 						e.preventDefault();
-						const sch_text = document.getElementById('searchInput').value;
-						console.log(sch_text);
-						if(!sch_text) return;
-						console.log(CONTENTS)
-						console.log(this.$root.currentLang);
-						// const introText =
+						const schText = document.getElementById('searchInput').value;
+						console.log(schText);
+						if(!schText) return;
+						const introText = CONTENTS[this.$root.currentLang].intro.text;
+						const introGrid = CONTENTS[this.$root.currentLang].intro.grid;
+						console.log(introGrid);
+						const resText = [];
+						const resGrid = [];
+						Object.keys(introText).forEach(key => {
+							const schStr = schText.replace(/\s+/g, '');
+							if(introText[key].text && typeof introText[key].text === 'string') {
+								const str = introText[key].text ? introText[key].text.replace(/\s+/g, '') : "";
+								const regex = new RegExp(schStr, 'i');
+								if (regex.test(str)) {
+									resText.push(introText[key])
+								}
+							}
+						});
+						Object.keys(introGrid).forEach(gridId => {
+							Object.keys(introGrid[gridId]).forEach((colId) => {
+								introGrid[gridId][colId].forEach((data) => {
+									const schStr = schText.replace(/\s+/g, '');
+									if(data.text && typeof data.text === 'string') {
+										const str = data.text ? data.text.replace(/\s+/g, '') : "";
+										const regex = new RegExp(schStr, 'i');
+										if (regex.test(str)) {
+											resGrid.push(data)
+										}
+									}
+								});
+							});
+						});
+						console.log(resText);
+						console.log(resGrid);
 					},
 	                changeView(id) {
 	                    this.$emit('change-view', id);
@@ -510,46 +530,17 @@
 						});
 	                },
 					loadGrid() {
-						switch(this.currentLang) {
-	            			case 'KOR' :
-								gridintro01.load(SAMPLE_DATAS.kor.intro["intro01"]);
-								gridintro02.load(SAMPLE_DATAS.kor.intro["intro02"]);
-	            				break;
-	            			default :
-								gridintro01.load(SAMPLE_DATAS.eng.intro["intro01"]);
-								gridintro02.load(SAMPLE_DATAS.eng.intro["intro02"]);
-	            				break;
-	            		}
+						gridintro01.load(SAMPLE_DATAS[this.currentLang].intro["intro01"]);
+						gridintro02.load(SAMPLE_DATAS[this.currentLang].intro["intro02"]);
 					},
 					getContentText(key) {
-						switch(this.currentLang) {
-							case 'KOR' :
-								return CONTENTS.kor.intro.text[key] ? CONTENTS.kor.intro.text[key].text : null;
-								break;
-							default :
-								return CONTENTS.eng.intro.text[key] ? CONTENTS.eng.intro.text[key].text : null;
-								break;
-						}
+						return CONTENTS[this.currentLang].intro.text[key] ? CONTENTS[this.currentLang].intro.text[key].text : null;
 					},
 					getContentCode(key) {
-						switch(this.currentLang) {
-							case 'KOR' :
-								return CONTENTS.kor.intro.text[key] ? CONTENTS.kor.intro.text[key].code : null;
-								break;
-							default :
-								return CONTENTS.eng.intro.text[key] ? CONTENTS.eng.intro.text[key].code : null;
-								break;
-						}
+						return CONTENTS[this.currentLang].intro.text[key] ? CONTENTS[this.currentLang].intro.text[key].code : null;
 					},
 					getContentData(key) {
-						switch(this.currentLang) {
-							case 'KOR' :
-								return SAMPLE_DATAS.kor.intro[key] ? SAMPLE_DATAS.kor.intro[key] : null;
-								break;
-							default :
-								return SAMPLE_DATAS.eng.intro[key] ? SAMPLE_DATAS.eng.intro[key] : null;
-								break;
-						}
+						return SAMPLE_DATAS[this.currentLang].intro[key] ? SAMPLE_DATAS[this.currentLang].intro[key] : null;
 					},
 	            },
 	        },
