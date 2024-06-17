@@ -14,12 +14,10 @@
 	<meta name="description" content="A simple Grid library using only Vanilla JS.">
 	<meta property="og:description" content="A simple Grid library using only Vanilla JS.">
 	<meta property="og:type" content="website">
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
-	<script src="Vanillagrid.min.1.0.0.js"></script>
+	<script src="Vanillagrid.1.0.0.js"></script>
 	<script src="Consts.js"></script>
 	<script src="Contents.js"></script>
 	<script src="SampleDatas.js"></script>
@@ -256,8 +254,6 @@
 	const SAMPLE_GRIDS = getSampleGrids(CONTENTS);
 	const COMPONENT = getComponents(SAMPLE_DATAS, SAMPLE_GRIDS);
 	
-	console.log(CONTENTS);
-
 	new Vue({
 	    el: '#app',
 	    mounted: function() {
@@ -394,6 +390,16 @@
 	            	}
 	    	    },
 	            methods: {
+					onSearch(e) {
+						alert('test!!!');
+						e.preventDefault();
+						const sch_text = document.getElementById('searchInput').value;
+						console.log(sch_text);
+						if(!sch_text) return;
+						console.log(CONTENTS)
+						console.log(this.$root.currentLang);
+						// const introText =
+					},
 	                changeView(id) {
 	                    this.$emit('change-view', id);
 	                },
@@ -435,11 +441,22 @@
 					else {
 						this.vg.defaultGridCssInfo.height = '400px';
 					}
+					//filter, sort span customize
+					this.vg.filterSpan = document.createElement("i");
+					this.vg.filterSpan.setAttribute("class", "fas fa-search");
+
+					this.vg.sortAscSpan = document.createElement("i");
+					this.vg.sortAscSpan.setAttribute("class", "fas fa-sort-up");
+					this.vg.sortAscSpan.style.marginLeft = "7px";
+
+					this.vg.sortDescSpan = document.createElement("i");
+					this.vg.sortDescSpan.setAttribute("class", "fas fa-sort-down");
+					this.vg.sortDescSpan.style.marginLeft = "7px";
+
 					this.vg.create();
 					this.loadGrid();
 				},
 				beforeDestroy: function() {
-					// window.removeEventListener('scroll', this.handleScroll);
 					vanillanote_onDestroy(this.vg);
 				},
 	            data() {
@@ -482,6 +499,16 @@
 					}
 				},
 	            methods: {
+	                changeSub(id, e) {
+						e.preventDefault();
+	                	this.currentSub = id;
+						let anchor = document.getElementById(id);
+						if(!anchor) return;
+						anchor.scrollIntoView({
+							behavior: 'smooth',
+							block: 'start',
+						});
+	                },
 					loadGrid() {
 						switch(this.currentLang) {
 	            			case 'KOR' :
@@ -497,20 +524,30 @@
 					getContentText(key) {
 						switch(this.currentLang) {
 							case 'KOR' :
-								return CONTENTS.kor.intro[key] ? CONTENTS.kor.intro[key].text : null;
+								return CONTENTS.kor.intro.text[key] ? CONTENTS.kor.intro.text[key].text : null;
 								break;
 							default :
-								return CONTENTS.eng.intro[key] ? CONTENTS.eng.intro[key].text : null;
+								return CONTENTS.eng.intro.text[key] ? CONTENTS.eng.intro.text[key].text : null;
 								break;
 						}
 					},
 					getContentCode(key) {
 						switch(this.currentLang) {
 							case 'KOR' :
-								return CONTENTS.kor.intro[key] ? CONTENTS.kor.intro[key].code : null;
+								return CONTENTS.kor.intro.text[key] ? CONTENTS.kor.intro.text[key].code : null;
 								break;
 							default :
-								return CONTENTS.eng.intro[key] ? CONTENTS.eng.intro[key].code : null;
+								return CONTENTS.eng.intro.text[key] ? CONTENTS.eng.intro.text[key].code : null;
+								break;
+						}
+					},
+					getContentData(key) {
+						switch(this.currentLang) {
+							case 'KOR' :
+								return SAMPLE_DATAS.kor.intro[key] ? SAMPLE_DATAS.kor.intro[key] : null;
+								break;
+							default :
+								return SAMPLE_DATAS.eng.intro[key] ? SAMPLE_DATAS.eng.intro[key] : null;
 								break;
 						}
 					},
