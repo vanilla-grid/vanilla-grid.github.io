@@ -30,6 +30,11 @@ function getComponents(SAMPLE_DATAS, SAMPLE_GRIDS) {
                         </li>
                     </ul>
                 </li>
+                <div class="navbar-form navbar-right" style="margin-top: 3px; margin-right: -15px; margin-bottom: 0; padding-bottom: 0;">
+                    <div class="form-group">
+                    <input id="searchInput" name="searchInput" type="text" class="form-control" placeholder="Search" @keyup.enter="onSearch($event)">
+                    </div>
+                </div>
             </ul>`;
         this.body = `<div><slot></slot></div>`;
         this.footer = `
@@ -62,19 +67,22 @@ function getComponents(SAMPLE_DATAS, SAMPLE_GRIDS) {
                         </a>
                     </div>
                     <br>
-                    <p class="h4 padding-top" :id="introSubs[0]"><span class="dot"><i class="fas fa-book-open"></i></span><b>{{getContentText("INTRO-0001")}}</b></p>
+                    <p class="h4 padding-top" :id="introSubs[0]"><span class="dot"><i class="fas fa-book-open"></i></span><b>{{getContentText("INTRO-0000")}}</b></p>
                     <br>
                     <div class="grid-box">`
                     + SAMPLE_GRIDS.intro["intro01"] +
                     `</div>
                     <br>
                     <div class="explain-box">
-                        <p class="h6">{{getCommonContent("COMMON-0001")}}</p>
+                        <p class="h6">{{getCommonContent("COMMON-0000")}}</p>
                         <pre><code>{{SAMPLE_GRIDS.intro["intro01"]}}</code></pre>
+                        <p class="h6 text-danger">{{getContentText("INTRO-0001")}}</p><br>
+                        <p class="h6">{{getCommonContent("COMMON-0001")}}</p>
+                        <pre><code>{{getContentData("intro01")}}</code></pre>
                     </div>
                     <br><br>
 
-                    <p class="h4 padding-top" :id="introSubs[0]"><span class="dot"><i class="fas fa-book-open"></i></span><b>{{getContentText("INTRO-0100")}}</b></p>
+                    <p class="h4 padding-top"><span class="dot"><i class="fas fa-book-open"></i></span><b>{{getContentText("INTRO-0100")}}</b></p>
                     <div class="explain-box">
                         <p class="h5">{{getContentText("INTRO-0101")}}</p>
                         <p class="h5">{{getContentText("INTRO-0102")}}</p>
@@ -85,14 +93,14 @@ function getComponents(SAMPLE_DATAS, SAMPLE_GRIDS) {
                     </div>
                     <br><br>
 
-                    <p class="h4 padding-top" :id="introSubs[0]"><span class="dot"><i class="fas fa-book-open"></i></span><b>{{getContentText("INTRO-0200")}}</b></p>
+                    <p class="h4 padding-top"><span class="dot"><i class="fas fa-book-open"></i></span><b>{{getContentText("INTRO-0200")}}</b></p>
                     <br>
                     <div class="grid-box">`
                     + SAMPLE_GRIDS.intro["intro02"] +
                     `</div>
                     <br>
                     <div class="explain-box">
-                        <p class="h6">{{getCommonContent("COMMON-0001")}}</p>
+                        <p class="h6">{{getCommonContent("COMMON-0000")}}</p>
                         <pre><code>`+ a(SAMPLE_GRIDS.intro["intro02"]) +`</code></pre>
                     </div>
                     <div class="explain-box">
@@ -100,7 +108,7 @@ function getComponents(SAMPLE_DATAS, SAMPLE_GRIDS) {
                     </div>
                     <br><br>
 
-                    <p class="h4 padding-top" :id="introSubs[0]"><span class="dot"><i class="fas fa-book-open"></i></span><b>{{getContentText("INTRO-0300")}}</b></p>
+                    <p class="h4 padding-top"><span class="dot"><i class="fas fa-book-open"></i></span><b>{{getContentText("INTRO-0300")}}</b></p>
                     <div class="explain-box">
                         <p class="h5">{{getContentText("INTRO-0301")}}</p>
                         <p class="h5">{{getContentText("INTRO-0302")}}</p>
@@ -119,7 +127,7 @@ function getComponents(SAMPLE_DATAS, SAMPLE_GRIDS) {
                     </div>
                     <br><br>
 
-                    <p class="h4 padding-top" :id="introSubs[0]"><span class="dot"><i class="fas fa-book-open"></i></span><b>{{getContentText("INTRO-0400")}}</b></p>
+                    <p class="h4 padding-top" :id="introSubs[1]"><span class="dot"><i class="fas fa-book-open"></i></span><b>{{getContentText("INTRO-0400")}}</b></p>
                     <div class="explain-box">
                         <p class="h5">{{getContentText("INTRO-0401")}}</p><br>
                         <p class="h5">{{getContentText("INTRO-0410")}}</p>
@@ -141,7 +149,7 @@ function getComponents(SAMPLE_DATAS, SAMPLE_GRIDS) {
                     </div>
                     <br><br>
 
-                    <p class="h4 padding-top" :id="introSubs[0]"><span class="dot"><i class="fas fa-book-open"></i></span><b>{{getContentText("INTRO-0500")}}</b></p>
+                    <p class="h4 padding-top" :id="introSubs[2]"><span class="dot"><i class="fas fa-book-open"></i></span><b>{{getContentText("INTRO-0500")}}</b></p>
                     <div class="explain-box">
 						<table class="table">
 							<tbody>
@@ -201,13 +209,13 @@ function getComponents(SAMPLE_DATAS, SAMPLE_GRIDS) {
                     </div>
                     <br><br>
 
-                    <p class="h4 padding-top" :id="introSubs[0]"><span class="dot"><i class="fas fa-book-open"></i></span><b>{{getContentText("INTRO-0600")}}</b></p>
+                    <p class="h4 padding-top" :id="introSubs[3]"><span class="dot"><i class="fas fa-book-open"></i></span><b>{{getContentText("INTRO-0600")}}</b></p>
                     <div class="explain-box">
                         <p class="h5">MIT License</p><br>
                     </div>
                     <br><br>
 
-                    <p class="h4 padding-top" :id="introSubs[0]"><span class="dot"><i class="fas fa-book-open"></i></span><b>{{getContentText("INTRO-0700")}}</b></p>
+                    <p class="h4 padding-top" :id="introSubs[4]"><span class="dot"><i class="fas fa-book-open"></i></span><b>{{getContentText("INTRO-0700")}}</b></p>
                     <div class="explain-box">
                         <p class="h5">hison0319@gmail.com</p><br>
                     </div>
