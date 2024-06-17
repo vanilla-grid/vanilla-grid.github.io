@@ -1,12 +1,26 @@
-function getContents() {
-    const sampleKeysIntro = ['intro01', 'intro02'];
-    
-    function Contents () {
-        this.VIEW_KEY_INTRO = "intro";
-        this.VIEW_KEY_STARTED = "started";
-        this.VIEW_KEY_DIVE = "dive";
-        this.VIEW_KEY_API = "api";
-        this.SAMPLE_KEYS_INTRO = sampleKeysIntro;
+function getContents(CONSTS) {
+    function setLinkData (arr, link, paramObj) {
+        let _link = link;
+        Object.keys(paramObj).forEach(key => {
+            _link += "&" + key + "=" + paramObj[key];
+        });
+        const ds = [];
+        arr.forEach((at, index) => {
+            const tD = {};
+            const href = _link.replace(/index/g, String(index + 1));
+            tD.value = href;
+            tD.text = at;
+            ds.push(tD);
+        });
+        return ds;
+    }
+    function Contents (CONSTS) {
+        console.log("CONSTS",CONSTS);
+        this.VIEW_KEY_INTRO = CONSTS.VIEW_KEY_INTRO;
+        this.VIEW_KEY_STARTED = CONSTS.VIEW_KEY_STARTED;
+        this.VIEW_KEY_DIVE = CONSTS.VIEW_KEY_DIVE;
+        this.VIEW_KEY_API = CONSTS.VIEW_KEY_API;
+        this.SAMPLE_KEYS_INTRO = CONSTS.SAMPLE_KEYS_INTRO;
         this.kor = {
             common: {
                 "COMMON-0001" : {
@@ -18,7 +32,7 @@ function getContents() {
             },
             intro: {
                 grid : {
-                    [sampleKeysIntro[0]] : {
+                    [CONSTS.SAMPLE_KEYS_INTRO[0]] : {
                         "col1" : [
                             {
                                 text : "해당 column은 text dataType입니다.",
@@ -37,95 +51,11 @@ function getContents() {
                             },
                         ]
                     },
-                    [sampleKeysIntro[1]] : {
-                        "col1" : [
-                            {
-                                value : "https://vanilla-grid.github.io/&view=api&gridId=&row=&colId=",
-                                text : "id",
-                            },
-                            {
-                                value : "https://vanilla-grid.github.io/&view=api&gridId=&row=&colId=",
-                                text : "name",
-                            },
-                            {
-                                value : "https://vanilla-grid.github.io/&view=api&gridId=&row=&colId=",
-                                text : "locked",
-                            },
-                            {
-                                value : "https://vanilla-grid.github.io/&view=api&gridId=&row=&colId=",
-                                text : "lockedColor",
-                            },
-                            {
-                                value : "https://vanilla-grid.github.io/&view=api&gridId=&row=&colId=",
-                                text : "resizable",
-                            },
-                        ],
-                        "col2" : [
-                            {
-                                value : "https://vanilla-grid.github.io/&view=api&gridId=&row=&colId=",
-                                text : "id",
-                            },
-                            {
-                                value : "https://vanilla-grid.github.io/&view=api&gridId=&row=&colId=",
-                                text : "name",
-                            },
-                            {
-                                value : "https://vanilla-grid.github.io/&view=api&gridId=&row=&colId=",
-                                text : "header",
-                            },
-                            {
-                                value : "https://vanilla-grid.github.io/&view=api&gridId=&row=&colId=",
-                                text : "footer",
-                            },
-                            {
-                                value : "https://vanilla-grid.github.io/&view=api&gridId=&row=&colId=",
-                                text : "dataType",
-                            },
-                        ],
-                        "col3" : [
-                            {
-                                value : "https://vanilla-grid.github.io/&view=api&gridId=&row=&colId=",
-                                text : "onActiveCell",
-                            },
-                            {
-                                value : "https://vanilla-grid.github.io/&view=api&gridId=&row=&colId=",
-                                text : "onActiveRow",
-                            },
-                            {
-                                value : "https://vanilla-grid.github.io/&view=api&gridId=&row=&colId=",
-                                text : "onActiveCol",
-                            },
-                            {
-                                value : "https://vanilla-grid.github.io/&view=api&gridId=&row=&colId=",
-                                text : "onActiveCells",
-                            },
-                            {
-                                value : "https://vanilla-grid.github.io/&view=api&gridId=&row=&colId=",
-                                text : "onActiveRows",
-                            },
-                        ],
-                        "col4" : [
-                            {
-                                value : "https://vanilla-grid.github.io/&view=api&gridId=&row=&colId=",
-                                text : "getHeaderRowCount",
-                            },
-                            {
-                                value : "https://vanilla-grid.github.io/&view=api&gridId=&row=&colId=",
-                                text : "getHeaderText",
-                            },
-                            {
-                                value : "https://vanilla-grid.github.io/&view=api&gridId=&row=&colId=",
-                                text : "setHeaderText",
-                            },
-                            {
-                                value : "https://vanilla-grid.github.io/&view=api&gridId=&row=&colId=",
-                                text : "reloadFilterValue",
-                            },
-                            {
-                                value : "https://vanilla-grid.github.io/&view=api&gridId=&row=&colId=",
-                                text : "reloadColFilter",
-                            },
-                        ],
+                    [CONSTS.SAMPLE_KEYS_INTRO[1]] : {
+                        "col1" : setLinkData(CONSTS.GRID_ATTRIBUTES, "https://vanilla-grid.github.io/", {view:"api",gridId:"gridIdGrid",row:"index",colId:"col1"}),
+                        "col2" : setLinkData(CONSTS.COLUMN_ATTRIBUTES, "https://vanilla-grid.github.io/", {view:"api",gridId:"gridIdGrid",row:"index",colId:"col1"}),
+                        "col3" : setLinkData(CONSTS.EVENTS, "https://vanilla-grid.github.io/", {view:"api",gridId:"gridIdGrid",row:"index",colId:"col1"}),
+                        "col4" : setLinkData(CONSTS.METHODS, "https://vanilla-grid.github.io/", {view:"api",gridId:"gridIdGrid",row:"index",colId:"col1"}),
                     },
                 },
                 "INTRO-0001": {
@@ -191,7 +121,7 @@ function getContents() {
             },
             intro: {
                 grid : {
-                    [sampleKeysIntro[0]] : {
+                    [CONSTS.SAMPLE_KEYS_INTRO[0]] : {
                         "col1" : [
                             {
                                 text : "This is a text dataType",
@@ -210,29 +140,11 @@ function getContents() {
                             },
                         ]
                     },
-                    [sampleKeysIntro[1]] : {
-                        "col1" : [
-                            {
-                                value : "https://vanilla-grid.github.io/&view=api&gridId=&row=&colId=",
-                                text : "id",
-                            },
-                            {
-                                value : "https://vanilla-grid.github.io/&view=api&gridId=&row=&colId=",
-                                text : "name",
-                            },
-                            {
-                                value : "https://vanilla-grid.github.io/&view=api&gridId=&row=&colId=",
-                                text : "locked",
-                            },
-                            {
-                                value : "https://vanilla-grid.github.io/&view=api&gridId=&row=&colId=",
-                                text : "lockedColor",
-                            },
-                            {
-                                value : "https://vanilla-grid.github.io/&view=api&gridId=&row=&colId=",
-                                text : "resizable",
-                            },
-                        ]
+                    [CONSTS.SAMPLE_KEYS_INTRO[1]] : {
+                        "col1" : setLinkData(CONSTS.GRID_ATTRIBUTES, "https://vanilla-grid.github.io/", {view:"api",gridId:"gridIdGrid",row:"index",colId:"col1"}),
+                        "col2" : setLinkData(CONSTS.COLUMN_ATTRIBUTES, "https://vanilla-grid.github.io/", {view:"api",gridId:"gridIdGrid",row:"index",colId:"col1"}),
+                        "col3" : setLinkData(CONSTS.EVENTS, "https://vanilla-grid.github.io/", {view:"api",gridId:"gridIdGrid",row:"index",colId:"col1"}),
+                        "col4" : setLinkData(CONSTS.METHODS, "https://vanilla-grid.github.io/", {view:"api",gridId:"gridIdGrid",row:"index",colId:"col1"}),
                     },
                 },
                 "INTRO-0001": {
@@ -242,10 +154,10 @@ function getContents() {
                     text: "데이터는 JSON 객체를 활용합니다.",
                 },
                 "INTRO-0101": {
-                    text: "2가지의 형태가 있습니다.",
+                    text: "두 가지 의 형태가 있습니다.",
                 },
                 "INTRO-0102": {
-                    text: "셀 데이터 형태) window[gridId].getDatas(),",
+                    text: "1. 셀 데이터 형태 : window[gridId].getDatas(),",
                 },
                 "INTRO-0103": {
                     code: 
@@ -254,76 +166,42 @@ function getContents() {
 const datas = [
     [
         {
-            id: 'col1',
-            value: 'val11',
-            dataType: 'text',
-            fontBold: true,
-            //column info..
+            id: 'col1', value: 'val11', dataType: 'text', fontBold: true, //column info..
         },
         {
-            id: 'col2',
-            value: '202202',
-            dataType: 'month',
-            //column info..
+            id: 'col2', value: '202202', dataType: 'month', //column info..
         },
         {
-            id: 'col3',
-            value: 'ABC',
-            dataType: 'mask',
-            format:'AAA',
-            //column info..
+            id: 'col3', value: 'ABC', dataType: 'mask', format:'AAA', //column info..
         },
         {
-            id: 'col4',
-            value: '1',
-            dataType: 'number',
-            //column info..
+            id: 'col4', value: '1', dataType: 'number', //column info..
         },
         {
-            id: 'col5',
-            value: '20240101',
-            dataType: 'date',
-            //column info..
+            id: 'col5', value: '20240101', dataType: 'date', //column info..
         },
     ],
     [
         {
-            id: 'col1',
-            value: 'val11',
-            dataType: 'text',
-            fontBold: true,
-            //column info..
+            id: 'col1', value: 'val11', dataType: 'text', fontBold: true, //column info..
         },
         {
-            id: 'col2',
-            value: '202202',
-            dataType: 'month',
-            //column info..
+            id: 'col2', value: '202202', dataType: 'month', //column info..
         },
         {
-            id: 'col3',
-            value: 'abc',
-            dataType: 'mask',
-            format:'aaa',
-            //column info..
+            id: 'col3', value: 'abc', dataType: 'mask', format:'aaa', //column info..
         },
         {
-            id: 'col4',
-            value: '1',
-            dataType: 'number',
-            //column info..
+            id: 'col4', value: '1', dataType: 'number', //column info..
         },
         {
-            id: 'col5',
-            value: '20240101',
-            dataType: 'date',
-            //column info..
+            id: 'col5', value: '20240101', dataType: 'date', //column info..
         },
     ],
 ]`,
                 },
                 "INTRO-0104": {
-                    text: "키-값 형태) gridId.getValues(),",
+                    text: "2. 키-값 형태 : gridId.getValues(),",
                 },
                 "INTRO-0105": {
                     code: 
@@ -331,18 +209,10 @@ const datas = [
 //아래는 5열의 grid에 2줄의 데이터를 표현합니다.
 const keyValues = [
     {
-        col1 : 'val1',
-        col2 : '202202',
-        col3 : 'ABC',
-        col4 : 1,
-        col5 : '20240101',
+        col1 : 'val1', col2 : '202202', col3 : 'ABC', col4 : 1, col5 : '20240101', //column key-value..
     },
     {
-        col1 : 'val1',
-        col2 : '202202',
-        col3 : 'ABC',
-        col4 : 1,
-        col5 : '20240101',
+        col1 : 'val1', col2 : '202202', col3 : 'ABC', col4 : 1, col5 : '20240101', //column key-value..
     },
 ]`,
                 },
@@ -367,24 +237,29 @@ const keyValues = [
                     text: "현재 페이지는 vue 2 와 bootstrap 3 를 활용하여 구현했습니다. 해당 방식을 예로 들어보겠습니다.",
                 },
                 "INTRO-0303": {
-                    text: "1. header script에 src='/Vanillagrid.min.1.0.0.js'를 선언합니다.",
+                    text: "1. header에 Vanilla Grid를 선언합니다.",
                 },
                 "INTRO-0304": {
-                    text: "2. body의 마지막에",
+                    code: 
+`<script src="Vanillagrid.min.1.0.0.js"></script>
+`,
                 },
                 "INTRO-0305": {
+                    text: "2. body의 마지막에",
+                },
+                "INTRO-0306": {
                     code: 
 `//기존 생성 로직 방지
 <script> vanillagrid_onBeforeCreate = function(e, vn) {return false;} </script>
 `,
                 },
-                "INTRO-0306": {
+                "INTRO-0307": {
                     text: "를 추가합니다.",
                 },
-                "INTRO-0307": {
+                "INTRO-0308": {
                     text: "3. vue의 data에서",
                 },
-                "INTRO-0308": {
+                "INTRO-0309": {
                     code: 
 `//vanilla grid 객체 변수 선언
 data () {
@@ -394,10 +269,10 @@ data () {
 }
 `,
                 },
-                "INTRO-0309": {
+                "INTRO-0310": {
                     text: "4.. vue의 mouted에서",
                 },
-                "INTRO-0310": {
+                "INTRO-0311": {
                     code: 
 `//vanilla grid 객체 생성
 mounted: function() {
@@ -407,26 +282,28 @@ mounted: function() {
 },
 `,
                 },
-                "INTRO-0311": {
+                "INTRO-0312": {
                     text: "5. 다음 vue의 beforeDestroy에서",
                 },
-                "INTRO-0312": {
+                "INTRO-0313": {
                     code: 
 `//vue가 destroyed될 때마다 grid를 삭제함.
-vanillanote_onDestroy(this.vg);
+beforeDestroy: function() {
+    vanillanote_onDestroy(this.vg);
+},
 `,
                 },
-                "INTRO-0313": {
-                    text: "6. 이렇게 하면 vue의 해당 컴포넌트가 destroy, mount될때 editor를 새로 그릴 수 있습니다.",
+                "INTRO-0314": {
+                    text: "6. 이렇게 하면 vue의 해당 컴포넌트가 destroy, mount될때 grid를 새로 그릴 수 있습니다.",
                 },
                 "INTRO-0400": {
                     text: "제작 목적",
                 },
                 "INTRO-0401": {
                     text: "Vanillanote는 1인 개발입니다. javascript학습용으로 개발하였습니다. 따라서 사용 시 100%신뢰를 보장할 수 없으며, 제한되는 기능이 다소 있습니다. 하지만 훌륭한 퍼포먼스는 보일 것이라 생각합니다. "
-                        + "Vanillanote는 개인 프로젝트를 진행 할 때 마다 editor를 새로 개발하는 소요를 줄이고자 개발을 시작했습니다. "
-                        + "Jquery, Vue, React등 어떤 환경에서도 라이브러리 또는 프레임워크 없이 사용할 수 있는 editor개발을 목적으로 하였습니다. "
-                        + "때문에 본 프로그램은 Vanilla JS만을 사용하였습니다. Vanillanote의 장단점은 다음과 같습니다.",
+                        + "Vanillanote는 개인 프로젝트를 진행 할 때 마다 grid를 새로 개발하는 소요를 줄이고자 개발을 시작했습니다. "
+                        + "Jquery, Vue, React등 어떤 환경에서도 라이브러리 또는 프레임워크 없이 사용할 수 있는 grid개발을 목적으로 하였습니다. "
+                        + "때문에 본 프로그램은 Vanilla JS만을 사용하였습니다. Vanillagrid의 장단점은 다음과 같습니다.",
                 },
                 "INTRO-0410": {
                     text: "장점",
@@ -492,5 +369,5 @@ vanillanote_onDestroy(this.vg);
             this.eng.intro[key].anchor = "anchor_" + idx;
         })
     }
-    return new Contents();
+    return new Contents(CONSTS);
 }
