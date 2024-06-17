@@ -1,5 +1,5 @@
 function getComponents(SAMPLE_DATAS, SAMPLE_GRIDS) {
-    function a (c) {
+    function getCode (c) {
         const r = c.replace(/"([^"]*)"/g, (m) => {
             return m.replace(/\n/g, ' ');
         });
@@ -101,7 +101,7 @@ function getComponents(SAMPLE_DATAS, SAMPLE_GRIDS) {
                     <br>
                     <div class="explain-box">
                         <p class="h6">{{getCommonContent("COMMON-0000")}}</p>
-                        <pre><code>`+ a(SAMPLE_GRIDS.intro["intro02"]) +`</code></pre>
+                        <pre><code>`+ getCode(SAMPLE_GRIDS.intro["intro02"]) +`</code></pre>
                     </div>
                     <div class="explain-box">
                         <p class="h5 text-success">{{getContentText("INTRO-0201")}}</p>
