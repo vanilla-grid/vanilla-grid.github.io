@@ -6,7 +6,7 @@ function getSampleDatas(COMMENTS) {
             gridIdsIntro.push("grid" + keysIntro[i])
         }
         
-        const textEngIntro = COMMENTS.eng.intro.grid;
+        const textEngIntro = COMMENTS.ENG.intro.grid;
         for(let r = 0; r < textEngIntro[keysIntro[0]].col1.length; r++) {
             textEngIntro[keysIntro[0]].col1[r].gridId = gridIdsIntro[0];
             textEngIntro[keysIntro[0]].col1[r].row = r + 1;
@@ -33,7 +33,7 @@ function getSampleDatas(COMMENTS) {
             textEngIntro[keysIntro[1]].col4[r].colId = "col4";
         }
 
-        const textKorIntro = COMMENTS.kor.intro.grid;
+        const textKorIntro = COMMENTS.KOR.intro.grid;
         for(let r = 0; r < textKorIntro[keysIntro[0]].col1.length; r++) {
             textKorIntro[keysIntro[0]].col1[r].gridId = gridIdsIntro[0];
             textKorIntro[keysIntro[0]].col1[r].row = r + 1;
@@ -163,7 +163,7 @@ function getSampleDatas(COMMENTS) {
             })(),
         }
 
-        this.kor = {
+        this.KOR = {
             intro : {
                 [keysIntro[0]] : setTextData(
                     intro[[keysIntro[0]]],
@@ -183,7 +183,7 @@ function getSampleDatas(COMMENTS) {
             },
         };
 
-        this.eng = {
+        this.ENG = {
             intro : {
                 [keysIntro[0]] : setTextData(
                     intro[[keysIntro[0]]],
