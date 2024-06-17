@@ -21,7 +21,7 @@ function getContents(CONSTS) {
         this.VIEW_KEY_API = CONSTS.VIEW_KEY_API;
         this.SAMPLE_KEYS_INTRO = CONSTS.SAMPLE_KEYS_INTRO;
 
-        this.eng = {
+        this.ENG = {
             common: {
                 "COMMON-0000" : {
                     text: "▼ The example code is as follows."
@@ -284,7 +284,7 @@ beforeDestroy: function() {
             },
         };
 
-        this.kor = {
+        this.KOR = {
             common: {
                 "COMMON-0000" : {
                     text: "▼ 예시 코드는 아래와 같습니다."
@@ -544,15 +544,15 @@ beforeDestroy: function() {
         };
         
         //intro view key, anchor id 삽입
-        Object.keys(this.eng.intro).forEach((key, idx) => {
-            this.eng.intro[key].view = this.VIEW_KEY_INTRO;
-            this.eng.intro[key].anchor = "anchor_" + idx;
+        Object.keys(this.ENG.intro.text).forEach((key, idx) => {
+            this.ENG.intro.text[key].view = this.VIEW_KEY_INTRO;
+            this.ENG.intro.text[key].anchor = "anchor_" + idx;
         });
 
         //intro view key, anchor id 삽입
-        Object.keys(this.kor.intro).forEach((key, idx) => {
-            this.kor.intro[key].view = this.VIEW_KEY_INTRO;
-            this.kor.intro[key].anchor = "anchor_" + idx;
+        Object.keys(this.KOR.intro.text).forEach((key, idx) => {
+            this.KOR.intro.text[key].view = this.VIEW_KEY_INTRO;
+            this.KOR.intro.text[key].anchor = "anchor_" + idx;
         });
     }
     return new Contents(CONSTS);
