@@ -5,13 +5,6 @@ function getSampleDatas(COMMENTS) {
         for(let i = 0; i < keysIntro.length; i++) {
             gridIdsIntro.push("grid" + keysIntro[i])
         }
-
-        const textKorIntro = COMMENTS.kor.intro.grid;
-        for(let r = 0; r < textKorIntro[keysIntro[0]].col1.length; r++) {
-            textKorIntro[keysIntro[0]].col1[r].gridId = gridIdsIntro[0];
-            textKorIntro[keysIntro[0]].col1[r].row = r + 1;
-            textKorIntro[keysIntro[0]].col1[r].colId = "col1";
-        }
         
         const textEngIntro = COMMENTS.eng.intro.grid;
         for(let r = 0; r < textEngIntro[keysIntro[0]].col1.length; r++) {
@@ -19,6 +12,54 @@ function getSampleDatas(COMMENTS) {
             textEngIntro[keysIntro[0]].col1[r].row = r + 1;
             textEngIntro[keysIntro[0]].col1[r].colId = "col1";
         }
+        for(let r = 0; r < textEngIntro[keysIntro[1]].col1.length; r++) {
+            textEngIntro[keysIntro[1]].col1[r].gridId = gridIdsIntro[1];
+            textEngIntro[keysIntro[1]].col1[r].row = r + 1;
+            textEngIntro[keysIntro[1]].col1[r].colId = "col1";
+        }
+        for(let r = 0; r < textEngIntro[keysIntro[1]].col2.length; r++) {
+            textEngIntro[keysIntro[1]].col2[r].gridId = gridIdsIntro[1];
+            textEngIntro[keysIntro[1]].col2[r].row = r + 1;
+            textEngIntro[keysIntro[1]].col2[r].colId = "col2";
+        }
+        for(let r = 0; r < textEngIntro[keysIntro[1]].col3.length; r++) {
+            textEngIntro[keysIntro[1]].col3[r].gridId = gridIdsIntro[1];
+            textEngIntro[keysIntro[1]].col3[r].row = r + 1;
+            textEngIntro[keysIntro[1]].col3[r].colId = "col3";
+        }
+        for(let r = 0; r < textEngIntro[keysIntro[1]].col4.length; r++) {
+            textEngIntro[keysIntro[1]].col4[r].gridId = gridIdsIntro[1];
+            textEngIntro[keysIntro[1]].col4[r].row = r + 1;
+            textEngIntro[keysIntro[1]].col4[r].colId = "col4";
+        }
+
+        const textKorIntro = COMMENTS.kor.intro.grid;
+        for(let r = 0; r < textKorIntro[keysIntro[0]].col1.length; r++) {
+            textKorIntro[keysIntro[0]].col1[r].gridId = gridIdsIntro[0];
+            textKorIntro[keysIntro[0]].col1[r].row = r + 1;
+            textKorIntro[keysIntro[0]].col1[r].colId = "col1";
+        }
+        for(let r = 0; r < textKorIntro[keysIntro[1]].col1.length; r++) {
+            textKorIntro[keysIntro[1]].col1[r].gridId = gridIdsIntro[1];
+            textKorIntro[keysIntro[1]].col1[r].row = r + 1;
+            textKorIntro[keysIntro[1]].col1[r].colId = "col1";
+        }
+        for(let r = 0; r < textKorIntro[keysIntro[1]].col2.length; r++) {
+            textKorIntro[keysIntro[1]].col2[r].gridId = gridIdsIntro[1];
+            textKorIntro[keysIntro[1]].col2[r].row = r + 1;
+            textKorIntro[keysIntro[1]].col2[r].colId = "col2";
+        }
+        for(let r = 0; r < textKorIntro[keysIntro[1]].col3.length; r++) {
+            textKorIntro[keysIntro[1]].col3[r].gridId = gridIdsIntro[1];
+            textKorIntro[keysIntro[1]].col3[r].row = r + 1;
+            textKorIntro[keysIntro[1]].col3[r].colId = "col3";
+        }
+        for(let r = 0; r < textKorIntro[keysIntro[1]].col4.length; r++) {
+            textKorIntro[keysIntro[1]].col4[r].gridId = gridIdsIntro[1];
+            textKorIntro[keysIntro[1]].col4[r].row = r + 1;
+            textKorIntro[keysIntro[1]].col4[r].colId = "col4";
+        }
+
         function setTextData (data, arr) {
             const _data = JSON.parse(JSON.stringify(data));
             arr.forEach(obj => {
