@@ -31,8 +31,49 @@ function getComponents(SAMPLE_DATAS, SAMPLE_GRIDS) {
                     </ul>
                 </li>
                 <div class="navbar-form navbar-right" style="margin-top: 3px; margin-right: -15px; margin-bottom: 0; padding-bottom: 0;">
-                    <div class="form-group">
-                    <input id="searchInput" name="searchInput" type="text" class="form-control" placeholder="Search" @keyup.enter="onSearch($event)">
+                    <div class="form-group" style="position: relative;">
+                        <input id="searchInput" name="searchInput" type="text" class="form-control search-input" placeholder="Search" @keyup.enter="onSearch($event)">
+                        <div id="searchBox" class="search-box">
+                            <div id="searchListBox" class="search-list-box">
+                                <div>● View</div>
+                                <div>&nbsp;&nbsp;■ Intro</div>
+                                <ul>
+                                    <li class="search-list">test2test2test2test2 test2test2test2 test2test2test2</li>
+                                    <li class="search-list">test2test2test2test2 test2test2test2 test2test2test2</li>
+                                    <li class="search-list">test3test3test3test3test3test3test3test3test3test3</li>
+                                    <li class="search-list">test4test4test4test4test4test4test4test4test4test4</li>
+                                    <li class="search-list">test5test5test5test5test5test5test5test5test5test5</li>
+                                </ul><hr>
+                                <div>&nbsp;&nbsp;■ Getting started</div>
+                                <ul>
+                                    <li class="search-list">test1test1test1test1test1test1test1test1test1test1</li>
+                                    <li class="search-list">test2test2test2test2test2test2test2test2test2test2</li>
+                                    <li class="search-list">test3test3test3test3test3test3test3test3test3test3</li>
+                                    <li class="search-list">test4test4test4test4test4test4test4test4test4test4</li>
+                                    <li class="search-list">test5test5test5test5test5test5test5test5test5test5</li>
+                                </ul><hr>
+                                <div>● Grid</div><br>
+                                <div>&nbsp;&nbsp;■ Intro</div>
+                                <ul>
+                                    <li class="search-list">test2test2test2test2 test2test2test2 test2test2test2</li>
+                                    <li class="search-list">test2test2test2test2test2test2test2test2test2test2</li>
+                                    <li class="search-list">test3test3test3test3test3test3test3test3test3test3</li>
+                                    <li class="search-list">test4test4test4test4test4test4test4test4test4test4</li>
+                                    <li class="search-list">test5test5test5test5test5test5test5test5test5test5</li>
+                                </ul><hr>
+                                <div>&nbsp;&nbsp;■ Getting started</div>
+                                <ul>
+                                    <li class="search-list">test1test1test1test1test1test1test1test1test1test1</li>
+                                    <li class="search-list">test2test2test2test2test2test2test2test2test2test2</li>
+                                    <li class="search-list">test3test3test3test3test3test3test3test3test3test3</li>
+                                    <li class="search-list">test4test4test4test4test4test4test4test4test4test4</li>
+                                    <li class="search-list">test5test5test5test5test5test5test5test5test5test5</li>
+                                </ul><hr>
+                            </div>
+                            <a type="button" class="btn btn-default btn-md" href="#" style="display:block; width: 50%; margin: 0 auto;" @click="offSearch($event)">
+                                <i class="fas fa-times"></i>
+                            </a>
+                        <div>
                     </div>
                 </div>
             </ul>`;
@@ -71,14 +112,20 @@ function getComponents(SAMPLE_DATAS, SAMPLE_GRIDS) {
                     <br>
                     <div class="grid-box">`
                     + SAMPLE_GRIDS.intro["intro01"] +
-                    `</div>
+                    `
+                    <div class="btn-group-sm" role="group" style="float: right; margin: 2px 0;">
+                        <button type="button" class="btn btn-default" @click="gridintro01_onAdd($event)">{{getCommonContent("COMMON-0003")}}</button>
+                        <button type="button" class="btn btn-default" @click="gridintro01_onSave($event)">{{getCommonContent("COMMON-0004")}}</button>
+                        <button type="button" class="btn btn-default" @click="gridintro01_onRemove($event)">{{getCommonContent("COMMON-0005")}}</button>
+                    </div>
+                    </div>
                     <br>
                     <div class="explain-box">
                         <p class="h6">{{getCommonContent("COMMON-0000")}}</p>
                         <pre><code>{{SAMPLE_GRIDS.intro["intro01"]}}</code></pre>
-                        <p class="h6 text-danger">{{getContentText("INTRO-0001")}}</p><br>
+                        <p class="h6 text-danger">{{getContentText("INTRO-0001")}}</p>
                         <p class="h6">{{getCommonContent("COMMON-0001")}}</p>
-                        <pre><code>{{getContentData("intro01")}}</code></pre>
+                        <pre><code>[\n{{getContentData("intro01")}},\n...\n]</code></pre>
                     </div>
                     <br><br>
 
@@ -86,10 +133,12 @@ function getComponents(SAMPLE_DATAS, SAMPLE_GRIDS) {
                     <div class="explain-box">
                         <p class="h5">{{getContentText("INTRO-0101")}}</p>
                         <p class="h5">{{getContentText("INTRO-0102")}}</p>
-                        <pre><code>{{getContentCode("INTRO-0103")}}</code></pre>
-                        <p class="h5">{{getContentText("INTRO-0104")}}</p>
-                        <pre><code>{{getContentCode("INTRO-0105")}}</code></pre>
-                        <p class="h5">{{getContentText("INTRO-0106")}}</p>
+                        <p class="h6" class="text-info">{{getContentText("INTRO-0103")}}</p>
+                        <pre><code>{{getContentCode("INTRO-0104")}}</code></pre>
+                        <p class="h5">{{getContentText("INTRO-0105")}}</p>
+                        <p class="h6" class="text-info">{{getContentText("INTRO-0106")}}</p>
+                        <pre><code>{{getContentCode("INTRO-0107")}}</code></pre>
+                        <p class="h5">{{getContentText("INTRO-0108")}}</p>
                     </div>
                     <br><br>
 
@@ -102,6 +151,8 @@ function getComponents(SAMPLE_DATAS, SAMPLE_GRIDS) {
                     <div class="explain-box">
                         <p class="h6">{{getCommonContent("COMMON-0000")}}</p>
                         <pre><code>`+ getCode(SAMPLE_GRIDS.intro["intro02"]) +`</code></pre>
+                        <p class="h6">{{getCommonContent("COMMON-0001")}}</p>
+                        <pre><code>[\n{{getContentData("intro02")}},\n...\n]</code></pre>
                     </div>
                     <div class="explain-box">
                         <p class="h5 text-success">{{getContentText("INTRO-0201")}}</p>
@@ -122,8 +173,6 @@ function getComponents(SAMPLE_DATAS, SAMPLE_GRIDS) {
                         <p class="h5">{{getContentText("INTRO-0310")}}</p>
                         <pre><code>{{getContentCode("INTRO-0311")}}</code></pre>
                         <p class="h5">{{getContentText("INTRO-0312")}}</p>
-                        <pre><code>{{getContentCode("INTRO-0313")}}</code></pre>
-                        <p class="h5">{{getContentText("INTRO-0314")}}</p>
                     </div>
                     <br><br>
 
@@ -218,6 +267,100 @@ function getComponents(SAMPLE_DATAS, SAMPLE_GRIDS) {
                     <p class="h4 padding-top" :id="introSubs[4]"><span class="dot"><i class="fas fa-book-open"></i></span><b>{{getContentText("INTRO-0700")}}</b></p>
                     <div class="explain-box">
                         <p class="h5">hison0319@gmail.com</p><br>
+                    </div>
+                    <br><br>
+
+                    <br>
+                </div>
+            </div>`;
+        // started
+        this.started = `
+            <<div class="row">
+                <div class="col-xs-2 text-left" v-show="!isMobileSize">
+                    <ul class="nav nav-pills nav-stacked">
+                        <li v-for="item in getStartedSubs" :key="item.id" :class="{ active: currentSub === item.id }">
+                            <a href="#" @click="changeSub(item.id, $event)">{{item.name}}</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="text-left" :class="getMainClass">
+                    <p class="h4 padding-top" :id="startedSubs[0]"><span class="dot"><i class="fas fa-book-open"></i></span><b></b></p>
+                    <div class="explain-box">
+                        <p class="h5"></p><br>
+                    </div>
+                    <br><br>
+                    
+                    <p class="h4 padding-top" :id="startedSubs[1]"><span class="dot"><i class="fas fa-book-open"></i></span><b></b></p>
+                    <div class="explain-box">
+                        <p class="h5"></p><br>
+                    </div>
+                    <br><br>
+
+                    <p class="h4 padding-top" :id="startedSubs[2]"><span class="dot"><i class="fas fa-book-open"></i></span><b></b></p>
+                    <div class="explain-box">
+                        <p class="h5"></p><br>
+                    </div>
+                    <br><br>
+
+                    <p class="h4 padding-top" :id="startedSubs[3]"><span class="dot"><i class="fas fa-book-open"></i></span><b></b></p>
+                    <div class="explain-box">
+                        <p class="h5"></p><br>
+                    </div>
+                    <br><br>
+
+                    <p class="h4 padding-top" :id="startedSubs[4]"><span class="dot"><i class="fas fa-book-open"></i></span><b></b></p>
+                    <div class="explain-box">
+                        <p class="h5"></p><br>
+                    </div>
+                    <br><br>
+
+                    <p class="h4 padding-top" :id="startedSubs[5]"><span class="dot"><i class="fas fa-book-open"></i></span><b></b></p>
+                    <div class="explain-box">
+                        <p class="h5"></p><br>
+                    </div>
+                    <br><br>
+
+                    <p class="h4 padding-top" :id="startedSubs[6]"><span class="dot"><i class="fas fa-book-open"></i></span><b></b></p>
+                    <div class="explain-box">
+                        <p class="h5"></p><br>
+                    </div>
+                    <br><br>
+
+                    <br>
+                </div>
+            </div>>`;
+        this.dive = `
+            <div class="row">
+                <div class="col-xs-2 text-left" v-show="!isMobileSize">
+                    <ul class="nav nav-pills nav-stacked">
+                        <li v-for="item in getIntroSubs" :key="item.id" :class="{ active: currentSub === item.id }">
+                            <a href="#" @click="changeSub(item.id, $event)">{{item.name}}</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="text-left" :class="getMainClass">
+                    <p class="h4 padding-top" :id=""><span class="dot"><i class="fas fa-book-open"></i></span><b>{{}}</b></p>
+                    <div class="explain-box">
+                        <p class="h5"></p><br>
+                    </div>
+                    <br><br>
+
+                    <br>
+                </div>
+            </div>`;
+        this.api = `
+            <div class="row">
+                <div class="col-xs-2 text-left" v-show="!isMobileSize">
+                    <ul class="nav nav-pills nav-stacked">
+                        <li v-for="item in getStartedSubs" :key="item.id" :class="{ active: currentSub === item.id }">
+                            <a href="#" @click="changeSub(item.id, $event)">{{item.name}}</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="text-left" :class="getMainClass">
+                    <p class="h4 padding-top" :id=""><span class="dot"><i class="fas fa-book-open"></i></span><b>{{}}</b></p>
+                    <div class="explain-box">
+                        <p class="h5"></p><br>
                     </div>
                     <br><br>
 
