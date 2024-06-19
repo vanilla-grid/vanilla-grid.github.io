@@ -29,6 +29,15 @@ function getContents(CONSTS) {
                 "COMMON-0001" : {
                     text: "▼ The data inserted into the grid above is as follows."
                 },
+                "COMMON-0003" : {
+                    text: "ADD"
+                },
+                "COMMON-0004" : {
+                    text: "SAVE"
+                },
+                "COMMON-0005" : {
+                    text: "REMOVE"
+                },
             },
             intro: {
                 grid : {
@@ -72,9 +81,31 @@ function getContents(CONSTS) {
                         text: "There are two forms.",
                     },
                     "INTRO-0102": {
-                        text: "1. Cell data form: window[gridId].getDatas(),",
+                        text: "1. Key-value form: gridId.getValues(),",
                     },
                     "INTRO-0103": {
+                        text: "Key-value objects in array [{}, {}...]",
+                    },
+                    "INTRO-0104": {
+                        code: 
+`//Object containing only the keys and values of each cell
+//Below is an example of a grid with 5 columns and 2 rows of data.
+const keyValues = [
+    {
+        col1 : 'val1', col2 : '202202', col3 : 'ABC', col4 : 1, col5 : '20240101', //column key-value..
+    },
+    {
+        col1 : 'val1', col2 : '202202', col3 : 'ABC', col4 : 1, col5 : '20240101', //column key-value..
+    },
+]`,
+                    },
+                    "INTRO-0105": {
+                        text: "2. Cell data form: window[gridId].getDatas(),",
+                    },
+                    "INTRO-0106": {
+                        text: "Column array within row array, cell data information object [[{},{}...],[{},{}...]...]",
+                    },
+                    "INTRO-0107": {
                         code: 
 `//Object containing information of each cell
 //Below is an example of a grid with 5 columns and 2 rows of data.
@@ -115,23 +146,7 @@ const datas = [
     ],
 ]`,
                     },
-                    "INTRO-0104": {
-                        text: "2. Key-value form: gridId.getValues(),",
-                    },
-                    "INTRO-0105": {
-                        code: 
-`//Object containing only the keys and values of each cell
-//Below is an example of a grid with 5 columns and 2 rows of data.
-const keyValues = [
-    {
-        col1 : 'val1', col2 : '202202', col3 : 'ABC', col4 : 1, col5 : '20240101', //column key-value..
-    },
-    {
-        col1 : 'val1', col2 : '202202', col3 : 'ABC', col4 : 1, col5 : '20240101', //column key-value..
-    },
-]`,
-                    },
-                    "INTRO-0106": {
+                    "INTRO-0108": {
                         text: "You can intuitively and conveniently manage data using JSON objects.",
                     },
     
@@ -198,18 +213,7 @@ mounted: function() {
 `,
                     },
                     "INTRO-0312": {
-                        "text": "5. In vue's beforeDestroy"
-                    },
-                    "INTRO-0313": {
-                        code: 
-`//Delete the grid each time vue is destroyed.
-beforeDestroy: function() {
-    vanillanote_onDestroy(this.vg);
-},
-`,
-                    },
-                    "INTRO-0314": {
-                        "text": "6. This allows the grid to be redrawn whenever the vue component is destroyed and mounted."
+                        "text": "5. This allows the grid to be redrawn whenever the vue component is destroyed and mounted."
                     },
                     "INTRO-0400": {
                         "text": "Purpose of Production"
@@ -292,6 +296,15 @@ beforeDestroy: function() {
                 "COMMON-0001" : {
                     text: "▼ 위 그리드에 삽입한 데이터는 아래와 같습니다."
                 },
+                "COMMON-0003" : {
+                    text: "추가"
+                },
+                "COMMON-0004" : {
+                    text: "저장"
+                },
+                "COMMON-0005" : {
+                    text: "삭제"
+                },
             },
             intro: {
                 grid : {
@@ -335,9 +348,32 @@ beforeDestroy: function() {
                         text: "두 가지 의 형태가 있습니다.",
                     },
                     "INTRO-0102": {
-                        text: "1. 셀 데이터 형태 : window[gridId].getDatas(),",
+                        text: "1. 키-값 형태 : gridId.getValues()",
                     },
                     "INTRO-0103": {
+                        text: "배열안에 키-값 객체 [{}, {}...]",
+                    },
+                    "INTRO-0104": {
+                        code: 
+`//각 cell의 키와 값만을 담은 객체
+//아래는 5열의 grid에 2줄의 데이터를 표현합니다.
+const keyValues = [
+    {
+        col1 : 'val1', col2 : '202202', col3 : 'ABC', col4 : 1, col5 : '20240101', //column key-value..
+    },
+    {
+        col1 : 'val1', col2 : '202202', col3 : 'ABC', col4 : 1, col5 : '20240101', //column key-value..
+    },
+    //...
+]`,
+                    },
+                    "INTRO-0105": {
+                        text: "2. 셀 데이터 형태 : window[gridId].getDatas()",
+                    },
+                    "INTRO-0106": {
+                        text: "row 배열안에 column 배열, cell 데이터 정보 객체 [[{},{}...],[{},{}...]...]",
+                    },
+                    "INTRO-0107": {
                         code: 
 `//각 cell의 정보를 담은 객체
 //아래는 5열의 grid에 2줄의 데이터를 표현합니다.
@@ -376,25 +412,10 @@ const datas = [
             id: 'col5', value: '20240101', dataType: 'date', //column info..
         },
     ],
+    //...
 ]`,
                     },
-                    "INTRO-0104": {
-                        text: "2. 키-값 형태 : gridId.getValues(),",
-                    },
-                    "INTRO-0105": {
-                        code: 
-`//각 cell의 키와 값만을 담은 객체
-//아래는 5열의 grid에 2줄의 데이터를 표현합니다.
-const keyValues = [
-    {
-        col1 : 'val1', col2 : '202202', col3 : 'ABC', col4 : 1, col5 : '20240101', //column key-value..
-    },
-    {
-        col1 : 'val1', col2 : '202202', col3 : 'ABC', col4 : 1, col5 : '20240101', //column key-value..
-    },
-]`,
-                    },
-                    "INTRO-0106": {
+                    "INTRO-0108": {
                         text: "JSON 객체를 활용하여 직관적으로 편리하게 데이터를 관리 할 수 있습니다.",
                     },
 
@@ -461,18 +482,7 @@ mounted: function() {
 `,
                     },
                     "INTRO-0312": {
-                        text: "5. 다음 vue의 beforeDestroy에서",
-                    },
-                    "INTRO-0313": {
-                        code: 
-`//vue가 destroyed될 때마다 grid를 삭제함.
-beforeDestroy: function() {
-    vanillanote_onDestroy(this.vg);
-},
-`,
-                    },
-                    "INTRO-0314": {
-                        text: "6. 이렇게 하면 vue의 해당 컴포넌트가 destroy, mount될때 grid를 새로 그릴 수 있습니다.",
+                        text: "5. 이렇게 하면 vue의 해당 컴포넌트가 destroy, mount될때 grid를 새로 그릴 수 있습니다.",
                     },
                     "INTRO-0400": {
                         text: "제작 목적",
