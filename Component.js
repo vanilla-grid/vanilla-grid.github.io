@@ -32,43 +32,42 @@ function getComponents(SAMPLE_DATAS, SAMPLE_GRIDS) {
                 </li>
                 <div class="navbar-form navbar-right" style="margin-top: 3px; margin-right: -15px; margin-bottom: 0; padding-bottom: 0;">
                     <div class="form-group" style="position: relative;">
-                        <input id="searchInput" name="searchInput" type="text" class="form-control search-input" placeholder="Search" @keyup.enter="onSearch($event)">
+                        <div class="input-group">
+                            <input id="searchInput" name="searchInput" type="text" class="form-control search-input" placeholder="Search" @keyup.enter="onSearch($event)">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button" @click="onSearch($event)"><i class="fas fa-search"></i></button>
+                            </span>
+                        </div>
                         <div id="searchBox" class="search-box">
                             <div id="searchListBox" class="search-list-box">
-                                <div>● View</div>
-                                <div>&nbsp;&nbsp;■ Intro</div>
-                                <ul>
-                                    <li class="search-list">test2test2test2test2 test2test2test2 test2test2test2</li>
-                                    <li class="search-list">test2test2test2test2 test2test2test2 test2test2test2</li>
-                                    <li class="search-list">test3test3test3test3test3test3test3test3test3test3</li>
-                                    <li class="search-list">test4test4test4test4test4test4test4test4test4test4</li>
-                                    <li class="search-list">test5test5test5test5test5test5test5test5test5test5</li>
-                                </ul><hr>
-                                <div>&nbsp;&nbsp;■ Getting started</div>
-                                <ul>
-                                    <li class="search-list">test1test1test1test1test1test1test1test1test1test1</li>
-                                    <li class="search-list">test2test2test2test2test2test2test2test2test2test2</li>
-                                    <li class="search-list">test3test3test3test3test3test3test3test3test3test3</li>
-                                    <li class="search-list">test4test4test4test4test4test4test4test4test4test4</li>
-                                    <li class="search-list">test5test5test5test5test5test5test5test5test5test5</li>
-                                </ul><hr>
-                                <div>● Grid</div><br>
-                                <div>&nbsp;&nbsp;■ Intro</div>
-                                <ul>
-                                    <li class="search-list">test2test2test2test2 test2test2test2 test2test2test2</li>
-                                    <li class="search-list">test2test2test2test2test2test2test2test2test2test2</li>
-                                    <li class="search-list">test3test3test3test3test3test3test3test3test3test3</li>
-                                    <li class="search-list">test4test4test4test4test4test4test4test4test4test4</li>
-                                    <li class="search-list">test5test5test5test5test5test5test5test5test5test5</li>
-                                </ul><hr>
-                                <div>&nbsp;&nbsp;■ Getting started</div>
-                                <ul>
-                                    <li class="search-list">test1test1test1test1test1test1test1test1test1test1</li>
-                                    <li class="search-list">test2test2test2test2test2test2test2test2test2test2</li>
-                                    <li class="search-list">test3test3test3test3test3test3test3test3test3test3</li>
-                                    <li class="search-list">test4test4test4test4test4test4test4test4test4test4</li>
-                                    <li class="search-list">test5test5test5test5test5test5test5test5test5test5</li>
-                                </ul><hr>
+                                <div v-if="(searchIntroTextList && searchIntroTextList.length > 0) || (searchIntroGridList && searchIntroGridList.length > 0)"><p><b>Intro</b></p>
+                                    <div>&nbsp;&nbsp;Text</div>
+                                    <ul>
+                                        <li v-for="item in searchIntroTextList" :key="item.id" class="search-list">
+                                            <a href="#" @click="selectSearch($event, 't', item)" v-html="item.li"></a>
+                                        </li>
+                                    </ul><hr>
+                                    <div>&nbsp;&nbsp;Grid</div>
+                                    <ul>
+                                        <li v-for="item in searchIntroGridList" :key="item.id" class="search-list">
+                                            <a href="#" @click="selectSearch($event, 'g', item)" v-html="item.li"></a>
+                                        </li>
+                                    </ul><hr>
+                                </div>
+                                <div v-if="(searchIntroTextList && searchIntroTextList.length > 0) || (searchIntroGridList && searchIntroGridList.length > 0)"><p><b>Getting started</b></p>
+                                    <div>&nbsp;&nbsp;Text</div>
+                                    <ul>
+                                        <li v-for="item in searchStartedTextList" :key="item.id" class="search-list">
+                                            <a href="#" @click="selectSearch($event, 't', item)" v-html="item.li"></a>
+                                        </li>
+                                    </ul><hr>
+                                    <div>&nbsp;&nbsp;Grid</div>
+                                    <ul>
+                                        <li v-for="item in searchStartedGridList" :key="item.id" class="search-list">
+                                            <a href="#" @click="selectSearch($event, 'g', item)" v-html="item.li"></a>
+                                        </li>
+                                    </ul><hr>
+                                </div>
                             </div>
                             <a type="button" class="btn btn-default btn-md" href="#" style="display:block; width: 50%; margin: 0 auto;" @click="offSearch($event)">
                                 <i class="fas fa-times"></i>
@@ -108,7 +107,7 @@ function getComponents(SAMPLE_DATAS, SAMPLE_GRIDS) {
                         </a>
                     </div>
                     <br>
-                    <p class="h4 padding-top" :id="introSubs[0]"><span class="dot"><i class="fas fa-book-open"></i></span><b>{{getContentText("INTRO-0000")}}</b></p>
+                    <p class="h4 padding-top" :id="introSubs[0]"><span class="dot"><i class="fas fa-book-open"></i></span><b :id="getContentAnchor('INTRO-0000')">{{getContentText("INTRO-0000")}}</b></p>
                     <br>
                     <div class="grid-box">`
                     + SAMPLE_GRIDS.intro["intro01"] +
@@ -123,26 +122,26 @@ function getComponents(SAMPLE_DATAS, SAMPLE_GRIDS) {
                     <div class="explain-box">
                         <p class="h6">{{getCommonContent("COMMON-0000")}}</p>
                         <pre><code>{{SAMPLE_GRIDS.intro["intro01"]}}</code></pre>
-                        <p class="h6 text-danger">{{getContentText("INTRO-0001")}}</p>
+                        <p class="h6 text-danger" :id="getContentAnchor('INTRO-0001')">{{getContentText("INTRO-0001")}}</p>
                         <p class="h6">{{getCommonContent("COMMON-0001")}}</p>
                         <pre><code>[\n{{getContentData("intro01")}},\n...\n]</code></pre>
                     </div>
                     <br><br>
 
-                    <p class="h4 padding-top"><span class="dot"><i class="fas fa-book-open"></i></span><b>{{getContentText("INTRO-0100")}}</b></p>
+                    <p class="h4 padding-top"><span class="dot"><i class="fas fa-book-open"></i></span><b :id="getContentAnchor('INTRO-0100')">{{getContentText("INTRO-0100")}}</b></p>
                     <div class="explain-box">
-                        <p class="h5">{{getContentText("INTRO-0101")}}</p>
-                        <p class="h5">{{getContentText("INTRO-0102")}}</p>
-                        <p class="h6" class="text-info">{{getContentText("INTRO-0103")}}</p>
+                        <p class="h5" :id="getContentAnchor('INTRO-0101')">{{getContentText("INTRO-0101")}}</p>
+                        <p class="h5" :id="getContentAnchor('INTRO-0102')">{{getContentText("INTRO-0102")}}</p>
+                        <p class="h6" class="text-info" :id="getContentAnchor('INTRO-0103')">{{getContentText("INTRO-0103")}}</p>
                         <pre><code>{{getContentCode("INTRO-0104")}}</code></pre>
-                        <p class="h5">{{getContentText("INTRO-0105")}}</p>
-                        <p class="h6" class="text-info">{{getContentText("INTRO-0106")}}</p>
+                        <p class="h5" :id="getContentAnchor('INTRO-0105')">{{getContentText("INTRO-0105")}}</p>
+                        <p class="h6" class="text-info" :id="getContentAnchor('INTRO-0106')">{{getContentText("INTRO-0106")}}</p>
                         <pre><code>{{getContentCode("INTRO-0107")}}</code></pre>
-                        <p class="h5">{{getContentText("INTRO-0108")}}</p>
+                        <p class="h5" :id="getContentAnchor('INTRO-0108')">{{getContentText("INTRO-0108")}}</p>
                     </div>
                     <br><br>
 
-                    <p class="h4 padding-top"><span class="dot"><i class="fas fa-book-open"></i></span><b>{{getContentText("INTRO-0200")}}</b></p>
+                    <p class="h4 padding-top"><span class="dot"><i class="fas fa-book-open"></i></span><b :id="getContentAnchor('INTRO-0200')">{{getContentText("INTRO-0200")}}</b></p>
                     <br>
                     <div class="grid-box">`
                     + SAMPLE_GRIDS.intro["intro02"] +
@@ -155,50 +154,50 @@ function getComponents(SAMPLE_DATAS, SAMPLE_GRIDS) {
                         <pre><code>[\n{{getContentData("intro02")}},\n...\n]</code></pre>
                     </div>
                     <div class="explain-box">
-                        <p class="h5 text-success">{{getContentText("INTRO-0201")}}</p>
+                        <p class="h5 text-success" :id="getContentAnchor('INTRO-0201')">{{getContentText("INTRO-0201")}}</p>
                     </div>
                     <br><br>
 
-                    <p class="h4 padding-top"><span class="dot"><i class="fas fa-book-open"></i></span><b>{{getContentText("INTRO-0300")}}</b></p>
+                    <p class="h4 padding-top"><span class="dot"><i class="fas fa-book-open"></i></span><b :id="getContentAnchor('INTRO-0300')">{{getContentText("INTRO-0300")}}</b></p>
                     <div class="explain-box">
-                        <p class="h5">{{getContentText("INTRO-0301")}}</p>
-                        <p class="h5">{{getContentText("INTRO-0302")}}</p>
-                        <p class="h5">{{getContentText("INTRO-0303")}}</p>
+                        <p class="h5" :id="getContentAnchor('INTRO-0301')">{{getContentText("INTRO-0301")}}</p>
+                        <p class="h5" :id="getContentAnchor('INTRO-0302')">{{getContentText("INTRO-0302")}}</p>
+                        <p class="h5" :id="getContentAnchor('INTRO-0303')">{{getContentText("INTRO-0303")}}</p>
                         <pre><code>{{getContentCode("INTRO-0304")}}</code></pre>
-                        <p class="h5">{{getContentText("INTRO-0305")}}</p>
+                        <p class="h5" :id="getContentAnchor('INTRO-0305')">{{getContentText("INTRO-0305")}}</p>
                         <pre><code>{{getContentCode("INTRO-0306")}}</code></pre>
-                        <p class="h5">{{getContentText("INTRO-0307")}}</p>
-                        <p class="h5">{{getContentText("INTRO-0308")}}</p>
+                        <p class="h5" :id="getContentAnchor('INTRO-0307')">{{getContentText("INTRO-0307")}}</p>
+                        <p class="h5" :id="getContentAnchor('INTRO-0308')">{{getContentText("INTRO-0308")}}</p>
                         <pre><code>{{getContentCode("INTRO-0309")}}</code></pre>
-                        <p class="h5">{{getContentText("INTRO-0310")}}</p>
+                        <p class="h5" :id="getContentAnchor('INTRO-0310')">{{getContentText("INTRO-0310")}}</p>
                         <pre><code>{{getContentCode("INTRO-0311")}}</code></pre>
-                        <p class="h5">{{getContentText("INTRO-0312")}}</p>
+                        <p class="h5" :id="getContentAnchor('INTRO-0312')">{{getContentText("INTRO-0312")}}</p>
                     </div>
                     <br><br>
 
-                    <p class="h4 padding-top" :id="introSubs[1]"><span class="dot"><i class="fas fa-book-open"></i></span><b>{{getContentText("INTRO-0400")}}</b></p>
+                    <p class="h4 padding-top" :id="introSubs[1]"><span class="dot"><i class="fas fa-book-open"></i></span><b :id="getContentAnchor('INTRO-0400')">{{getContentText("INTRO-0400")}}</b></p>
                     <div class="explain-box">
-                        <p class="h5">{{getContentText("INTRO-0401")}}</p><br>
-                        <p class="h5">{{getContentText("INTRO-0410")}}</p>
+                        <p class="h5" :id="getContentAnchor('INTRO-0401')">{{getContentText("INTRO-0401")}}</p><br>
+                        <p class="h5" :id="getContentAnchor('INTRO-0410')">{{getContentText("INTRO-0410")}}</p>
                         <ul>
-							<li class="text-info">{{getContentText("INTRO-0411")}}</li>
-							<li class="text-info">{{getContentText("INTRO-0412")}}</li>
-							<li class="text-info">{{getContentText("INTRO-0413")}}</li>
-							<li class="text-info">{{getContentText("INTRO-0414")}}</li>
-							<li class="text-info">{{getContentText("INTRO-0415")}}</li>
-							<li class="text-info">{{getContentText("INTRO-0416")}}</li>
-							<li class="text-info">{{getContentText("INTRO-0417")}}</li>
+							<li class="text-info" :id="getContentAnchor('INTRO-0411')">{{getContentText("INTRO-0411")}}</li>
+							<li class="text-info" :id="getContentAnchor('INTRO-0412')">{{getContentText("INTRO-0412")}}</li>
+							<li class="text-info" :id="getContentAnchor('INTRO-0413')">{{getContentText("INTRO-0413")}}</li>
+							<li class="text-info" :id="getContentAnchor('INTRO-0414')">{{getContentText("INTRO-0414")}}</li>
+							<li class="text-info" :id="getContentAnchor('INTRO-0415')">{{getContentText("INTRO-0415")}}</li>
+							<li class="text-info" :id="getContentAnchor('INTRO-0416')">{{getContentText("INTRO-0416")}}</li>
+							<li class="text-info" :id="getContentAnchor('INTRO-0417')">{{getContentText("INTRO-0417")}}</li>
 						</ul>
-                        <p class="h5">{{getContentText("INTRO-0430")}}</p>
+                        <p class="h5" :id="getContentAnchor('INTRO-0430')">{{getContentText("INTRO-0430")}}</p>
                         <ul>
-							<li class="text-danger">{{getContentText("INTRO-0431")}}</li>
-							<li class="text-danger">{{getContentText("INTRO-0432")}}</li>
-							<li class="text-danger">{{getContentText("INTRO-0433")}}</li>
+							<li class="text-danger" :id="getContentAnchor('INTRO-0431')">{{getContentText("INTRO-0431")}}</li>
+							<li class="text-danger" :id="getContentAnchor('INTRO-0432')">{{getContentText("INTRO-0432")}}</li>
+							<li class="text-danger" :id="getContentAnchor('INTRO-0433')">{{getContentText("INTRO-0433")}}</li>
 						</ul>
                     </div>
                     <br><br>
 
-                    <p class="h4 padding-top" :id="introSubs[2]"><span class="dot"><i class="fas fa-book-open"></i></span><b>{{getContentText("INTRO-0500")}}</b></p>
+                    <p class="h4 padding-top" :id="introSubs[2]"><span class="dot"><i class="fas fa-book-open"></i></span><b :id="getContentAnchor('INTRO-0500')">{{getContentText("INTRO-0500")}}</b></p>
                     <div class="explain-box">
 						<table class="table">
 							<tbody>
@@ -258,13 +257,13 @@ function getComponents(SAMPLE_DATAS, SAMPLE_GRIDS) {
                     </div>
                     <br><br>
 
-                    <p class="h4 padding-top" :id="introSubs[3]"><span class="dot"><i class="fas fa-book-open"></i></span><b>{{getContentText("INTRO-0600")}}</b></p>
+                    <p class="h4 padding-top" :id="introSubs[3]"><span class="dot"><i class="fas fa-book-open"></i></span><b :id="getContentAnchor('INTRO-0600')">{{getContentText("INTRO-0600")}}</b></p>
                     <div class="explain-box">
                         <p class="h5">MIT License</p><br>
                     </div>
                     <br><br>
 
-                    <p class="h4 padding-top" :id="introSubs[4]"><span class="dot"><i class="fas fa-book-open"></i></span><b>{{getContentText("INTRO-0700")}}</b></p>
+                    <p class="h4 padding-top" :id="introSubs[4]"><span class="dot"><i class="fas fa-book-open"></i></span><b :id="getContentAnchor('INTRO-0700')">{{getContentText("INTRO-0700")}}</b></p>
                     <div class="explain-box">
                         <p class="h5">hison0319@gmail.com</p><br>
                     </div>
@@ -284,47 +283,55 @@ function getComponents(SAMPLE_DATAS, SAMPLE_GRIDS) {
                     </ul>
                 </div>
                 <div class="text-left" :class="getMainClass">
-                    <p class="h4 padding-top" :id="startedSubs[0]"><span class="dot"><i class="fas fa-book-open"></i></span><b></b></p>
+                    <br><br>
+                    <p class="h4 padding-top" :id="startedSubs[0]"><span class="dot"><i class="fas fa-book-open"></i></span><b :id="getContentAnchor('STARTED-0000')">{{getContentText("STARTED-0000")}}</b></p>
                     <div class="explain-box">
                         <p class="h5"></p><br>
                     </div>
                     <br><br>
+                    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
                     
-                    <p class="h4 padding-top" :id="startedSubs[1]"><span class="dot"><i class="fas fa-book-open"></i></span><b></b></p>
+                    <p class="h4 padding-top" :id="startedSubs[1]"><span class="dot"><i class="fas fa-book-open"></i></span><b :id="getContentAnchor('STARTED-0200')">{{getContentText("STARTED-0200")}}</b></p>
                     <div class="explain-box">
                         <p class="h5"></p><br>
                     </div>
                     <br><br>
+                    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
-                    <p class="h4 padding-top" :id="startedSubs[2]"><span class="dot"><i class="fas fa-book-open"></i></span><b></b></p>
+                    <p class="h4 padding-top" :id="startedSubs[2]"><span class="dot"><i class="fas fa-book-open"></i></span><b :id="getContentAnchor('STARTED-0400')">{{getContentText("STARTED-0400")}}</b></p>
                     <div class="explain-box">
                         <p class="h5"></p><br>
                     </div>
                     <br><br>
+                    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
-                    <p class="h4 padding-top" :id="startedSubs[3]"><span class="dot"><i class="fas fa-book-open"></i></span><b></b></p>
+                    <p class="h4 padding-top" :id="startedSubs[3]"><span class="dot"><i class="fas fa-book-open"></i></span><b :id="getContentAnchor('STARTED-0600')">{{getContentText("STARTED-0600")}}</b></p>
                     <div class="explain-box">
                         <p class="h5"></p><br>
                     </div>
                     <br><br>
+                    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
-                    <p class="h4 padding-top" :id="startedSubs[4]"><span class="dot"><i class="fas fa-book-open"></i></span><b></b></p>
+                    <p class="h4 padding-top" :id="startedSubs[4]"><span class="dot"><i class="fas fa-book-open"></i></span><b :id="getContentAnchor('STARTED-0800')">{{getContentText("STARTED-0800")}}</b></p>
                     <div class="explain-box">
                         <p class="h5"></p><br>
                     </div>
                     <br><br>
+                    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
-                    <p class="h4 padding-top" :id="startedSubs[5]"><span class="dot"><i class="fas fa-book-open"></i></span><b></b></p>
+                    <p class="h4 padding-top" :id="startedSubs[5]"><span class="dot"><i class="fas fa-book-open"></i></span><b :id="getContentAnchor('STARTED-1000')">{{getContentText("STARTED-1000")}}</b></p>
                     <div class="explain-box">
                         <p class="h5"></p><br>
                     </div>
                     <br><br>
+                    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
-                    <p class="h4 padding-top" :id="startedSubs[6]"><span class="dot"><i class="fas fa-book-open"></i></span><b></b></p>
+                    <p class="h4 padding-top" :id="startedSubs[6]"><span class="dot"><i class="fas fa-book-open"></i></span><b :id="getContentAnchor('STARTED-1200')">{{getContentText("STARTED-1200")}}</b></p>
                     <div class="explain-box">
                         <p class="h5"></p><br>
                     </div>
                     <br><br>
+                    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
                     <br>
                 </div>
