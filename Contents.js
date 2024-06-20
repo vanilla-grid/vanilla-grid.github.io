@@ -278,13 +278,48 @@ mounted: function() {
                 },
             },
             started: {
+                grid: {
 
+                },
+                text : {
+                    "STARTED-0000": {
+                        "text": "Getting Started"
+                    },
+                    "STARTED-0200": {
+                        "text": "Create & Destroy"
+                    },
+                    "STARTED-0400": {
+                        "text": "Grid Attributes"
+                    },
+                    "STARTED-0600": {
+                        "text": "Column Attributes"
+                    },
+                    "STARTED-0800": {
+                        "text": "Events"
+                    },
+                    "STARTED-1000": {
+                        "text": "Methods"
+                    },
+                    "STARTED-1200": {
+                        "text": "Vanilla grid Object"
+                    },
+                },
             },
             dive: {
+                grid: {
 
+                },
+                text : {
+
+                },
             },
             api: {
+                grid: {
 
+                },
+                text : {
+
+                },
             },
         };
 
@@ -543,13 +578,49 @@ mounted: function() {
                 },
             },
             started: {
+                grid: {
 
+                },
+                text : {
+                    "STARTED-0000": {
+                        "text": "시작하기"
+                    },
+                    "STARTED-0200": {
+                        "text": "생성과 소멸"
+                    },
+                    "STARTED-0400": {
+                        "text": "그리드 속성"
+                    },
+                    "STARTED-0600": {
+                        "text": "컬럼 속성"
+                    },
+                    "STARTED-0800": {
+                        "text": "이벤트"
+                    },
+                    "STARTED-1000": {
+                        "text": "메소드"
+                    },
+                    "STARTED-1200": {
+                        "text": "Vanilla grid 객체"
+                    },
+
+                },
             },
             dive: {
+                grid: {
 
+                },
+                text : {
+
+                },
             },
             api: {
+                grid: {
 
+                },
+                text : {
+
+                },
             },
         };
         
@@ -558,11 +629,20 @@ mounted: function() {
             this.ENG.intro.text[key].view = this.VIEW_KEY_INTRO;
             this.ENG.intro.text[key].anchor = "anchor_" + idx;
         });
-
         //intro view key, anchor id 삽입
         Object.keys(this.KOR.intro.text).forEach((key, idx) => {
             this.KOR.intro.text[key].view = this.VIEW_KEY_INTRO;
             this.KOR.intro.text[key].anchor = "anchor_" + idx;
+        });
+        //started view key, anchor id 삽입
+        Object.keys(this.ENG.started.text).forEach((key, idx) => {
+            this.ENG.started.text[key].view = this.VIEW_KEY_STARTED;
+            this.ENG.started.text[key].anchor = "anchor_" + idx;
+        });
+        //started view key, anchor id 삽입
+        Object.keys(this.KOR.started.text).forEach((key, idx) => {
+            this.KOR.started.text[key].view = this.VIEW_KEY_STARTED;
+            this.KOR.started.text[key].anchor = "anchor_" + idx;
         });
     }
     return new Contents(CONSTS);
