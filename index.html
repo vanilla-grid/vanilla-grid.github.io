@@ -17,12 +17,12 @@
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
-	<script src="Vanillagrid.min.1.0.0.js?v=2024061916"></script>
-	<script src="Consts.js?v=2024061916"></script>
-	<script src="Contents.js?v=2024061916"></script>
-	<script src="SampleDatas.js?v=2024061916"></script>
-	<script src="SampleGrids.js?v=2024061916"></script>
-	<script src="Component.js?v=2024061916"></script>
+	<script src="Vanillagrid.min.1.0.0.js?v=202406201122"></script>
+	<script src="Consts.js?v=202406201122"></script>
+	<script src="Contents.js?v=202406201122"></script>
+	<script src="SampleDatas.js?v=202406201122"></script>
+	<script src="SampleGrids.js?v=202406201122"></script>
+	<script src="Component.js?v=202406201122"></script>
 	<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
 	<style>
 	*, ::before, ::after {
@@ -107,13 +107,13 @@
 		position: fixed;
 	}
 	.search-input {
-		min-width: 350px;
+		min-width: 300px;
 	}
 	.search-box {
 		position: absolute;
 		z-index: 9999;
 		width:100%;
-		height: 400px;
+		height: 350px;
 		margin-top:2px;
 		border: 1px solid #ccc;
 		border-radius: 5px;
@@ -123,7 +123,7 @@
 	}
 	.search-list-box {
 		width: 92%;
-		height: 85%;
+		height: 80%;
 		background-color: #fff;
 		margin: 10px auto;
 		padding: 10px 5px;
@@ -211,6 +211,10 @@
 		cursor: pointer;
 		margin: 10px 0 20px 0;
 	}
+	.highlight {
+		background-color: yellow;
+		font-weight: bold;
+	}
 	@media (max-width: 2000px) {
 		.grid-box, .explain-box {
 			width: 95%;
@@ -240,6 +244,7 @@
 		<app-nav
 		:current-view="currentView"
 		@scroll-anchor="scrollAnchor"
+		@scroll-and-focus-grid="scrollAndFocusGrid"
 		@change-view="changeView"
 		@change-lang="changeLang"
 		></app-nav>
@@ -249,6 +254,7 @@
 			:current-lang="currentLang"
 			:is-mobile-size="isMobileSize"
 			:get-common-content="getCommonContent"
+			:generate-u-u-i-d="generateUUID"
 			></app-intro>
 			<app-started
 			v-if="currentView === 'started'"
@@ -301,7 +307,7 @@
 	        this.currentLang = lang ? lang : 'ENG';
 	        if(!viewId || ['intro','started','dive','api'].indexOf(viewId) < 0) viewId = 'intro';
 	        this.currentView = viewId;
-	        this.scrollAnchor(anchorId, 1000);
+	        this.scrollAnchor(anchorId, null, 1000);
 		},
 		beforeDestroy: function() {
 			window.removeEventListener('resize', this.handleResize);
@@ -373,17 +379,40 @@
         	    const regex = /^#?[0-9a-fA-F]{6}$/;
         	    return regex.test(color);
         	},
-        	scrollAnchor(anchorId, interval) {
+        	scrollAnchor(anchorId, schText, interval) {
         		if(!anchorId) return;
         		setTimeout(function() {
-        			const anchor = document.getElementById(anchorId);
-        			if(!anchor) return;
+					const anchor = document.getElementById(anchorId);
+					if(!anchor) return;
         			anchor.scrollIntoView({
 						behavior: 'smooth',
 						block: 'start',
 					});
-        		}, interval ? interval : 500);
+					console.log(schText);
+        		}, interval ? interval : 200);
+				//해당 단어에 포커스??????
         	},
+			scrollAndFocusGrid(gridId, row, colId, interval) {
+				if(!gridId) return;
+				if(window[gridId]) {
+					window[gridId].setTargetCell(row, colId);
+				}
+				setTimeout(function() {
+					const anchor = document.getElementById(gridId);
+					if(!anchor) return;
+        			anchor.scrollIntoView({
+						behavior: 'smooth',
+						block: 'start',
+					});
+				}, interval ? interval : 200);
+			},
+			generateUUID() {
+				return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+					const r = Math.random() * 16 | 0;
+					const v = c === 'x' ? r : (r & 0x3 | 0x8);
+					return v.toString(16);
+				});
+			},
 	    },
 	    components: {
 			//=============================================================
@@ -405,7 +434,14 @@
 	                    navItems: this.$root.navItems,
 	                    langItems: this.$root.langItems,
 						ToggleClassNameLang: 'dropdown',
-						searchList: null,
+						searchIntroTextList: null,
+						searchIntroGridList: null,
+						searchStartedTextList: null,
+						searchStartedGridList: null,
+						searchDiveTextList: null,
+						searchDiveGridList: null,
+						searchApiTextList: null,
+						searchApiGridList: null,
 	                }
 	            },
 	    	    computed : {
@@ -422,54 +458,105 @@
 						e.preventDefault();
 						const schText = document.getElementById('searchInput').value;
 						if(!schText) return;
-						const introText = CONTENTS[this.$root.currentLang].intro.text;
-						const introGrid = CONTENTS[this.$root.currentLang].intro.grid;
-						const resText = [];
-						const resGrid = [];
-						Object.keys(introText).forEach(key => {
-							const schStr = schText.replace(/\s+/g, '');
-							if(introText[key].text && typeof introText[key].text === 'string') {
-								const str = introText[key].text ? introText[key].text.replace(/\s+/g, '') : "";
-								const regex = new RegExp(schStr, 'i');
-								if (regex.test(str)) {
-									resText.push(introText[key])
+
+						function highlightAndTrim(str, wordToHighlight) {
+							const regex = new RegExp(`(${wordToHighlight})`, 'gi');
+							const words = str.split(' ');
+							let index = -1;
+							for (let i = 0; i < words.length; i++) {
+								if (words[i].toLowerCase().includes(wordToHighlight.toLowerCase())) {
+									index = i;
+									break;
 								}
 							}
-						});
-						Object.keys(introGrid).forEach(gridId => {
-							Object.keys(introGrid[gridId]).forEach((colId) => {
-								introGrid[gridId][colId].forEach((data) => {
-									const schStr = schText.replace(/\s+/g, '');
-									if(data.text && typeof data.text === 'string') {
-										const str = data.text ? data.text.replace(/\s+/g, '') : "";
-										const regex = new RegExp(schStr, 'i');
-										if (regex.test(str)) {
-											resGrid.push(data)
-										}
+							if (index === -1) {
+								return str;
+							}
+							const trimmedWords = words.slice(Math.max(0, index - 2)).join(' ');
+							const highlightedStr = trimmedWords.replace(regex, '<span class="highlight">$1</span>');
+							return highlightedStr;
+						}
+
+						function getResText (searchTexts) {
+							const resText = [];
+							Object.keys(searchTexts).forEach(key => {
+								const schStr = schText.replace(/\s+/g, '');
+								if(searchTexts[key].text && typeof searchTexts[key].text === 'string') {
+									const str = searchTexts[key].text ? searchTexts[key].text.replace(/\s+/g, '') : "";
+									const regex = new RegExp(schStr, 'i');
+									if (regex.test(str)) {
+										const item = JSON.parse(JSON.stringify(searchTexts[key]));
+										item.li = highlightAndTrim(item.text, schStr);
+										item.schText = schStr;
+										resText.push(item);
 									}
+								}
+							});
+							return resText;
+						}
+
+						function getResGrid (searchGrids) {
+							const resGrid = [];
+							Object.keys(searchGrids).forEach(gridId => {
+								Object.keys(searchGrids[gridId]).forEach((colId) => {
+									searchGrids[gridId][colId].forEach((data) => {
+										const schStr = schText.replace(/\s+/g, '');
+										if(data.text && typeof data.text === 'string') {
+											const str = data.text ? data.text.replace(/\s+/g, '') : "";
+											const regex = new RegExp(schStr, 'i');
+											if (regex.test(str)) {
+												const item = JSON.parse(JSON.stringify(data));
+												item.li = highlightAndTrim(item.text, schStr);
+												item.schText = schStr;
+												resGrid.push(item);
+											}
+										}
+									});
 								});
 							});
-						});
-						console.log(resText);
-						console.log(resGrid);
-						console.log(this.searchList);
+							return resGrid;
+						}
+						
+						this.searchIntroTextList = getResText(CONTENTS[this.$root.currentLang].intro.text);
+						this.searchIntroGridList = getResGrid(CONTENTS[this.$root.currentLang].intro.grid);
+						this.searchStartedTextList = getResText(CONTENTS[this.$root.currentLang].started.text);
+						this.searchStartedGridList = getResGrid(CONTENTS[this.$root.currentLang].started.grid);
+						this.searchDiveTextList = getResText(CONTENTS[this.$root.currentLang].dive.text);
+						this.searchDiveGridList = getResGrid(CONTENTS[this.$root.currentLang].dive.grid);
+						this.searchApiTextList = getResText(CONTENTS[this.$root.currentLang].api.text);
+						this.searchApiGridList = getResGrid(CONTENTS[this.$root.currentLang].api.grid);
+
 						const searchBox = document.getElementById('searchBox');
 						searchBox.style.display = "block";
 					},
 					offSearch(e) {
-						e.preventDefault();
+						if(e) e.preventDefault();
 						const searchInput = document.getElementById('searchInput');
 						const searchBox = document.getElementById('searchBox');
 						searchBox.style.display = "none";
 						searchInput.value = "";
 					},
-					selectSearchList(e, item) {
-
+					selectSearch(e, flag, item) {
+						e.preventDefault();
+						console.log(flag, item);
+						if(flag === 't') {
+							if(item.view !== this.currentView) {
+								this.$emit('change-view', item.view);		
+							}
+							this.$emit('scroll-anchor', item.anchor, item.schText);
+						}
+						else {
+							if(item.view !== this.currentView) {
+								this.$emit('change-view', item.view);		
+							}
+							this.$emit('scroll-and-focus-grid', item.gridId, item.row, item.colId);
+						}
 					},
 	                changeView(id) {
 	                    this.$emit('change-view', id);
 	                },
 					changeLang(id, e) {
+						this.offSearch();
 						this.$emit('change-lang', id);
 						this.toggleLang(e);
 					},
@@ -496,7 +583,7 @@
 			// intro
 	        'app-intro': {
 	            template: COMPONENT.intro,
-	            props: ['currentLang','isMobileSize','getCommonContent'],
+	            props: ['currentLang','isMobileSize','getCommonContent','generateUUID'],
 	            mounted: function() {
 					this.vg = getVanillagrid();
 					if(this.isMobileSize) {
@@ -598,6 +685,9 @@
 					getContentText(key) {
 						return CONTENTS[this.currentLang].intro.text[key] ? CONTENTS[this.currentLang].intro.text[key].text : null;
 					},
+					getContentAnchor(key) {
+						return CONTENTS[this.currentLang].intro.text[key] && CONTENTS[this.currentLang].intro.text[key].anchor ? CONTENTS[this.currentLang].intro.text[key].anchor : this.generateUUID();
+					},
 					getContentCode(key) {
 						return CONTENTS[this.currentLang].intro.text[key] ? CONTENTS[this.currentLang].intro.text[key].code : null;
 					},
@@ -611,7 +701,7 @@
 			// started
 	        'app-started': {
 	            template: COMPONENT.started,
-	            props: ['currentLang','isMobileSize','getCommonContent'],
+	            props: ['currentLang','isMobileSize','getCommonContent','generateUUID'],
 	            mounted: function() {
 					this.vg = getVanillagrid();
 					if(this.isMobileSize) {
@@ -651,10 +741,10 @@
 	            				return [
 			        	            { id: this.startedSubs[0], name: '시작하기' },
 			        	            { id: this.startedSubs[1], name: '생성과 소멸' },
-			        	            { id: this.startedSubs[2], name: 'Grid 속성' },
-			        	            { id: this.startedSubs[3], name: 'Column 속성' },
-			        	            { id: this.startedSubs[4], name: 'EVENTS' },
-			        	            { id: this.startedSubs[5], name: 'METHODS' },
+			        	            { id: this.startedSubs[2], name: '그리드 속성' },
+			        	            { id: this.startedSubs[3], name: '컬럼 속성' },
+			        	            { id: this.startedSubs[4], name: '이벤트' },
+			        	            { id: this.startedSubs[5], name: '메소드' },
 			        	            { id: this.startedSubs[6], name: 'Vanilla grid 객체' },
 			        	        ];
 	            				break;
@@ -664,8 +754,8 @@
 			        	            { id: this.startedSubs[1], name: 'Create & Destroy' },
 			        	            { id: this.startedSubs[2], name: 'Grid Attributes' },
 			        	            { id: this.startedSubs[3], name: 'Column Attributes' },
-			        	            { id: this.startedSubs[4], name: 'EVENTS' },
-			        	            { id: this.startedSubs[5], name: 'METHODS' },
+			        	            { id: this.startedSubs[4], name: 'Events' },
+			        	            { id: this.startedSubs[5], name: 'Methods' },
 			        	            { id: this.startedSubs[6], name: 'Vanilla grid Object' },
 			        	        ];
 	            				break;
@@ -696,6 +786,9 @@
 					getContentText(key) {
 						return CONTENTS[this.currentLang].started.text[key] ? CONTENTS[this.currentLang].started.text[key].text : null;
 					},
+					getContentAnchor(key) {
+						return CONTENTS[this.currentLang].started.text[key] && CONTENTS[this.currentLang].started.text[key].anchor ? CONTENTS[this.currentLang].started.text[key].anchor : this.generateUUID();
+					},
 					getContentCode(key) {
 						return CONTENTS[this.currentLang].started.text[key] ? CONTENTS[this.currentLang].started.text[key].code : null;
 					},
@@ -708,6 +801,7 @@
 	        },
 	    },
 	});
+	//그리드가 있는 상태로 view를 변환 시 에러??
 	</script>
 	<script type="text/javascript">
 	vanillagrid_onBeforeCreate = function(e, vn) {
