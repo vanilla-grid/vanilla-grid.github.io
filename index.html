@@ -22,7 +22,7 @@
 	<script src="Contents.js?v=202406241002"></script>
 	<script src="SampleDatas.js?v=202406241002"></script>
 	<script src="SampleGrids.js?v=202406241002"></script>
-	<script src="Component.js?v=202406241002"></script>
+	<script src="Component.js?v=202406241059"></script>
 	<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
 	<style>
 	*, ::before, ::after {
@@ -110,8 +110,10 @@
 		min-width: 300px;
 	}
 	.search-box {
-		position: absolute;
+		position: fixed;
 		z-index: 9999;
+		bottom: 0;
+		left: 0;
 		width:100%;
 		height: 350px;
 		margin-top:2px;
@@ -139,7 +141,7 @@
 		display: block;
 		width: 95%;
 	}
-	.no-search-box {
+	.no-search-list {
 		display: flex;
 		height: 100%;
 		flex-direction: column;
@@ -403,41 +405,40 @@
 				});
 			},
         	scrollAnchor(anchorId, schText, interval) {
-				console.log(anchorId);
-				//기존 highlight 제거
-				this.removeHighlightContent();
-
-        		if(!anchorId) return;
+				if(!anchorId) return;
+				const removeHighlightContent = this.removeHighlightContent;
         		setTimeout(function() {
 					const anchor = document.getElementById(anchorId);
-					console.log(anchor);
 					if(!anchor) return;
-        			anchor.scrollIntoView({
-						behavior: 'smooth',
-						block: 'center',
-					});
 					if(schText) {
+						//기존 highlight 제거
+						removeHighlightContent();
 						//검색 문자에 highlight 생성
 						const regex = new RegExp(`(${schText})`, 'gi');
 						const originalHTML = anchor.innerHTML;
 						const highlightedHTML = originalHTML.replace(regex, '<span class="highlight-content">$1</span>');
 						anchor.innerHTML = highlightedHTML;
 					}
-        		}, interval ? interval : 200);
+        			anchor.scrollIntoView({
+						behavior: 'smooth',
+						block: 'center',
+					});
+        		}, interval ? interval : 300);
         	},
 			scrollAndFocusGrid(gridId, row, colId, interval) {
 				if(!gridId) return;
-				if(window[gridId]) {
-					window[gridId].setTargetCell(row, colId);
-				}
+
 				setTimeout(function() {
+					if(window[gridId]) {
+						window[gridId].setTargetCell(row, colId);
+					}
 					const anchor = document.getElementById(gridId);
 					if(!anchor) return;
         			anchor.scrollIntoView({
 						behavior: 'smooth',
 						block: 'start',
 					});
-				}, interval ? interval : 200);
+				}, interval ? interval : 300);
 			},
 			generateUUID() {
 				return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
