@@ -1,11 +1,11 @@
-function getComponents(SAMPLE_DATAS, SAMPLE_GRIDS) {
+function getComponents(CONSTS, SAMPLE_GRIDS) {
     function getCode (c) {
         const r = c.replace(/"([^"]*)"/g, (m) => {
             return m.replace(/\n/g, ' ');
         });
         return r.replace(/</g, '&lt;').replace(/>/g, '&gt;');
     }
-    function Components (SAMPLE_DATAS, SAMPLE_GRIDS) {
+    function Components (CONSTS, SAMPLE_GRIDS) {
         //=============================================================
         // level 2 components
         //=============================================================
@@ -156,21 +156,21 @@ function getComponents(SAMPLE_DATAS, SAMPLE_GRIDS) {
                     <p class="h4 padding-top" :id="introSubs[0]"><span class="dot"><i class="fas fa-book-open"></i></span><b :id="getContentAnchor('INTRO-0000')">{{getContentText("INTRO-0000")}}</b></p>
                     <br>
                     <div class="grid-box">`
-                    + SAMPLE_GRIDS.intro["intro01"] +
+                    + SAMPLE_GRIDS.intro[CONSTS.SAMPLE_KEYS_INTRO[0]] +
                     `
-                    <div class="btn-group-sm" role="group" style="float: right; margin: 2px 0; di">
-                        <button type="button" class="btn btn-default" @click="gridintro01_onAdd($event)">{{getCommonContent("COMMON-0003")}}</button>
-                        <button type="button" class="btn btn-default" @click="gridintro01_onSave($event)">{{getCommonContent("COMMON-0004")}}</button>
-                        <button type="button" class="btn btn-default" @click="gridintro01_onRemove($event)">{{getCommonContent("COMMON-0005")}}</button>
-                    </div>
+                        <div class="btn-group-sm" role="group" style="float: right; margin: 2px 0; di">
+                            <button type="button" class="btn btn-default" @click="`+ CONSTS.SAMPLE_GRID_IDS_INTRO[0] +`_onAdd($event)">{{getCommonContent("COMMON-0003")}}</button>
+                            <button type="button" class="btn btn-default" @click="`+ CONSTS.SAMPLE_GRID_IDS_INTRO[0] +`_onSave($event)">{{getCommonContent("COMMON-0004")}}</button>
+                            <button type="button" class="btn btn-default" @click="`+ CONSTS.SAMPLE_GRID_IDS_INTRO[0] +`_onRemove($event)">{{getCommonContent("COMMON-0005")}}</button>
+                        </div>
                     </div>
                     <br><br>
                     <div class="explain-box">
                         <p class="h6">{{getCommonContent("COMMON-0000")}}</p>
-                        <pre><code>{{SAMPLE_GRIDS.intro["intro01"]}}</code></pre>
+                        <pre><code>{{SAMPLE_GRIDS.intro[CONSTS.SAMPLE_KEYS_INTRO[0]]}}</code></pre>
                         <p class="h6 text-danger" :id="getContentAnchor('INTRO-0001')">{{getContentText("INTRO-0001")}}</p>
                         <p class="h6">{{getCommonContent("COMMON-0001")}}</p>
-                        <pre><code>[\n{{getContentData("intro01")}},\n...\n]</code></pre>
+                        <pre><code>[\n{{getContentData(CONSTS.SAMPLE_KEYS_INTRO[0])}},\n...\n]</code></pre>
                     </div>
                     <br><br>
 
@@ -190,14 +190,14 @@ function getComponents(SAMPLE_DATAS, SAMPLE_GRIDS) {
                     <p class="h4 padding-top"><span class="dot"><i class="fas fa-book-open"></i></span><b :id="getContentAnchor('INTRO-0200')">{{getContentText("INTRO-0200")}}</b></p>
                     <br>
                     <div class="grid-box">`
-                    + SAMPLE_GRIDS.intro["intro02"] +
+                    + SAMPLE_GRIDS.intro[CONSTS.SAMPLE_KEYS_INTRO[1]] +
                     `</div>
                     <br>
                     <div class="explain-box">
                         <p class="h6">{{getCommonContent("COMMON-0000")}}</p>
-                        <pre><code>`+ getCode(SAMPLE_GRIDS.intro["intro02"]) +`</code></pre>
+                        <pre><code>`+ getCode(SAMPLE_GRIDS.intro[CONSTS.SAMPLE_KEYS_INTRO[1]]) +`</code></pre>
                         <p class="h6">{{getCommonContent("COMMON-0001")}}</p>
-                        <pre><code>[\n{{getContentData("intro02")}},\n...\n]</code></pre>
+                        <pre><code>[\n{{getContentData(CONSTS.SAMPLE_KEYS_INTRO[1])}},\n...\n]</code></pre>
                     </div>
                     <div class="explain-box">
                         <p class="h5 text-success" :id="getContentAnchor('INTRO-0201')">{{getContentText("INTRO-0201")}}</p>
@@ -218,6 +218,8 @@ function getComponents(SAMPLE_DATAS, SAMPLE_GRIDS) {
                         <p class="h5" :id="getContentAnchor('INTRO-0310')">{{getContentText("INTRO-0310")}}</p>
                         <pre><code>{{getContentCode("INTRO-0311")}}</code></pre>
                         <p class="h5" :id="getContentAnchor('INTRO-0312')">{{getContentText("INTRO-0312")}}</p>
+                        <pre><code>{{getContentCode("INTRO-0313")}}</code></pre>
+                        <p class="h5" :id="getContentAnchor('INTRO-0314')">{{getContentText("INTRO-0314")}}</p>
                     </div>
                     <br><br>
 
@@ -329,13 +331,22 @@ function getComponents(SAMPLE_DATAS, SAMPLE_GRIDS) {
                     </ul>
                 </div>
                 <div class="text-left" :class="getMainClass">
-                    <br><br>
+                    <br>
                     <p class="h4 padding-top" :id="startedSubs[0]"><span class="dot"><i class="fas fa-book-open"></i></span><b :id="getContentAnchor('STARTED-0000')">{{getContentText("STARTED-0000")}}</b></p>
+                    <br>
+                    <div class="grid-box">`
+                    + SAMPLE_GRIDS.started[CONSTS.SAMPLE_KEYS_STARTED[0]] +
+                    `
+                    </div>
+                    <br>
                     <div class="explain-box">
-                        <p class="h5"></p><br>
+                        <p class="h6">{{getCommonContent("COMMON-0000")}}</p>
+                        <pre><code>{{SAMPLE_GRIDS.started[CONSTS.SAMPLE_KEYS_STARTED[0]]}}</code></pre>
+                        <p class="h6 text-danger" :id="getContentAnchor('STARTED-0001')">{{getContentText("STARTED-0001")}}</p>
+                        <p class="h6">{{getCommonContent("COMMON-0001")}}</p>
+                        <pre><code>[\n{{getContentData(CONSTS.SAMPLE_KEYS_STARTED[0])}}\n]</code></pre>
                     </div>
                     <br><br>
-                    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
                     
                     <p class="h4 padding-top" :id="startedSubs[1]"><span class="dot"><i class="fas fa-book-open"></i></span><b :id="getContentAnchor('STARTED-0200')">{{getContentText("STARTED-0200")}}</b></p>
                     <div class="explain-box">
@@ -421,5 +432,5 @@ function getComponents(SAMPLE_DATAS, SAMPLE_GRIDS) {
                 </div>
             </div>`;
         }
-        return new Components(SAMPLE_DATAS, SAMPLE_GRIDS);
+        return new Components(CONSTS, SAMPLE_GRIDS);
     };
