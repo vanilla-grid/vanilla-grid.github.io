@@ -40,33 +40,79 @@ function getComponents(SAMPLE_DATAS, SAMPLE_GRIDS) {
                         </div>
                         <div id="searchBox" class="search-box">
                             <div id="searchListBox" class="search-list-box">
-                                <div v-if="(searchIntroTextList && searchIntroTextList.length > 0) || (searchIntroGridList && searchIntroGridList.length > 0)"><p><b>Intro</b></p>
-                                    <div>&nbsp;&nbsp;Text</div>
-                                    <ul>
-                                        <li v-for="item in searchIntroTextList" :key="item.id" class="search-list">
-                                            <a href="#" @click="selectSearch($event, 't', item)" v-html="item.li"></a>
-                                        </li>
-                                    </ul><hr>
-                                    <div>&nbsp;&nbsp;Grid</div>
-                                    <ul>
-                                        <li v-for="item in searchIntroGridList" :key="item.id" class="search-list">
-                                            <a href="#" @click="selectSearch($event, 'g', item)" v-html="item.li"></a>
-                                        </li>
-                                    </ul><hr>
+                                <div v-if="searchIntroTextList.length > 0 || searchIntroGridList.length > 0"><p><b>Intro</b></p>
+                                    <div v-if="searchIntroTextList.length > 0">&nbsp;&nbsp;Text
+                                        <ul>
+                                            <li v-for="item in searchIntroTextList" :key="item.id" class="search-list">
+                                                <a href="#" @click="selectSearch($event, 't', item)" v-html="item.li"></a>
+                                            </li>
+                                        </ul><br>
+                                    </div>
+                                    <div v-if="searchIntroGridList.length > 0">&nbsp;&nbsp;Grid
+                                        <ul>
+                                            <li v-for="item in searchIntroGridList" :key="item.id" class="search-list">
+                                                <a href="#" @click="selectSearch($event, 'g', item)" v-html="item.li"></a>
+                                            </li>
+                                        </ul><br>
+                                    </div>
+                                    <hr>
                                 </div>
-                                <div v-if="(searchIntroTextList && searchIntroTextList.length > 0) || (searchIntroGridList && searchIntroGridList.length > 0)"><p><b>Getting started</b></p>
-                                    <div>&nbsp;&nbsp;Text</div>
-                                    <ul>
-                                        <li v-for="item in searchStartedTextList" :key="item.id" class="search-list">
-                                            <a href="#" @click="selectSearch($event, 't', item)" v-html="item.li"></a>
-                                        </li>
-                                    </ul><hr>
-                                    <div>&nbsp;&nbsp;Grid</div>
-                                    <ul>
-                                        <li v-for="item in searchStartedGridList" :key="item.id" class="search-list">
-                                            <a href="#" @click="selectSearch($event, 'g', item)" v-html="item.li"></a>
-                                        </li>
-                                    </ul><hr>
+                                <div v-if="searchStartedTextList.length > 0 || searchStartedGridList.length > 0"><p><b>Getting started</b></p>
+                                    <div v-if="searchStartedTextList.length > 0">&nbsp;&nbsp;Text
+                                        <ul>
+                                            <li v-for="item in searchStartedTextList" :key="item.id" class="search-list">
+                                                <a href="#" @click="selectSearch($event, 't', item)" v-html="item.li"></a>
+                                            </li>
+                                        </ul><br>
+                                    </div>
+                                    <div v-if="searchStartedGridList.length > 0">&nbsp;&nbsp;Grid
+                                        <ul>
+                                            <li v-for="item in searchStartedGridList" :key="item.id" class="search-list">
+                                                <a href="#" @click="selectSearch($event, 'g', item)" v-html="item.li"></a>
+                                            </li>
+                                        </ul><br>
+                                    </div>
+                                    <hr>
+                                </div>
+                                <div v-if="searchDiveTextList.length > 0 || searchDiveGridList.length > 0"><p><b>Getting started</b></p>
+                                    <div v-if="searchDiveTextList.length > 0">&nbsp;&nbsp;Text
+                                        <ul>
+                                            <li v-for="item in searchDiveTextList" :key="item.id" class="search-list">
+                                                <a href="#" @click="selectSearch($event, 't', item)" v-html="item.li"></a>
+                                            </li>
+                                        </ul><br>
+                                    </div>
+                                    <div v-if="searchDiveGridList.length > 0">&nbsp;&nbsp;Grid
+                                        <ul>
+                                            <li v-for="item in searchDiveGridList" :key="item.id" class="search-list">
+                                                <a href="#" @click="selectSearch($event, 'g', item)" v-html="item.li"></a>
+                                            </li>
+                                        </ul><br>
+                                    </div>
+                                    <hr>
+                                </div>
+                                <div v-if="searchApiTextList.length > 0 || searchApiGridList.length > 0"><p><b>Getting started</b></p>
+                                    <div v-if="searchApiTextList.length > 0">&nbsp;&nbsp;Text
+                                        <ul>
+                                            <li v-for="item in searchApiTextList" :key="item.id" class="search-list">
+                                                <a href="#" @click="selectSearch($event, 't', item)" v-html="item.li"></a>
+                                            </li>
+                                        </ul><br>
+                                    </div>
+                                    <div v-if="searchApiGridList.length > 0">&nbsp;&nbsp;Grid
+                                        <ul>
+                                            <li v-for="item in searchApiGridList" :key="item.id" class="search-list">
+                                                <a href="#" @click="selectSearch($event, 'g', item)" v-html="item.li"></a>
+                                            </li>
+                                        </ul><br>
+                                    </div>
+                                    <hr>
+                                </div>
+                                <div v-if="(searchIntroTextList.length <= 0 && searchStartedTextList.length <= 0 && searchDiveTextList.length <= 0 && searchApiTextList.length <= 0)
+                                            && (searchIntroGridList.length <= 0 && searchStartedGridList.length <= 0 && searchDiveGridList.length <= 0 && searchApiGridList.length <= 0)"
+                                    class="no-search-box">
+                                    <p>{{getCommonContent("COMMON-0006")}}</p>
+                                    <p>{{getCommonContent("COMMON-0007")}}</p>
                                 </div>
                             </div>
                             <a type="button" class="btn btn-default btn-md" href="#" style="display:block; width: 50%; margin: 0 auto;" @click="offSearch($event)">
@@ -112,13 +158,13 @@ function getComponents(SAMPLE_DATAS, SAMPLE_GRIDS) {
                     <div class="grid-box">`
                     + SAMPLE_GRIDS.intro["intro01"] +
                     `
-                    <div class="btn-group-sm" role="group" style="float: right; margin: 2px 0;">
+                    <div class="btn-group-sm" role="group" style="float: right; margin: 2px 0; di">
                         <button type="button" class="btn btn-default" @click="gridintro01_onAdd($event)">{{getCommonContent("COMMON-0003")}}</button>
                         <button type="button" class="btn btn-default" @click="gridintro01_onSave($event)">{{getCommonContent("COMMON-0004")}}</button>
                         <button type="button" class="btn btn-default" @click="gridintro01_onRemove($event)">{{getCommonContent("COMMON-0005")}}</button>
                     </div>
                     </div>
-                    <br>
+                    <br><br>
                     <div class="explain-box">
                         <p class="h6">{{getCommonContent("COMMON-0000")}}</p>
                         <pre><code>{{SAMPLE_GRIDS.intro["intro01"]}}</code></pre>
