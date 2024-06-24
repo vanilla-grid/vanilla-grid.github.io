@@ -17,12 +17,12 @@
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
-	<script src="Vanillagrid.min.1.0.0.js?v=202406201122"></script>
-	<script src="Consts.js?v=202406201122"></script>
-	<script src="Contents.js?v=202406201122"></script>
-	<script src="SampleDatas.js?v=202406201122"></script>
-	<script src="SampleGrids.js?v=202406201122"></script>
-	<script src="Component.js?v=202406201122"></script>
+	<script src="Vanillagrid.min.1.0.0.js?v=202406241002"></script>
+	<script src="Consts.js?v=202406241002"></script>
+	<script src="Contents.js?v=202406241002"></script>
+	<script src="SampleDatas.js?v=202406241002"></script>
+	<script src="SampleGrids.js?v=202406241002"></script>
+	<script src="Component.js?v=202406241002"></script>
 	<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
 	<style>
 	*, ::before, ::after {
@@ -139,6 +139,14 @@
 		display: block;
 		width: 95%;
 	}
+	.no-search-box {
+		display: flex;
+		height: 100%;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+	}
 	a {
 		color: #333;
 	}
@@ -211,7 +219,11 @@
 		cursor: pointer;
 		margin: 10px 0 20px 0;
 	}
-	.highlight {
+	.highlight-search {
+		background-color: yellow;
+		font-weight: bold;
+	}
+	.highlight-content {
 		background-color: yellow;
 		font-weight: bold;
 	}
@@ -243,6 +255,8 @@
 		></app-header>
 		<app-nav
 		:current-view="currentView"
+		:get-common-content="getCommonContent"
+		@remove-highlight-content="removeHighlightContent"
 		@scroll-anchor="scrollAnchor"
 		@scroll-and-focus-grid="scrollAndFocusGrid"
 		@change-view="changeView"
@@ -313,8 +327,8 @@
 			window.removeEventListener('resize', this.handleResize);
 		},
 	    data: {
-	    	currentLang : null,
-	        currentView : null,
+	    	currentLang : 'ENG',
+	        currentView : 'intro',
 	        navItems: [
 	            { id: 'intro', name: 'Intro' },
 	            { id: 'started', name: 'Getting started' },
@@ -379,18 +393,37 @@
         	    const regex = /^#?[0-9a-fA-F]{6}$/;
         	    return regex.test(color);
         	},
+			removeHighlightContent() {
+				//기존 highlight 제거
+				const highlighted = document.querySelectorAll('span.highlight-content');
+				highlighted.forEach(span => {
+					const parent = span.parentNode;
+					const textNode = document.createTextNode(span.textContent);
+					parent.replaceChild(textNode, span);
+				});
+			},
         	scrollAnchor(anchorId, schText, interval) {
+				console.log(anchorId);
+				//기존 highlight 제거
+				this.removeHighlightContent();
+
         		if(!anchorId) return;
         		setTimeout(function() {
 					const anchor = document.getElementById(anchorId);
+					console.log(anchor);
 					if(!anchor) return;
         			anchor.scrollIntoView({
 						behavior: 'smooth',
-						block: 'start',
+						block: 'center',
 					});
-					console.log(schText);
+					if(schText) {
+						//검색 문자에 highlight 생성
+						const regex = new RegExp(`(${schText})`, 'gi');
+						const originalHTML = anchor.innerHTML;
+						const highlightedHTML = originalHTML.replace(regex, '<span class="highlight-content">$1</span>');
+						anchor.innerHTML = highlightedHTML;
+					}
         		}, interval ? interval : 200);
-				//해당 단어에 포커스??????
         	},
 			scrollAndFocusGrid(gridId, row, colId, interval) {
 				if(!gridId) return;
@@ -428,20 +461,20 @@
 	        },
 	        'app-nav': {
 	            template: COMPONENT.nav,
-	            props: ['currentView'],
+	            props: ['currentView','getCommonContent'],
 	            data() {
 	                return {
 	                    navItems: this.$root.navItems,
 	                    langItems: this.$root.langItems,
 						ToggleClassNameLang: 'dropdown',
-						searchIntroTextList: null,
-						searchIntroGridList: null,
-						searchStartedTextList: null,
-						searchStartedGridList: null,
-						searchDiveTextList: null,
-						searchDiveGridList: null,
-						searchApiTextList: null,
-						searchApiGridList: null,
+						searchIntroTextList: [],
+						searchIntroGridList: [],
+						searchStartedTextList: [],
+						searchStartedGridList: [],
+						searchDiveTextList: [],
+						searchDiveGridList: [],
+						searchApiTextList: [],
+						searchApiGridList: [],
 	                }
 	            },
 	    	    computed : {
@@ -473,21 +506,20 @@
 								return str;
 							}
 							const trimmedWords = words.slice(Math.max(0, index - 2)).join(' ');
-							const highlightedStr = trimmedWords.replace(regex, '<span class="highlight">$1</span>');
+							const highlightedStr = trimmedWords.replace(regex, '<span class="highlight-search">$1</span>');
 							return highlightedStr;
 						}
 
 						function getResText (searchTexts) {
 							const resText = [];
 							Object.keys(searchTexts).forEach(key => {
-								const schStr = schText.replace(/\s+/g, '');
 								if(searchTexts[key].text && typeof searchTexts[key].text === 'string') {
 									const str = searchTexts[key].text ? searchTexts[key].text.replace(/\s+/g, '') : "";
-									const regex = new RegExp(schStr, 'i');
+									const regex = new RegExp(schText, 'i');
 									if (regex.test(str)) {
 										const item = JSON.parse(JSON.stringify(searchTexts[key]));
-										item.li = highlightAndTrim(item.text, schStr);
-										item.schText = schStr;
+										item.li = highlightAndTrim(item.text, schText);
+										item.schText = schText;
 										resText.push(item);
 									}
 								}
@@ -500,14 +532,13 @@
 							Object.keys(searchGrids).forEach(gridId => {
 								Object.keys(searchGrids[gridId]).forEach((colId) => {
 									searchGrids[gridId][colId].forEach((data) => {
-										const schStr = schText.replace(/\s+/g, '');
 										if(data.text && typeof data.text === 'string') {
 											const str = data.text ? data.text.replace(/\s+/g, '') : "";
-											const regex = new RegExp(schStr, 'i');
+											const regex = new RegExp(schText, 'i');
 											if (regex.test(str)) {
 												const item = JSON.parse(JSON.stringify(data));
-												item.li = highlightAndTrim(item.text, schStr);
-												item.schText = schStr;
+												item.li = highlightAndTrim(item.text, schText);
+												item.schText = schText;
 												resGrid.push(item);
 											}
 										}
@@ -531,6 +562,7 @@
 					},
 					offSearch(e) {
 						if(e) e.preventDefault();
+						this.$emit('remove-highlight-content');
 						const searchInput = document.getElementById('searchInput');
 						const searchBox = document.getElementById('searchBox');
 						searchBox.style.display = "none";
@@ -538,7 +570,6 @@
 					},
 					selectSearch(e, flag, item) {
 						e.preventDefault();
-						console.log(flag, item);
 						if(flag === 't') {
 							if(item.view !== this.currentView) {
 								this.$emit('change-view', item.view);		
