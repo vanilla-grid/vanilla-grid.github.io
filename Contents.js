@@ -14,13 +14,13 @@ function getContents(CONSTS) {
         });
         return ds;
     }
+    function setCellInfo (cell, gridId, row, colId, viewId) {
+        cell.gridId = gridId;
+        cell.row = row + 1;
+        cell.colId = colId;
+        cell.view = viewId;
+    }
     function Contents (CONSTS) {
-        this.VIEW_KEY_INTRO = CONSTS.VIEW_KEY_INTRO;
-        this.VIEW_KEY_STARTED = CONSTS.VIEW_KEY_STARTED;
-        this.VIEW_KEY_DIVE = CONSTS.VIEW_KEY_DIVE;
-        this.VIEW_KEY_API = CONSTS.VIEW_KEY_API;
-        this.SAMPLE_KEYS_INTRO = CONSTS.SAMPLE_KEYS_INTRO;
-
         this.ENG = {
             common: {
                 "COMMON-0000" : {
@@ -219,7 +219,18 @@ mounted: function() {
 `,
                     },
                     "INTRO-0312": {
-                        "text": "5. This allows the grid to be redrawn whenever the vue component is destroyed and mounted."
+                        text: "5. In vue's beforeDestroy",
+                    },
+                    "INTRO-0313": {
+                        code: 
+`//Remove vanilla grid object
+beforeDestroy: function() {
+    vanillagrid_onDestroy(this.vg);
+},
+`,
+                    },
+                    "INTRO-0314": {
+                        text: "6. This allows the grid to be redrawn whenever the vue component is destroyed and mounted.",
                     },
                     "INTRO-0400": {
                         "text": "Purpose of Production"
@@ -284,12 +295,21 @@ mounted: function() {
                 },
             },
             started: {
-                grid: {
-
+                grid : {
+                    [CONSTS.SAMPLE_KEYS_STARTED[0]] : {
+                        "col1" : [
+                            {
+                                text : "This is a text dataType.\nDouble-click to create an editor.\nPress F2 to create an editor.\nWhen you press the enter key, editor focus.\nTry it!",
+                            },
+                        ]
+                    },
                 },
                 text : {
                     "STARTED-0000": {
                         "text": "Getting Started"
+                    },
+                    "STARTED-0001": {
+                        text: "※ The filter and sorting icon use the awesome font. The basic form does not apply; separate logic is required. (Described in getting started)",
                     },
                     "STARTED-0200": {
                         "text": "Create & Destroy"
@@ -516,7 +536,7 @@ data () {
 `,
                     },
                     "INTRO-0310": {
-                        text: "4.. vue의 mouted에서",
+                        text: "4. vue의 mouted에서",
                     },
                     "INTRO-0311": {
                         code: 
@@ -529,7 +549,18 @@ mounted: function() {
 `,
                     },
                     "INTRO-0312": {
-                        text: "5. 이렇게 하면 vue의 해당 컴포넌트가 destroy, mount될때 grid를 새로 그릴 수 있습니다.",
+                        text: "5. vue의 beforeDestroy에서",
+                    },
+                    "INTRO-0313": {
+                        code: 
+`//vanilla grid 객체 제거
+beforeDestroy: function() {
+    vanillagrid_onDestroy(this.vg);
+},
+`,
+                    },
+                    "INTRO-0314": {
+                        text: "6. 이렇게 하면 vue의 해당 컴포넌트가 destroy, mount될때 grid를 새로 그릴 수 있습니다.",
                     },
                     "INTRO-0400": {
                         text: "제작 목적",
@@ -590,12 +621,21 @@ mounted: function() {
                 },
             },
             started: {
-                grid: {
-
+                grid : {
+                    [CONSTS.SAMPLE_KEYS_STARTED[0]] : {
+                        "col1" : [
+                            {
+                                text : "해당 column은 text dataType입니다.\nDouble-click을 하면 수정할 수 있습니다.\nF2키를 누르면 수정할 수 있습니다.\n엔터키를 누르면 editor에 들어가며 내용을 select합니다.\n시도해 보세요!",
+                            },
+                        ]
+                    },
                 },
                 text : {
                     "STARTED-0000": {
                         "text": "시작하기"
+                    },
+                    "STARTED-0001": {
+                        text: "※ filter와 sorting icon은 font awesome을 적용하였습니다. 기본 형태는 적용되지 않으며, 별도의 로직이 필요함. (getting started에 설명)",
                     },
                     "STARTED-0200": {
                         "text": "생성과 소멸"
@@ -636,26 +676,67 @@ mounted: function() {
             },
         };
         
-        //intro view key, anchor id 삽입
+        //intro view key, anchor id 삽입(ENG)
         Object.keys(this.ENG.intro.text).forEach((key, idx) => {
-            this.ENG.intro.text[key].view = this.VIEW_KEY_INTRO;
+            this.ENG.intro.text[key].view = CONSTS.VIEW_KEY_INTRO;
             this.ENG.intro.text[key].anchor = "anchor_" + idx;
         });
-        //intro view key, anchor id 삽입
+        //intro grid data에 cell정보 삽입(ENG)
+        for(let r = 0; r < this.ENG.intro.grid[CONSTS.SAMPLE_KEYS_INTRO[0]].col1.length; r++) {
+            setCellInfo(this.ENG.intro.grid[CONSTS.SAMPLE_KEYS_INTRO[0]].col1[r], CONSTS.SAMPLE_GRID_IDS_INTRO[0], r, "col1", CONSTS.VIEW_KEY_INTRO);
+        }
+        for(let r = 0; r < this.ENG.intro.grid[CONSTS.SAMPLE_KEYS_INTRO[1]].col1.length; r++) {
+            setCellInfo(this.ENG.intro.grid[CONSTS.SAMPLE_KEYS_INTRO[1]].col1[r], CONSTS.SAMPLE_GRID_IDS_INTRO[1], r, "col1", CONSTS.VIEW_KEY_INTRO);
+        }
+        for(let r = 0; r < this.ENG.intro.grid[CONSTS.SAMPLE_KEYS_INTRO[1]].col2.length; r++) {
+            setCellInfo(this.ENG.intro.grid[CONSTS.SAMPLE_KEYS_INTRO[1]].col2[r], CONSTS.SAMPLE_GRID_IDS_INTRO[1], r, "col2", CONSTS.VIEW_KEY_INTRO);
+        }
+        for(let r = 0; r < this.ENG.intro.grid[CONSTS.SAMPLE_KEYS_INTRO[1]].col3.length; r++) {
+            setCellInfo(this.ENG.intro.grid[CONSTS.SAMPLE_KEYS_INTRO[1]].col3[r], CONSTS.SAMPLE_GRID_IDS_INTRO[1], r, "col3", CONSTS.VIEW_KEY_INTRO);
+        }
+        for(let r = 0; r < this.ENG.intro.grid[CONSTS.SAMPLE_KEYS_INTRO[1]].col4.length; r++) {
+            setCellInfo(this.ENG.intro.grid[CONSTS.SAMPLE_KEYS_INTRO[1]].col4[r], CONSTS.SAMPLE_GRID_IDS_INTRO[1], r, "col4", CONSTS.VIEW_KEY_INTRO);
+        }
+        //intro view key, anchor id 삽입(KOR)
         Object.keys(this.KOR.intro.text).forEach((key, idx) => {
-            this.KOR.intro.text[key].view = this.VIEW_KEY_INTRO;
+            this.KOR.intro.text[key].view = CONSTS.VIEW_KEY_INTRO;
             this.KOR.intro.text[key].anchor = "anchor_" + idx;
         });
+        //intro grid data에 cell정보 삽입(KOR)
+        for(let r = 0; r < this.KOR.intro.grid[CONSTS.SAMPLE_KEYS_INTRO[0]].col1.length; r++) {
+            setCellInfo(this.KOR.intro.grid[CONSTS.SAMPLE_KEYS_INTRO[0]].col1[r], CONSTS.SAMPLE_GRID_IDS_INTRO[0], r, "col1", CONSTS.VIEW_KEY_INTRO);
+        }
+        for(let r = 0; r < this.KOR.intro.grid[CONSTS.SAMPLE_KEYS_INTRO[1]].col1.length; r++) {
+            setCellInfo(this.KOR.intro.grid[CONSTS.SAMPLE_KEYS_INTRO[1]].col1[r], CONSTS.SAMPLE_GRID_IDS_INTRO[1], r, "col1", CONSTS.VIEW_KEY_INTRO);
+        }
+        for(let r = 0; r < this.KOR.intro.grid[CONSTS.SAMPLE_KEYS_INTRO[1]].col2.length; r++) {
+            setCellInfo(this.KOR.intro.grid[CONSTS.SAMPLE_KEYS_INTRO[1]].col2[r], CONSTS.SAMPLE_GRID_IDS_INTRO[1], r, "col2", CONSTS.VIEW_KEY_INTRO);
+        }
+        for(let r = 0; r < this.KOR.intro.grid[CONSTS.SAMPLE_KEYS_INTRO[1]].col3.length; r++) {
+            setCellInfo(this.KOR.intro.grid[CONSTS.SAMPLE_KEYS_INTRO[1]].col3[r], CONSTS.SAMPLE_GRID_IDS_INTRO[1], r, "col3", CONSTS.VIEW_KEY_INTRO);
+        }
+        for(let r = 0; r < this.KOR.intro.grid[CONSTS.SAMPLE_KEYS_INTRO[1]].col4.length; r++) {
+            setCellInfo(this.KOR.intro.grid[CONSTS.SAMPLE_KEYS_INTRO[1]].col4[r], CONSTS.SAMPLE_GRID_IDS_INTRO[1], r, "col4", CONSTS.VIEW_KEY_INTRO);
+        }
+
         //started view key, anchor id 삽입
         Object.keys(this.ENG.started.text).forEach((key, idx) => {
-            this.ENG.started.text[key].view = this.VIEW_KEY_STARTED;
+            this.ENG.started.text[key].view = CONSTS.VIEW_KEY_STARTED;
             this.ENG.started.text[key].anchor = "anchor_" + idx;
         });
+        //started grid data에 cell정보 삽입(ENG)
+        for(let r = 0; r < this.ENG.started.grid[CONSTS.SAMPLE_KEYS_STARTED[0]].col1.length; r++) {
+            setCellInfo(this.ENG.started.grid[CONSTS.SAMPLE_KEYS_STARTED[0]].col1[r], CONSTS.SAMPLE_GRID_IDS_STARTED[0], r, "col1", CONSTS.VIEW_KEY_STARTED);
+        }
         //started view key, anchor id 삽입
         Object.keys(this.KOR.started.text).forEach((key, idx) => {
-            this.KOR.started.text[key].view = this.VIEW_KEY_STARTED;
+            this.KOR.started.text[key].view = CONSTS.VIEW_KEY_STARTED;
             this.KOR.started.text[key].anchor = "anchor_" + idx;
         });
+        //started grid data에 cell정보 삽입(KOR)
+        for(let r = 0; r < this.KOR.started.grid[CONSTS.SAMPLE_KEYS_STARTED[0]].col1.length; r++) {
+            setCellInfo(this.KOR.started.grid[CONSTS.SAMPLE_KEYS_STARTED[0]].col1[r], CONSTS.SAMPLE_GRID_IDS_STARTED[0], r, "col1", CONSTS.VIEW_KEY_STARTED);
+        }
     }
     return new Contents(CONSTS);
 }
