@@ -38,6 +38,12 @@ function getContents(CONSTS) {
                 "COMMON-0005" : {
                     text: "REMOVE"
                 },
+                "COMMON-0006" : {
+                    text: "sorry. There are no search results."
+                },
+                "COMMON-0007" : {
+                    text: "You can search only by entering the exact word (including spaces)."
+                },
             },
             intro: {
                 grid : {
@@ -339,6 +345,12 @@ mounted: function() {
                 },
                 "COMMON-0005" : {
                     text: "삭제"
+                },
+                "COMMON-0006" : {
+                    text: "죄송합니다. 검색결과가 존재하지 않습니다."
+                },
+                "COMMON-0007" : {
+                    text: "정확한 단어를 입력해야만 검색이 가능합니다.(띄어쓰기 포함)"
                 },
             },
             intro: {
