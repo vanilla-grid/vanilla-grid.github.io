@@ -17,12 +17,12 @@
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
-	<script src="Vanillagrid.min.1.0.0.js?v=202406241638"></script>
-	<script src="Consts.js?v=202406241638"></script>
-	<script src="Contents.js?v=202406241638"></script>
-	<script src="SampleDatas.js?v=202406241638"></script>
-	<script src="SampleGrids.js?v=202406241638"></script>
-	<script src="Component.js?v=202406241638"></script>
+	<script src="Vanillagrid.min.1.0.0.js?v=202406241655"></script>
+	<script src="Consts.js?v=202406241655"></script>
+	<script src="Contents.js?v=202406241655"></script>
+	<script src="SampleDatas.js?v=202406241655"></script>
+	<script src="SampleGrids.js?v=202406241655"></script>
+	<script src="Component.js?v=202406241655"></script>
 	<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
 	<style>
 	*, ::before, ::after {
@@ -824,6 +824,216 @@
 					},
 					getContentData(key) {
 						const datas = SAMPLE_DATAS[this.currentLang].started[key];
+						if(!datas) return null;
+						return datas[0];
+					},
+	            },
+	        },
+			// dive
+	        'app-dive': {
+	            template: COMPONENT.dive,
+	            props: ['currentLang','isMobileSize','getCommonContent','generateUUID'],
+	            mounted: function() {
+					this.vg = getVanillagrid();
+					if(this.isMobileSize) {
+						this.vg.defaultGridCssInfo.sizeLevel = 7;
+						this.vg.defaultGridCssInfo.cellMinHeight = 28;
+						this.vg.defaultGridCssInfo.height = '500px';
+					}
+					else {
+						this.vg.defaultGridCssInfo.height = '400px';
+					}
+					//filter, sort span customize
+					this.vg.filterSpan = document.createElement("i");
+					this.vg.filterSpan.setAttribute("class", "fas fa-search");
+
+					this.vg.sortAscSpan = document.createElement("i");
+					this.vg.sortAscSpan.setAttribute("class", "fas fa-sort-up");
+					this.vg.sortAscSpan.style.marginLeft = "7px";
+
+					this.vg.sortDescSpan = document.createElement("i");
+					this.vg.sortDescSpan.setAttribute("class", "fas fa-sort-down");
+					this.vg.sortDescSpan.style.marginLeft = "7px";
+
+					this.vg.create();
+					this.loadGrid();
+				},
+				beforeDestroy: function() {
+					vanillagrid_onDestroy(this.vg);
+				},
+	            data() {
+					return {
+						vg : null,
+	            		currentSub : 'dive',
+	            		diveSubs : ['dive','creDes','gridAttr','colAttr','events','methods','vgobject'],
+					}
+				},
+	            computed: {
+	            	getStartedSubs() {
+	            		switch(this.currentLang) {
+	            			case 'KOR' :
+	            				return [
+			        	            { id: this.diveSubs[0], name: '시작하기' },
+			        	            { id: this.diveSubs[1], name: '생성과 소멸' },
+			        	            { id: this.diveSubs[2], name: '그리드 속성' },
+			        	            { id: this.diveSubs[3], name: '컬럼 속성' },
+			        	            { id: this.diveSubs[4], name: '이벤트' },
+			        	            { id: this.diveSubs[5], name: '메소드' },
+			        	            { id: this.diveSubs[6], name: 'Vanilla grid 객체' },
+			        	        ];
+	            				break;
+	            			default :
+	            				return [
+			        	            { id: this.diveSubs[0], name: 'Getting Started' },
+			        	            { id: this.diveSubs[1], name: 'Create & Destroy' },
+			        	            { id: this.diveSubs[2], name: 'Grid Attributes' },
+			        	            { id: this.diveSubs[3], name: 'Column Attributes' },
+			        	            { id: this.diveSubs[4], name: 'Events' },
+			        	            { id: this.diveSubs[5], name: 'Methods' },
+			        	            { id: this.diveSubs[6], name: 'Vanilla grid Object' },
+			        	        ];
+	            				break;
+	            		}
+	            	},
+	            	getMainClass() {
+	            		return this.isMobileSize ? 'col-xs-12': 'col-xs-9'
+	            	},
+	            },
+				watch: {
+					currentLang(newLang, oldLang) {
+						this.loadGrid();
+					}
+				},
+	            methods: {
+	                changeSub(id, e) {
+						e.preventDefault();
+	                	this.currentSub = id;
+						let anchor = document.getElementById(id);
+						if(!anchor) return;
+						anchor.scrollIntoView({
+							behavior: 'smooth',
+							block: 'start',
+						});
+	                },
+					loadGrid() {
+						// window[CONSTS.SAMPLE_GRID_IDS_DIVE[0]].load(SAMPLE_DATAS[this.currentLang].dive[CONSTS.SAMPLE_KEYS_DIVE[0]]);
+					},
+					getContentText(key) {
+						return CONTENTS[this.currentLang].dive.text[key] ? CONTENTS[this.currentLang].dive.text[key].text : null;
+					},
+					getContentAnchor(key) {
+						return CONTENTS[this.currentLang].dive.text[key] && CONTENTS[this.currentLang].dive.text[key].anchor ? CONTENTS[this.currentLang].dive.text[key].anchor : this.generateUUID();
+					},
+					getContentCode(key) {
+						return CONTENTS[this.currentLang].dive.text[key] ? CONTENTS[this.currentLang].dive.text[key].code : null;
+					},
+					getContentData(key) {
+						const datas = SAMPLE_DATAS[this.currentLang].dive[key];
+						if(!datas) return null;
+						return datas[0];
+					},
+	            },
+	        },
+			// api
+	        'app-api': {
+	            template: COMPONENT.api,
+	            props: ['currentLang','isMobileSize','getCommonContent','generateUUID'],
+	            mounted: function() {
+					this.vg = getVanillagrid();
+					if(this.isMobileSize) {
+						this.vg.defaultGridCssInfo.sizeLevel = 7;
+						this.vg.defaultGridCssInfo.cellMinHeight = 28;
+						this.vg.defaultGridCssInfo.height = '500px';
+					}
+					else {
+						this.vg.defaultGridCssInfo.height = '400px';
+					}
+					//filter, sort span customize
+					this.vg.filterSpan = document.createElement("i");
+					this.vg.filterSpan.setAttribute("class", "fas fa-search");
+
+					this.vg.sortAscSpan = document.createElement("i");
+					this.vg.sortAscSpan.setAttribute("class", "fas fa-sort-up");
+					this.vg.sortAscSpan.style.marginLeft = "7px";
+
+					this.vg.sortDescSpan = document.createElement("i");
+					this.vg.sortDescSpan.setAttribute("class", "fas fa-sort-down");
+					this.vg.sortDescSpan.style.marginLeft = "7px";
+
+					this.vg.create();
+					this.loadGrid();
+				},
+				beforeDestroy: function() {
+					vanillagrid_onDestroy(this.vg);
+				},
+	            data() {
+					return {
+						vg : null,
+	            		currentSub : 'api',
+	            		apiSubs : ['api','creDes','gridAttr','colAttr','events','methods','vgobject'],
+					}
+				},
+	            computed: {
+	            	getStartedSubs() {
+	            		switch(this.currentLang) {
+	            			case 'KOR' :
+	            				return [
+			        	            { id: this.apiSubs[0], name: '시작하기' },
+			        	            { id: this.apiSubs[1], name: '생성과 소멸' },
+			        	            { id: this.apiSubs[2], name: '그리드 속성' },
+			        	            { id: this.apiSubs[3], name: '컬럼 속성' },
+			        	            { id: this.apiSubs[4], name: '이벤트' },
+			        	            { id: this.apiSubs[5], name: '메소드' },
+			        	            { id: this.apiSubs[6], name: 'Vanilla grid 객체' },
+			        	        ];
+	            				break;
+	            			default :
+	            				return [
+			        	            { id: this.apiSubs[0], name: 'Getting Started' },
+			        	            { id: this.apiSubs[1], name: 'Create & Destroy' },
+			        	            { id: this.apiSubs[2], name: 'Grid Attributes' },
+			        	            { id: this.apiSubs[3], name: 'Column Attributes' },
+			        	            { id: this.apiSubs[4], name: 'Events' },
+			        	            { id: this.apiSubs[5], name: 'Methods' },
+			        	            { id: this.apiSubs[6], name: 'Vanilla grid Object' },
+			        	        ];
+	            				break;
+	            		}
+	            	},
+	            	getMainClass() {
+	            		return this.isMobileSize ? 'col-xs-12': 'col-xs-9'
+	            	},
+	            },
+				watch: {
+					currentLang(newLang, oldLang) {
+						this.loadGrid();
+					}
+				},
+	            methods: {
+	                changeSub(id, e) {
+						e.preventDefault();
+	                	this.currentSub = id;
+						let anchor = document.getElementById(id);
+						if(!anchor) return;
+						anchor.scrollIntoView({
+							behavior: 'smooth',
+							block: 'start',
+						});
+	                },
+					loadGrid() {
+						// window[CONSTS.SAMPLE_GRID_IDS_API[0]].load(SAMPLE_DATAS[this.currentLang].api[CONSTS.SAMPLE_KEYS_API[0]]);
+					},
+					getContentText(key) {
+						return CONTENTS[this.currentLang].api.text[key] ? CONTENTS[this.currentLang].api.text[key].text : null;
+					},
+					getContentAnchor(key) {
+						return CONTENTS[this.currentLang].api.text[key] && CONTENTS[this.currentLang].api.text[key].anchor ? CONTENTS[this.currentLang].api.text[key].anchor : this.generateUUID();
+					},
+					getContentCode(key) {
+						return CONTENTS[this.currentLang].api.text[key] ? CONTENTS[this.currentLang].api.text[key].code : null;
+					},
+					getContentData(key) {
+						const datas = SAMPLE_DATAS[this.currentLang].api[key];
 						if(!datas) return null;
 						return datas[0];
 					},
