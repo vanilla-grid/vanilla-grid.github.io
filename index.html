@@ -17,12 +17,12 @@
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
-	<script src="Vanillagrid.min.1.0.0.js?v=202406241002"></script>
-	<script src="Consts.js?v=202406241002"></script>
-	<script src="Contents.js?v=202406241002"></script>
-	<script src="SampleDatas.js?v=202406241002"></script>
-	<script src="SampleGrids.js?v=202406241002"></script>
-	<script src="Component.js?v=202406241059"></script>
+	<script src="Vanillagrid.min.1.0.0.js?v=202406241638"></script>
+	<script src="Consts.js?v=202406241638"></script>
+	<script src="Contents.js?v=202406241638"></script>
+	<script src="SampleDatas.js?v=202406241638"></script>
+	<script src="SampleGrids.js?v=202406241638"></script>
+	<script src="Component.js?v=202406241638"></script>
 	<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
 	<style>
 	*, ::before, ::after {
@@ -276,11 +276,9 @@
 			v-if="currentView === 'started'"
 			:current-lang="currentLang"
 			:is-mobile-size="isMobileSize"
-			:is-mobile="isMobile"
-			:is-el-in-view="isElInView"
 			:get-common-content="getCommonContent"
+			:generate-u-u-i-d="generateUUID"
 			:get-href="getHref"
-			:is-valid-hex-color="isValidHexColor"
 			></app-started>
 			<app-dive
 			v-if="currentView === 'dive'"
@@ -306,9 +304,9 @@
 	<script>
 	const CONSTS = getConsts();
 	const CONTENTS = getContents(CONSTS);
-	const SAMPLE_DATAS = getSampleDatas(CONTENTS);
-	const SAMPLE_GRIDS = getSampleGrids(CONTENTS);
-	const COMPONENT = getComponents(SAMPLE_DATAS, SAMPLE_GRIDS);
+	const SAMPLE_DATAS = getSampleDatas(CONSTS, CONTENTS);
+	const SAMPLE_GRIDS = getSampleGrids(CONSTS, CONTENTS);
+	const COMPONENT = getComponents(CONSTS, SAMPLE_GRIDS);
 	
 	new Vue({
 	    el: '#app',
@@ -321,16 +319,13 @@
 	        let anchorId = urlParams.get('anchor');
 	        let lang = urlParams.get('lang');
 	        this.currentLang = lang ? lang : 'ENG';
-	        if(!viewId || ['intro','started','dive','api'].indexOf(viewId) < 0) viewId = 'intro';
+	        if(!viewId || ['intro','started','dive','api'].indexOf(viewId) < 0) viewId = 'started';
 	        this.currentView = viewId;
 	        this.scrollAnchor(anchorId, null, 1000);
 		},
-		beforeDestroy: function() {
-			window.removeEventListener('resize', this.handleResize);
-		},
 	    data: {
 	    	currentLang : 'ENG',
-	        currentView : 'intro',
+	        currentView : 'started',
 	        navItems: [
 	            { id: 'intro', name: 'Intro' },
 	            { id: 'started', name: 'Getting started' },
@@ -391,10 +386,6 @@
         	getHref(view, anchor) {
         		return '?view=' + view + '&anchor=' + anchor + '&lang=' + this.currentLang
         	},
-        	isValidHexColor(color) {
-        	    const regex = /^#?[0-9a-fA-F]{6}$/;
-        	    return regex.test(color);
-        	},
 			removeHighlightContent() {
 				//기존 highlight 제거
 				const highlighted = document.querySelectorAll('span.highlight-content');
@@ -421,7 +412,7 @@
 					}
         			anchor.scrollIntoView({
 						behavior: 'smooth',
-						block: 'center',
+						block: 'start',
 					});
         		}, interval ? interval : 300);
         	},
@@ -640,6 +631,9 @@
 					this.vg.create();
 					this.loadGrid();
 				},
+				beforeDestroy: function() {
+					vanillagrid_onDestroy(this.vg);
+				},
 	            data() {
 					return {
 						vg : null,
@@ -691,11 +685,11 @@
 						});
 	                },
 					loadGrid() {
-						gridintro01.load(SAMPLE_DATAS[this.currentLang].intro["intro01"]);
-						gridintro02.load(SAMPLE_DATAS[this.currentLang].intro["intro02"]);
+						window[CONSTS.SAMPLE_GRID_IDS_INTRO[0]].load(SAMPLE_DATAS[this.currentLang].intro[CONSTS.SAMPLE_KEYS_INTRO[0]]);
+						window[CONSTS.SAMPLE_GRID_IDS_INTRO[1]].load(SAMPLE_DATAS[this.currentLang].intro[CONSTS.SAMPLE_KEYS_INTRO[1]]);
 					},
-					gridintro01_onAdd() {
-						gridintro01.addRow({
+					[CONSTS.SAMPLE_GRID_IDS_INTRO[0] + '_onAdd']() {
+						window[CONSTS.SAMPLE_GRID_IDS_INTRO[0]].addRow({
 							col4 : "1900-01-01",
 							col5 : 0,
 							col6 : [{value:"val1", text:"text1", selected:true},{value:"val2", text:"text2"},{value:"val3", text:"text3"}],
@@ -703,15 +697,15 @@
 							col9 : {value:"https://vanilla-note.github.io/",text:"go vanilla-note"},
 						});
 					},
-					gridintro01_onRemove() {
-						const targetRow = gridintro01.getTargetRow();
+					[CONSTS.SAMPLE_GRID_IDS_INTRO[0] + '_onRemove']() {
+						const targetRow = window[CONSTS.SAMPLE_GRID_IDS_INTRO[0]].getTargetRow();
 						if(!targetRow) {
 							alert("Please select row.");
 							return false;
 						}
-						gridintro01.removeRow(targetRow);
+						window[CONSTS.SAMPLE_GRID_IDS_INTRO[0]].removeRow(targetRow);
 					},
-					gridintro01_onSave() {
+					[CONSTS.SAMPLE_GRID_IDS_INTRO[0] + '_onSave']() {
 						alert("It's completed!");
 					},
 					getContentText(key) {
@@ -758,6 +752,9 @@
 
 					this.vg.create();
 					this.loadGrid();
+				},
+				beforeDestroy: function() {
+					vanillagrid_onDestroy(this.vg);
 				},
 	            data() {
 					return {
@@ -814,6 +811,7 @@
 						});
 	                },
 					loadGrid() {
+						window[CONSTS.SAMPLE_GRID_IDS_STARTED[0]].load(SAMPLE_DATAS[this.currentLang].started[CONSTS.SAMPLE_KEYS_STARTED[0]]);
 					},
 					getContentText(key) {
 						return CONTENTS[this.currentLang].started.text[key] ? CONTENTS[this.currentLang].started.text[key].text : null;
@@ -838,6 +836,9 @@
 	<script type="text/javascript">
 	vanillagrid_onBeforeCreate = function(e, vn) {
 		return false;
+	}
+	gridIntro01_onChooseFilter = function(...p) {
+		console.log(p);
 	}
 	</script>
 </body>
