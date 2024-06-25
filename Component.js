@@ -1,7 +1,7 @@
 function getComponents(CONSTS, SAMPLE_GRIDS) {
     function getCode (c) {
         const r = c.replace(/"([^"]*)"/g, (m) => {
-            return m.replace(/\n/g, ' ');
+            return m.replace(/\n/g, '&#92;n');
         });
         return r.replace(/</g, '&lt;').replace(/>/g, '&gt;');
     }
@@ -74,7 +74,7 @@ function getComponents(CONSTS, SAMPLE_GRIDS) {
                                     </div>
                                     <hr>
                                 </div>
-                                <div v-if="searchDiveTextList.length > 0 || searchDiveGridList.length > 0"><p><b>Getting started</b></p>
+                                <div v-if="searchDiveTextList.length > 0 || searchDiveGridList.length > 0"><p><b>Deep dive</b></p>
                                     <div v-if="searchDiveTextList.length > 0">&nbsp;&nbsp;Text
                                         <ul>
                                             <li v-for="item in searchDiveTextList" :key="item.id" class="search-list">
@@ -91,7 +91,7 @@ function getComponents(CONSTS, SAMPLE_GRIDS) {
                                     </div>
                                     <hr>
                                 </div>
-                                <div v-if="searchApiTextList.length > 0 || searchApiGridList.length > 0"><p><b>Getting started</b></p>
+                                <div v-if="searchApiTextList.length > 0 || searchApiGridList.length > 0"><p><b>API</b></p>
                                     <div v-if="searchApiTextList.length > 0">&nbsp;&nbsp;Text
                                         <ul>
                                             <li v-for="item in searchApiTextList" :key="item.id" class="search-list">
@@ -172,9 +172,10 @@ function getComponents(CONSTS, SAMPLE_GRIDS) {
                         <p class="h6">{{getCommonContent("COMMON-0001")}}</p>
                         <pre><code>[\n{{getContentData(CONSTS.SAMPLE_KEYS_INTRO[0])}},\n...\n]</code></pre>
                     </div>
-                    <br><br>
+                    <br><br><br><br>
 
                     <p class="h4 padding-top"><span class="dot"><i class="fas fa-book-open"></i></span><b :id="getContentAnchor('INTRO-0100')">{{getContentText("INTRO-0100")}}</b></p>
+                    <br>
                     <div class="explain-box">
                         <p class="h5" :id="getContentAnchor('INTRO-0101')">{{getContentText("INTRO-0101")}}</p>
                         <p class="h5" :id="getContentAnchor('INTRO-0102')">{{getContentText("INTRO-0102")}}</p>
@@ -185,7 +186,7 @@ function getComponents(CONSTS, SAMPLE_GRIDS) {
                         <pre><code>{{getContentCode("INTRO-0107")}}</code></pre>
                         <p class="h5" :id="getContentAnchor('INTRO-0108')">{{getContentText("INTRO-0108")}}</p>
                     </div>
-                    <br><br>
+                    <br><br><br><br>
 
                     <p class="h4 padding-top"><span class="dot"><i class="fas fa-book-open"></i></span><b :id="getContentAnchor('INTRO-0200')">{{getContentText("INTRO-0200")}}</b></p>
                     <br>
@@ -202,9 +203,10 @@ function getComponents(CONSTS, SAMPLE_GRIDS) {
                     <div class="explain-box">
                         <p class="h5 text-success" :id="getContentAnchor('INTRO-0201')">{{getContentText("INTRO-0201")}}</p>
                     </div>
-                    <br><br>
+                    <br><br><br><br>
 
                     <p class="h4 padding-top"><span class="dot"><i class="fas fa-book-open"></i></span><b :id="getContentAnchor('INTRO-0300')">{{getContentText("INTRO-0300")}}</b></p>
+                    <br>
                     <div class="explain-box">
                         <p class="h5" :id="getContentAnchor('INTRO-0301')">{{getContentText("INTRO-0301")}}</p>
                         <p class="h5" :id="getContentAnchor('INTRO-0302')">{{getContentText("INTRO-0302")}}</p>
@@ -221,9 +223,10 @@ function getComponents(CONSTS, SAMPLE_GRIDS) {
                         <pre><code>{{getContentCode("INTRO-0313")}}</code></pre>
                         <p class="h5" :id="getContentAnchor('INTRO-0314')">{{getContentText("INTRO-0314")}}</p>
                     </div>
-                    <br><br>
+                    <br><br><br><br>
 
                     <p class="h4 padding-top" :id="introSubs[1]"><span class="dot"><i class="fas fa-book-open"></i></span><b :id="getContentAnchor('INTRO-0400')">{{getContentText("INTRO-0400")}}</b></p>
+                    <br>
                     <div class="explain-box">
                         <p class="h5" :id="getContentAnchor('INTRO-0401')">{{getContentText("INTRO-0401")}}</p><br>
                         <p class="h5" :id="getContentAnchor('INTRO-0410')">{{getContentText("INTRO-0410")}}</p>
@@ -243,9 +246,10 @@ function getComponents(CONSTS, SAMPLE_GRIDS) {
 							<li class="text-danger" :id="getContentAnchor('INTRO-0433')">{{getContentText("INTRO-0433")}}</li>
 						</ul>
                     </div>
-                    <br><br>
+                    <br><br><br><br>
 
                     <p class="h4 padding-top" :id="introSubs[2]"><span class="dot"><i class="fas fa-book-open"></i></span><b :id="getContentAnchor('INTRO-0500')">{{getContentText("INTRO-0500")}}</b></p>
+                    <br>
                     <div class="explain-box">
 						<table class="table">
 							<tbody>
@@ -303,19 +307,21 @@ function getComponents(CONSTS, SAMPLE_GRIDS) {
 							</tbody>
 						</table>
                     </div>
-                    <br><br>
+                    <br><br><br><br>
 
                     <p class="h4 padding-top" :id="introSubs[3]"><span class="dot"><i class="fas fa-book-open"></i></span><b :id="getContentAnchor('INTRO-0600')">{{getContentText("INTRO-0600")}}</b></p>
+                    <br>
                     <div class="explain-box">
                         <p class="h5">MIT License</p><br>
                     </div>
-                    <br><br>
+                    <br><br><br><br>
 
                     <p class="h4 padding-top" :id="introSubs[4]"><span class="dot"><i class="fas fa-book-open"></i></span><b :id="getContentAnchor('INTRO-0700')">{{getContentText("INTRO-0700")}}</b></p>
+                    <br>
                     <div class="explain-box">
                         <p class="h5">hison0319@gmail.com</p><br>
                     </div>
-                    <br><br>
+                    <br><br><br><br>
 
                     <br>
                 </div>
@@ -331,9 +337,17 @@ function getComponents(CONSTS, SAMPLE_GRIDS) {
                     </ul>
                 </div>
                 <div class="text-left" :class="getMainClass">
-                    <br>
+                    <br><br><br><br>
                     <p class="h4 padding-top" :id="startedSubs[0]"><span class="dot"><i class="fas fa-book-open"></i></span><b :id="getContentAnchor('STARTED-0000')">{{getContentText("STARTED-0000")}}</b></p>
                     <br>
+                    <div class="explain-box">
+                        <p class="h5" :id="getContentAnchor('STARTED-0001')">{{getContentText("STARTED-0001")}}</p>
+                        <p class="h5" :id="getContentAnchor('STARTED-0002')">{{getContentText("STARTED-0002")}}</p>
+                        <pre><code>{{getContentCode("STARTED-0003")}}</code></pre>
+                        <p class="h5" :id="getContentAnchor('STARTED-0004')">{{getContentText("STARTED-0004")}}</p>
+                        <pre><code>{{getContentCode("STARTED-0005")}}</code></pre>
+                        <p class="h5">{{getCommonContent("COMMON-0009")}}</p>
+                    </div>
                     <div class="grid-box">`
                     + SAMPLE_GRIDS.started[CONSTS.SAMPLE_KEYS_STARTED[0]] +
                     `
@@ -342,52 +356,113 @@ function getComponents(CONSTS, SAMPLE_GRIDS) {
                     <div class="explain-box">
                         <p class="h6">{{getCommonContent("COMMON-0000")}}</p>
                         <pre><code>{{SAMPLE_GRIDS.started[CONSTS.SAMPLE_KEYS_STARTED[0]]}}</code></pre>
-                        <p class="h6 text-danger" :id="getContentAnchor('STARTED-0001')">{{getContentText("STARTED-0001")}}</p>
                         <p class="h6">{{getCommonContent("COMMON-0001")}}</p>
                         <pre><code>[\n{{getContentData(CONSTS.SAMPLE_KEYS_STARTED[0])}}\n]</code></pre>
                     </div>
-                    <br><br>
+                    <br><br><br><br>
                     
-                    <p class="h4 padding-top" :id="startedSubs[1]"><span class="dot"><i class="fas fa-book-open"></i></span><b :id="getContentAnchor('STARTED-0200')">{{getContentText("STARTED-0200")}}</b></p>
+                    <p class="h4 padding-top" :id="startedSubs[1]"><span class="dot"><i class="fas fa-book-open"></i></span><b :id="getContentAnchor('STARTED-1000')">{{getContentText("STARTED-1000")}}</b></p>
+                    <br>
                     <div class="explain-box">
-                        <p class="h5"></p><br>
+                        <p class="h5"><span class="dot"><i class="fas fa-pencil-alt"></i></span><b>{{ getContentText("STARTED-1100") }}</b></p>
+                        <p class="h5" :id="getContentAnchor('STARTED-1101')">{{getContentText("STARTED-1101")}}</p>
+                        <p class="h5" :id="getContentAnchor('STARTED-1110')">{{getContentText("STARTED-1110")}}</p>
+                        <pre><code>{{getContentCode("STARTED-1111")}}</code></pre>
+                        <p class="h5" :id="getContentAnchor('STARTED-1120')">{{getContentText("STARTED-1120")}}</p>
+                        <pre><code>{{getContentCode("STARTED-1121")}}</code></pre>
+                        <p class="h5" :id="getContentAnchor('STARTED-1130')">{{getContentText("STARTED-1130")}}</p>
+                        <pre><code>{{getContentCode("STARTED-1131")}}</code></pre>
+                        <p class="h5" :id="getContentAnchor('STARTED-1140')">{{getContentText("STARTED-1140")}}</p>
+                        <p class="h5" :id="getContentAnchor('STARTED-1141')" style="padding-left:24px;">{{getContentText("STARTED-1141")}}</p>
+                        <p class="h5" :id="getContentAnchor('STARTED-1142')" style="padding-left:24px;">{{getContentText("STARTED-1142")}}</p>
+                        <p class="h5" :id="getContentAnchor('STARTED-1143')" style="padding-left:24px;">{{getContentText("STARTED-1143")}}</p>
+                        <p class="h5">{{getCommonContent("COMMON-0008")}}</p>
                     </div>
-                    <br><br>
+                    <div class="grid-box">`
+                    + SAMPLE_GRIDS.started[CONSTS.SAMPLE_KEYS_STARTED[1]] +
+                    `
+                    </div>
+                    <br>
+                    <div class="explain-box">
+                        <p class="h6">{{getCommonContent("COMMON-0000")}}</p>
+                        <pre><code>{{SAMPLE_GRIDS.started[CONSTS.SAMPLE_KEYS_STARTED[1]]}}</code></pre>
+                        <p class="h6">{{getCommonContent("COMMON-0001")}}</p>
+                        <pre><code>[\n{{getContentData(CONSTS.SAMPLE_KEYS_STARTED[1])}},\n...\n]</code></pre>
+                    </div>
+                    <br>
+                    <div class="explain-box">
+                        <p class="h5"><span class="dot"><i class="fas fa-pencil-alt"></i></span><b>{{ getContentText("STARTED-1300") }}</b></p>
+                        <p class="h5" :id="getContentAnchor('STARTED-1301')">{{getContentText("STARTED-1301")}}</p>
+                        <p class="h5" :id="getContentAnchor('STARTED-1302')">{{getContentText("STARTED-1302")}}</p>
+                        <pre><code>{{getContentCode("STARTED-1303")}}</code></pre>
+                        <p class="h5" :id="getContentAnchor('STARTED-1304')">{{getContentText("STARTED-1304")}}</p>
+                        <p class="h5" :id="getContentAnchor('STARTED-1305')">{{getContentText("STARTED-1305")}}</p>
+                        <p class="h5" :id="getContentAnchor('STARTED-1306')">{{getContentText("STARTED-1306")}}</p>
+                        <pre><code>{{getContentCode("STARTED-1307")}}</code></pre>
+                        <p class="h5" :id="getContentAnchor('STARTED-1308')">{{getContentText("STARTED-1308")}}</p>
+                        <p class="h5">{{getCommonContent("COMMON-0009")}}</p>
+                    </div>
+                    <div class="grid-box">`
+                    + SAMPLE_GRIDS.started[CONSTS.SAMPLE_KEYS_STARTED[2]] +
+                    `
+                    </div>
+                    <br>
+                    <div class="explain-box">
+                        <p class="h6">{{getCommonContent("COMMON-0000")}}</p>
+                        <pre><code>`+ getCode(SAMPLE_GRIDS.started[CONSTS.SAMPLE_KEYS_STARTED[2]]) +`</code></pre>
+                        <p class="h6">{{getCommonContent("COMMON-0001")}}</p>
+                        <pre><code>[\n{{getContentData(CONSTS.SAMPLE_KEYS_STARTED[2])}},\n...\n]</code></pre>
+                    </div>
+                    <br>
+                    <div class="explain-box">
+                        <p class="h5"><span class="dot"><i class="fas fa-pencil-alt"></i></span><b>{{ getContentText("STARTED-1500") }}</b></p>
+                        <p class="h5" :id="getContentAnchor('STARTED-1501')">{{getContentText("STARTED-1501")}}</p>
+                        <p class="h5" :id="getContentAnchor('STARTED-1510')">{{getContentText("STARTED-1510")}}</p>
+                        <p class="h5" :id="getContentAnchor('STARTED-1511')" style="padding-left:24px;">{{getContentText("STARTED-1511")}}</p>
+                        <pre><code>{{getContentCode("STARTED-1512")}}</code></pre>
+                        <p class="h5" :id="getContentAnchor('STARTED-1520')" style="padding-left:24px;">{{getContentText("STARTED-1520")}}</p>
+                        <pre><code>{{getContentCode("STARTED-1521")}}</code></pre>
+                        <p class="h5" :id="getContentAnchor('STARTED-1530')">{{getContentText("STARTED-1530")}}</p>
+                        <p class="h5" :id="getContentAnchor('STARTED-1530')">{{getContentText("STARTED-1531")}}</p>
+                    </div>
+                    <br>
+                    <div class="explain-box">
+                        <p class="h5"><span class="dot"><i class="fas fa-pencil-alt"></i></span><b>{{ getContentText("STARTED-1700") }}</b></p>
+                        <p class="h5" :id="getContentAnchor('STARTED-')">{{getContentText("STARTED-")}}</p>
+                    </div>
+                    <br><br><br><br>
                     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
-                    <p class="h4 padding-top" :id="startedSubs[2]"><span class="dot"><i class="fas fa-book-open"></i></span><b :id="getContentAnchor('STARTED-0400')">{{getContentText("STARTED-0400")}}</b></p>
+                    <p class="h4 padding-top" :id="startedSubs[2]"><span class="dot"><i class="fas fa-book-open"></i></span><b :id="getContentAnchor('STARTED-2000')">{{getContentText("STARTED-2000")}}</b></p>
+                    <br>
                     <div class="explain-box">
-                        <p class="h5"></p><br>
+                        <p class="h5" :id="getContentAnchor('STARTED-')">{{getContentText("STARTED-")}}</p>
                     </div>
-                    <br><br>
+                    <br><br><br><br>
                     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
-                    <p class="h4 padding-top" :id="startedSubs[3]"><span class="dot"><i class="fas fa-book-open"></i></span><b :id="getContentAnchor('STARTED-0600')">{{getContentText("STARTED-0600")}}</b></p>
+                    <p class="h4 padding-top" :id="startedSubs[3]"><span class="dot"><i class="fas fa-book-open"></i></span><b :id="getContentAnchor('STARTED-3000')">{{getContentText("STARTED-3000")}}</b></p>
+                    <br>
                     <div class="explain-box">
-                        <p class="h5"></p><br>
+                        <p class="h5" :id="getContentAnchor('STARTED-')">{{getContentText("STARTED-")}}</p>
                     </div>
-                    <br><br>
+                    <br><br><br><br>
                     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
-                    <p class="h4 padding-top" :id="startedSubs[4]"><span class="dot"><i class="fas fa-book-open"></i></span><b :id="getContentAnchor('STARTED-0800')">{{getContentText("STARTED-0800")}}</b></p>
+                    <p class="h4 padding-top" :id="startedSubs[4]"><span class="dot"><i class="fas fa-book-open"></i></span><b :id="getContentAnchor('STARTED-4000')">{{getContentText("STARTED-4000")}}</b></p>
+                    <br>
                     <div class="explain-box">
-                        <p class="h5"></p><br>
+                        <p class="h5" :id="getContentAnchor('STARTED-')">{{getContentText("STARTED-")}}</p>
                     </div>
-                    <br><br>
+                    <br><br><br><br>
                     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
-                    <p class="h4 padding-top" :id="startedSubs[5]"><span class="dot"><i class="fas fa-book-open"></i></span><b :id="getContentAnchor('STARTED-1000')">{{getContentText("STARTED-1000")}}</b></p>
+                    <p class="h4 padding-top" :id="startedSubs[4]"><span class="dot"><i class="fas fa-book-open"></i></span><b :id="getContentAnchor('STARTED-5000')">{{getContentText("STARTED-5000")}}</b></p>
+                    <br>
                     <div class="explain-box">
-                        <p class="h5"></p><br>
+                        <p class="h5" :id="getContentAnchor('STARTED-')">{{getContentText("STARTED-")}}</p>
                     </div>
-                    <br><br>
-                    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
-                    <p class="h4 padding-top" :id="startedSubs[6]"><span class="dot"><i class="fas fa-book-open"></i></span><b :id="getContentAnchor('STARTED-1200')">{{getContentText("STARTED-1200")}}</b></p>
-                    <div class="explain-box">
-                        <p class="h5"></p><br>
-                    </div>
-                    <br><br>
+                    <br><br><br><br>
                     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
                     <br>
@@ -397,38 +472,104 @@ function getComponents(CONSTS, SAMPLE_GRIDS) {
             <div class="row">
                 <div class="col-xs-2 text-left" v-show="!isMobileSize">
                     <ul class="nav nav-pills nav-stacked">
-                        <li v-for="item in getIntroSubs" :key="item.id" :class="{ active: currentSub === item.id }">
+                        <li v-for="item in getDiveSubs" :key="item.id" :class="{ active: currentSub === item.id }">
                             <a href="#" @click="changeSub(item.id, $event)">{{item.name}}</a>
                         </li>
                     </ul>
                 </div>
                 <div class="text-left" :class="getMainClass">
-                    <p class="h4 padding-top" :id=""><span class="dot"><i class="fas fa-book-open"></i></span><b>{{}}</b></p>
-                    <div class="explain-box">
-                        <p class="h5"></p><br>
-                    </div>
-                    <br><br>
-
+                    <br><br><br><br>
+                    <p class="h4 padding-top" :id="diveSubs[0]"><span class="dot"><i class="fas fa-book-open"></i></span><b :id="getContentAnchor('DIVE-0000')">{{getContentText("DIVE-0000")}}</b></p>
                     <br>
+                    <div class="explain-box">
+                        <p class="h5" :id="getContentAnchor('DIVE-')">{{getContentText("DIVE-")}}</p>
+                    </div>
+                    <br><br><br><br>
+                    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+                    <p class="h4 padding-top" :id="diveSubs[1]"><span class="dot"><i class="fas fa-book-open"></i></span><b :id="getContentAnchor('DIVE-1000')">{{getContentText("DIVE-1000")}}</b></p>
+                    <br>
+                    <div class="explain-box">
+                        <p class="h5" :id="getContentAnchor('DIVE-')">{{getContentText("DIVE-")}}</p>
+                    </div>
+                    <br><br><br><br>
+                    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+                    <p class="h4 padding-top" :id="diveSubs[2]"><span class="dot"><i class="fas fa-book-open"></i></span><b :id="getContentAnchor('DIVE-2000')">{{getContentText("DIVE-2000")}}</b></p>
+                    <br>
+                    <div class="explain-box">
+                        <p class="h5" :id="getContentAnchor('DIVE-')">{{getContentText("DIVE-")}}</p>
+                    </div>
+                    <br><br><br><br>
+                    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+                    <p class="h4 padding-top" :id="diveSubs[3]"><span class="dot"><i class="fas fa-book-open"></i></span><b :id="getContentAnchor('DIVE-3000')">{{getContentText("DIVE-3000")}}</b></p>
+                    <br>
+                    <div class="explain-box">
+                        <p class="h5" :id="getContentAnchor('DIVE-')">{{getContentText("DIVE-")}}</p>
+                    </div>
+                    <br><br><br><br>
+                    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+                    <p class="h4 padding-top" :id="diveSubs[4]"><span class="dot"><i class="fas fa-book-open"></i></span><b :id="getContentAnchor('DIVE-4000')">{{getContentText("DIVE-4000")}}</b></p>
+                    <br>
+                    <div class="explain-box">
+                        <p class="h5" :id="getContentAnchor('DIVE-')">{{getContentText("DIVE-")}}</p>
+                    </div>
+                    <br><br><br><br>
+                    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
                 </div>
             </div>`;
         this.api = `
             <div class="row">
                 <div class="col-xs-2 text-left" v-show="!isMobileSize">
                     <ul class="nav nav-pills nav-stacked">
-                        <li v-for="item in getStartedSubs" :key="item.id" :class="{ active: currentSub === item.id }">
+                        <li v-for="item in getApiSubs" :key="item.id" :class="{ active: currentSub === item.id }">
                             <a href="#" @click="changeSub(item.id, $event)">{{item.name}}</a>
                         </li>
                     </ul>
                 </div>
                 <div class="text-left" :class="getMainClass">
-                    <p class="h4 padding-top" :id=""><span class="dot"><i class="fas fa-book-open"></i></span><b>{{}}</b></p>
-                    <div class="explain-box">
-                        <p class="h5"></p><br>
-                    </div>
-                    <br><br>
-
+                    <br><br><br><br>
+                    <p class="h4 padding-top" :id="apiSubs[0]"><span class="dot"><i class="fas fa-book-open"></i></span><b :id="getContentAnchor('API-0000')">{{getContentText("API-0000")}}</b></p>
                     <br>
+                    <div class="explain-box">
+                        <p class="h5" :id="getContentAnchor('API-')">{{getContentText("API-")}}</p>
+                    </div>
+                    <br><br><br><br>
+                    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+                    <p class="h4 padding-top" :id="apiSubs[1]"><span class="dot"><i class="fas fa-book-open"></i></span><b :id="getContentAnchor('API-1000')">{{getContentText("API-1000")}}</b></p>
+                    <br>
+                    <div class="explain-box">
+                        <p class="h5" :id="getContentAnchor('API-')">{{getContentText("API-")}}</p>
+                    </div>
+                    <br><br><br><br>
+                    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+                    <p class="h4 padding-top" :id="apiSubs[2]"><span class="dot"><i class="fas fa-book-open"></i></span><b :id="getContentAnchor('API-2000')">{{getContentText("API-2000")}}</b></p>
+                    <br>
+                    <div class="explain-box">
+                        <p class="h5" :id="getContentAnchor('API-')">{{getContentText("API-")}}</p>
+                    </div>
+                    <br><br><br>
+                    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+                    <p class="h4 padding-top" :id="apiSubs[3]"><span class="dot"><i class="fas fa-book-open"></i></span><b :id="getContentAnchor('API-3000')">{{getContentText("API-3000")}}</b></p>
+                    <br>
+                    <div class="explain-box">
+                        <p class="h5" :id="getContentAnchor('API-')">{{getContentText("API-")}}</p>
+                    </div>
+                    <br><br><br><br>
+                    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+                    <p class="h4 padding-top" :id="apiSubs[4]"><span class="dot"><i class="fas fa-book-open"></i></span><b :id="getContentAnchor('API-4000')">{{getContentText("API-4000")}}</b></p>
+                    <br>
+                    <div class="explain-box">
+                        <p class="h5" :id="getContentAnchor('API-')">{{getContentText("API-")}}</p>
+                    </div>
+                    <br><br><br><br>
+                    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
                 </div>
             </div>`;
         }
