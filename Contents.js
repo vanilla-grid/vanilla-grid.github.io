@@ -276,18 +276,23 @@ beforeDestroy: function() {
                         text: "Disadvantages"
                     },
                     "INTRO-0431": {
-                        text: "You can access each grid's cell on the screen. Although the actual value of the cell is hidden, it is not completely secure."
+                        text: "For performance reasons, it is recommended to load data of around 100 rows for the grid for editing and around 1000 rows for the grid for view.",
                     },
                     "INTRO-0432": {
+                        text: "You can access each grid's cell on the screen. Although the actual value of the cell is hidden, it is not completely secure."
+                    },
+                    "INTRO-0433": {
                         text: "It does not support the function of directly entering the corresponding key when the user types on the keyboard with the cell focused. "
                         + "(It could not be implemented due to limitations in Korean input.)"
                     },
-                    "INTRO-0433": {
+                    "INTRO-0434": {
+                        text: "Filter can select only one value per column."
+                    },
+                    "INTRO-0435": {
                         text: "You can access the function call variables declared as global variables in developer mode. "
                         + "It is a logic provided to facilitate development through the library but may be vulnerable to security. "
                         + "Function call variables (window[gridId]) can remove themselves with window[gridId].removeGridMethod(). "
-                        + "Detect the F12 key and call the logic. Declared event methods will not work if they show different logic than originally defined "
-                        + "(events can only be defined once for security purposes)."
+                        + "Detect the F12 key and call the logic."
                     },
                     "INTRO-0500": {
                         text: "Browser Compatibility"
@@ -302,6 +307,52 @@ beforeDestroy: function() {
             },
             started: {
                 grid : {
+                    [CONSTS.SAMPLE_KEYS_STARTED[3]] : {
+                        "rmk" : [
+                            {
+                                text : 'dataType="text".\nText input type.\nHolds values in string format.\nWhen editing, creates a textarea input box.\nDisplayed as a span tag on the screen.',
+                            },
+                            {
+                                text : 'dataType="mask".\nCharacter input type matching a format.\nHolds values in string format.\nWhen editing, creates an input text box.\nDisplayed as a span tag on the screen.\n\n'
+                                        + 'The format uses "A" for uppercase letters, "a" for lowercase letters,\n"9" for numbers, and other characters represent themselves.\n'
+                                        + 'For example, format="AAA-99" allows input of three uppercase letters + "-" + two numbers.',
+                            },
+                            {
+                                text : 'dataType="number".\n Number input type.\n Holds values in numeric format.\nWhen editing, creates an input number box.\nDisplayed as a span tag on the screen.\n\n'
+                                        + 'The number type format is divided into integer, decimal, and character parts.\n'
+                                        + 'Integer part\n#,### : 9,999. Zero is not displayed.\n #,##0 : Same as above. Zero is displayed.\n # : 9999. Zero is not displayed.\n 0 : Same as above. Zero is displayed.\n'
+                                        + 'Decimal part\n0 : Display zero even if absent\n # : Display only if present\n'
+                                        + 'Character part\nEnds with "%" : Calculated as a percentage and displayed as 00%.\nOther characters : Displayed as is\n\n'
+                                        + 'For example\nformat="#,###.00 $" with value 123123123.1 displays as "123,123,123.10 $".\n'
+                                        + 'format="0 %" with value 0.12 displays as "12 %".\n',
+                            },
+                            {
+                                text : 'dataType="date".\nDate input type.\nHolds values in the string format of a date (yyyymmdd).\nWhen editing, creates an input date box.\nDisplayed as a span tag on the screen.',
+                            },
+                            {
+                                text : 'dataType="month".\nYear and month input type.\nHolds values in the format of year and month (yyyymm).\nWhen editing, creates an input month box.\nDisplayed as a span tag on the screen.',
+                            },
+                            {
+                                text : 'dataType="select".\nSelect type.\nHolds values in object format.\n[\n{value:"val1", text:"text1"},\n{value:"val2", text:"text2", selected:true},\n{value:"val3", text:"text3"}\n]\n'
+                                        + 'If no selected value (selected:true) is present, the first option is selected.\nDisplayed as an input select on the screen and can be edited.',
+                            },
+                            {
+                                text : 'dataType="checkbox".\nCheckbox type.\nHolds values in the string format of checkedValue and uncheckedValue.\n(default: Y, N)\nDisplayed as an input checkbox on the screen and can be edited.',
+                            },
+                            {
+                                text : 'dataType="button".\nButton type.\nHolds values in the string format displayed on the button.\nCannot be edited.\nDisplayed as a button tag on the screen.',
+                            },
+                            {
+                                text : 'dataType="link".\nAnchor tag type.\nHolds values in object format.\n{value: "https://vanilla-grid.github.io/", text: "Go", target: "_blank"}\n'
+                                        + 'After creating the anchor tag, value is set as href, text as innerText, and target as the target attribute value.\nCannot be edited.\nDisplayed as an anchor tag on the screen.',
+                            },
+                            {
+                                text : 'dataType="code".\nString input type determined by the codes attribute. Strings not in the codes attribute cannot be inserted.\nThe codes attribute is set as a string separated by ";".\nThe default value is set by the defaultCode attribute.\nHolds values in string format.\nWhen editing, creates an input box.\nDisplayed as a span tag on the screen.',
+                            },
+                        ]
+                    },
+                },
+                gridNoSearch : {
                     [CONSTS.SAMPLE_KEYS_STARTED[0]] : {
                         "col1" : [
                             {
@@ -309,8 +360,6 @@ beforeDestroy: function() {
                             },
                         ]
                     },
-                },
-                gridNoSearch : {
                     [CONSTS.SAMPLE_KEYS_STARTED[1]] : {
                         "f_nm" : [
                             {text : "James"},
@@ -363,10 +412,10 @@ beforeDestroy: function() {
                         text: "Getting Started"
                     },
                     "STARTED-0001": {
-                        text: "Vanilla Grid를 시작하는 방법은 매우 간단합니다.",
+                        text: "Starting Vanilla Grid is very simple.",
                     },
                     "STARTED-0002": {
-                        text: "1. header에 Vanilla Grid를 선언합니다.",
+                        text: "1. Declare Vanilla Grid in the header.",
                     },
                     "STARTED-0003": {
                         code: 
@@ -374,12 +423,12 @@ beforeDestroy: function() {
 `,
                     },
                     "STARTED-0004": {
-                        text: "2. body에 그리드를 정해진 양식에 맞게 생성합니다.",
+                        text: "2. Create the grid in the body according to the specified format.",
                     },
                     "STARTED-0005": {
                         code: 
 `<!--
-grid와 column의 id속성은 필수 값 입니다.
+The id attribute of grid and column is mandatory.
 <vanilla-grid id="gridId" ...grid attributes >
     <v-col id="columnId01" ...column attributes ></v-col>
     ... columns
@@ -394,99 +443,99 @@ grid와 column의 id속성은 필수 값 입니다.
                         text: "Header"
                     },
                     "STARTED-1101": {
-                        text: "grid의 header는 항상 한 줄을 표현합니다. 컬럼(v-col)에 header 속성을 넣어 설정합니다. header 속성이 없으면 id 속성 값이 header가 됩니다."
+                        text: "The header of the grid always represents a single row. Set the header attribute in the column (v-col). If the header attribute is not set, the id attribute value becomes the header."
                     },
                     "STARTED-1110": {
-                        text: "1. header는 ';'를 구분자로 행 수를 설정합니다."
+                        text: "1. The header can be set to multiple rows using ';' as the separator."
                     },
                     "STARTED-1111": {
                         code: 
-`<!--3행의 header-->
+`<!--3 rows of header-->
 <v-col id="columnId01" header="row1;row2;row3"></v-col>
 `,
                     },
                     "STARTED-1120": {
-                        text: "2. header는 ';'를 구분자로 빈 값(row merge는 아래로 빈 값/ col merge는 오른쪽 빈 값)이 있다면 자동 merge합니다. 우선순위는 row merge > col merge 입니다."
+                        text: "2. The header automatically merges cells with empty values separated by ';' (row merge is downward for empty values, col merge is to the right for empty values). The priority is row merge > col merge."
                     },
                     "STARTED-1121": {
                         code: 
-`<!--1행 1열 ~ 3행 1열 header는 row merge함-->
+`<!--Header of rows 1-3 column 1 are row merged-->
 <v-col id="columnId01" header="row1;;"></v-col>
 <v-col id="columnId02" header="row1;row2;row3"></v-col>
-<!--1행 1열 ~ 1행 2열, 2행 1열 ~ 2행 2열 header는 col merge함-->
+<!--Header of row 1 columns 1-2, row 2 columns 1-2 are col merged-->
 <v-col id="columnId01" header="row1;row2;row3"></v-col>
 <v-col id="columnId02" header=";;row2"></v-col>
 `,
                     },
                     "STARTED-1130": {
-                        text: "3. header는 이스케이프 시퀀스를 갖을 수 있습니다."
+                        text: "3. The header can have escape sequences (also applies to footer)."
                     },
                     "STARTED-1131": {
                         code: 
-`<!--이스케이프와 시퀀스를 사이로 줄바꿈-->
-<v-col id="columnId01" header="이스케이프\\n시퀀스"></v-col>
+`<!--Escape sequence for line break-->
+<v-col id="columnId01" header="escape\\nsequence"></v-col>
 `,
                     },
                     "STARTED-1140": {
-                        text: "4. header는 필터와 정렬 기능, 전체 체크 기능이 있습니다."
+                        text: "4. The header has filter and sort functions, and a select all checkbox function."
                     },
                     "STARTED-1141": {
-                        text: "1) 필터는 사용자가 마지막 행 헤더 왼쪽의 시그마(σ) 클릭하여 사용할 수 있습니다. 시그마(σ)는 filter element를 쉽게 커스터마이징 하여 개발자가 원하는 모양으로 변경할 수 있습니다. (Deep dive에 설명)"
+                        text: "1) Users can use the filter by clicking the sigma (σ) on the left side of the last row header. The sigma (σ) can be easily customized to change the filter element to the developer's desired appearance. (Explained in Deep dive)"
                     },
                     "STARTED-1142": {
-                        text: "2) 정렬은 사용자가 마지막 행 헤더를 더블 클릭하면 발생합니다. data type이 text, number에 따라 정렬 결과가 다릅니다. 정렬 아이콘도 sort element를 쉽게 커스터마이징 하여 변경할 수 있습니다. (Deep dive에 설명)"
+                        text: "2) Sorting occurs when users double-click the last row header. The sorting result differs depending on whether the data type is text or number. The sort icon can also be easily customized to change the sort element. (Explained in Deep dive)"
                     },
                     "STARTED-1143": {
-                        text: "3) data type이 체크박스인 경우 마지막 행 헤더를 더블 클릭하면 정렬되지 않고 체크박스가 일괄 checked, unchecked상태로 변경 됩니다."
+                        text: "3) If the data type is checkbox, double-clicking the last row header does not sort but toggles the checkbox state between checked and unchecked for all rows."
                     },
                     "STARTED-1300": {
                         text: "Footer"
                     },
                     "STARTED-1301": {
-                        text: "1. footer는 최댓값, 최솟값, 합계, 평균 기능이 있습니다."
+                        text: "1. The footer has functions for maximum, minimum, sum, and average values."
                     },
                     "STARTED-1302": {
-                        text: "사용은 '$$'을 앞에 표기하여 MAX, MIN, SUM, AVG의 키워드를 씁니다. ';'를 구분자로 행을 추가할 수 있습니다. 예) $$MAX;$$MIN;$$SUM;$$AVG"
+                        text: "To use these functions, prefix with '$$' and use the keywords MAX, MIN, SUM, AVG. Rows can be added using ';' as the separator. For example: $$MAX;$$MIN;$$SUM;$$AVG"
                     },
                     "STARTED-1303": {
                         code: 
-`<!--최댓값, 최솟값, 합계, 평균-->
-<v-col id="columnId01" dataType="number", footer="$$MAX;$$MIN;$$SUM;$$AVG"></v-col>
+`<!--Maximum, minimum, sum, average-->
+<v-col id="columnId01" dataType="number" footer="$$MAX;$$MIN;$$SUM;$$AVG"></v-col>
 `,
                     },
                     "STARTED-1304": {
-                        text: "계산되는 값은 grid에 보여지고있는 행만을 대상으로 계산합니다. 예를들어 1행을 제외하고 나머지가 filter 처리 되었다면 1행의 값만을 가지고 footer값을 산출합니다."
+                        text: "Calculated values are based only on rows currently visible in the grid. For example, if all rows except one are filtered out, the footer values are calculated based only on that one row."
                     },
                     "STARTED-1305": {
-                        text: "null은 계산 대상에서 제외됩니다. 평균은 소수점 6의 자리까지 도출 후 반올림합니다."
+                        text: "Null values are excluded from the calculations. Averages are rounded to six decimal places."
                     },
                     "STARTED-1306": {
-                        text: "2. 그외의 문자는 모두 단순히 문자열로 표현합니다. 예) MAX :;MIN :;SUM :;AVG :"
+                        text: "2. Other characters are simply displayed as strings. For example: MAX :;MIN :;SUM :;AVG :"
                     },
                     "STARTED-1307": {
                         code: 
-`<!--단순 문자열로 표현됨-->
-<v-col id="columnId01" dataType="number", footer="MAX :;MIN :;SUM :;AVG :"></v-col>
+`<!--Displayed as simple strings-->
+<v-col id="columnId01" dataType="number" footer="MAX :;MIN :;SUM :;AVG :"></v-col>
 `,
                     },
                     "STARTED-1308": {
-                        text: "3. Vanilla grid 객체의 footerFormula를 사용하면 footer에 적용될 함수를 직접 등록하여 사용할 수 있습니다. (Deep dive에 설명)"
+                        text: "3. By using the footerFormula of the Vanilla grid object, you can directly register and use functions to be applied to the footer. (Explained in Deep dive)"
                     },
                     "STARTED-1500": {
-                        text: "컬럼"
+                        text: "Columns"
                     },
                     "STARTED-1501": {
-                        text: "column은 v-col 태그로 설정하며, id 속성이 필수값입니다."
+                        text: "Columns are set with the v-col tag, and the id attribute is mandatory."
                     },
                     "STARTED-1510": {
-                        text: "1. 기본 column은 2개가있습니다. 인덱스 1번의 행번호 (id: 'v-g-rownum') 컬럼과 인덱스 2번의 상태 (id: 'v-g-status') 컬럼입니다."
+                        text: "1. There are two default columns: the row number column at index 1 (id: 'v-g-rownum') and the status column at index 2 (id: 'v-g-status')."
                     },
                     "STARTED-1511": {
-                        text: "1) v-g-rownum 컬럼은 행번호 값을 나타냅니다. 1부터 n까지. grid 속성에서 rownumVisible로 visible설정, rownumSize로 크기설정 등이 가능합니다."
+                        text: "1) The v-g-rownum column shows the row number values from 1 to n. The rownumVisible attribute in the grid can be used to set visibility, and the rownumSize attribute can be used to set the size."
                     },
                     "STARTED-1512": {
                         code: 
-`<!--rownumVisible은 default true이다. v-g-rownum 컬럼의 width를 120px로 설정
+`<!--rownumVisible is true by default. Set the width of the v-g-rownum column to 120px
 <vanilla-grid id="gridId" rownumSize="120px">
 ...
 </vanilla-grid>
@@ -494,14 +543,14 @@ grid와 column의 id속성은 필수 값 입니다.
 `,
                     },
                     "STARTED-1520": {
-                        text: "2) v-g-status 컬럼은 행의 상태 값을 나타냅니다. dataType은 code로 기존 설정된 code만 값을 가질 수 있습니다."
-                            + " 값은 'C', 'U', 'D'가 있습니다. addRow()행 추가시 자동으로 v-g-status의 값이 'C'인 행이 추가됩니다."
-                            + " 행의 셀 값을 변경 시 자동으로 v-g-status의 값이 'U'로 변경되며, 실행 취소 등 다시 원복해도 v-g-status의 값은 변경되지 않습니다."
-                            + " grid 속성에서 statusVisible visible설정 등이 가능합니다."
+                        text: "2) The v-g-status column shows the status values of the row. The dataType is code, and only the preset codes can be used as values."
+                                + " The values can be 'C', 'U', or 'D'. When a row is added using addRow(), a row with v-g-status value 'C' is automatically added."
+                                + " When the value of a cell in the row is changed, the value of v-g-status automatically changes to 'U'. Even if the change is undone, the value of v-g-status does not revert."
+                                + " The statusVisible attribute in the grid can be used to set visibility."
                     },
                     "STARTED-1521": {
                         code: 
-`<!--v-g-status 컬럼을 숨김
+`<!--Hide the v-g-status column
 <vanilla-grid id="gridId" statusVisible="false">
 ...
 </vanilla-grid>
@@ -509,19 +558,235 @@ grid와 column의 id속성은 필수 값 입니다.
 `,
                     },
                     "STARTED-1530": {
-                        text: "2. column에서 정할 수 있는 속성값은 30여가지 정도입니다. (API에 자세히 설명) 가장 중요한 속성은 dataType 속성 입니다."
+                        text: "2. There are about 30 attributes that can be set for a column. (Explained in detail in the API) The most important attribute is the dataType attribute."
                     },
                     "STARTED-1531": {
-                        text: "dataType속성은 10개가 있습니다. ['text', 'mask', 'number', 'date', 'month', 'select', 'checkbox', 'button', 'link', 'code']. default는 text입니다."
+                        text: "There are 10 dataType attributes: ['text', 'mask', 'number', 'date', 'month', 'select', 'checkbox', 'button', 'link', 'code']. The default is text."
+                    },
+                    "STARTED-1532": {
+                        text: "More detailed information about each attribute applied to the dataType is explained in the API."
                     },
                     "STARTED-1700": {
-                        text: "데이터 로드"
+                        text: "Data Load"
+                    },
+                    "STARTED-1701": {
+                        text: "The data uses JSON objects and comes in two forms."
+                    },
+                    "STARTED-1720": {
+                        text: "1. Key-value form"
+                    },
+                    "STARTED-1721": {
+                        text: "An array containing objects composed of key-value pairs."
+                    },
+                    "STARTED-1722": {
+                        text: "[row{column(each colId and value)}, {column(each colId and value)}, ...]"
+                    },
+                    "STARTED-1723": {
+                        text: "Load this data into the grid using gridId.load([{}, {}, ...])."
+                    },
+                    "STARTED-1724": {
+                        code: 
+`//Objects containing the key and value of each cell
+//The following represents two rows of data in a grid with 5 columns.
+const keyValues = [
+    {
+        col1 : 'val1', col2 : '202202', col3 : 'ABC', col4 : 1, col5 : '20240101', //column key-value..
+    },
+    {
+        col1 : 'val1', col2 : '202202', col3 : 'ABC', col4 : 1, col5 : '20240101', //column key-value..
+    },
+]
+//Load keyValues into the grid.
+gridId.load(keyValues);
+//Retrieve the grid data in keyValue format.
+console.log(gridId.getValues());
+`,
+                    },
+                    "STARTED-1740": {
+                        text: "2. Cell data form",
+                    },
+                    "STARTED-1741": {
+                        text: "An array of rows, where each row is an array of columns, and each column is an object containing cell information."
+                    },
+                    "STARTED-1742": {
+                        text: "[row[column{Cell Data},{Cell Data}...],[column{Cell Data},{Cell Data}...]...]"
+                    },
+                    "STARTED-1743": {
+                        text: "Load this data into the grid using gridId.load([[{},{}...],[{},{}...]...])."
+                    },
+                    "STARTED-1744": {
+                        text: "This data format is more complex, but it has the advantage of managing grid data with JSON objects including information about each cell's attributes."
+                    },
+                    "STARTED-1745": {
+                        code: 
+`//Objects containing the information of each cell
+//The following represents two rows of data in a grid with 5 columns.
+const datas = [
+    [
+        {
+            id: 'col1', value: 'val11', dataType: 'text', fontBold: true, //column info..
+        },
+        {
+            id: 'col2', value: '202202', dataType: 'month', //column info..
+        },
+        {
+            id: 'col3', value: 'ABC', dataType: 'mask', format:'AAA', //column info..
+        },
+        {
+            id: 'col4', value: '1', dataType: 'number', //column info..
+        },
+        {
+            id: 'col5', value: '20240101', dataType: 'date', //column info..
+        },
+    ],
+    [
+        {
+            id: 'col1', value: 'val11', dataType: 'text', fontBold: true, //column info..
+        },
+        {
+            id: 'col2', value: '202202', dataType: 'month', //column info..
+        },
+        {
+            id: 'col3', value: 'abc', dataType: 'mask', format:'aaa', //column info..
+        },
+        {
+            id: 'col4', value: '1', dataType: 'number', //column info..
+        },
+        {
+            id: 'col5', value: '20240101', dataType: 'date', //column info..
+        },
+    ],
+]
+//Load datas into the grid.
+gridId.load(datas);
+//Retrieve the grid data in data format.
+console.log(gridId.getDatas());
+`,
+                    },
+                    "STARTED-1999": {
+                        text: "Attributes"
                     },
                     "STARTED-2000": {
                         text: "Grid Attributes"
                     },
+                    "STARTED-2001": {
+                        text: "grid 속성은 기능에 관련된 속성 25개, css에 관련된 속성 56개가 있습니다."
+                    },
+                    "STARTED-2002": {
+                        text: "설정하는 방법은 매우 간단합니다. 그리드 선언 시 속성으로 넣으면 됩니다."
+                    },
+                    "STARTED-2003": {
+                        code: 
+`<!--선택 기능을 단일 cell 선택만 가능하게하고, filter기능을 사용하지 않음.
+<vanilla-grid id="gridId" selectionPolicy="single" filterable="false">
+-->
+`,
+                    },
+                    "STARTED-2004": {
+                        text: "가장 중요한 속성은 id입니다."
+                    },
+                    "STARTED-2005": {
+                        text: 'grid의 id 속성은 document내에서 중복될 수 없습니다. 또 id 속성의 값을 통해 grid가 가진 메소드를 호출할 수 있는 전역 객체를 생성하며 grid의 id 속성을 통해 전역 이벤트를 생성합니다.',
+                    },
+                    "STARTED-2006": {
+                        text: '예를들어 grid의 id 속성을 "grid01"로 설정했다면, document내에서 grid01.load(), grid01.getValues(), grid01.clear()등 처럼 메소드를 사용할 수 있습니다.',
+                    },
+                    "STARTED-2007": {
+                        text: '그리고 grid01_onActiveCell() {//셀 활성화 이벤트 로직}, grid01_onBeforeClickCell() {//셀 클릭 전 발생 이벤트 로직} 처럼 이벤트를 정의하여 사용할 수 있습니다.'
+                    },
+                    "STARTED-2008": {
+                        code: 
+`<script>
+//grid의 id 속성이 "grid01"인 경우
+//grid01에 임의의 cell을 선택하고 키보드를 누르면 발생하는 이벤트 return false시 기존 이벤트 발생(X)
+grid01_onKeydownGrid (e) {
+    if(e.key === 'Y' || e.key === 'y') {        //키의 값이 'Y'나 'y'인 경우
+        const row = grid01.getTargetRow();      //grid01의 선택된 cell의 row를 가져온다.
+        const colId = grid01.getTargetCol();    //grid01의 선택된 cell의 colId를 가져온다.
+        //선택된 cell의 dataType이 checkbox인 경우
+        if(grid01.getCellDataType(row, colId) === 'checkbox') {
+            grid01.setCellValue(row, colId, 'Y');   //cell의 value를 'Y'로 변경함(grid01의 checkedValue가 'Y'인경우 checked됨.)
+        }
+    }
+    if(e.key === 'N' || e.key === 'n') {        //키의 값이 'Y'나 'y'인 경우
+        const row = grid01.getTargetRow();      //grid01의 선택된 cell의 row를 가져온다.
+        const colId = grid01.getTargetCol();    //grid01의 선택된 cell의 colId를 가져온다.
+        //선택된 cell의 dataType이 checkbox인 경우
+        if(grid01.getCellDataType(row, colId) === 'checkbox') {
+            grid01.setCellValue(row, colId, 'N');   //cell의 value를 'N'로 변경함(grid01의 uncheckedValue가 'N'인경우 unchecked됨.)
+        }
+    }
+}
+</script>
+`,
+                    },
+                    "STARTED-2009": {
+                        text: 'grid 속성을 설정한 아주 간단한 예시를 들어보겠습니다.'
+                    },
+                    "STARTED-2020": {
+                        text: '위는 grid 속성을 이용해 grid의 모습을 excel처럼 만들어 본 것입니다. 각 속성의 의미는 다음과 같습니다.'
+                    },
+                    "STARTED-2021": {
+                        text: 'id="gridStarted05" : grid의 id를 gridStarted05로 합니다. 이제 gridStarted05로 메서드를 호출하고 이벤트를 정의할 수 있습니다.'
+                    },
+                    "STARTED-2022": {
+                        text: 'statusVisible="false" : grid의 v-g-status 컬럼을 unvisible처리 합니다.'
+                    },
+                    "STARTED-2023": {
+                        text: 'alterRow="false" : 짝수 행의 색상 표시 기능을 사용하지 않습니다.(번갈아 가며 색상 구분)'
+                    },
+                    "STARTED-2024": {
+                        text: 'filterable="false" : 필터기능을 사용하지 않습니다.'
+                    },
+                    "STARTED-2025": {
+                        text: 'colorSet="green" : colorSet을 green으로 설정 합니다.(colorSet은 이미 정의된 키워드만을 삽입 할 수 있습니다. api에 설명됨)'
+                    },
+                    "STARTED-2026": {
+                        text: 'mouseoverCellBackColor="#efefef" : cell에 mouse가 over될 때의 cell 배경색을 지정합니다.'
+                    },
+                    "STARTED-2027": {
+                        text: 'selectCellBackColor="#dfdfdf" : cell을 선택할 때의 cell 배경색을 지정합니다.'
+                    },
+                    "STARTED-2028": {
+                        text: 'selectRowBackColor="#efefef" : cell을 선택할 때의 해당 cell과 동일한 행에 있는 cell들의 배경색을 지정합니다.'
+                    },
+                    "STARTED-2029": {
+                        text: 'mouseoverCellFontColor="#333" : cell에 mouse가 over될 때의 cell 글자색을 지정합니다.'
+                    },
+                    "STARTED-2030": {
+                        text: 'selectCellFontColor="#333" : cell을 선택할 때의 cell 글자색을 지정합니다.'
+                    },
+                    "STARTED-2031": {
+                        text: 'rownumSize="40px" : grid의 v-g-status 컬럼의 width를 40px로 설정합니다.'
+                    },
+                    "STARTED-2032": {
+                        text: '위와같이 다양한 속성을 통해 grid를 커스터마이징 할 수 있습니다. 자세한 설명은 API를 통해 보시기 바립니다.'
+                    },
                     "STARTED-3000": {
                         text: "Column Attributes"
+                    },
+                    "STARTED-3001": {
+                        text: "컬럼 속성은 총 37가지 입니다."
+                    },
+                    "STARTED-3002": {
+                        text: "가장 중요한 속성은 앞서 기술한 dataType 속성입니다."
+                    },
+                    "STARTED-3003": {
+                        text: "컬럼 속성은 v-col에 선언하여 설정합니다."
+                    },
+                    "STARTED-3004": {
+                        code: 
+`<!--number type의 컬럼, width는 120px이며 format은 '1,234.00 $' 형태로 표기되고 수정할 수 없다.-->
+<vanilla-grid id="gridId">
+    <v-col id="sal" header="salary" dataType="number" width="120" format="#,###.00 $" locked="true"></v-col>
+</vanilla-grid>
+`,
+                    },
+                    "STARTED-3005": {
+                        text: '다양한 속성을 통해 각 컬럼을 커스터마이징 할 수 있습니다. 자세한 설명은 API를 통해 보시기 바립니다.'
+                    },
+                    "STARTED-3006": {
+                        text: '※ 속성에 대한 우선순위는 대략 개별 cell > 컬럼 > grid 순입니다.'
                     },
                     "STARTED-4000": {
                         text: "Events"
@@ -832,15 +1097,20 @@ beforeDestroy: function() {
                         text: "단점",
                     },
                     "INTRO-0431": {
-                        text: "화면에서 각 grid의 cell에 접근이 가능합니다. cell의 실제 value값은 숨겨져있으나 보안상 완전하지 않습니다.",
+                        text: "성능상 편집을 위한 grid는 100행 내외, 조회를 위한 grid는 1000행 내외의 데이터를 load하는 것이 좋습니다.",
                     },
                     "INTRO-0432": {
-                        text: "cell에 focus를 둔 상태에서 사용자의 키보드 입력 시 해당 키가 바로 입력되는 기능을 지원하지 않습니다.(한글 입력의 제한으로 구현하지 못했습니다..)",
+                        text: "화면에서 각 grid의 cell에 접근이 가능합니다. cell의 실제 value값은 숨겨져있으나 보안상 완전하지 않습니다.",
                     },
                     "INTRO-0433": {
+                        text: "cell에 focus를 둔 상태에서 사용자의 키보드 입력 시 해당 키가 바로 입력되는 기능을 지원하지 않습니다.(한글 입력의 제한으로 구현하지 못했습니다..)",
+                    },
+                    "INTRO-0434": {
+                        text: "filter는 하나의 컬럼당 한가지 값만 선택 가능합니다.",
+                    },
+                    "INTRO-0435": {
                         text: "개발자 모드에서 전역변수로 선언된 함수 호출 변수를 접근 할 수 있습니다. 라이브러리를 통한 개발에 용이하기 위해 제공한 로직이지만 보안에 취약할 수 있습니다. "
-                            + "함수 호출 변수(window[gridId])는 window[gridId].removeGridMethod()로 자신을 제거할 수 있습니다. F12키를 감지하여 해당 로직을 호출하십시오."
-                            + "선언되는 이벤트 메소드는 최초 정의된 것과 다른 로직을 보이면 에러를 발생시키고 동작하지 않습니다.(보안을 위해 이벤트는 최초 한번만 정의할 수 있습니다.)",
+                            + "함수 호출 변수(window[gridId])는 window[gridId].removeGridMethod()로 자신을 제거할 수 있습니다. F12키를 감지하여 해당 로직을 호출하는 등 보안 로직을 적용 하십시오."
                     },
                     "INTRO-0500": {
                         text: "브라우저 호환성",
@@ -855,6 +1125,52 @@ beforeDestroy: function() {
             },
             started: {
                 grid : {
+                    [CONSTS.SAMPLE_KEYS_STARTED[3]] : {
+                        "rmk" : [
+                            {
+                                text : 'dataType="text".\n글자 입력 타입.\n문자열 형식의 값을 가진다.\n수정 시 textarea 입력창 생성.\n화면 상에 span태그로 표현.',
+                            },
+                            {
+                                text : 'dataType="mask".\nformat에 맞는 글자 입력 타입.\n문자열 형식의 값을 가진다.\n수정 시 input text 입력창 생성.\n화면 상에 span태그로 표현.\n\n'
+                                        + 'format은 "A"는 알파벳 대문자, "a"는 소문자,\n"9"는 숫자를 의미하며, 그외 문자는 동일한 문자를 의미한다.\n'
+                                        + '예를들어 format="AAA-99"는 대문자 세글자 + "-" + 숫자 두글자를 입력 가능.',
+                            },
+                            {
+                                text : 'dataType="number".\n 숫자 입력 타입.\n 숫자 형식의 값을 가진다.\n수정 시 input number 입력창 생성.\n 화면 상에 span태그로 표현.\n\n'
+                                        + 'number type의 format은 정수부와 소수부, 문자부로 나뉜다.\n'
+                                        + '정수부\n#,### : 9,999. 0은 표기안함.\n #,##0 : 위와 동일. 0 표기함.\n # : 9999. 0은 표기 안함.\n 0 : 위와 동일. 0 표기함.\n'
+                                        + '소수부\n0 : 없어도 0으로 표기\n # : 있는 경우만 표기'
+                                        + '문자부\n끝자리에 "%" : 백분율로 수를 계산해서 00%로 표기.\n그외 문자 : 문자 그대로 표기\n\n'
+                                        + '예를들어\nformat="#,###.00 ￦" 값이 123123123.1 이면, "123,123,123.10 ￦"으로 출력됨.\n'
+                                        + 'format="0 %" 값이 0.12 이면, "12 %"으로 출력됨.\n',
+                            },
+                            {
+                                text : 'dataType="date".\n날짜 입력 타입.\n날짜(yyyymmdd)로 구성된 문자열 형식의 값을 가진다.\n수정 시 input date 입력창 생성.\n화면 상에 span태그로 표현.',
+                            },
+                            {
+                                text : 'dataType="month".\n년월 입력 타입.\n년월(yyyymm)으로 구성된 형식의 값을 가진다.\n수정 시 input month 입력창 생성.\n화면 상에 span태그로 표현.',
+                            },
+                            {
+                                text : 'dataType="select".\nselect 타입.\n객체 형식의 값을 가진다.\n[\n{value:"val1", text:"text1"},\n{value:"val2", text:"text2", selected:true},\n{value:"val3", text:"text3"}\n]\n'
+                                        + '선택 값(selected:true)가 없으면 첫번째 option을 선택함.\n화면 상에 input select로 표현되며 수정 가능하다.',
+                            },
+                            {
+                                text : 'dataType="checkbox".\ncheckbox 타입.\n설정된 checkedValue, uncheckedValue의 문자열 형식의 값을 가진다.\n(default: Y, N)\n화면 상에 input checkbox로 표현되며 수정 가능하다.',
+                            },
+                            {
+                                text : 'dataType="button".\nbutton 타입.\n버튼에 표기되는 문자열 형식의 값을 가진다.\n수정 불가.\n화면 상에 button태그로 표현.',
+                            },
+                            {
+                                text : 'dataType="link".\na태그 타입.\n객체 형식의 값을 가진다.\n{value: "https://vanilla-grid.github.io/", text: "이동", target: "_blank"}\n'
+                                        + 'a태그 생성 후 value는 herf, text는 innerText target은 target 속성의 값이 된다.\n수정 불가.\n화면 상에 a태그로 표현.',
+                            },
+                            {
+                                text : 'dataType="code".\ncodes 속성으로 정한 문자열 입력 타입. codes에 없는 문자열은 삽입 불가.\ncodes 속성은 ";"을 구분자로 하는 문자열로 설정한다.\ndefault는 defaultCode 속성의 값이 들어감.\n 문자열 형식의 값을 가진다.\n수정 시 input 입력창 생성.\n화면 상에 span태그로 표현.',
+                            },
+                        ]
+                    },
+                },
+                gridNoSearch : {
                     [CONSTS.SAMPLE_KEYS_STARTED[0]] : {
                         "col1" : [
                             {
@@ -862,8 +1178,6 @@ beforeDestroy: function() {
                             },
                         ]
                     },
-                },
-                gridNoSearch : {
                     [CONSTS.SAMPLE_KEYS_STARTED[1]] : {
                         "f_nm" : [
                             {text : "영자"},
@@ -916,10 +1230,259 @@ beforeDestroy: function() {
                         text: "시작하기"
                     },
                     "STARTED-0001": {
-                        text: "※ filter와 sorting icon은 font awesome을 적용하였습니다. 기본 형태는 적용되지 않으며, 별도의 로직이 필요함. (Deep dive에 설명)",
+                        text: "Vanilla Grid를 시작하는 방법은 매우 간단합니다.",
+                    },
+                    "STARTED-0002": {
+                        text: "1. header에 Vanilla Grid를 선언합니다.",
+                    },
+                    "STARTED-0003": {
+                        code: 
+`<script src="Vanillagrid.min.1.0.0.js"></script>
+`,
+                    },
+                    "STARTED-0004": {
+                        text: "2. body에 그리드를 정해진 양식에 맞게 생성합니다.",
+                    },
+                    "STARTED-0005": {
+                        code: 
+`<!--
+grid와 column의 id속성은 필수 값 입니다.
+<vanilla-grid id="gridId" ...grid attributes >
+    <v-col id="columnId01" ...column attributes ></v-col>
+    ... columns
+</vanilla-grid>
+-->
+`,
                     },
                     "STARTED-1000": {
                         text: "간단한 사용"
+                    },
+                    "STARTED-1100": {
+                        text: "Header"
+                    },
+                    "STARTED-1101": {
+                        text: "grid의 header는 항상 한 줄을 표현합니다. 컬럼(v-col)에 header 속성을 넣어 설정합니다. header 속성이 없으면 id 속성 값이 header가 됩니다."
+                    },
+                    "STARTED-1110": {
+                        text: "1. header는 ';'를 구분자로 행 수를 설정합니다."
+                    },
+                    "STARTED-1111": {
+                        code: 
+`<!--3행의 header-->
+<v-col id="columnId01" header="row1;row2;row3"></v-col>
+`,
+                    },
+                    "STARTED-1120": {
+                        text: "2. header는 ';'를 구분자로 빈 값(row merge는 아래로 빈 값/ col merge는 오른쪽 빈 값)이 있다면 자동 merge합니다. 우선순위는 row merge > col merge 입니다."
+                    },
+                    "STARTED-1121": {
+                        code: 
+`<!--1행 1열 ~ 3행 1열 header는 row merge함-->
+<v-col id="columnId01" header="row1;;"></v-col>
+<v-col id="columnId02" header="row1;row2;row3"></v-col>
+<!--1행 1열 ~ 1행 2열, 2행 1열 ~ 2행 2열 header는 col merge함-->
+<v-col id="columnId01" header="row1;row2;row3"></v-col>
+<v-col id="columnId02" header=";;row2"></v-col>
+`,
+                    },
+                    "STARTED-1130": {
+                        text: "3. header는 이스케이프 시퀀스를 갖을 수 있습니다.(footer도)"
+                    },
+                    "STARTED-1131": {
+                        code: 
+`<!--이스케이프와 시퀀스를 사이로 줄바꿈-->
+<v-col id="columnId01" header="이스케이프\\n시퀀스"></v-col>
+`,
+                    },
+                    "STARTED-1140": {
+                        text: "4. header는 필터와 정렬 기능, 전체 체크 기능이 있습니다."
+                    },
+                    "STARTED-1141": {
+                        text: "1) 필터는 사용자가 마지막 행 헤더 왼쪽의 시그마(σ) 클릭하여 사용할 수 있습니다. 시그마(σ)는 filter element를 쉽게 커스터마이징 하여 개발자가 원하는 모양으로 변경할 수 있습니다. (Deep dive에 설명)"
+                    },
+                    "STARTED-1142": {
+                        text: "2) 정렬은 사용자가 마지막 행 헤더를 더블 클릭하면 발생합니다. data type이 text, number에 따라 정렬 결과가 다릅니다. 정렬 아이콘도 sort element를 쉽게 커스터마이징 하여 변경할 수 있습니다. (Deep dive에 설명)"
+                    },
+                    "STARTED-1143": {
+                        text: "3) data type이 체크박스인 경우 마지막 행 헤더를 더블 클릭하면 정렬되지 않고 체크박스가 일괄 checked, unchecked상태로 변경 됩니다."
+                    },
+                    "STARTED-1300": {
+                        text: "Footer"
+                    },
+                    "STARTED-1301": {
+                        text: "1. footer는 최댓값, 최솟값, 합계, 평균 기능이 있습니다."
+                    },
+                    "STARTED-1302": {
+                        text: "사용은 '$$'을 앞에 표기하여 MAX, MIN, SUM, AVG의 키워드를 씁니다. ';'를 구분자로 행을 추가할 수 있습니다. 예) $$MAX;$$MIN;$$SUM;$$AVG"
+                    },
+                    "STARTED-1303": {
+                        code: 
+`<!--최댓값, 최솟값, 합계, 평균-->
+<v-col id="columnId01" dataType="number", footer="$$MAX;$$MIN;$$SUM;$$AVG"></v-col>
+`,
+                    },
+                    "STARTED-1304": {
+                        text: "계산되는 값은 grid에 보여지고있는 행만을 대상으로 계산합니다. 예를들어 1행을 제외하고 나머지가 filter 처리 되었다면 1행의 값만을 가지고 footer값을 산출합니다."
+                    },
+                    "STARTED-1305": {
+                        text: "null은 계산 대상에서 제외됩니다. 평균은 소수점 6의 자리까지 도출 후 반올림합니다."
+                    },
+                    "STARTED-1306": {
+                        text: "2. 그외의 문자는 모두 단순히 문자열로 표현합니다. 예) MAX :;MIN :;SUM :;AVG :"
+                    },
+                    "STARTED-1307": {
+                        code: 
+`<!--단순 문자열로 표현됨-->
+<v-col id="columnId01" dataType="number", footer="MAX :;MIN :;SUM :;AVG :"></v-col>
+`,
+                    },
+                    "STARTED-1308": {
+                        text: "3. Vanilla grid 객체의 footerFormula를 사용하면 footer에 적용될 함수를 직접 등록하여 사용할 수 있습니다. (Deep dive에 설명)"
+                    },
+                    "STARTED-1500": {
+                        text: "컬럼"
+                    },
+                    "STARTED-1501": {
+                        text: "column은 v-col 태그로 설정하며, id 속성이 필수값입니다."
+                    },
+                    "STARTED-1510": {
+                        text: "1. 기본 column은 2개가있습니다. 인덱스 1번의 행번호 (id: 'v-g-rownum') 컬럼과 인덱스 2번의 상태 (id: 'v-g-status') 컬럼입니다."
+                    },
+                    "STARTED-1511": {
+                        text: "1) v-g-rownum 컬럼은 행번호 값을 나타냅니다. 1부터 n까지. grid 속성에서 rownumVisible로 visible설정, rownumSize로 크기설정 등이 가능합니다."
+                    },
+                    "STARTED-1512": {
+                        code: 
+`<!--rownumVisible은 default true이다. v-g-rownum 컬럼의 width를 120px로 설정
+<vanilla-grid id="gridId" rownumSize="120px">
+...
+</vanilla-grid>
+-->
+`,
+                    },
+                    "STARTED-1520": {
+                        text: "2) v-g-status 컬럼은 행의 상태 값을 나타냅니다. dataType은 code로 기존 설정된 code만 값을 가질 수 있습니다."
+                            + " 값은 'C', 'U', 'D'가 있습니다. addRow()행 추가시 자동으로 v-g-status의 값이 'C'인 행이 추가됩니다."
+                            + " 행의 셀 값을 변경 시 자동으로 v-g-status의 값이 'U'로 변경되며, 실행 취소 등 다시 원복해도 v-g-status의 값은 변경되지 않습니다."
+                            + " grid 속성에서 statusVisible로 visible설정 등이 가능합니다."
+                    },
+                    "STARTED-1521": {
+                        code: 
+`<!--v-g-status 컬럼을 숨김
+<vanilla-grid id="gridId" statusVisible="false">
+...
+</vanilla-grid>
+-->
+`,
+                    },
+                    "STARTED-1530": {
+                        text: "2. column에서 정할 수 있는 속성값은 30여가지 정도입니다. (API에 자세히 설명) 가장 중요한 속성은 dataType 속성 입니다."
+                    },
+                    "STARTED-1531": {
+                        text: "dataType속성은 10개가 있습니다. ['text', 'mask', 'number', 'date', 'month', 'select', 'checkbox', 'button', 'link', 'code']. default는 text입니다."
+                    },
+                    "STARTED-1532": {
+                        text: "dataType에 적용되는 각 속성들에 대한 정보는 api에서 더 자세히 설명되어 있습니다."
+                    },
+                    "STARTED-1700": {
+                        text: "데이터 Load"
+                    },
+                    "STARTED-1701": {
+                        text: "데이터 JSON객체를 활용하며 두가지 형태가 있습니다."
+                    },
+                    "STARTED-1720": {
+                        text: "1. 키-값 형태"
+                    },
+                    "STARTED-1721": {
+                        text: "배열안에 키-값으로 구성된 객체를 요소로하는 형태 입니다."
+                    },
+                    "STARTED-1722": {
+                        text: "[행{열(각 colId와 value)}, {열(각 colId와 value)}, ...]"
+                    },
+                    "STARTED-1723": {
+                        text: "본 데이터를 gridId.load([{}, {}, ...]) 하여 grid에 불러올 수 있습니다."
+                    },
+                    "STARTED-1724": {
+                        code: 
+`//각 cell의 키와 값만을 담은 객체
+//아래는 5열의 grid에 2줄의 데이터를 표현합니다.
+const keyValues = [
+    {
+        col1 : 'val1', col2 : '202202', col3 : 'ABC', col4 : 1, col5 : '20240101', //column key-value..
+    },
+    {
+        col1 : 'val1', col2 : '202202', col3 : 'ABC', col4 : 1, col5 : '20240101', //column key-value..
+    },
+]
+//grid에 keyValues를 불러오기.
+gridId.load(keyValues);
+//메소드를 통해 grid의 데이터를 keyValue형태로 가져오기.
+console.log(gridId.getValues());
+`,
+                    },
+                    "STARTED-1740": {
+                        text: "2. 셀 데이터 형태",
+                    },
+                    "STARTED-1741": {
+                        text: "행을 의미하는 배열안에 열을 의미하는 배열, 열 배열 안에 cell의 정보를 담는 객체로 구성되어 있습니다."
+                    },
+                    "STARTED-1742": {
+                        text: "[행[열{Cell Data},{Cell Data}...],[열{Cell Data},{Cell Data}...]...]"
+                    },
+                    "STARTED-1743": {
+                        text: "본 데이터를 gridId.load([[{},{}...],[{},{}...]...]) 하여 grid에 불러올 수 있습니다."
+                    },
+                    "STARTED-1744": {
+                        text: "데이터 형태는 좀더 복잡하지만 각 셀에 대한 속성등의 정보도 포함한 상태로 JSON 객체를 통해 grid의 데이터를 관리할 수 있는 장점이 있습니다."
+                    },
+                    "STARTED-1745": {
+                        code: 
+`//각 cell의 정보를 담은 객체
+//아래는 5열의 grid에 2줄의 데이터를 표현합니다.
+const datas = [
+    [
+        {
+            id: 'col1', value: 'val11', dataType: 'text', fontBold: true, //column info..
+        },
+        {
+            id: 'col2', value: '202202', dataType: 'month', //column info..
+        },
+        {
+            id: 'col3', value: 'ABC', dataType: 'mask', format:'AAA', //column info..
+        },
+        {
+            id: 'col4', value: '1', dataType: 'number', //column info..
+        },
+        {
+            id: 'col5', value: '20240101', dataType: 'date', //column info..
+        },
+    ],
+    [
+        {
+            id: 'col1', value: 'val11', dataType: 'text', fontBold: true, //column info..
+        },
+        {
+            id: 'col2', value: '202202', dataType: 'month', //column info..
+        },
+        {
+            id: 'col3', value: 'abc', dataType: 'mask', format:'aaa', //column info..
+        },
+        {
+            id: 'col4', value: '1', dataType: 'number', //column info..
+        },
+        {
+            id: 'col5', value: '20240101', dataType: 'date', //column info..
+        },
+    ],
+]
+//grid에 datas를 불러오기.
+gridId.load(datas);
+//메소드를 통해 grid의 데이터를 data형태로 가져오기.
+console.log(gridId.getDatas());
+`,
+                    },
+                    "STARTED-1999": {
+                        text: "속성"
                     },
                     "STARTED-2000": {
                         text: "그리드 속성"
@@ -933,7 +1496,6 @@ beforeDestroy: function() {
                     "STARTED-5000": {
                         text: "메소드"
                     },
-
                 },
             },
             dive: {
@@ -1034,9 +1596,9 @@ beforeDestroy: function() {
             this.ENG.started.text[key].anchor = "anchor_" + idx;
         });
         //started grid data에 cell정보 삽입(ENG)
-        //gridStarted01
-        for(let r = 0; r < this.ENG.started.grid[CONSTS.SAMPLE_KEYS_STARTED[0]].col1.length; r++) {
-            setCellInfo(this.ENG.started.grid[CONSTS.SAMPLE_KEYS_STARTED[0]].col1[r], CONSTS.SAMPLE_GRID_IDS_STARTED[0], r, "col1", CONSTS.VIEW_KEY_STARTED);
+        // gridStarted04
+        for(let r = 0; r < this.ENG.started.grid[CONSTS.SAMPLE_KEYS_STARTED[3]].rmk.length; r++) {
+            setCellInfo(this.ENG.started.grid[CONSTS.SAMPLE_KEYS_STARTED[3]].rmk[r], CONSTS.SAMPLE_GRID_IDS_STARTED[3], r, "rmk", CONSTS.VIEW_KEY_STARTED);
         }
         //started view key, anchor id 삽입
         Object.keys(this.KOR.started.text).forEach((key, idx) => {
@@ -1044,9 +1606,9 @@ beforeDestroy: function() {
             this.KOR.started.text[key].anchor = "anchor_" + idx;
         });
         //started grid data에 cell정보 삽입(KOR)
-        //gridStarted01
-        for(let r = 0; r < this.KOR.started.grid[CONSTS.SAMPLE_KEYS_STARTED[0]].col1.length; r++) {
-            setCellInfo(this.KOR.started.grid[CONSTS.SAMPLE_KEYS_STARTED[0]].col1[r], CONSTS.SAMPLE_GRID_IDS_STARTED[0], r, "col1", CONSTS.VIEW_KEY_STARTED);
+        // gridStarted04
+        for(let r = 0; r < this.KOR.started.grid[CONSTS.SAMPLE_KEYS_STARTED[3]].rmk.length; r++) {
+            setCellInfo(this.KOR.started.grid[CONSTS.SAMPLE_KEYS_STARTED[3]].rmk[r], CONSTS.SAMPLE_GRID_IDS_STARTED[3], r, "rmk", CONSTS.VIEW_KEY_STARTED);
         }
 
         //dive view key, anchor id 삽입
