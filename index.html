@@ -17,12 +17,12 @@
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
-	<script src="Vanillagrid.min.1.0.0.js?v=20240625"></script>
-	<script src="Consts.js?v=20240625"></script>
-	<script src="Contents.js?v=20240625"></script>
-	<script src="SampleDatas.js?v=20240625"></script>
-	<script src="SampleGrids.js?v=20240625"></script>
-	<script src="Component.js?v=20240625"></script>
+	<script src="Vanillagrid.min.1.0.0.js?v=20240626"></script>
+	<script src="Consts.js?v=20240626"></script>
+	<script src="Contents.js?v=20240626"></script>
+	<script src="SampleDatas.js?v=20240626"></script>
+	<script src="SampleGrids.js?v=20240626"></script>
+	<script src="Component.js?v=20240626"></script>
 	<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
 	<style>
 	*, ::before, ::after {
@@ -85,6 +85,10 @@
 		overflow-y: auto;
 		overflow-x: hidden;
 		-webkit-overflow-scrolling: touch;
+	}
+	li {
+		font-size: 14px;
+		line-height: 1.6em;
 	}
 	@font-face {
 		font-family: 'Noto Sans KR';
@@ -211,8 +215,13 @@
 	}
 	.h5 {
 		padding: 0 8px;
-		font-size: 15px;
+		font-size: 16px;
 		line-height: 1.5em;
+	}
+	.h6 {
+		padding: 0 8px;
+		font-size: 14px;
+		line-height: 1.3em;
 	}
 	.logo {
 		font-family: 'Georgia';
@@ -229,12 +238,12 @@
 		background-color: yellow;
 		font-weight: bold;
 	}
-	@media (max-width: 2000px) {
+	@media (max-width: 4000px) {
 		.grid-box, .explain-box {
 			width: 95%;
 		}
 	}
-	@media (max-width: 600px) {
+	@media (max-width: 700px) {
 		.explain-box {
 			padding:0 15px;
 			width: 100%;
@@ -655,10 +664,10 @@
 					if(this.isMobileSize) {
 						this.vg.defaultGridCssInfo.sizeLevel = 7;
 						this.vg.defaultGridCssInfo.cellMinHeight = 28;
-						this.vg.defaultGridCssInfo.height = '500px';
+						this.vg.defaultGridCssInfo.height = '400px';
 					}
 					else {
-						this.vg.defaultGridCssInfo.height = '400px';
+						this.vg.defaultGridCssInfo.height = '500px';
 					}
 					//filter, sort span customize
 					this.vg.filterSpan = document.createElement("i");
@@ -671,6 +680,7 @@
 					this.vg.sortDescSpan = document.createElement("i");
 					this.vg.sortDescSpan.setAttribute("class", "fas fa-sort-down");
 					this.vg.sortDescSpan.style.marginLeft = "7px";
+
 					this.vg.create();
 					this.loadGrid();
 				},
@@ -784,13 +794,20 @@
 					if(this.isMobileSize) {
 						this.vg.defaultGridCssInfo.sizeLevel = 7;
 						this.vg.defaultGridCssInfo.cellMinHeight = 28;
-						this.vg.defaultGridCssInfo.height = '400px';
-					}
-					else {
 						this.vg.defaultGridCssInfo.height = '300px';
 					}
-
+					else {
+						this.vg.defaultGridCssInfo.height = '400px';
+					}
 					this.vg.create();
+					
+					const grid4 = window[CONSTS.SAMPLE_GRID_IDS_STARTED[3]];
+					if(this.isMobileSize) {
+						grid4.setGridHeight('500px');
+					}
+					else {
+						grid4.setGridHeight('600px');
+					}
 					this.loadGrid();
 				},
 				beforeDestroy: function() {
@@ -802,7 +819,7 @@
 					return {
 						vg : null,
 	            		currentSub : 'started',
-	            		startedSubs : ['started','simpUse','gridAttr','colAttr','events','methods'],
+	            		startedSubs : ['started','simpUse','attr','events','methods'],
 						resizeTimeout : null,
 					}
 				},
@@ -813,20 +830,18 @@
 	            				return [
 			        	            { id: this.startedSubs[0], name: '시작하기' },
 			        	            { id: this.startedSubs[1], name: '간단한 사용' },
-			        	            { id: this.startedSubs[2], name: '그리드 속성' },
-			        	            { id: this.startedSubs[3], name: '컬럼 속성' },
-			        	            { id: this.startedSubs[4], name: '이벤트' },
-			        	            { id: this.startedSubs[5], name: '메소드' },
+			        	            { id: this.startedSubs[2], name: '속성' },
+			        	            { id: this.startedSubs[3], name: '이벤트' },
+			        	            { id: this.startedSubs[4], name: '메소드' },
 			        	        ];
 	            				break;
 	            			default :
 	            				return [
 			        	            { id: this.startedSubs[0], name: 'Getting Started' },
 			        	            { id: this.startedSubs[1], name: 'Simple use' },
-			        	            { id: this.startedSubs[2], name: 'Grid attributes' },
-			        	            { id: this.startedSubs[3], name: 'Column attributes' },
-			        	            { id: this.startedSubs[4], name: 'Events' },
-			        	            { id: this.startedSubs[5], name: 'Methods' },
+			        	            { id: this.startedSubs[2], name: 'Attributes' },
+			        	            { id: this.startedSubs[3], name: 'Events' },
+			        	            { id: this.startedSubs[4], name: 'Methods' },
 			        	        ];
 	            				break;
 	            		}
@@ -849,8 +864,7 @@
 	    	            this.resizeTimeout = setTimeout(() => {
 	    	            	const started = document.getElementById('started');
 	    	            	const simpUse = document.getElementById('simpUse');
-	    	            	const gridAttr = document.getElementById('gridAttr');
-	    	            	const colAttr = document.getElementById('colAttr');
+	    	            	const attr = document.getElementById('attr');
 	    	            	const events = document.getElementById('events');
 	    	            	const methods = document.getElementById('methods');
 
@@ -858,10 +872,8 @@
 		            			this.currentSub = 'methods';
 		            		} else if(this.isElInView(events)) {
 		            			this.currentSub = 'events';
-		            		} else if(this.isElInView(colAttr)) {
-		            			this.currentSub = 'colAttr';
-		            		} else if(this.isElInView(gridAttr)) {
-		            			this.currentSub = 'gridAttr';
+		            		} else if(this.isElInView(attr)) {
+		            			this.currentSub = 'attr';
 		            		} else if(this.isElInView(simpUse)) {
 		            			this.currentSub = 'simpUse';
 		            		} else if(this.isElInView(started)) {
@@ -873,6 +885,22 @@
 						window[CONSTS.SAMPLE_GRID_IDS_STARTED[0]].load(SAMPLE_DATAS[this.currentLang].started[CONSTS.SAMPLE_KEYS_STARTED[0]]);
 						window[CONSTS.SAMPLE_GRID_IDS_STARTED[1]].load(SAMPLE_DATAS[this.currentLang].started[CONSTS.SAMPLE_KEYS_STARTED[1]]);
 						window[CONSTS.SAMPLE_GRID_IDS_STARTED[2]].load(SAMPLE_DATAS[this.currentLang].started[CONSTS.SAMPLE_KEYS_STARTED[2]]);
+						window[CONSTS.SAMPLE_GRID_IDS_STARTED[3]].load(SAMPLE_DATAS[this.currentLang].started[CONSTS.SAMPLE_KEYS_STARTED[3]]);
+						window[CONSTS.SAMPLE_GRID_IDS_STARTED[4]].load(SAMPLE_DATAS[this.currentLang].started[CONSTS.SAMPLE_KEYS_STARTED[4]]);
+
+						const grid4 = window[CONSTS.SAMPLE_GRID_IDS_STARTED[3]];
+						grid4.setCellDataType(2, 4, 'mask');
+						grid4.setCellFormat(2, 4, 'AAA-99')
+						grid4.setCellDataType(3, 4, 'number');
+						grid4.setCellFormat(3, 4, '0 %');
+						grid4.setCellDataType(4, 4, 'date');
+						grid4.setCellDataType(5, 4, 'month');
+						grid4.setCellDataType(6, 4, 'select');
+						grid4.setCellDataType(7, 4, 'checkbox');
+						grid4.setCellDataType(8, 4, 'button');
+						grid4.setCellDataType(9, 4, 'link');
+						grid4.setCellDataType(10, 4, 'code');
+						grid4.setCellCodes(10, 4, ['C','U','D']);
 					},
 	            },
 	        },
@@ -1101,9 +1129,6 @@
 	<script type="text/javascript">
 	vanillagrid_onBeforeCreate = function(e, vn) {
 		return false;
-	}
-	gridIntro01_onChooseFilter = function(...p) {
-		console.log(p);
 	}
 	</script>
 </body>
