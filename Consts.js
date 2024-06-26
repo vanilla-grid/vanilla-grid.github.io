@@ -409,7 +409,7 @@ function getConsts () {
         this.VIEW_KEY_API = "api";
         this.SAMPLE_KEYS_INTRO = ['intro01', 'intro02'];
         this.SAMPLE_GRID_IDS_INTRO = this.SAMPLE_KEYS_INTRO.map(str => `grid${str.charAt(0).toUpperCase() + str.slice(1)}`);
-        this.SAMPLE_KEYS_STARTED = ['started01','started02','started03'];
+        this.SAMPLE_KEYS_STARTED = ['started01','started02','started03','started04','started05'];
         this.SAMPLE_GRID_IDS_STARTED = this.SAMPLE_KEYS_STARTED.map(str => `grid${str.charAt(0).toUpperCase() + str.slice(1)}`);
         this.SAMPLE_KEYS_DIVE = ['dive01'];
         this.SAMPLE_GRID_IDS_DIVE = this.SAMPLE_KEYS_DIVE.map(str => `grid${str.charAt(0).toUpperCase() + str.slice(1)}`);
