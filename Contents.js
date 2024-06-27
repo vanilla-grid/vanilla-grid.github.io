@@ -670,50 +670,50 @@ console.log(gridId.getDatas());
                         text: "Grid Attributes"
                     },
                     "STARTED-2001": {
-                        text: "grid 속성은 기능에 관련된 속성 25개, css에 관련된 속성 56개가 있습니다."
+                        text: "There are 25 attributes related to functionality and 56 attributes related to CSS."
                     },
                     "STARTED-2002": {
-                        text: "설정하는 방법은 매우 간단합니다. 그리드 선언 시 속성으로 넣으면 됩니다."
+                        text: "Setting attributes is very simple. Just include them when declaring the grid."
                     },
                     "STARTED-2003": {
                         code: 
-`<!--선택 기능을 단일 cell 선택만 가능하게하고, filter기능을 사용하지 않음.
+`<!--Only single cell selection is allowed, and the filter function is not used.
 <vanilla-grid id="gridId" selectionPolicy="single" filterable="false">
 -->
 `,
                     },
                     "STARTED-2004": {
-                        text: "가장 중요한 속성은 id입니다."
+                        text: "The most important attribute is id."
                     },
                     "STARTED-2005": {
-                        text: 'grid의 id 속성은 document내에서 중복될 수 없습니다. 또 id 속성의 값을 통해 grid가 가진 메소드를 호출할 수 있는 전역 객체를 생성하며 grid의 id 속성을 통해 전역 이벤트를 생성합니다.',
+                        text: 'The grid id attribute must be unique within the document. The id attribute value creates a global object through which the grid’s methods can be called, and global events are generated through the grid’s id attribute.',
                     },
                     "STARTED-2006": {
-                        text: '예를들어 grid의 id 속성을 "grid01"로 설정했다면, document내에서 grid01.load(), grid01.getValues(), grid01.clear()등 처럼 메소드를 사용할 수 있습니다.',
+                        text: 'For example, if the grid id attribute is set to "grid01", methods such as grid01.load(), grid01.getValues(), and grid01.clear() can be used within the document.',
                     },
                     "STARTED-2007": {
-                        text: '그리고 grid01_onActiveCell() {//셀 활성화 이벤트 로직}, grid01_onBeforeClickCell() {//셀 클릭 전 발생 이벤트 로직} 처럼 이벤트를 정의하여 사용할 수 있습니다.'
+                        text: 'Additionally, events can be defined and used as grid01_onActiveCell() {//cell activation event logic}, grid01_onBeforeClickCell() {//event logic before cell click}.'
                     },
                     "STARTED-2008": {
                         code: 
 `<script>
-//grid의 id 속성이 "grid01"인 경우
-//grid01에 임의의 cell을 선택하고 키보드를 누르면 발생하는 이벤트 return false시 기존 이벤트 발생(X)
+//If the grid id attribute is "grid01"
+//The following event occurs when any cell in grid01 is selected and a key is pressed. If return false, the default event does not occur.
 grid01_onKeydownGrid (e) {
-    if(e.key === 'Y' || e.key === 'y') {        //키의 값이 'Y'나 'y'인 경우
-        const row = grid01.getTargetRow();      //grid01의 선택된 cell의 row를 가져온다.
-        const colId = grid01.getTargetCol();    //grid01의 선택된 cell의 colId를 가져온다.
-        //선택된 cell의 dataType이 checkbox인 경우
+    if(e.key === 'Y' || e.key === 'y') {        //If the key value is 'Y' or 'y'
+        const row = grid01.getTargetRow();      //Get the row of the selected cell in grid01.
+        const colId = grid01.getTargetCol();    //Get the colId of the selected cell in grid01.
+        //If the dataType of the selected cell is checkbox
         if(grid01.getCellDataType(row, colId) === 'checkbox') {
-            grid01.setCellValue(row, colId, 'Y');   //cell의 value를 'Y'로 변경함(grid01의 checkedValue가 'Y'인경우 checked됨.)
+            grid01.setCellValue(row, colId, 'Y');   //Change the cell value to 'Y' (if grid01's checkedValue is 'Y', it will be checked.)
         }
     }
-    if(e.key === 'N' || e.key === 'n') {        //키의 값이 'Y'나 'y'인 경우
-        const row = grid01.getTargetRow();      //grid01의 선택된 cell의 row를 가져온다.
-        const colId = grid01.getTargetCol();    //grid01의 선택된 cell의 colId를 가져온다.
-        //선택된 cell의 dataType이 checkbox인 경우
+    if(e.key === 'N' || e.key === 'n') {        //If the key value is 'N' or 'n'
+        const row = grid01.getTargetRow();      //Get the row of the selected cell in grid01.
+        const colId = grid01.getTargetCol();    //Get the colId of the selected cell in grid01.
+        //If the dataType of the selected cell is checkbox
         if(grid01.getCellDataType(row, colId) === 'checkbox') {
-            grid01.setCellValue(row, colId, 'N');   //cell의 value를 'N'로 변경함(grid01의 uncheckedValue가 'N'인경우 unchecked됨.)
+            grid01.setCellValue(row, colId, 'N');   //Change the cell value to 'N' (if grid01's uncheckedValue is 'N', it will be unchecked.)
         }
     }
 }
@@ -721,79 +721,230 @@ grid01_onKeydownGrid (e) {
 `,
                     },
                     "STARTED-2009": {
-                        text: 'grid 속성을 설정한 아주 간단한 예시를 들어보겠습니다.'
+                        text: 'Here is a very simple example of setting grid attributes.'
                     },
                     "STARTED-2020": {
-                        text: '위는 grid 속성을 이용해 grid의 모습을 excel처럼 만들어 본 것입니다. 각 속성의 의미는 다음과 같습니다.'
+                        text: 'The above example shows how to make the grid look like Excel using grid attributes. The meanings of each attribute are as follows.'
                     },
                     "STARTED-2021": {
-                        text: 'id="gridStarted05" : grid의 id를 gridStarted05로 합니다. 이제 gridStarted05로 메서드를 호출하고 이벤트를 정의할 수 있습니다.'
+                        text: 'id="gridStarted05" : Sets the grid id to gridStarted05. Now, methods can be called and events defined using gridStarted05.'
                     },
                     "STARTED-2022": {
-                        text: 'statusVisible="false" : grid의 v-g-status 컬럼을 unvisible처리 합니다.'
+                        text: 'statusVisible="false" : Hides the v-g-status column of the grid.'
                     },
                     "STARTED-2023": {
-                        text: 'alterRow="false" : 짝수 행의 색상 표시 기능을 사용하지 않습니다.(번갈아 가며 색상 구분)'
+                        text: 'alterRow="false" : Disables the alternating row color display function.'
                     },
                     "STARTED-2024": {
-                        text: 'filterable="false" : 필터기능을 사용하지 않습니다.'
+                        text: 'filterable="false" : Disables the filter function.'
                     },
                     "STARTED-2025": {
-                        text: 'colorSet="green" : colorSet을 green으로 설정 합니다.(colorSet은 이미 정의된 키워드만을 삽입 할 수 있습니다. api에 설명됨)'
+                        text: 'colorSet="green" : Sets the colorSet to green. (Only predefined keywords can be used for colorSet, explained in the API)'
                     },
                     "STARTED-2026": {
-                        text: 'mouseoverCellBackColor="#efefef" : cell에 mouse가 over될 때의 cell 배경색을 지정합니다.'
+                        text: 'mouseoverCellBackColor="#efefef" : Sets the background color of the cell when the mouse is over it.'
                     },
                     "STARTED-2027": {
-                        text: 'selectCellBackColor="#dfdfdf" : cell을 선택할 때의 cell 배경색을 지정합니다.'
+                        text: 'selectCellBackColor="#dfdfdf" : Sets the background color of the cell when it is selected.'
                     },
                     "STARTED-2028": {
-                        text: 'selectRowBackColor="#efefef" : cell을 선택할 때의 해당 cell과 동일한 행에 있는 cell들의 배경색을 지정합니다.'
+                        text: 'selectRowBackColor="#efefef" : Sets the background color of all cells in the same row when a cell is selected.'
                     },
                     "STARTED-2029": {
-                        text: 'mouseoverCellFontColor="#333" : cell에 mouse가 over될 때의 cell 글자색을 지정합니다.'
+                        text: 'mouseoverCellFontColor="#333" : Sets the font color of the cell when the mouse is over it.'
                     },
                     "STARTED-2030": {
-                        text: 'selectCellFontColor="#333" : cell을 선택할 때의 cell 글자색을 지정합니다.'
+                        text: 'selectCellFontColor="#333" : Sets the font color of the cell when it is selected.'
                     },
                     "STARTED-2031": {
-                        text: 'rownumSize="40px" : grid의 v-g-status 컬럼의 width를 40px로 설정합니다.'
+                        text: 'rownumSize="40px" : Sets the width of the v-g-status column to 40px.'
                     },
                     "STARTED-2032": {
-                        text: '위와같이 다양한 속성을 통해 grid를 커스터마이징 할 수 있습니다. 자세한 설명은 API를 통해 보시기 바립니다.'
+                        text: 'You can customize the grid with various attributes as shown above. For more detailed explanations, please refer to the API.'
                     },
                     "STARTED-3000": {
                         text: "Column Attributes"
                     },
                     "STARTED-3001": {
-                        text: "컬럼 속성은 총 37가지 입니다."
+                        text: "There are a total of 37 column attributes."
                     },
                     "STARTED-3002": {
-                        text: "가장 중요한 속성은 앞서 기술한 dataType 속성입니다."
+                        text: "The most important attribute is the dataType attribute mentioned earlier."
                     },
                     "STARTED-3003": {
-                        text: "컬럼 속성은 v-col에 선언하여 설정합니다."
+                        text: "Column attributes are set by declaring them in v-col."
                     },
                     "STARTED-3004": {
                         code: 
-`<!--number type의 컬럼, width는 120px이며 format은 '1,234.00 $' 형태로 표기되고 수정할 수 없다.-->
+`<!--Column of number type, width is 120px, displayed in the format '1,234.00 $', and cannot be edited.-->
 <vanilla-grid id="gridId">
     <v-col id="sal" header="salary" dataType="number" width="120" format="#,###.00 $" locked="true"></v-col>
 </vanilla-grid>
 `,
                     },
                     "STARTED-3005": {
-                        text: '다양한 속성을 통해 각 컬럼을 커스터마이징 할 수 있습니다. 자세한 설명은 API를 통해 보시기 바립니다.'
+                        text: 'You can customize each column with various attributes. For more detailed explanations, please refer to the API.'
                     },
                     "STARTED-3006": {
-                        text: '※ 속성에 대한 우선순위는 대략 개별 cell > 컬럼 > grid 순입니다.'
+                        text: '※ The priority of attributes is approximately individual cell > column > grid.'
                     },
                     "STARTED-4000": {
                         text: "Events"
                     },
+                    "STARTED-4001": {
+                        text: "There are about 30 events available."
+                    },
+                    "STARTED-4002": {
+                        text: 'Events are declared and used as global functions in the form of "[gridId] + eventName".'
+                    },
+                    "STARTED-4003": {
+                        text: 'Note that event functions are global functions and cannot be changed once declared for security reasons.'
+                    },
+                    "STARTED-4004": {
+                        text: 'Therefore, you must declare event functions globally in the document before the vanilla grid is created().'
+                    },
+                    "STARTED-4005": {
+                        text: 'Vanilla grid automatically creates() on window load, so declare the event functions globally in the script.'
+                    },
+                    "STARTED-4006": {
+                        code: 
+`<script>
+    //When the grid id attribute is grid01
+    grid01_onAfterChange (row, colId, oldValue, newValue) {console.log(row, colId, oldValue, newValue)}
+</script>
+`,
+                    },
+                    "STARTED-4007": {
+                        text: 'However, if you control the creation and destruction of the Vanilla grid, you must declare event functions globally before vanillagrid.create().'
+                    },
+                    "STARTED-4008": {
+                        code: 
+`<script>
+    vanillagrid_onBeforeCreate = function(e, vg) {
+		return false;
+	}
+    
+    if(true/*specific condition*/) {
+        const vg = getVanillagrid();
+        
+        //When the grid id attribute is grid01
+        window["grid01_onAfterChange"] = function (row, colId, oldValue, newValue) {console.log(row, colId, oldValue, newValue)};
+        //Define events and then create
+        vg.create();
+    }
+</script>
+`,
+                    },
+                    "STARTED-4009": {
+                        text: 'The following example sets an event to output the selected cell range to the input.'
+                    },
+                    "STARTED-4010": {
+                        text: 'Start Row:'
+                    },
+                    "STARTED-4011": {
+                        text: 'Start ColId:'
+                    },
+                    "STARTED-4012": {
+                        text: 'End Row:'
+                    },
+                    "STARTED-4013": {
+                        text: 'End ColId:'
+                    },
+                    "STARTED-4014": {
+                        text: 'The event definition is as follows.'
+                    },
+                    "STARTED-4015": {
+                        code: 
+`<script>
+    //Assuming the grid id attribute is "grid01"
+    function grid01_onActiveCells (startRow, startColId, endRow, endColId) {
+        document.getElementById('startRowSpan').textContent = startRow;
+        document.getElementById('startColIdSpan').textContent = startColId;
+        document.getElementById('endRowSpan').textContent = endRow;
+        document.getElementById('endColIdSpan').textContent = endColId;
+    }
+</script>
+`,
+                    },
+                    "STARTED-4030": {
+                        text: 'You can use the grid more usefully by utilizing various events. Please see the API for detailed explanation.'
+                    },
                     "STARTED-5000": {
                         text: "Methods"
                     },
+                    "STARTED-5001": {
+                        text: 'There are about 250 methods available.'
+                    },
+                    "STARTED-5002": {
+                        text: 'The key methods are three: load(), setGridMount(), removeGridMethod()'
+                    },
+                    "STARTED-5003": {
+                        text: '1. .load(Array)'
+                    },
+                    "STARTED-5004": {
+                        text: 'As explained earlier (Getting Started - Data Load), the load() method loads data into the grid.'
+                    },
+                    "STARTED-5005": {
+                        text: '2. .setGridMount(boolean)'
+                    },
+                    "STARTED-5006": {
+                        text: 'The setGridMount() method determines whether to mount the grid. This is very important because if the logic that changes the grid is continuous due to methods, '
+                            + 'there may be an impact from removing and redrawing the grid each time. This can adversely affect performance. '
+                            + 'By processing setGridMount(false) before starting the grid changes and processing setGridMount(true) at the end, '
+                            + 'the grid is not mounted to the screen each time it changes but only mounted at the end.'
+                    },
+                    "STARTED-5007": {
+                        text: 'Add 50 rows (without using setGridMount())'
+                    },
+                    "STARTED-5008": {
+                        text: 'Add 50 rows (using setGridMount())'
+                    },
+                    "STARTED-5009": {
+                        text: 'clear'
+                    },
+                    "STARTED-5010": {
+                        text: '※ Rows are added using the addRow(index) function. The addRow() method adds a row to the grid. Clicking the button above repeats this method 50 times. '
+                            + 'The difference between the two logics is whether setGridMount() is called before the addRow() loop. Since addRow(index) can add rows in the middle, '
+                            + 'it redraws the entire grid considering cell merges, etc. Therefore, it is better to call setGridMount(false) before and setGridMount(true) after the loop for better performance.'
+                    },
+                    "STARTED-5011": {
+                        code: 
+`//Assuming the grid id attribute is grid01
+
+//Click the button to perform addRow() without using setGridMount()
+addRowWithoutSetGridMount_onClick(e) {
+    for(let i = 0; i < 50; i ++) {
+        grid01.addRow();    //Add a row at the end of the grid
+    }
+},
+//Click the button to perform addRow() using setGridMount()
+addRowWithSetGridMount_onClick(e) {
+    //Prevent grid mount
+    grid01.setGridMount(false);
+    for(let i = 0; i < 50; i ++) {
+        grid01.addRow();    //Add a row at the end of the grid
+    }
+    //Mount the grid
+    grid01.setGridMount(true);
+},
+`,
+                    },
+                    "STARTED-5012": {
+                        text: '※ If setGridMount(false) is called, you must call setGridMount(true) at the end of the logic for the grid to function properly.'
+                    },
+                    "STARTED-5030": {
+                        text: '3. .removeGridMethod()'
+                    },
+                    "STARTED-5031": {
+                        text: 'As we have seen, Vanilla grid creates global variables that provide access to grid methods named after the grid\'s id attribute. These global variables can pose security risks. '
+                            + 'Of course, it is always advisable to perform validation on the server side to ensure security. '
+                            + 'To address these security issues, the removeGridMethod() method was created. The removeGridMethod() method deletes the global variable created with the grid\'s id. '
+                            + 'To enhance security, you can call the removeGridMethod() method in specific logic (for example, detecting developer mode). '
+                            + 'Once the removeGridMethod() method is called, the grid\'s methods can no longer be called.'
+                    },
+                    "STARTED-5032": {
+                        text: 'You can make the grid more useful by utilizing various methods. For more detailed explanations, please refer to the API.'
+                    }
                 },
             },
             dive: {
@@ -847,7 +998,7 @@ grid01_onKeydownGrid (e) {
                     text: "▼ 예시 코드는 아래와 같습니다."
                 },
                 "COMMON-0001" : {
-                    text: "▼ 위 그리드에 삽입한 데이터는 아래와 같습니다."
+                    text: "▼ 위 grid에 삽입한 데이터는 아래와 같습니다."
                 },
                 "COMMON-0003" : {
                     text: "추가"
@@ -986,10 +1137,10 @@ const datas = [
 
 
                     "INTRO-0200": {
-                        text: "속성 값, 이벤트, 메소드를 통해 그리드를 customizing 할 수 있습니다.",
+                        text: "속성 값, 이벤트, 메소드를 통해 grid를 customizing 할 수 있습니다.",
                     },
                     "INTRO-0201": {
-                        text: "Vanilla Grid에는 각 30여개의 grid와 column 속성, 30여개의 customizing가능한 이벤트, 240여개 이상의 메소드가 있습니다.",
+                        text: "Vanilla Grid에는 각 30개 정도의 grid와 column 속성, 30개 정도의 customizing가능한 이벤트, 240개 이상의 메소드가 있습니다.",
                     },
                     "INTRO-0300": {
                         text: "타 라이브러리와 폭 넓은 적용이 가능합니다.",
@@ -1106,7 +1257,7 @@ beforeDestroy: function() {
                         text: "cell에 focus를 둔 상태에서 사용자의 키보드 입력 시 해당 키가 바로 입력되는 기능을 지원하지 않습니다.(한글 입력의 제한으로 구현하지 못했습니다..)",
                     },
                     "INTRO-0434": {
-                        text: "filter는 하나의 컬럼당 한가지 값만 선택 가능합니다.",
+                        text: "filter는 하나의 column당 한가지 값만 선택 가능합니다.",
                     },
                     "INTRO-0435": {
                         text: "개발자 모드에서 전역변수로 선언된 함수 호출 변수를 접근 할 수 있습니다. 라이브러리를 통한 개발에 용이하기 위해 제공한 로직이지만 보안에 취약할 수 있습니다. "
@@ -1241,7 +1392,7 @@ beforeDestroy: function() {
 `,
                     },
                     "STARTED-0004": {
-                        text: "2. body에 그리드를 정해진 양식에 맞게 생성합니다.",
+                        text: "2. body에 grid를 정해진 양식에 맞게 생성합니다.",
                     },
                     "STARTED-0005": {
                         code: 
@@ -1261,7 +1412,7 @@ grid와 column의 id속성은 필수 값 입니다.
                         text: "Header"
                     },
                     "STARTED-1101": {
-                        text: "grid의 header는 항상 한 줄을 표현합니다. 컬럼(v-col)에 header 속성을 넣어 설정합니다. header 속성이 없으면 id 속성 값이 header가 됩니다."
+                        text: "grid의 header는 항상 한 줄을 표현합니다. column(v-col)에 header 속성을 넣어 설정합니다. header 속성이 없으면 id 속성 값이 header가 됩니다."
                     },
                     "STARTED-1110": {
                         text: "1. header는 ';'를 구분자로 행 수를 설정합니다."
@@ -1340,20 +1491,20 @@ grid와 column의 id속성은 필수 값 입니다.
                         text: "3. Vanilla grid 객체의 footerFormula를 사용하면 footer에 적용될 함수를 직접 등록하여 사용할 수 있습니다. (Deep dive에 설명)"
                     },
                     "STARTED-1500": {
-                        text: "컬럼"
+                        text: "Column"
                     },
                     "STARTED-1501": {
                         text: "column은 v-col 태그로 설정하며, id 속성이 필수값입니다."
                     },
                     "STARTED-1510": {
-                        text: "1. 기본 column은 2개가있습니다. 인덱스 1번의 행번호 (id: 'v-g-rownum') 컬럼과 인덱스 2번의 상태 (id: 'v-g-status') 컬럼입니다."
+                        text: "1. 기본 column은 2개가있습니다. 인덱스 1번의 행번호 (id: 'v-g-rownum') column과 인덱스 2번의 상태 (id: 'v-g-status') column입니다."
                     },
                     "STARTED-1511": {
-                        text: "1) v-g-rownum 컬럼은 행번호 값을 나타냅니다. 1부터 n까지. grid 속성에서 rownumVisible로 visible설정, rownumSize로 크기설정 등이 가능합니다."
+                        text: "1) v-g-rownum column은 행번호 값을 나타냅니다. 1부터 n까지. grid 속성에서 rownumVisible로 visible설정, rownumSize로 크기설정 등이 가능합니다."
                     },
                     "STARTED-1512": {
                         code: 
-`<!--rownumVisible은 default true이다. v-g-rownum 컬럼의 width를 120px로 설정
+`<!--rownumVisible은 default true이다. v-g-rownum column의 width를 120px로 설정
 <vanilla-grid id="gridId" rownumSize="120px">
 ...
 </vanilla-grid>
@@ -1361,14 +1512,14 @@ grid와 column의 id속성은 필수 값 입니다.
 `,
                     },
                     "STARTED-1520": {
-                        text: "2) v-g-status 컬럼은 행의 상태 값을 나타냅니다. dataType은 code로 기존 설정된 code만 값을 가질 수 있습니다."
+                        text: "2) v-g-status column은 행의 상태 값을 나타냅니다. dataType은 code로 기존 설정된 code만 값을 가질 수 있습니다."
                             + " 값은 'C', 'U', 'D'가 있습니다. addRow()행 추가시 자동으로 v-g-status의 값이 'C'인 행이 추가됩니다."
                             + " 행의 셀 값을 변경 시 자동으로 v-g-status의 값이 'U'로 변경되며, 실행 취소 등 다시 원복해도 v-g-status의 값은 변경되지 않습니다."
                             + " grid 속성에서 statusVisible로 visible설정 등이 가능합니다."
                     },
                     "STARTED-1521": {
                         code: 
-`<!--v-g-status 컬럼을 숨김
+`<!--v-g-status column을 숨김
 <vanilla-grid id="gridId" statusVisible="false">
 ...
 </vanilla-grid>
@@ -1485,16 +1636,283 @@ console.log(gridId.getDatas());
                         text: "속성"
                     },
                     "STARTED-2000": {
-                        text: "그리드 속성"
+                        text: "Grid 속성"
+                    },
+                    "STARTED-2001": {
+                        text: "grid 속성은 기능에 관련된 속성 25개, css에 관련된 속성 56개가 있습니다."
+                    },
+                    "STARTED-2002": {
+                        text: "설정하는 방법은 매우 간단합니다. grid 선언 시 속성으로 넣으면 됩니다."
+                    },
+                    "STARTED-2003": {
+                        code: 
+`<!--선택 기능을 단일 cell 선택만 가능하게하고, filter기능을 사용하지 않음.
+<vanilla-grid id="gridId" selectionPolicy="single" filterable="false">
+-->
+`,
+                    },
+                    "STARTED-2004": {
+                        text: "가장 중요한 속성은 id입니다."
+                    },
+                    "STARTED-2005": {
+                        text: 'grid의 id 속성은 document내에서 중복될 수 없습니다. 또 id 속성의 값을 통해 grid가 가진 메소드를 호출할 수 있는 전역 객체를 생성하며 grid의 id 속성을 통해 전역 이벤트를 생성합니다.',
+                    },
+                    "STARTED-2006": {
+                        text: '예를들어 grid의 id 속성을 "grid01"로 설정했다면, document내에서 grid01.load(), grid01.getValues(), grid01.clear()등 처럼 메소드를 사용할 수 있습니다.',
+                    },
+                    "STARTED-2007": {
+                        text: '그리고 grid01_onActiveCell() {//셀 활성화 이벤트 로직}, grid01_onBeforeClickCell() {//셀 클릭 전 발생 이벤트 로직} 처럼 이벤트를 정의하여 사용할 수 있습니다.'
+                    },
+                    "STARTED-2008": {
+                        code: 
+`<script>
+//grid의 id 속성이 "grid01"인 경우
+//grid01에 임의의 cell을 선택하고 키보드를 누르면 발생하는 이벤트 return false시 기존 이벤트 발생(X)
+grid01_onKeydownGrid (e) {
+    if(e.key === 'Y' || e.key === 'y') {        //키의 값이 'Y'나 'y'인 경우
+        const row = grid01.getTargetRow();      //grid01의 선택된 cell의 row를 가져온다.
+        const colId = grid01.getTargetCol();    //grid01의 선택된 cell의 colId를 가져온다.
+        //선택된 cell의 dataType이 checkbox인 경우
+        if(grid01.getCellDataType(row, colId) === 'checkbox') {
+            grid01.setCellValue(row, colId, 'Y');   //cell의 value를 'Y'로 변경함(grid01의 checkedValue가 'Y'인경우 checked됨.)
+        }
+    }
+    if(e.key === 'N' || e.key === 'n') {        //키의 값이 'Y'나 'y'인 경우
+        const row = grid01.getTargetRow();      //grid01의 선택된 cell의 row를 가져온다.
+        const colId = grid01.getTargetCol();    //grid01의 선택된 cell의 colId를 가져온다.
+        //선택된 cell의 dataType이 checkbox인 경우
+        if(grid01.getCellDataType(row, colId) === 'checkbox') {
+            grid01.setCellValue(row, colId, 'N');   //cell의 value를 'N'로 변경함(grid01의 uncheckedValue가 'N'인경우 unchecked됨.)
+        }
+    }
+}
+</script>
+`,
+                    },
+                    "STARTED-2009": {
+                        text: 'grid 속성을 설정한 아주 간단한 예시를 들어보겠습니다.'
+                    },
+                    "STARTED-2020": {
+                        text: '위는 grid 속성을 이용해 grid의 모습을 excel처럼 만들어 본 것입니다. 각 속성의 의미는 다음과 같습니다.'
+                    },
+                    "STARTED-2021": {
+                        text: 'id="gridStarted05" : grid의 id를 gridStarted05로 합니다. 이제 gridStarted05로 메소드를 호출하고 이벤트를 정의할 수 있습니다.'
+                    },
+                    "STARTED-2022": {
+                        text: 'statusVisible="false" : grid의 v-g-status column을 unvisible처리 합니다.'
+                    },
+                    "STARTED-2023": {
+                        text: 'alterRow="false" : 짝수 행의 색상 표시 기능을 사용하지 않습니다.(번갈아 가며 색상 구분)'
+                    },
+                    "STARTED-2024": {
+                        text: 'filterable="false" : 필터기능을 사용하지 않습니다.'
+                    },
+                    "STARTED-2025": {
+                        text: 'colorSet="green" : colorSet을 green으로 설정 합니다.(colorSet은 이미 정의된 키워드만을 삽입 할 수 있습니다. api에 설명됨)'
+                    },
+                    "STARTED-2026": {
+                        text: 'mouseoverCellBackColor="#efefef" : cell에 mouse가 over될 때의 cell 배경색을 지정합니다.'
+                    },
+                    "STARTED-2027": {
+                        text: 'selectCellBackColor="#dfdfdf" : cell을 선택할 때의 cell 배경색을 지정합니다.'
+                    },
+                    "STARTED-2028": {
+                        text: 'selectRowBackColor="#efefef" : cell을 선택할 때의 해당 cell과 동일한 행에 있는 cell들의 배경색을 지정합니다.'
+                    },
+                    "STARTED-2029": {
+                        text: 'mouseoverCellFontColor="#333" : cell에 mouse가 over될 때의 cell 글자색을 지정합니다.'
+                    },
+                    "STARTED-2030": {
+                        text: 'selectCellFontColor="#333" : cell을 선택할 때의 cell 글자색을 지정합니다.'
+                    },
+                    "STARTED-2031": {
+                        text: 'rownumSize="40px" : grid의 v-g-status column의 width를 40px로 설정합니다.'
+                    },
+                    "STARTED-2032": {
+                        text: '위와같이 다양한 속성을 통해 grid를 커스터마이징 할 수 있습니다. 자세한 설명은 API를 통해 보시기 바립니다.'
                     },
                     "STARTED-3000": {
-                        text: "컬럼 속성"
+                        text: "Column 속성"
+                    },
+                    "STARTED-3001": {
+                        text: "column 속성은 총 37가지 입니다."
+                    },
+                    "STARTED-3002": {
+                        text: "가장 중요한 속성은 앞서 기술한 dataType 속성입니다."
+                    },
+                    "STARTED-3003": {
+                        text: "column 속성은 v-col에 선언하여 설정합니다."
+                    },
+                    "STARTED-3004": {
+                        code: 
+`<!--number type의 column, width는 120px이며 format은 '1,234.00 $' 형태로 표기되고 수정할 수 없다.-->
+<vanilla-grid id="gridId">
+    <v-col id="sal" header="salary" dataType="number" width="120" format="#,###.00 $" locked="true"></v-col>
+</vanilla-grid>
+`,
+                    },
+                    "STARTED-3005": {
+                        text: '다양한 속성을 통해 각 column을 커스터마이징 할 수 있습니다. 자세한 설명은 API를 통해 보시기 바립니다.'
+                    },
+                    "STARTED-3006": {
+                        text: '※ 속성에 대한 우선순위는 대략 개별 cell > column > grid 순입니다.'
                     },
                     "STARTED-4000": {
                         text: "이벤트"
                     },
+                    "STARTED-4001": {
+                        text: "사용할 수 있는 30개 정도의 이벤트가 있습니다."
+                    },
+                    "STARTED-4002": {
+                        text: '이벤트는 "[gridId] + 이벤트명"의 형태로 전역 함수로 선언하여 사용합니다.'
+                    },
+                    "STARTED-4003": {
+                        text: '주의할 점은 이벤트 함수는 전역함수 이므로 보안상의 이유로 한번 선언한 이벤트 함수를 변경할 수 없도록 하였습니다.'
+                    },
+                    "STARTED-4004": {
+                        text: '때문에 반드시 vanilla grid가 create()되기 전에 이벤트 함수를 document 전역에 선언해야 합니다.'
+                    },
+                    "STARTED-4005": {
+                        text: 'vanilla grid는 window load시 자동으로 create()를 하므로 script에 전역으로 이벤트 함수를 선언 하면 됩니다.'
+                    },
+                    "STARTED-4006": {
+                        code: 
+`<script>
+    //grid의 id 속성이 grid01일 때
+    grid01_onAfterChange (row, colId, oldValue, newValue) {console.log(row, colId, oldValue, newValue)}
+</script>
+`,
+                    },
+                    "STARTED-4007": {
+                        text: '하지만 만약 Vanilla grid의 생성과 소멸을 제어한다면, 반드시 vanillagrid.create() 전에 이벤트 함수를 전역으로 선언해야합니다.'
+                    },
+                    "STARTED-4008": {
+                        code: 
+`<script>
+    vanillagrid_onBeforeCreate = function(e, vg) {
+		return false;
+	}
+    
+    if(true/*특정조건*/) {
+        const vg = getVanillagrid();
+        
+        //grid의 id 속성이 grid01일 때
+        window["grid01_onAfterChange"] = function (row, colId, oldValue, newValue) {console.log(row, colId, oldValue, newValue)};
+        //이벤트 정의 후 create
+        vg.create();
+    }
+</script>
+`,
+                    },
+                    "STARTED-4009": {
+                        text: '위 grid의 셀을 선택하면 해당 범위가 input에 출력되도록 이벤트를 설정하였습니다.'
+                    },
+                    "STARTED-4010": {
+                        text: 'Start Row :'
+                    },
+                    "STARTED-4011": {
+                        text: 'Start ColId :'
+                    },
+                    "STARTED-4012": {
+                        text: 'End Row :'
+                    },
+                    "STARTED-4013": {
+                        text: 'End ColId :'
+                    },
+                    "STARTED-4014": {
+                        text: '이벤트 정의는 아래와 같습니다.'
+                    },
+                    "STARTED-4015": {
+                        code: 
+`<script>
+    //grid의 id 속성이 "grid01"라 가정
+    function grid01_onActiveCells (startRow, startColId, endRow, endColId) {
+        document.getElementById('startRowSpan').textContent = startRow;
+        document.getElementById('startColIdSpan').textContent = startColId;
+        document.getElementById('endRowSpan').textContent = endRow;
+        document.getElementById('endColIdSpan').textContent = endColId;
+    }
+</script>
+`,
+                    },
+                    "STARTED-4030": {
+                        text: '다양한 이벤트를 활용해 grid를 더 유용하게 사용 할 수 있습니다. 자세한 설명은 API를 통해 보시기 바립니다.'
+                    },
                     "STARTED-5000": {
                         text: "메소드"
+                    },
+                    "STARTED-5001": {
+                        text: '사용할 수 있는 250개 정도의 메소드가 있습니다.'
+                    },
+                    "STARTED-5002": {
+                        text: '핵심 메소드는 세가지 입니다. load(), setGridMount(), removeGridMethod()'
+                    },
+                    "STARTED-5003": {
+                        text: '1. .load(Array)'
+                    },
+                    "STARTED-5004": {
+                        text: 'load()는 앞서 설명드린 바와 같이(Getting Started - Data Load) 데이터를 grid에 load하는 기능입니다.'
+                    },
+                    "STARTED-5005": {
+                        text: '2. .setGridMount(boolean)'
+                    },
+                    "STARTED-5006": {
+                        text: 'setGridMount()는 grid를 mount할지 결정하는 기능입니다. 이는 매우 중요한데, 메소드 등에 의한 grid 변경 시 변경되는 로직이 연속적이면 '
+                            + 'grid를 매번 지웠다 다시 그리는 영향이 있을 수 있습니다. 이는 성능에 악영향을 끼칩니다. grid 변경 시작 전 setGridMount(false); 처리하고 '
+                            + 'grid를 모두 변경 후 마지막에 setGridMount(true); 처리하면 매번 grid 변경에 대해 화면에 mount하지 않고 마지막에 mount합니다.'
+                    },
+                    "STARTED-5007": {
+                        text: '50개 행추가(setGridMount() 미사용)'
+                    },
+                    "STARTED-5008": {
+                        text: '50개 행추가(setGridMount() 사용)'
+                    },
+                    "STARTED-5009": {
+                        text: 'clear'
+                    },
+                    "STARTED-5010": {
+                        text: '※ 행 추가는 addRow(index)의 기능을 사용합니다. addRow() 메소드는 행 하나를 grid에 추가하는 메소드입니다. 위 버튼 클릭 시 해당 메소드를 50번 반복합니다. '
+                            + '두 로직의 차이는 setGridMount()를 addRow() 반복문 전에 호출했는지에 대한 차이 입니다. addRow(index)는 행을 중간에도 추가할 수 있기 때문에 '
+                            + 'cell간의 merge등을 고려하여 전체 행을 다시 그리는 메소드 입니다. 때문에 setGridMount(false)와 setGridMount(true)를 반복문 앞 뒤로 호출하는 것이 '
+                            + '더 좋은 성능을 보입니다.'
+                    },
+                    "STARTED-5011": {
+                        code: 
+`//grid의 id 속성은 grid01이라 가정
+
+//setGridMount()를 사용하지 않고 addRow() 수행 버튼 클릭
+addRowWithoutSetGridMount_onClick(e) {
+    for(let i = 0; i < 50; i ++) {
+        grid01.addRow();    //grid 마지막 행에 행 추가
+    }
+},
+//setGridMount()를 사용하면서 addRow() 수행 버튼 클릭
+addRowWithSetGridMount_onClick(e) {
+    //grid mount를 막는다.
+    grid01.setGridMount(false);
+    for(let i = 0; i < 50; i ++) {
+        grid01.addRow();    //grid 마지막 행에 행 추가
+    }
+    //grid mount를 한다.
+    grid01.setGridMount(true);
+},
+`,
+                    },
+                    "STARTED-5012": {
+                        text: '※ setGridMount(false)를 호출했으면 로직이 종료하는 마지막에 반드시 setGridMount(true)를 호출해야 grid가 정상 동작합니다.'
+                    },
+                    "STARTED-5030": {
+                        text: '3. .removeGridMethod()'
+                    },
+                    "STARTED-5031": {
+                        text: '지금껏 봐왔듯 Vanilla grid는 grid의 id 속성을 이름으로 하는 grid 메소드들에 접근할 수 있는 전역변수를 생성합니다. 이는 또한 전역변수 이기 때문에 보안에 취약할 수 있습니다. '
+                            + '물론 모든 로직이 그러하겠지만 서버에서 유효성 검증을 다시 하는 것이 바람직 합니다. '
+                            + '이러한 보안 이슈를 위해 removeGridMethod()를 만들었습니다. removeGridMethod() 메소드는 grid의 id로 생성된 전역변수를 삭제합니다.'
+                            + '보안성을 높이기 위해서 특정 로직에(예를들어 개발자모드 감지) removeGridMethod() 메소드를 호출할 수 있습니다.'
+                            + 'removeGridMethod() 메소드를 호출하면 이후 해당 grid의 메소드를 호출할 수 없습니다.'
+                    },
+                    "STARTED-5032": {
+                        text: '다양한 메소드를 활용해 grid를 더 유용하게 사용 할 수 있습니다. 자세한 설명은 API를 통해 보시기 바립니다.'
                     },
                 },
             },
@@ -1525,10 +1943,10 @@ console.log(gridId.getDatas());
                 },
                 text : {
                     "API-0000": {
-                        text: "그리드 속성"
+                        text: "Grid 속성"
                     },
                     "API-1000": {
-                        text: "컬럼 속성"
+                        text: "Column 속성"
                     },
                     "API-2000": {
                         text: "이벤트"
