@@ -17,12 +17,12 @@
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
-	<script src="Vanillagrid.min.1.0.0.js?v=20240626"></script>
-	<script src="Consts.js?v=20240626"></script>
-	<script src="Contents.js?v=20240626"></script>
-	<script src="SampleDatas.js?v=20240626"></script>
-	<script src="SampleGrids.js?v=20240626"></script>
-	<script src="Component.js?v=20240626"></script>
+	<script src="Vanillagrid.min.1.0.0.js?v=20240627"></script>
+	<script src="Consts.js?v=20240627"></script>
+	<script src="Contents.js?v=20240627"></script>
+	<script src="SampleDatas.js?v=20240627"></script>
+	<script src="SampleGrids.js?v=20240627"></script>
+	<script src="Component.js?v=20240627"></script>
 	<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
 	<style>
 	*, ::before, ::after {
@@ -88,7 +88,7 @@
 	}
 	li {
 		font-size: 14px;
-		line-height: 1.6em;
+		line-height: 1.5em;
 	}
 	@font-face {
 		font-family: 'Noto Sans KR';
@@ -105,6 +105,7 @@
 		border: none;
 	}
 	.nav>li>a {
+		font-size: 12px;
 		z-index: 999;
 	}
 	.nav-stacked {
@@ -209,19 +210,25 @@
 	.bold-none {
 		font-weight: 300;
 	}
+	.h3 {
+		padding: 0 5px;
+		font-size: 18px;
+		line-height: 1.5em;
+	}
 	.h4 {
 		padding: 0 5px;
+		font-size: 16px;
 		line-height: 1.5em;
 	}
 	.h5 {
 		padding: 0 8px;
-		font-size: 16px;
+		font-size: 14px;
 		line-height: 1.5em;
 	}
 	.h6 {
 		padding: 0 8px;
-		font-size: 14px;
-		line-height: 1.3em;
+		font-size: 13px;
+		line-height: 1.5em;
 	}
 	.logo {
 		font-family: 'Georgia';
@@ -238,12 +245,17 @@
 		background-color: yellow;
 		font-weight: bold;
 	}
+	.gridDive01_data-value-button {
+		overflow:hidden;
+		white-space : nowrap;
+		text-overflow: ellipsis;
+	}
 	@media (max-width: 4000px) {
 		.grid-box, .explain-box {
 			width: 95%;
 		}
 	}
-	@media (max-width: 700px) {
+	@media (max-width: 800px) {
 		.explain-box {
 			padding:0 15px;
 			width: 100%;
@@ -254,7 +266,7 @@
 		}
 		.nav>li>a {
 	    padding: 15px 10px!important;
- 	    font-size:0.9em;
+ 	    font-size:0.8em;
 		}
 	}
 	</style>
@@ -346,14 +358,14 @@
 	        let viewId = urlParams.get('view');
 	        const anchorId = urlParams.get('anchor');
 	        const lang = urlParams.get('lang');
-	        this.currentLang = lang ? lang : 'ENG';
-	        if(!viewId || ['intro','started','dive','api'].indexOf(viewId) < 0) viewId = 'started';
+	        this.currentLang = lang ? lang : 'KOR';
+	        if(!viewId || ['intro','started','dive','api'].indexOf(viewId) < 0) viewId = 'dive';
 	        this.currentView = viewId;
 	        this.scrollAnchor(anchorId, null, 1000);
 		},
 	    data: {
-	    	currentLang : 'ENG',
-	        currentView : 'started',
+	    	currentLang : 'KOR',
+	        currentView : 'dive',
 	        navItems: [
 	            { id: 'intro', name: 'Intro' },
 	            { id: 'started', name: 'Getting started' },
@@ -794,11 +806,19 @@
 					if(this.isMobileSize) {
 						this.vg.defaultGridCssInfo.sizeLevel = 7;
 						this.vg.defaultGridCssInfo.cellMinHeight = 28;
-						this.vg.defaultGridCssInfo.height = '300px';
-					}
-					else {
 						this.vg.defaultGridCssInfo.height = '400px';
 					}
+					else {
+						this.vg.defaultGridCssInfo.height = '500px';
+					}
+					
+					window[CONSTS.SAMPLE_GRID_IDS_STARTED[5]+"_onActiveCells"] = function (startRow, startColId, endRow, endColId) {
+						document.getElementById('startRowSpan').textContent = startRow;
+						document.getElementById('startColIdSpan').textContent = startColId;
+						document.getElementById('endRowSpan').textContent = endRow;
+						document.getElementById('endColIdSpan').textContent = endColId;
+					}
+
 					this.vg.create();
 					
 					const grid4 = window[CONSTS.SAMPLE_GRID_IDS_STARTED[3]];
@@ -806,8 +826,9 @@
 						grid4.setGridHeight('500px');
 					}
 					else {
-						grid4.setGridHeight('600px');
+						grid4.setGridHeight('800px');
 					}
+
 					this.loadGrid();
 				},
 				beforeDestroy: function() {
@@ -887,6 +908,7 @@
 						window[CONSTS.SAMPLE_GRID_IDS_STARTED[2]].load(SAMPLE_DATAS[this.currentLang].started[CONSTS.SAMPLE_KEYS_STARTED[2]]);
 						window[CONSTS.SAMPLE_GRID_IDS_STARTED[3]].load(SAMPLE_DATAS[this.currentLang].started[CONSTS.SAMPLE_KEYS_STARTED[3]]);
 						window[CONSTS.SAMPLE_GRID_IDS_STARTED[4]].load(SAMPLE_DATAS[this.currentLang].started[CONSTS.SAMPLE_KEYS_STARTED[4]]);
+						window[CONSTS.SAMPLE_GRID_IDS_STARTED[5]].load(SAMPLE_DATAS[this.currentLang].started[CONSTS.SAMPLE_KEYS_STARTED[5]]);
 
 						const grid4 = window[CONSTS.SAMPLE_GRID_IDS_STARTED[3]];
 						grid4.setCellDataType(2, 4, 'mask');
@@ -901,6 +923,21 @@
 						grid4.setCellDataType(9, 4, 'link');
 						grid4.setCellDataType(10, 4, 'code');
 						grid4.setCellCodes(10, 4, ['C','U','D']);
+					},
+					addRowNo(e) {
+						for(let i = 0; i < 50; i ++) {
+							window[CONSTS.SAMPLE_GRID_IDS_STARTED[6]].addRow();
+						}
+					},
+					addRowYes(e) {
+						window[CONSTS.SAMPLE_GRID_IDS_STARTED[6]].setGridMount(false);
+						for(let i = 0; i < 50; i ++) {
+							window[CONSTS.SAMPLE_GRID_IDS_STARTED[6]].addRow();
+						}
+						window[CONSTS.SAMPLE_GRID_IDS_STARTED[6]].setGridMount(true);
+					},
+					gridClear(e) {
+						window[CONSTS.SAMPLE_GRID_IDS_STARTED[6]].clear();
 					},
 	            },
 	        },
@@ -933,6 +970,10 @@
 					this.vg.sortDescSpan = document.createElement("i");
 					this.vg.sortDescSpan.setAttribute("class", "fas fa-sort-down");
 					this.vg.sortDescSpan.style.marginLeft = "7px";
+
+					window[CONSTS.SAMPLE_GRID_IDS_DIVE[0]+"_onClickButton"] = function(row, colId, buttonNode) {
+						console.log(row, colId);
+					}
 
 					this.vg.create();
 					this.loadGrid();
@@ -1009,7 +1050,12 @@
 	    	            }, 100);
 	            	},
 					loadGrid() {
-						// window[CONSTS.SAMPLE_GRID_IDS_DIVE[0]].load(SAMPLE_DATAS[this.currentLang].dive[CONSTS.SAMPLE_KEYS_DIVE[0]]);
+						const grid01 = window[CONSTS.SAMPLE_GRID_IDS_DIVE[0]];
+						grid01.load(SAMPLE_DATAS[this.currentLang].dive[CONSTS.SAMPLE_KEYS_DIVE[0]]);
+
+						for(let r = 2; r <= gridDive01.getRowCount(); r++) {
+							grid01.setRowVisible(r, false);
+						}
 					},
 	            },
 	        },
@@ -1127,7 +1173,7 @@
 	//그리드가 있는 상태로 view를 변환 시 에러??
 	</script>
 	<script type="text/javascript">
-	vanillagrid_onBeforeCreate = function(e, vn) {
+	vanillagrid_onBeforeCreate = function(e, vg) {
 		return false;
 	}
 	</script>
