@@ -1,4 +1,39 @@
 function getSampleDatas(CONSTS, CONTENTS) {
+    const refactoringDatas = (n) => {
+        const rows = [];
+        for(let i = 0; i < n; i++) {
+            rows.push({
+                A: null,
+                B: null,
+                C: null,
+                D: null,
+                E: null,
+                F: null,
+                G: null,
+                H: null,
+                I: null,
+                J: null,
+                K: null,
+                L: null,
+                M: null,
+                N: null,
+                O: null,
+                P: null,
+                Q: null,
+                R: null,
+                S: null,
+                T: null,
+                U: null,
+                V: null,
+                W: null,
+                X: null,
+                Y: null,
+                Z: null,
+            });
+        }
+        return rows;
+    };
+
     function SampleDatas (CONSTS, CONTENTS) {
         const intro = {
             [CONSTS.SAMPLE_KEYS_INTRO[0]] :
@@ -78,6 +113,7 @@ function getSampleDatas(CONSTS, CONTENTS) {
                 return rows;
             })(),
         };
+
         const started = {
             [CONSTS.SAMPLE_KEYS_STARTED[0]] :
             [
@@ -402,8 +438,8 @@ function getSampleDatas(CONSTS, CONTENTS) {
                 },
                 {
                     dt : "code",
-                    do : '"C"',
-                    val : 'C\ncodes="C;U;D"',
+                    do : 'C',
+                    val : '"C"\ncodes="C;U;D"',
                     type : "String",
                     edit : "<input> text",
                     prst : "<span>",
@@ -412,41 +448,118 @@ function getSampleDatas(CONSTS, CONTENTS) {
                     rmk : null,
                 },
             ],
-            [CONSTS.SAMPLE_KEYS_STARTED[4]] : (() => {
-                const rows = [];
-                for(let i = 0; i < 100; i++) {
-                    rows.push({
-                        A: null,
-                        B: null,
-                        C: null,
-                        D: null,
-                        E: null,
-                        F: null,
-                        G: null,
-                        H: null,
-                        I: null,
-                        J: null,
-                        K: null,
-                        L: null,
-                        M: null,
-                        N: null,
-                        O: null,
-                        P: null,
-                        Q: null,
-                        R: null,
-                        S: null,
-                        T: null,
-                        U: null,
-                        V: null,
-                        W: null,
-                        X: null,
-                        Y: null,
-                        Z: null,
-                    });
-                }
-                return rows;
-            })(),
+            [CONSTS.SAMPLE_KEYS_STARTED[4]] : refactoringDatas(100),
+            [CONSTS.SAMPLE_KEYS_STARTED[5]] : refactoringDatas(100),
         };
+
+        const getDept = function(lang) {
+            const result = {};
+            if(lang === 'ENG') {
+                result.company = "Co. Hisondev";
+                result.corporateServices = "Corporate Services";
+                result.humanResourcesTeam = "Human Resources Team";
+                result.recruitmentTeam = "Recruitment Team";
+                result.trainingTeam = "Training Team";
+                result.financeTeam = "Finance Team";
+                result.accountingTeam = "Accounting Team";
+                result.expenseManagementTeam = "Expense Management Team";
+
+                result.itDevelopmentHeadquarters = "IT Development Headquarters";
+                result.softwareDevelopmentDepartment = "Software Development Department";
+                result.frontendTeam = "Frontend Team";
+                result.backendTeam = "Backend Team";
+                result.mobileDevelopmentTeam = "Mobile Development Team";
+                result.devOpsDepartment = "DevOps Department";
+                result.systemOperationsTeam = "System Operations Team";
+                result.cloudManagementTeam = "Cloud Management Team";
+                result.qaDepartment = "Quality Assurance Department";
+                result.testingTeam = "Testing Team";
+                result.automationTeam = "Automation Team";
+
+                result.productManagementHeadquarters = "Product Management Headquarters";
+                result.productPlanningDepartment = "Product Planning Department";
+                result.marketResearchTeam = "Market Research Team";
+                result.productStrategyTeam = "Product Strategy Team";
+                result.productManagementDepartment = "Product Management Department";
+                result.projectManagementTeam = "Project Management Team";
+                result.productSupportTeam = "Product Support Team";
+
+                result.marketingHeadquarters = "Marketing Headquarters";
+                result.digitalMarketingDepartment = "Digital Marketing Department";
+                result.contentTeam = "Content Team";
+                result.advertisingTeam = "Advertising Team";
+                result.brandManagementDepartment = "Brand Management Department";
+                result.designTeam = "Design Team";
+                result.publicRelationsTeam = "Public Relations Team";
+
+                result.salesHeadquarters = "Sales Headquarters";
+                result.domesticSalesDepartment = "Domestic Sales Department";
+                result.regionalSalesTeam = "Regional Sales Team";
+                result.customerManagementTeam = "Customer Management Team";
+                result.internationalSalesDepartment = "International Sales Department";
+                result.exportTeam = "Export Team";
+                result.internationalCustomerManagementTeam = "International Customer Management Team";
+            }
+            else if (lang === 'KOR') {
+                result.company = "회사. Hisondev";
+                result.corporateServices = "경영지원실";
+                result.humanResourcesTeam = "인사팀";
+                result.recruitmentTeam = "채용팀";
+                result.trainingTeam = "교육팀";
+                result.financeTeam = "재무팀";
+                result.accountingTeam = "회계팀";
+                result.expenseManagementTeam = "경비처리팀";
+
+                result.itDevelopmentHeadquarters = "IT개발본부";
+                result.softwareDevelopmentDepartment = "소프트웨어개발부";
+                result.frontendTeam = "프론트엔드팀";
+                result.backendTeam = "백엔드팀";
+                result.mobileDevelopmentTeam = "모바일개발팀";
+                result.devOpsDepartment = "데브옵스부";
+                result.systemOperationsTeam = "시스템운영팀";
+                result.cloudManagementTeam = "클라우드관리팀";
+                result.qaDepartment = "QA부";
+                result.testingTeam = "테스트팀";
+                result.automationTeam = "자동화팀";
+
+                result.productManagementHeadquarters = "제품관리본부";
+                result.productPlanningDepartment = "제품기획부";
+                result.marketResearchTeam = "시장조사팀";
+                result.productStrategyTeam = "제품전략팀";
+                result.productManagementDepartment = "제품관리부";
+                result.projectManagementTeam = "프로젝트관리팀";
+                result.productSupportTeam = "제품지원팀";
+
+                result.marketingHeadquarters = "마케팅본부";
+                result.digitalMarketingDepartment = "디지털마케팅부";
+                result.contentTeam = "콘텐츠팀";
+                result.advertisingTeam = "광고팀";
+                result.brandManagementDepartment = "브랜드관리부";
+                result.designTeam = "디자인팀";
+                result.publicRelationsTeam = "홍보팀";
+
+                result.salesHeadquarters = "영업본부";
+                result.domesticSalesDepartment = "국내영업부";
+                result.regionalSalesTeam = "지역영업팀";
+                result.customerManagementTeam = "고객관리팀";
+                result.internationalSalesDepartment = "해외영업부";
+                result.exportTeam = "수출팀";
+                result.internationalCustomerManagementTeam = "해외고객관리팀";
+            }
+            return result;
+        };
+        const dive = {
+            [CONSTS.SAMPLE_KEYS_DIVE[0]] : null,
+        }
+
+        const api = {
+            [CONSTS.SAMPLE_KEYS_API[0]] :
+            [
+                {
+                    col1 : null,
+                },
+            ],
+        }
 
         function setTextData (data, arr) {
             const _data = JSON.parse(JSON.stringify(data));
@@ -478,6 +591,7 @@ function getSampleDatas(CONSTS, CONTENTS) {
             return _data;
         }
 
+        const deptENG = getDept('ENG');
         this.ENG = {
             intro : {
                 [CONSTS.SAMPLE_KEYS_INTRO[0]] : setTextData(
@@ -518,9 +632,179 @@ function getSampleDatas(CONSTS, CONTENTS) {
                     ]
                 ),
                 [CONSTS.SAMPLE_KEYS_STARTED[4]] : started[[CONSTS.SAMPLE_KEYS_STARTED[4]]],
+                [CONSTS.SAMPLE_KEYS_STARTED[5]] : started[[CONSTS.SAMPLE_KEYS_STARTED[5]]],
+            },
+            dive : {
+                [CONSTS.SAMPLE_KEYS_DIVE[0]] : [
+                    {
+                        lvl1: deptENG.company,
+                        lvl2: deptENG.corporateServices,
+                        lvl3: deptENG.humanResourcesTeam,
+                        lvl4: deptENG.recruitmentTeam,
+                        lvl5: null,
+                    },
+                    {
+                        lvl1: deptENG.company,
+                        lvl2: deptENG.corporateServices,
+                        lvl3: deptENG.humanResourcesTeam,
+                        lvl4: deptENG.trainingTeam,
+                        lvl5: null,
+                    },
+                    {
+                        lvl1: deptENG.company,
+                        lvl2: deptENG.corporateServices,
+                        lvl3: deptENG.financeTeam,
+                        lvl4: deptENG.accountingTeam,
+                        lvl5: null,
+                    },
+                    {
+                        lvl1: deptENG.company,
+                        lvl2: deptENG.corporateServices,
+                        lvl3: deptENG.financeTeam,
+                        lvl4: deptENG.expenseManagementTeam,
+                        lvl5: null,
+                    },
+                    {
+                        lvl1: deptENG.company,
+                        lvl2: deptENG.itDevelopmentHeadquarters,
+                        lvl3: deptENG.softwareDevelopmentDepartment,
+                        lvl4: deptENG.frontendTeam,
+                        lvl5: null,
+                    },
+                    {
+                        lvl1: deptENG.company,
+                        lvl2: deptENG.itDevelopmentHeadquarters,
+                        lvl3: deptENG.softwareDevelopmentDepartment,
+                        lvl4: deptENG.backendTeam,
+                        lvl5: null,
+                    },
+                    {
+                        lvl1: deptENG.company,
+                        lvl2: deptENG.itDevelopmentHeadquarters,
+                        lvl3: deptENG.softwareDevelopmentDepartment,
+                        lvl4: deptENG.mobileDevelopmentTeam,
+                        lvl5: null,
+                    },
+                    {
+                        lvl1: deptENG.company,
+                        lvl2: deptENG.itDevelopmentHeadquarters,
+                        lvl3: deptENG.devOpsDepartment,
+                        lvl4: deptENG.systemOperationsTeam,
+                        lvl5: null,
+                    },
+                    {
+                        lvl1: deptENG.company,
+                        lvl2: deptENG.itDevelopmentHeadquarters,
+                        lvl3: deptENG.devOpsDepartment,
+                        lvl4: deptENG.cloudManagementTeam,
+                        lvl5: null,
+                    },
+                    {
+                        lvl1: deptENG.company,
+                        lvl2: deptENG.itDevelopmentHeadquarters,
+                        lvl3: deptENG.qaDepartment,
+                        lvl4: deptENG.testingTeam,
+                        lvl5: null,
+                    },
+                    {
+                        lvl1: deptENG.company,
+                        lvl2: deptENG.itDevelopmentHeadquarters,
+                        lvl3: deptENG.qaDepartment,
+                        lvl4: deptENG.automationTeam,
+                        lvl5: null,
+                    },
+                    {
+                        lvl1: deptENG.company,
+                        lvl2: deptENG.productManagementHeadquarters,
+                        lvl3: deptENG.productPlanningDepartment,
+                        lvl4: deptENG.marketResearchTeam,
+                        lvl5: null,
+                    },
+                    {
+                        lvl1: deptENG.company,
+                        lvl2: deptENG.productManagementHeadquarters,
+                        lvl3: deptENG.productPlanningDepartment,
+                        lvl4: deptENG.productStrategyTeam,
+                        lvl5: null,
+                    },
+                    {
+                        lvl1: deptENG.company,
+                        lvl2: deptENG.productManagementHeadquarters,
+                        lvl3: deptENG.productManagementDepartment,
+                        lvl4: deptENG.projectManagementTeam,
+                        lvl5: null,
+                    },
+                    {
+                        lvl1: deptENG.company,
+                        lvl2: deptENG.productManagementHeadquarters,
+                        lvl3: deptENG.productManagementDepartment,
+                        lvl4: deptENG.productSupportTeam,
+                        lvl5: null,
+                    },
+                    {
+                        lvl1: deptENG.company,
+                        lvl2: deptENG.marketingHeadquarters,
+                        lvl3: deptENG.digitalMarketingDepartment,
+                        lvl4: deptENG.contentTeam,
+                        lvl5: null,
+                    },
+                    {
+                        lvl1: deptENG.company,
+                        lvl2: deptENG.marketingHeadquarters,
+                        lvl3: deptENG.digitalMarketingDepartment,
+                        lvl4: deptENG.advertisingTeam,
+                        lvl5: null,
+                    },
+                    {
+                        lvl1: deptENG.company,
+                        lvl2: deptENG.marketingHeadquarters,
+                        lvl3: deptENG.brandManagementDepartment,
+                        lvl4: deptENG.designTeam,
+                        lvl5: null,
+                    },
+                    {
+                        lvl1: deptENG.company,
+                        lvl2: deptENG.marketingHeadquarters,
+                        lvl3: deptENG.brandManagementDepartment,
+                        lvl4: deptENG.publicRelationsTeam,
+                        lvl5: null,
+                    },
+                    {
+                        lvl1: deptENG.company,
+                        lvl2: deptENG.salesHeadquarters,
+                        lvl3: deptENG.domesticSalesDepartment,
+                        lvl4: deptENG.regionalSalesTeam,
+                        lvl5: null,
+                    },
+                    {
+                        lvl1: deptENG.company,
+                        lvl2: deptENG.salesHeadquarters,
+                        lvl3: deptENG.domesticSalesDepartment,
+                        lvl4: deptENG.customerManagementTeam,
+                        lvl5: null,
+                    },
+                    {
+                        lvl1: deptENG.company,
+                        lvl2: deptENG.salesHeadquarters,
+                        lvl3: deptENG.internationalSalesDepartment,
+                        lvl4: deptENG.exportTeam,
+                        lvl5: null,
+                    },
+                    {
+                        lvl1: deptENG.company,
+                        lvl2: deptENG.salesHeadquarters,
+                        lvl3: deptENG.internationalSalesDepartment,
+                        lvl4: deptENG.internationalCustomerManagementTeam,
+                        lvl5: null,
+                    }
+                ],
+            },
+            api : {
+                [CONSTS.SAMPLE_KEYS_API[0]] : api[[CONSTS.SAMPLE_KEYS_API[0]]],
             },
         };
 
+        const deptKOR = getDept('KOR');
         this.KOR = {
             intro : {
                 [CONSTS.SAMPLE_KEYS_INTRO[0]] : setTextData(
@@ -561,6 +845,175 @@ function getSampleDatas(CONSTS, CONTENTS) {
                     ]
                 ),
                 [CONSTS.SAMPLE_KEYS_STARTED[4]] : started[[CONSTS.SAMPLE_KEYS_STARTED[4]]],
+                [CONSTS.SAMPLE_KEYS_STARTED[5]] : started[[CONSTS.SAMPLE_KEYS_STARTED[5]]],
+            },
+            dive : {
+                [CONSTS.SAMPLE_KEYS_DIVE[0]] : [
+                    {
+                        lvl1: deptKOR.company,
+                        lvl2: deptKOR.corporateServices,
+                        lvl3: deptKOR.humanResourcesTeam,
+                        lvl4: deptKOR.recruitmentTeam,
+                        lvl5: null,
+                    },
+                    {
+                        lvl1: deptKOR.company,
+                        lvl2: deptKOR.corporateServices,
+                        lvl3: deptKOR.humanResourcesTeam,
+                        lvl4: deptKOR.trainingTeam,
+                        lvl5: null,
+                    },
+                    {
+                        lvl1: deptKOR.company,
+                        lvl2: deptKOR.corporateServices,
+                        lvl3: deptKOR.financeTeam,
+                        lvl4: deptKOR.accountingTeam,
+                        lvl5: null,
+                    },
+                    {
+                        lvl1: deptKOR.company,
+                        lvl2: deptKOR.corporateServices,
+                        lvl3: deptKOR.financeTeam,
+                        lvl4: deptKOR.expenseManagementTeam,
+                        lvl5: null,
+                    },
+                    {
+                        lvl1: deptKOR.company,
+                        lvl2: deptKOR.itDevelopmentHeadquarters,
+                        lvl3: deptKOR.softwareDevelopmentDepartment,
+                        lvl4: deptKOR.frontendTeam,
+                        lvl5: null,
+                    },
+                    {
+                        lvl1: deptKOR.company,
+                        lvl2: deptKOR.itDevelopmentHeadquarters,
+                        lvl3: deptKOR.softwareDevelopmentDepartment,
+                        lvl4: deptKOR.backendTeam,
+                        lvl5: null,
+                    },
+                    {
+                        lvl1: deptKOR.company,
+                        lvl2: deptKOR.itDevelopmentHeadquarters,
+                        lvl3: deptKOR.softwareDevelopmentDepartment,
+                        lvl4: deptKOR.mobileDevelopmentTeam,
+                        lvl5: null,
+                    },
+                    {
+                        lvl1: deptKOR.company,
+                        lvl2: deptKOR.itDevelopmentHeadquarters,
+                        lvl3: deptKOR.devOpsDepartment,
+                        lvl4: deptKOR.systemOperationsTeam,
+                        lvl5: null,
+                    },
+                    {
+                        lvl1: deptKOR.company,
+                        lvl2: deptKOR.itDevelopmentHeadquarters,
+                        lvl3: deptKOR.devOpsDepartment,
+                        lvl4: deptKOR.cloudManagementTeam,
+                        lvl5: null,
+                    },
+                    {
+                        lvl1: deptKOR.company,
+                        lvl2: deptKOR.itDevelopmentHeadquarters,
+                        lvl3: deptKOR.qaDepartment,
+                        lvl4: deptKOR.testingTeam,
+                        lvl5: null,
+                    },
+                    {
+                        lvl1: deptKOR.company,
+                        lvl2: deptKOR.itDevelopmentHeadquarters,
+                        lvl3: deptKOR.qaDepartment,
+                        lvl4: deptKOR.automationTeam,
+                        lvl5: null,
+                    },
+                    {
+                        lvl1: deptKOR.company,
+                        lvl2: deptKOR.productManagementHeadquarters,
+                        lvl3: deptKOR.productPlanningDepartment,
+                        lvl4: deptKOR.marketResearchTeam,
+                        lvl5: null,
+                    },
+                    {
+                        lvl1: deptKOR.company,
+                        lvl2: deptKOR.productManagementHeadquarters,
+                        lvl3: deptKOR.productPlanningDepartment,
+                        lvl4: deptKOR.productStrategyTeam,
+                        lvl5: null,
+                    },
+                    {
+                        lvl1: deptKOR.company,
+                        lvl2: deptKOR.productManagementHeadquarters,
+                        lvl3: deptKOR.productManagementDepartment,
+                        lvl4: deptKOR.projectManagementTeam,
+                        lvl5: null,
+                    },
+                    {
+                        lvl1: deptKOR.company,
+                        lvl2: deptKOR.productManagementHeadquarters,
+                        lvl3: deptKOR.productManagementDepartment,
+                        lvl4: deptKOR.productSupportTeam,
+                        lvl5: null,
+                    },
+                    {
+                        lvl1: deptKOR.company,
+                        lvl2: deptKOR.marketingHeadquarters,
+                        lvl3: deptKOR.digitalMarketingDepartment,
+                        lvl4: deptKOR.contentTeam,
+                        lvl5: null,
+                    },
+                    {
+                        lvl1: deptKOR.company,
+                        lvl2: deptKOR.marketingHeadquarters,
+                        lvl3: deptKOR.digitalMarketingDepartment,
+                        lvl4: deptKOR.advertisingTeam,
+                        lvl5: null,
+                    },
+                    {
+                        lvl1: deptKOR.company,
+                        lvl2: deptKOR.marketingHeadquarters,
+                        lvl3: deptKOR.brandManagementDepartment,
+                        lvl4: deptKOR.designTeam,
+                        lvl5: null,
+                    },
+                    {
+                        lvl1: deptKOR.company,
+                        lvl2: deptKOR.marketingHeadquarters,
+                        lvl3: deptKOR.brandManagementDepartment,
+                        lvl4: deptKOR.publicRelationsTeam,
+                        lvl5: null,
+                    },
+                    {
+                        lvl1: deptKOR.company,
+                        lvl2: deptKOR.salesHeadquarters,
+                        lvl3: deptKOR.domesticSalesDepartment,
+                        lvl4: deptKOR.regionalSalesTeam,
+                        lvl5: null,
+                    },
+                    {
+                        lvl1: deptKOR.company,
+                        lvl2: deptKOR.salesHeadquarters,
+                        lvl3: deptKOR.domesticSalesDepartment,
+                        lvl4: deptKOR.customerManagementTeam,
+                        lvl5: null,
+                    },
+                    {
+                        lvl1: deptKOR.company,
+                        lvl2: deptKOR.salesHeadquarters,
+                        lvl3: deptKOR.internationalSalesDepartment,
+                        lvl4: deptKOR.exportTeam,
+                        lvl5: null,
+                    },
+                    {
+                        lvl1: deptKOR.company,
+                        lvl2: deptKOR.salesHeadquarters,
+                        lvl3: deptKOR.internationalSalesDepartment,
+                        lvl4: deptKOR.internationalCustomerManagementTeam,
+                        lvl5: null,
+                    }
+                ],
+            },
+            api : {
+                [CONSTS.SAMPLE_KEYS_API[0]] : api[[CONSTS.SAMPLE_KEYS_API[0]]],
             },
         };
     }
