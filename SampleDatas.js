@@ -455,7 +455,7 @@ function getSampleDatas(CONSTS, CONTENTS) {
         const getDept = function(lang) {
             const result = {};
             if(lang === 'ENG') {
-                result.company = "Co. Hisondev";
+                result.company = "Company";
                 result.corporateServices = "Corporate Services";
                 result.humanResourcesTeam = "Human Resources Team";
                 result.recruitmentTeam = "Recruitment Team";
@@ -501,7 +501,7 @@ function getSampleDatas(CONSTS, CONTENTS) {
                 result.internationalCustomerManagementTeam = "International Customer Management Team";
             }
             else if (lang === 'KOR') {
-                result.company = "회사. Hisondev";
+                result.company = "회사";
                 result.corporateServices = "경영지원실";
                 result.humanResourcesTeam = "인사팀";
                 result.recruitmentTeam = "채용팀";
