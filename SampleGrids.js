@@ -124,23 +124,26 @@ function getSampleGrids(CONSTS) {
         this.dive = {
             [CONSTS.SAMPLE_KEYS_DIVE[0]] :
 `<vanilla-grid id="` + CONSTS.SAMPLE_GRID_IDS_DIVE[0] + `"
+    rownumVisible="false"
     statusVisible="false"
     alterRow="false"
     selectionPolicy="single"
+    horizenBorderSize="0"
+    verticalBorderSize="0"
+    headerVisible="false"
     selectCellBackColor="#fff"
     mouseoverCellBackColor="#fff"
-    bodyCellBorderColor="#fff"
     selectRowBackColor="#fff"
     buttonBorderColor="#fff"
     buttonBackColor="#fff"
     buttonHoverBackColor="#eee"
     buttonActiveBackColor="#ddd"
 >
-    <v-col id="lvl1" header="level1" dataType="button" width="180" rowMerge="true" verticalAlign="top"></v-col>
-    <v-col id="lvl2" header="level2" dataType="button" width="180" rowMerge="true"></v-col>
-    <v-col id="lvl3" header="level3" dataType="button" width="180" rowMerge="true"></v-col>
-    <v-col id="lvl4" header="level4" dataType="button" width="180" rowMerge="true"></v-col>
-    <v-col id="lvl5" header="level5" dataType="button" width="180" rowMerge="true"></v-col>
+    <v-col id="lvl2" header="level1" dataType="tree" width="180" verticalAlign="top"></v-col>
+    <v-col id="lvl3" header="level2" dataType="tree" width="180" verticalAlign="top"></v-col>
+    <v-col id="lvl4" header="level3" dataType="tree" width="180" verticalAlign="top"></v-col>
+    <v-col id="lvl5" header="level4" dataType="tree" width="180" verticalAlign="top"></v-col>
+    <v-col id="lvl6" header="level5" dataType="tree" width="180" rowMerge="true" verticalAlign="top"></v-col>
 </vanilla-grid>`,
         }
 
