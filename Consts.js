@@ -9,6 +9,7 @@ function getConsts () {
             ,'redoable'
             ,'redoCount'
             ,'visible'
+            ,'headerVisible'
             ,'rownumVisible'
             ,'rownumSize'
             ,'rownumLockedColor'
@@ -202,6 +203,8 @@ function getConsts () {
             ,'isGridRedoable'
             ,'setGridVisible'
             ,'isGridVisible'
+            ,'setHeaderVisible'
+            ,'isHeaderVisible'
             ,'setGridRownumLockedColor'
             ,'isGridRownumLockedColor'
             ,'setGridRownumSize'
@@ -415,6 +418,7 @@ function getConsts () {
         this.SAMPLE_GRID_IDS_DIVE = this.SAMPLE_KEYS_DIVE.map(str => `grid${str.charAt(0).toUpperCase() + str.slice(1)}`);
         this.SAMPLE_KEYS_API = ['api01'];
         this.SAMPLE_GRID_IDS_API = this.SAMPLE_KEYS_API.map(str => `grid${str.charAt(0).toUpperCase() + str.slice(1)}`);
+
     }
     return new Consts();
 }
