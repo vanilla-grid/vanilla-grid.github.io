@@ -231,7 +231,7 @@ mounted: function() {
                         code: 
 `//Remove vanilla grid object
 beforeDestroy: function() {
-    vanillagrid_onDestroy(this.vg);
+    this.vg.destroy();
 },
 `,
                     },
@@ -954,11 +954,305 @@ addRowWithSetGridMount_onClick(e) {
                     "DIVE-0000": {
                         text: "Deep dive!"
                     },
+                    "DIVE-0001": {
+                        text: "위 grid는 'tree'와 'img'라는 dataType을 Vanillagrid 객체에 추가하여 커스터마이징한 grid입니다. deep dive에서는 vanilla grid의 심층기술들을 어떻게 활용하는지에 대해 알아봅니다."
+                    },
+                    "DIVE-0002": {
+                        text: "앞선 Getting started 까지는 단순히 vanilla grid 라이브러리를 사용하는 주니어 개발자를 위한 챕터였다면 Deep dive는 시스템의 공용을 책임지는 시니어급의 개발자들에게 도움이 될것입니다."
+                    },
+                    "DIVE-0003": {
+                        text: "이번 챕터를 통해 grid의 기본값을 정하고, 디자인 측면을 공통으로 수정하며, 필요한 dataType이나 footer 함수를 추가할 수 있습니다."
+                    },
+
                     "DIVE-1000": {
                         text: "Create & Destroy"
                     },
+                    "DIVE-1001": {
+                        text: "Vanilla grid의 생성과 소멸은 아래와 같습니다."
+                    },
+                    "DIVE-1100": {
+                        text: "전역함수 getVanillagrid() :"
+                    },
+                    "DIVE-1101": {
+                        text: "getVanillagrid()를 통해 vanilla grid 객체를 가져옵니다. 이하 (vg로 표현하겠습니다.)"
+                    },
+                    "DIVE-1102": {
+                        text: "해당 vg를 통해 화면에 정의 된 vanilla grid를 create, destory할 수 있습니다."
+                    },
+                    "DIVE-1103": {
+                        text: "또 vg의 정해진 key의 값을 재정의 하여 grid를 커스터마이징할 수 있습니다."
+                    },
+                    "DIVE-1103": {
+                        text: "vg를 재정의 하는 방법은 하단의 Vanilla grid object 섹션에서 자세히 다룹니다."
+                    },
+                    "DIVE-1200": {
+                        text: "vg.create()"
+                    },
+                    "DIVE-1201": {
+                        text: "화면에 Vanillagrid를 생성하는 함수 입니다. vg를 재정의 하는 로직은 vg.create() 전에 수행해야 합니다."
+                    },
+                    "DIVE-1202": {
+                        text: "그리고, vanilla grid 생성에 관련된 두개의 전역함수가 있습니다."
+                    },
+                    "DIVE-1300": {
+                        text: "전역함수 vanillagrid_onBeforeCreate(event, vanillagridObject)"
+                    },
+                    "DIVE-1301": {
+                        text: "vanillagrid_onBeforeCreate()는 vg.create() 전에 호출되는 전역 함수 입니다. 파라메터로 window load event와 vanilla grid object를 받습니다. vanilla grid object를 커스터마이징 할 수 있습니다. script에 재정의하여 사용할 수 있습니다."
+                    },
+                    "DIVE-1350": {
+                        text: "전역함수 vanillagrid_onAfterCreate(event, vanillagridObject)"
+                    },
+                    "DIVE-1351": {
+                        text: "vanillagrid_onAfterCreate()는 vg.create() 후에 호출되는 전역 함수 입니다. 파라메터로 window load event와 vanilla grid object를 받습니다. vanilla grid object를 커스터마이징 할 수 있습니다. script에 재정의하여 사용할 수 있습니다."
+                    },
+                    "DIVE-1400": {
+                        text: "기본으로 정의된 Create과정은 아래와 같습니다."
+                    },
+                    "DIVE-1401": {
+                        code: 
+`//하단 소스는 이미 Vanillagrid.js 파일에 선언되어있음.
+(() => {
+	window.addEventListener('load', function (e) {
+		const vg = getVanillagrid();    //vg를 생성
+        //vg.create()전에 vanillagrid_onBeforeCreate(e, vg)를 호출함
+        //vanillagrid_onBeforeCreate(e, vg)를 통해 vg 객체를 수정할 수 있음.
+		if (vanillagrid_onBeforeCreate(e, vg) === false) return;
+		vg.create();    //vanilla grid 생성.
+		vanillagrid_onAfterCreate(e, vg);   //생성후에 호출됨. vg 수정 가능
+	});
+})();
+`,
+                    },
+                    "DIVE-1402": {
+                        code: 
+`<script>
+//때문에 <script> 부분에 vanillagrid_onBeforeCreate(), vanillagrid_onAfterCreate()를 재정의 하여 vg를 커스터마이징 할 수 있다.
+function vanillagrid_onBeforeCreate(e, vg) {
+    console.log(vg);
+    //여기서 return false를 반환하면 vg를 create하지 않는다.
+}
+function vanillagrid_onAfterCreate(e, vg) {
+    console.log(vg);
+}
+</script>
+`,
+                    },
+                    "DIVE-1450": {
+                        text: "vg.destroy()"
+                    },
+                    "DIVE-1451": {
+                        text: "화면에 있는 Vanillagrid를 삭제하고 관련된 document이벤트나 요소를 모두 삭제하는 로직입니다. Vue 등의 library를 사용할 때 destroy시 vg.destroy()를 호출하고 mount시 다시 vg.create()를 호출하는 등으로 활용할 수 있습니다."
+                    },
+                    "DIVE-1500": {
+                        text: "Vanillagrid의 create, destroy기능은 Vue에서는 아래와 같이 활용할 수 있다."
+                    },
+                    "DIVE-1501": {
+                        text: "1. header에 Vanilla Grid를 선언합니다.",
+                    },
+                    "DIVE-1502": {
+                        code: 
+`<script src="Vanillagrid.min.1.0.0.js"></script>
+`,
+                    },
+                    "DIVE-1503": {
+                        text: "2. body의 마지막에",
+                    },
+                    "DIVE-1504": {
+                        code: 
+`<!--기존 생성 로직 방지-->
+<script> vanillagrid_onBeforeCreate = function(e, vn) {return false;} </script>
+`,
+                    },
+                    "DIVE-1505": {
+                        text: "를 추가합니다.",
+                    },
+                    "DIVE-1506": {
+                        text: "3. vue의 data에서",
+                    },
+                    "DIVE-1507": {
+                        code: 
+`//vanilla grid 객체 변수 선언
+data () {
+    return {
+        vg : null;
+    }
+}
+`,
+                    },
+                    "DIVE-1508": {
+                        text: "4. vue의 mouted에서",
+                    },
+                    "DIVE-1509": {
+                        code: 
+`//vanilla grid 객체 생성
+mounted: function() {
+    this.vg = getVanillagrid();
+    this.vg.create();
+    this.loadGrid();
+},
+`,
+                    },
+                    "DIVE-1510": {
+                        text: "5. vue의 beforeDestroy에서",
+                    },
+                    "DIVE-1511": {
+                        code: 
+`//vanilla grid 객체 제거
+beforeDestroy: function() {
+    this.vg.destroy();
+},
+`,
+                    },
+                    "DIVE-1512": {
+                        text: "6. 이렇게 하면 vue의 해당 컴포넌트가 destroy, mount될때 grid를 새로 그릴 수 있습니다.",
+                    },
                     "DIVE-2000": {
                         text: "Vanilla grid object"
+                    },
+                    "DIVE-2001": {
+                        text: "getVanillagrid()를 통해 가져오는 객체입니다. 이하 vg로 표현함. create()와 destroy()를 할 수 있습니다."
+                    },
+                    "DIVE-2002": {
+                        text: "vg는 몇가지 정의된 key의 값을 통해 개발자가 grid를 커스터마이징 할 수 있는 기능을 제공합니다."
+                    },
+                    "DIVE-2100": {
+                        text: "vg.sortAscSpan, vg.sortDescSpan"
+                    },
+                    "DIVE-2101": {
+                        text: "헤더를 더블클릭 시 나타나는 정렬 icon span요소 입니다."
+                    },
+                    "DIVE-2102": {
+                        text: "해당 값을 미리 정의해두면 더블클릭 시 해당 값이 요소로 나타납니다."
+                    },
+                    "DIVE-2103": {
+                        text: "값은 HTMLElement여야 합니다.(nodeType === 1)"
+                    },
+                    "DIVE-2104": {
+                        text: "default는 '▲', '▼'를 textContent로 갖는 span요소 입니다."
+                    },
+                    "DIVE-2105": {
+                        code: 
+`<script>
+//e는 window load event, vg는 vanilla grid object이다.
+function vanillagrid_onBeforeCreate (e, vg) {
+    //sortAscSpan 재정의
+    vg.sortAscSpan = document.createElement("i");   //fontawesome 사용 시
+    vg.sortAscSpan.setAttribute("class", "fas fa-sort-up");
+    vg.sortAscSpan.style.marginLeft = "7px";
+    //sortDescSpan 재정의
+    vg.sortDescSpan = document.createElement("i");  //fontawesome 사용 시
+    vg.sortDescSpan.setAttribute("class", "fas fa-sort-down");
+    vg.sortDescSpan.style.marginLeft = "7px";
+}
+</script>
+`,
+                    },
+                    "DIVE-2200": {
+                        text: "vg.filterSpan"
+                    },
+                    "DIVE-2201": {
+                        text: "헤더에 표시되는 필터 버튼 icon span요소 입니다."
+                    },
+                    "DIVE-2202": {
+                        text: "값은 HTMLElement여야 합니다.(nodeType === 1)"
+                    },
+                    "DIVE-2203": {
+                        text: "default는 'σ'를 textContent로 갖는 span요소 입니다."
+                    },
+                    "DIVE-2204": {
+                        code: 
+`<script>
+function vanillagrid_onBeforeCreate (e, vg) {
+    //filterSpan 재정의
+    vg.filterSpan = document.createElement("i");   //fontawesome 사용 시
+    vg.filterSpan.setAttribute("class", "fas fa-search");
+}
+</script>
+`,
+                    },
+                    "DIVE-2205": {
+                        text: "※ Getting started 페이지를 제외하고는 모두 해당 로직을 추가했습니다. 따라서 본 사이트에서 보이는 filter span과 sort span들은 fontawesome icon이 적용된 결과 입니다."
+                    },
+                    "DIVE-2300": {
+                        text: "vg.defaultGridInfo"
+                    },
+                    "DIVE-2301": {
+                        text: "grid에 대한 defualt 속성을 정의합니다."
+                    },
+                    "DIVE-2302": {
+                        text: "<vanilla-grid>에서 기능적인 속성을 정하는 값들에 대한 default 값입니다."
+                    },
+                    "DIVE-2303": {
+                        text: '예를 들어 시스템에서 사용하는 날짜 포맷이 "yyyy/mm/dd"인 경우 매번 <vanilla-grid>에 dateFormat="yyyy/mm/dd"를 할 필요 없이, vg.defaultGridInfo.dateFormat="yyyy/mm/dd"로 설정할 수 있습니다.'
+                    },
+                    "DIVE-2304": {
+                        code: 
+`<script>
+function vanillagrid_onBeforeCreate (e, vg) {
+    //모든 grid의 dateFormat의 default 값을 정의
+    vg.defaultGridInfo.dateFormat = "yyyy/mm/dd";
+    //모든 grid의 monthFormat의 default 값을 정의
+    vg.defaultGridInfo.monthFormat = "yyyy/mm";
+}
+</script>
+`,
+                    },
+                    "DIVE-2305": {
+                        text: '또 예를 들어 프로그램의 공통 정책으로 grid는 조회하는 기능만 사용하기로 했다면,'
+                    },
+                    "DIVE-2306": {
+                        code: 
+`<script>
+function vanillagrid_onBeforeCreate (e, vg) {
+    //모든 grid의 locked와 lockedColor의 default 값을 정의
+    vg.defaultGridInfo.locked = true;   //grid 잠금
+    vg.defaultGridInfo.lockedColor = false; //grid가 locked 상태일 시 background-color를 다르게 표기하지 않음
+}
+</script>
+`,
+                    },
+                    "DIVE-2307": {
+                        text: '이렇게 하면 매번 grid 선언 시 locked와 lockedColor 속성을 설정할 필요없이 항상 grid가 잠깁니다.'
+                    },
+                    "DIVE-2308": {
+                        text: 'vg.defaultGridInfo에 대한 자세한 정보는 API에 있습니다.'
+                    },
+                    "DIVE-2400": {
+                        text: "vg.defaultGridCssInfo"
+                    },
+                    "DIVE-2401": {
+                        text: "vg.defaultGridCssInfo 도 vg.defaultGridInfo와 동일합니다. 기능적인 속성이 아닌 css요소적인 속성들에 대한 default 값입니다."
+                    },
+                    "DIVE-2402": {
+                        text: "vg.defaultGridCssInfo를 활용하면 grid의 default css style을 정해놓고 매번 속성을 선언할 필요가 없습니다."
+                    },
+                    "DIVE-2403": {
+                        text: "예를 들어 excel과 비슷한 스타일의 grid를 공용으로 사용한다할 때 아래와 같이 코드를 선언할 수 있습니다."
+                    },
+                    "DIVE-2404": {
+                        code: 
+`<script>
+function vanillagrid_onBeforeCreate (e, vg) {
+    //default style을 정의
+    this.vg.defaultGridCssInfo.colorSet="green"
+    this.vg.defaultGridCssInfo.mouseoverCellBackColor="#efefef"
+    this.vg.defaultGridCssInfo.selectCellBackColor="#dfdfdf"
+    this.vg.defaultGridCssInfo.selectRowBackColor="#efefef"
+    this.vg.defaultGridCssInfo.mouseoverCellFontColor="#333"
+    this.vg.defaultGridCssInfo.selectCellFontColor="#333"
+}
+</script>
+`,
+                    },
+                    "DIVE-2405": {
+                        text: "※ 본 페이지는 filter span과, sort span, 그리고 defaultGridInfo와 defaultGridCssInfo를 위에 설명한 바와 같이 정의하겠습니다. 별도의 속성을 정의 하지 않으면 본페이지에서 grid는 아래와 같이 생성됩니다."
+                    },
+                    "DIVE-2500": {
+                        text: "vg.defaultColInfo"
+                    },
+                    "DIVE-2600": {
+                        text: "etc"
                     },
                     "DIVE-3000": {
                         text: "Footer function"
@@ -1204,7 +1498,7 @@ mounted: function() {
                         code: 
 `//vanilla grid 객체 제거
 beforeDestroy: function() {
-    vanillagrid_onDestroy(this.vg);
+    this.vg.destroy();
 },
 `,
                     },
