@@ -382,6 +382,8 @@ function getConsts () {
             ,'getCellWordBreak'
             ,'setCellWhiteSpace'
             ,'getCellWhiteSpace'
+            ,'setCellVisible'
+            ,'isCellVisible'
             ,'setCellBackColor'
             ,'getCellBackColor'
             ,'setCellFontColor'
