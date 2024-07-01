@@ -129,8 +129,10 @@ function getSampleGrids(CONSTS) {
     alterRow="false"
     selectionPolicy="single"
     horizenBorderSize="0"
-    verticalBorderSize="0"
+    verticalBorderSize="1"
     headerVisible="false"
+    gridBorderColor="#ccc"
+    bodyCellBorderColor="#eee"
     selectCellBackColor="#fff"
     mouseoverCellBackColor="#fff"
     selectRowBackColor="#fff"
@@ -143,7 +145,7 @@ function getSampleGrids(CONSTS) {
     <v-col id="lvl3" header="level2" dataType="tree" width="180" verticalAlign="top"></v-col>
     <v-col id="lvl4" header="level3" dataType="tree" width="180" verticalAlign="top"></v-col>
     <v-col id="lvl5" header="level4" dataType="tree" width="180" verticalAlign="top"></v-col>
-    <v-col id="lvl6" header="level5" dataType="tree" width="180" rowMerge="true" verticalAlign="top"></v-col>
+    <v-col id="img" header="level5" dataType="img" width="220" verticalAlign="top" locked="true" lockedColor="false"></v-col>
 </vanilla-grid>`,
         }
 
