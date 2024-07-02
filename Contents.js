@@ -53,25 +53,6 @@ function getContents(CONSTS) {
             },
             intro: {
                 grid : {
-                    [CONSTS.SAMPLE_KEYS_INTRO[0]] : {
-                        "col1" : [
-                            {
-                                text : "This is a text dataType",
-                            },
-                            {
-                                text : "Double-click to create an editor.",
-                            },
-                            {
-                                text : "Press F2 to create an editor.",
-                            },
-                            {
-                                text : "When you press the enter key,\n editor focus.",
-                            },
-                            {
-                                text : "Try it!",
-                            },
-                        ]
-                    },
                     [CONSTS.SAMPLE_KEYS_INTRO[1]] : {
                         "col1" : setLinkData(CONSTS.GRID_ATTRIBUTES, "https://vanilla-grid.github.io/", {view:"api",gridId:"gridIdGrid",row:"index",colId:"col1"}),
                         "col2" : setLinkData(CONSTS.COLUMN_ATTRIBUTES, "https://vanilla-grid.github.io/", {view:"api",gridId:"gridIdGrid",row:"index",colId:"col1"}),
@@ -851,7 +832,7 @@ grid01_onKeydownGrid (e) {
                         text: 'End ColId:'
                     },
                     "STARTED-4014": {
-                        text: 'The event definition is as follows.'
+                        text: '▼ The event definition is as follows.'
                     },
                     "STARTED-4015": {
                         code: 
@@ -950,291 +931,485 @@ addRowWithSetGridMount_onClick(e) {
             dive: {
                 grid: {
                 },
+                gridNoSearch : {
+                    [CONSTS.SAMPLE_KEYS_DIVE[1]] : {
+                        "title": [
+                            {
+                                text: "Harry Potter and the Sorcerer's Stone"
+                            },
+                            {
+                                text: "The Lord of the Rings"
+                            },
+                            {
+                                text: "Sherlock Holmes"
+                            },
+                            {
+                                text: "Moominland Midwinter"
+                            },
+                            {
+                                text: "Little Women"
+                            },
+                            {
+                                text: "Peter Pan"
+                            },
+                            {
+                                text: "The Left Hand of Darkness"
+                            },
+                            {
+                                text: "Anne of Green Gables"
+                            },
+                            {
+                                text: "The Chronicles of Narnia"
+                            },
+                            {
+                                text: "Winter's Bone"
+                            },
+                            {
+                                text: "1984"
+                            },
+                            {
+                                text: "To Kill a Mockingbird"
+                            },
+                            {
+                                text: "Pride and Prejudice"
+                            },
+                            {
+                                text: "The Great Gatsby"
+                            },
+                            {
+                                text: "Brave New World"
+                            },
+                            {
+                                text: "Catch-22"
+                            },
+                            {
+                                text: "One Hundred Years of Solitude"
+                            },
+                            {
+                                text: "The Catcher in the Rye"
+                            },
+                            {
+                                text: "The Hobbit"
+                            },
+                            {
+                                text: "Fahrenheit 451"
+                            }
+                        ]
+                    },
+                    [CONSTS.SAMPLE_KEYS_DIVE[2]] : {
+                        "pn": [
+                            {
+                                text: "Bella"
+                            },
+                            {
+                                text: "Max"
+                            },
+                            {
+                                text: "Charlie"
+                            },
+                            {
+                                text: "Daisy"
+                            },
+                            {
+                                text: "Buddy"
+                            },
+                            {
+                                text: "Lucy"
+                            },
+                            {
+                                text: "Rocky"
+                            },
+                            {
+                                text: "Molly"
+                            },
+                            {
+                                text: "Toby"
+                            },
+                            {
+                                text: "Sadie"
+                            },
+                            {
+                                text: "Bailey"
+                            },
+                            {
+                                text: "Lola"
+                            },
+                            {
+                                text: "Jack"
+                            },
+                            {
+                                text: "Sophie"
+                            },
+                            {
+                                text: "Oscar"
+                            },
+                            {
+                                text: "Ruby"
+                            },
+                            {
+                                text: "Milo"
+                            },
+                            {
+                                text: "Zoe"
+                            },
+                            {
+                                text: "Duke"
+                            },
+                            {
+                                text: "Lily"
+                            }
+                        ]
+                    },
+                    [CONSTS.SAMPLE_KEYS_DIVE[3]] : {
+                        "tn": [
+                            {
+                                "text": "Seoul FC"
+                            },
+                            {
+                                "text": "Busan United"
+                            },
+                            {
+                                "text": "Daegu FC"
+                            },
+                            {
+                                "text": "Incheon United"
+                            },
+                            {
+                                "text": "Gwangju FC"
+                            },
+                            {
+                                "text": "Daejeon Citizen"
+                            },
+                            {
+                                "text": "Ulsan Hyundai"
+                            },
+                            {
+                                "text": "Suwon Samsung Bluewings"
+                            },
+                            {
+                                "text": "Jeonbuk Hyundai Motors"
+                            },
+                            {
+                                "text": "Jeju United"
+                            },
+                            {
+                                "text": "Seongnam FC"
+                            },
+                            {
+                                "text": "Pohang Steelers"
+                            },
+                            {
+                                "text": "Gangwon FC"
+                            },
+                            {
+                                "text": "Jeonnam Dragons"
+                            },
+                            {
+                                "text": "Gyeongnam FC"
+                            },
+                            {
+                                "text": "Anyang FC"
+                            },
+                            {
+                                "text": "Bucheon FC"
+                            },
+                            {
+                                "text": "Ansan Greeners"
+                            },
+                            {
+                                "text": "Seoul E-Land"
+                            },
+                            {
+                                "text": "Suwon FC"
+                            }
+                        ],
+                    },
+                },
                 text : {
                     "DIVE-0000": {
                         text: "Deep dive!"
                     },
                     "DIVE-0001": {
-                        text: "위 grid는 'tree'와 'img'라는 dataType을 Vanillagrid 객체에 추가하여 커스터마이징한 grid입니다. deep dive에서는 vanilla grid의 심층기술들을 어떻게 활용하는지에 대해 알아봅니다."
+                        "text": "※ The above grid is a customized grid by adding dataType 'tree' and 'img' to the Vanillagrid object. In this deep dive, we will learn how to utilize the advanced techniques of vanilla grid."
                     },
                     "DIVE-0002": {
-                        text: "앞선 Getting started 까지는 단순히 vanilla grid 라이브러리를 사용하는 주니어 개발자를 위한 챕터였다면 Deep dive는 시스템의 공용을 책임지는 시니어급의 개발자들에게 도움이 될것입니다."
+                        "text": "If the previous chapters up to Getting Started were for junior developers simply using the vanilla grid library, this Deep Dive will be helpful for senior developers responsible for the system's common usage."
                     },
                     "DIVE-0003": {
-                        text: "이번 챕터를 통해 grid의 기본값을 정하고, 디자인 측면을 공통으로 수정하며, 필요한 dataType이나 footer 함수를 추가할 수 있습니다."
+                        "text": "In this chapter, you can set the default values of the grid, modify the design aspects commonly, and add necessary dataTypes or footer functions."
                     },
 
                     "DIVE-1000": {
-                        text: "Create & Destroy"
+                        "text": "Create & Destroy"
                     },
                     "DIVE-1001": {
-                        text: "Vanilla grid의 생성과 소멸은 아래와 같습니다."
+                        "text": "The creation and destruction of the vanilla grid are as follows."
                     },
                     "DIVE-1100": {
-                        text: "전역함수 getVanillagrid() :"
+                        "text": "Global function getVanillagrid()"
                     },
                     "DIVE-1101": {
-                        text: "getVanillagrid()를 통해 vanilla grid 객체를 가져옵니다. 이하 (vg로 표현하겠습니다.)"
+                        "text": "You can get the vanilla grid object through getVanillagrid(). Hereafter, it will be expressed as (vg)."
                     },
                     "DIVE-1102": {
-                        text: "해당 vg를 통해 화면에 정의 된 vanilla grid를 create, destory할 수 있습니다."
+                        "text": "You can create and destroy the vanilla grid defined on the screen through this vg."
                     },
                     "DIVE-1103": {
-                        text: "또 vg의 정해진 key의 값을 재정의 하여 grid를 커스터마이징할 수 있습니다."
+                        "text": "You can also redefine the values of the specified keys of vg to customize the grid."
                     },
                     "DIVE-1103": {
-                        text: "vg를 재정의 하는 방법은 하단의 Vanilla grid object 섹션에서 자세히 다룹니다."
+                        "text": "The method of redefining vg is covered in detail in the Vanilla grid object section below."
                     },
                     "DIVE-1200": {
-                        text: "vg.create()"
+                        "text": "vg.create()"
                     },
                     "DIVE-1201": {
-                        text: "화면에 Vanillagrid를 생성하는 함수 입니다. vg를 재정의 하는 로직은 vg.create() 전에 수행해야 합니다."
+                        "text": "This function creates the Vanilla grid on the screen. The logic for redefining vg must be performed before vg.create()."
                     },
                     "DIVE-1202": {
-                        text: "그리고, vanilla grid 생성에 관련된 두개의 전역함수가 있습니다."
+                        "text": "There are also two global functions related to the creation of the vanilla grid."
                     },
                     "DIVE-1300": {
-                        text: "전역함수 vanillagrid_onBeforeCreate(event, vanillagridObject)"
+                        "text": "Global function vanillagrid_onBeforeCreate(event, vanillagridObject)"
                     },
                     "DIVE-1301": {
-                        text: "vanillagrid_onBeforeCreate()는 vg.create() 전에 호출되는 전역 함수 입니다. 파라메터로 window load event와 vanilla grid object를 받습니다. vanilla grid object를 커스터마이징 할 수 있습니다. script에 재정의하여 사용할 수 있습니다."
+                        "text": "vanillagrid_onBeforeCreate() is a global function called before vg.create(). It takes the window load event and the vanilla grid object as parameters. You can customize the vanilla grid object. You can redefine it in the script."
                     },
                     "DIVE-1350": {
-                        text: "전역함수 vanillagrid_onAfterCreate(event, vanillagridObject)"
+                        "text": "Global function vanillagrid_onAfterCreate(event, vanillagridObject)"
                     },
                     "DIVE-1351": {
-                        text: "vanillagrid_onAfterCreate()는 vg.create() 후에 호출되는 전역 함수 입니다. 파라메터로 window load event와 vanilla grid object를 받습니다. vanilla grid object를 커스터마이징 할 수 있습니다. script에 재정의하여 사용할 수 있습니다."
+                        "text": "vanillagrid_onAfterCreate() is a global function called after vg.create(). It takes the window load event and the vanilla grid object as parameters. You can customize the vanilla grid object. You can redefine it in the script."
                     },
                     "DIVE-1400": {
-                        text: "기본으로 정의된 Create과정은 아래와 같습니다."
+                        "text": "The default creation process is as follows."
                     },
                     "DIVE-1401": {
                         code: 
-`//하단 소스는 이미 Vanillagrid.js 파일에 선언되어있음.
+`//The following source is already declared in the Vanillagrid.js file.
 (() => {
-	window.addEventListener('load', function (e) {
-		const vg = getVanillagrid();    //vg를 생성
-        //vg.create()전에 vanillagrid_onBeforeCreate(e, vg)를 호출함
-        //vanillagrid_onBeforeCreate(e, vg)를 통해 vg 객체를 수정할 수 있음.
-		if (vanillagrid_onBeforeCreate(e, vg) === false) return;
-		vg.create();    //vanilla grid 생성.
-		vanillagrid_onAfterCreate(e, vg);   //생성후에 호출됨. vg 수정 가능
-	});
+    window.addEventListener('load', function (e) {
+        const vg = getVanillagrid();    //Create vg
+        //Call vanillagrid_onBeforeCreate(e, vg) before vg.create()
+        //You can modify the vg object through vanillagrid_onBeforeCreate(e, vg).
+        if (vanillagrid_onBeforeCreate(e, vg) === false) return;
+        vg.create();    //Create vanilla grid.
+        vanillagrid_onAfterCreate(e, vg);   //Called after creation. vg can be modified.
+    });
 })();
 `,
                     },
                     "DIVE-1402": {
                         code: 
 `<script>
-//때문에 <script> 부분에 vanillagrid_onBeforeCreate(), vanillagrid_onAfterCreate()를 재정의 하여 vg를 커스터마이징 할 수 있다.
+//Therefore, you can redefine vanillagrid_onBeforeCreate(), vanillagrid_onAfterCreate() in the <script> section to customize vg.
 function vanillagrid_onBeforeCreate(e, vg) {
     console.log(vg);
-    //여기서 return false를 반환하면 vg를 create하지 않는다.
+    //If you return false here, vg will not be created.
 }
 function vanillagrid_onAfterCreate(e, vg) {
     console.log(vg);
 }
 </script>
-`,
+`
                     },
                     "DIVE-1450": {
-                        text: "vg.destroy()"
+                        "text": "vg.destroy()"
                     },
                     "DIVE-1451": {
-                        text: "화면에 있는 Vanillagrid를 삭제하고 관련된 document이벤트나 요소를 모두 삭제하는 로직입니다. Vue 등의 library를 사용할 때 destroy시 vg.destroy()를 호출하고 mount시 다시 vg.create()를 호출하는 등으로 활용할 수 있습니다."
+                        "text": "This logic deletes the Vanilla grid on the screen and removes all related document events or elements. When using libraries such as Vue, you can call vg.destroy() on destroy and vg.create() again on mount."
                     },
                     "DIVE-1500": {
-                        text: "Vanillagrid의 create, destroy기능은 Vue에서는 아래와 같이 활용할 수 있다."
+                        "text": "The create and destroy functions of Vanillagrid can be used in Vue as follows."
                     },
                     "DIVE-1501": {
-                        text: "1. header에 Vanilla Grid를 선언합니다.",
+                        "text": "1. Declare Vanilla Grid in the header."
                     },
                     "DIVE-1502": {
-                        code: 
+                        "code": 
 `<script src="Vanillagrid.min.1.0.0.js"></script>
-`,
+`
                     },
                     "DIVE-1503": {
-                        text: "2. body의 마지막에",
+                        "text": "2. At the end of the body,"
                     },
                     "DIVE-1504": {
-                        code: 
-`<!--기존 생성 로직 방지-->
+                        "code": 
+`<!--Prevent existing creation logic-->
 <script> vanillagrid_onBeforeCreate = function(e, vn) {return false;} </script>
-`,
+`
                     },
                     "DIVE-1505": {
-                        text: "를 추가합니다.",
+                        "text": "add this."
                     },
                     "DIVE-1506": {
-                        text: "3. vue의 data에서",
+                        "text": "3. In the data of Vue,"
                     },
                     "DIVE-1507": {
-                        code: 
-`//vanilla grid 객체 변수 선언
+                        "code": 
+`//Declare the vanilla grid object variable
 data () {
     return {
         vg : null;
     }
 }
-`,
+`
                     },
                     "DIVE-1508": {
-                        text: "4. vue의 mouted에서",
+                        "text": "4. In the mounted of Vue,"
                     },
                     "DIVE-1509": {
-                        code: 
-`//vanilla grid 객체 생성
+                        "code": 
+`//Create the vanilla grid object
 mounted: function() {
     this.vg = getVanillagrid();
     this.vg.create();
     this.loadGrid();
 },
-`,
+`
                     },
                     "DIVE-1510": {
-                        text: "5. vue의 beforeDestroy에서",
+                        "text": "5. In the beforeDestroy of Vue,"
                     },
                     "DIVE-1511": {
-                        code: 
-`//vanilla grid 객체 제거
+                        "code": 
+`//Remove the vanilla grid object
 beforeDestroy: function() {
     this.vg.destroy();
 },
-`,
+`
                     },
                     "DIVE-1512": {
-                        text: "6. 이렇게 하면 vue의 해당 컴포넌트가 destroy, mount될때 grid를 새로 그릴 수 있습니다.",
+                        "text": "6. This way, you can redraw the grid when the Vue component is destroyed and mounted."
                     },
                     "DIVE-2000": {
-                        text: "Vanilla grid object"
+                        "text": "Vanilla grid object"
                     },
                     "DIVE-2001": {
-                        text: "getVanillagrid()를 통해 가져오는 객체입니다. 이하 vg로 표현함. create()와 destroy()를 할 수 있습니다."
+                        "text": "This is the object obtained through getVanillagrid(). Hereafter, it will be expressed as vg. You can create and destroy it."
                     },
                     "DIVE-2002": {
-                        text: "vg는 몇가지 정의된 key의 값을 통해 개발자가 grid를 커스터마이징 할 수 있는 기능을 제공합니다."
+                        "text": "vg provides developers with the ability to customize the grid through the values of several predefined keys."
                     },
                     "DIVE-2100": {
-                        text: "vg.sortAscSpan, vg.sortDescSpan"
+                        "text": "vg.sortAscSpan, vg.sortDescSpan"
                     },
                     "DIVE-2101": {
-                        text: "헤더를 더블클릭 시 나타나는 정렬 icon span요소 입니다."
+                        "text": "These are the span elements of the sorting icon that appear when you double-click the header."
                     },
                     "DIVE-2102": {
-                        text: "해당 값을 미리 정의해두면 더블클릭 시 해당 값이 요소로 나타납니다."
+                        "text": "If you define these values in advance, they will appear as elements when double-clicked."
                     },
                     "DIVE-2103": {
-                        text: "값은 HTMLElement여야 합니다.(nodeType === 1)"
+                        "text": "The values must be HTMLElements (nodeType === 1)."
                     },
                     "DIVE-2104": {
-                        text: "default는 '▲', '▼'를 textContent로 갖는 span요소 입니다."
+                        "text": "The default is a span element with '▲', '▼' as textContent."
                     },
                     "DIVE-2105": {
                         code: 
 `<script>
-//e는 window load event, vg는 vanilla grid object이다.
+//e is the window load event, vg is the vanilla grid object.
 function vanillagrid_onBeforeCreate (e, vg) {
-    //sortAscSpan 재정의
-    vg.sortAscSpan = document.createElement("i");   //fontawesome 사용 시
+    //Redefine sortAscSpan
+    vg.sortAscSpan = document.createElement("i");   //Using fontawesome
     vg.sortAscSpan.setAttribute("class", "fas fa-sort-up");
     vg.sortAscSpan.style.marginLeft = "7px";
-    //sortDescSpan 재정의
-    vg.sortDescSpan = document.createElement("i");  //fontawesome 사용 시
+    //Redefine sortDescSpan
+    vg.sortDescSpan = document.createElement("i");  //Using fontawesome
     vg.sortDescSpan.setAttribute("class", "fas fa-sort-down");
     vg.sortDescSpan.style.marginLeft = "7px";
 }
 </script>
-`,
+`
                     },
                     "DIVE-2200": {
-                        text: "vg.filterSpan"
+                        "text": "vg.filterSpan"
                     },
                     "DIVE-2201": {
-                        text: "헤더에 표시되는 필터 버튼 icon span요소 입니다."
+                        "text": "This is the span element of the filter button icon displayed in the header."
                     },
                     "DIVE-2202": {
-                        text: "값은 HTMLElement여야 합니다.(nodeType === 1)"
+                        "text": "The value must be an HTMLElement (nodeType === 1)."
                     },
                     "DIVE-2203": {
-                        text: "default는 'σ'를 textContent로 갖는 span요소 입니다."
+                        "text": "The default is a span element with 'σ' as textContent."
                     },
                     "DIVE-2204": {
                         code: 
 `<script>
 function vanillagrid_onBeforeCreate (e, vg) {
-    //filterSpan 재정의
-    vg.filterSpan = document.createElement("i");   //fontawesome 사용 시
+    //Redefine filterSpan
+    vg.filterSpan = document.createElement("i");   //Using fontawesome
     vg.filterSpan.setAttribute("class", "fas fa-search");
 }
 </script>
-`,
+`
                     },
                     "DIVE-2205": {
-                        text: "※ Getting started 페이지를 제외하고는 모두 해당 로직을 추가했습니다. 따라서 본 사이트에서 보이는 filter span과 sort span들은 fontawesome icon이 적용된 결과 입니다."
+                        "text": "※ Except for the Getting started page, this logic has been added to all pages. Therefore, the filter span and sort span seen on this site are the results of applying fontawesome icons."
                     },
                     "DIVE-2300": {
-                        text: "vg.defaultGridInfo"
+                        "text": "vg.defaultGridInfo"
                     },
                     "DIVE-2301": {
-                        text: "grid에 대한 defualt 속성을 정의합니다."
+                        "text": "Defines the default attributes for the grid."
                     },
                     "DIVE-2302": {
-                        text: "<vanilla-grid>에서 기능적인 속성을 정하는 값들에 대한 default 값입니다."
+                        "text": "These are the default values for functional attributes in <vanilla-grid>."
                     },
                     "DIVE-2303": {
-                        text: '예를 들어 시스템에서 사용하는 날짜 포맷이 "yyyy/mm/dd"인 경우 매번 <vanilla-grid>에 dateFormat="yyyy/mm/dd"를 할 필요 없이, vg.defaultGridInfo.dateFormat="yyyy/mm/dd"로 설정할 수 있습니다.'
+                        "text": 'For example, if the date format used by the system is "yyyy/mm/dd", you can set it to vg.defaultGridInfo.dateFormat="yyyy/mm/dd" without having to set dateFormat="yyyy/mm/dd" in every <vanilla-grid>.'
                     },
                     "DIVE-2304": {
                         code: 
 `<script>
 function vanillagrid_onBeforeCreate (e, vg) {
-    //모든 grid의 dateFormat의 default 값을 정의
+    //Define the default value for dateFormat for all grids
     vg.defaultGridInfo.dateFormat = "yyyy/mm/dd";
-    //모든 grid의 monthFormat의 default 값을 정의
+    //Define the default value for monthFormat for all grids
     vg.defaultGridInfo.monthFormat = "yyyy/mm";
 }
 </script>
-`,
+`
                     },
                     "DIVE-2305": {
-                        text: '또 예를 들어 프로그램의 공통 정책으로 grid는 조회하는 기능만 사용하기로 했다면,'
+                        "text": 'For example, if the common policy of the program is to use the grid only for viewing,'
                     },
                     "DIVE-2306": {
                         code: 
 `<script>
 function vanillagrid_onBeforeCreate (e, vg) {
-    //모든 grid의 locked와 lockedColor의 default 값을 정의
-    vg.defaultGridInfo.locked = true;   //grid 잠금
-    vg.defaultGridInfo.lockedColor = false; //grid가 locked 상태일 시 background-color를 다르게 표기하지 않음
+    //Define the default values for locked and lockedColor for all grids
+    vg.defaultGridInfo.locked = true;   //Lock the grid
+    vg.defaultGridInfo.lockedColor = false; //Do not display a different background color when the grid is locked
 }
 </script>
-`,
+`
                     },
                     "DIVE-2307": {
-                        text: '이렇게 하면 매번 grid 선언 시 locked와 lockedColor 속성을 설정할 필요없이 항상 grid가 잠깁니다.'
+                        "text": 'This way, the grid will always be locked without having to set the locked and lockedColor attributes each time the grid is declared.'
                     },
                     "DIVE-2308": {
-                        text: 'vg.defaultGridInfo에 대한 자세한 정보는 API에 있습니다.'
+                        "text": 'Detailed information about vg.defaultGridInfo is available in the API.'
                     },
                     "DIVE-2400": {
-                        text: "vg.defaultGridCssInfo"
+                        "text": "vg.defaultGridCssInfo"
                     },
                     "DIVE-2401": {
-                        text: "vg.defaultGridCssInfo 도 vg.defaultGridInfo와 동일합니다. 기능적인 속성이 아닌 css요소적인 속성들에 대한 default 값입니다."
+                        "text": "vg.defaultGridCssInfo is the same as vg.defaultGridInfo, but for css-related attributes instead of functional attributes."
                     },
                     "DIVE-2402": {
-                        text: "vg.defaultGridCssInfo를 활용하면 grid의 default css style을 정해놓고 매번 속성을 선언할 필요가 없습니다."
+                        "text": "By using vg.defaultGridCssInfo, you can define the default css styles for the grid without having to declare attributes every time."
                     },
                     "DIVE-2403": {
-                        text: "예를 들어 excel과 비슷한 스타일의 grid를 공용으로 사용한다할 때 아래와 같이 코드를 선언할 수 있습니다."
+                        "text": "For example, if you want to use a grid style similar to Excel as a common style, you can declare the code as follows."
                     },
                     "DIVE-2404": {
                         code: 
 `<script>
 function vanillagrid_onBeforeCreate (e, vg) {
-    //default style을 정의
+    //Define default styles
     this.vg.defaultGridCssInfo.colorSet="green"
     this.vg.defaultGridCssInfo.mouseoverCellBackColor="#efefef"
     this.vg.defaultGridCssInfo.selectCellBackColor="#dfdfdf"
@@ -1243,23 +1418,660 @@ function vanillagrid_onBeforeCreate (e, vg) {
     this.vg.defaultGridCssInfo.selectCellFontColor="#333"
 }
 </script>
-`,
+`
                     },
                     "DIVE-2405": {
-                        text: "※ 본 페이지는 filter span과, sort span, 그리고 defaultGridInfo와 defaultGridCssInfo를 위에 설명한 바와 같이 정의하겠습니다. 별도의 속성을 정의 하지 않으면 본페이지에서 grid는 아래와 같이 생성됩니다."
+                        "text": "※ This page defines the filter span, sort span, defaultGridInfo, and defaultGridCssInfo as described above. Without defining separate attributes, the grid on this page will be created as follows."
+                    },
+                    "DIVE-2406": {
+                        "text": "▼ The default attributes of the grid applied to this page are as follows."
+                    },
+                    "DIVE-2407": {
+                        code: 
+`<script>
+function vanillagrid_onBeforeCreate (e, vg) {
+    //Redefine the filter span
+    vg.filterSpan = document.createElement("i");
+    vg.filterSpan.setAttribute("class", "fas fa-search");
+
+    //Redefine the sort span
+    vg.sortAscSpan = document.createElement("i");
+    vg.sortAscSpan.setAttribute("class", "fas fa-sort-up");
+    vg.sortAscSpan.style.marginLeft = "7px";
+
+    vg.sortDescSpan = document.createElement("i");
+    vg.sortDescSpan.setAttribute("class", "fas fa-sort-down");
+    vg.sortDescSpan.style.marginLeft = "7px";
+
+    //Set vg.defaultGridInfo
+    vg.defaultGridInfo.rownumSize = "40px";
+    vg.defaultGridInfo.statusVisible = false;
+    vg.defaultGridInfo.dateFormat = "yyyy/mm/dd";
+    vg.defaultGridInfo.monthFormat = "yyyy/mm";
+    vg.defaultGridInfo.alterRow = false;
+
+    //Set vg.defaultGridCssInfo
+    vg.defaultGridCssInfo.colorSet="green";
+    vg.defaultGridCssInfo.mouseoverCellBackColor="#efefef";
+    vg.defaultGridCssInfo.selectCellBackColor="#dfdfdf";
+    vg.defaultGridCssInfo.selectRowBackColor="#efefef";
+    vg.defaultGridCssInfo.mouseoverCellFontColor="#333";
+    vg.defaultGridCssInfo.selectCellFontColor="#333";
+}
+</script>
+`
                     },
                     "DIVE-2500": {
-                        text: "vg.defaultColInfo"
+                        "text": "vg.defaultColInfo"
+                    },
+                    "DIVE-2501": {
+                        "text": "Defines the default attributes for columns."
+                    },
+                    "DIVE-2502": {
+                        "text": "By setting the default, a column with only the id attribute (required) set in the v-col tag will be created as a text type column."
+                    },
+                    "DIVE-2503": {
+                        "text": "For example, if you set it as follows,"
+                    },
+                    "DIVE-2504": {
+                        code: 
+`<script>
+function vanillagrid_onBeforeCreate (e, vg) {
+    vg.defaultColInfo.dataType = "number";
+    vg.defaultColInfo.originWidth = "120px";
+}
+</script>
+`
+                    },
+                    "DIVE-2505": {
+                        "text": "If you create a column with only the id attribute (required) set in the v-col tag, it will be created as a number type column with a width of 120px."
+                    },
+                    "DIVE-2506": {
+                        "text": "There is a method to add columns, addCol()."
+                    },
+                    "DIVE-2507": {
+                        "text": "If you do not pass the column information properly as parameters when calling this method, a default set column will be created automatically. (id is required)"
+                    },
+                    "DIVE-2508": {
+                        "text": "The columns created in this case will also be added as columns set by vg.defaultColInfo."
                     },
                     "DIVE-2600": {
-                        text: "etc"
+                        "text": "etc"
+                    },
+                    "DIVE-2601": {
+                        "text": "vg.lessoreq0x7ffByte, vg.lessoreq0xffffByte, vg.greater0xffffByte are values used for maxByte checking."
+                    },
+                    "DIVE-2602": {
+                        "text": "vg.lessoreq0x7ffByte is for characters whose ASCII code is less than or equal to 0x7ff Byte."
+                    },
+                    "DIVE-2603": {
+                        "text": "vg.lessoreq0xffffByte is for characters whose ASCII code is greater than 0x7ff Byte and less than or equal to 0xffff Byte."
+                    },
+                    "DIVE-2604": {
+                        "text": "vg.greater0xffffByte is for characters whose ASCII code is greater than 0xffff Byte."
+                    },
+                    "DIVE-2605": {
+                        "text": "This value determines how many bytes to allocate for the character. The default values are 2, 3, and 4 respectively (based on UTF-8)."
+                    },
+                    "DIVE-2606": {
+                        "text": "If the encoding used in the program is different, you can change these values accordingly."
+                    },
+                    "DIVE-2607": {
+                        code: 
+`<script>
+function vanillagrid_onBeforeCreate (e, vg) {
+    //UTF-16
+    vg.lessoreq0x7ffByte = 2;
+    vg.lessoreq0xffffByte = 2;
+    vg.greater0xffffByte = 4;
+
+    //UTF-32
+    vg.lessoreq0x7ffByte = 4;
+    vg.lessoreq0xffffByte = 4;
+    vg.greater0xffffByte = 4;
+}
+</script>
+`,
                     },
                     "DIVE-3000": {
                         text: "Footer function"
                     },
+                    "DIVE-3001": {
+                        "text": "When you need more functionality than the existing footer functions, you can predefine and use footer functions."
+                    },
+                    "DIVE-3002": {
+                        "text": "vg.footerFormula is an object."
+                    },
+                    "DIVE-3003": {
+                        "text": "The key is a string value, and the value is a function."
+                    },
+                    "DIVE-3004": {
+                        "text": "The function receives the column values as parameters (getColValues()). The returned value is displayed in the footer."
+                    },
+                    "DIVE-3005": {
+                        "text": "▼ Declare vg.footerFormula as shown below"
+                    },
+                    "DIVE-3006": {
+                        "code": 
+`<script>
+function vanillagrid_onBeforeCreate (e, vg) {
+    this.vg.footerFormula = {
+        "CHECK_COUNT" : function (colValues) {
+            let count = 0;
+            colValues.forEach((val) => {
+                if(val === 'Y') count = count + 1;
+            });
+            return count;
+        }
+    }
+}
+</script>
+`
+                    },
+                    "DIVE-3007": {
+                        "text": "▼ You can use it in the footer attribute of v-col as shown below."
+                    },
+                    "DIVE-3008": {
+                        "code": 
+`<vanilla-grid id="gridId">
+    <v-col id="test" dataType="checkbox" footer="CHECK_COUNT"></v-col>
+</vanilla-grid>
+`
+                    },
+                    "DIVE-3009": {
+                        "text": "▼ The footer functions applied on this page are as follows."
+                    },
+                    "DIVE-3010": {
+                        "code": 
+`<script>
+function vanillagrid_onBeforeCreate (e, vg) {
+    vg.footerFormula = {
+        "CHECK_COUNT" : function (colValues) {
+            let count = 0;
+            colValues.forEach((val) => {
+                if(val === 'Y') count = count + 1;
+            });
+            return count;
+        },
+        "LAST_DATE" : function (colValues) {
+            const maxDateNum = Math.max(...colValues.map(date => Number(date)));
+            const maxDateStr = maxDateNum.toString();
+            const formattedDate = maxDateStr.slice(0, 4) + '/' + maxDateStr.slice(4, 6) + '/' + maxDateStr.slice(6);
+            return formattedDate;
+        }
+    }
+}
+</script>
+`
+                    },
+                    "DIVE-3011": {
+                        "text": 'As shown above, declare CHECK_COUNT and LAST_DATE in vg.footerFormula and then declare footer="CHECK_COUNT" footer="LAST_DATE" in the attributes of v-col to use the footer functions.'
+                    },
                     "DIVE-4000": {
                         text: "Data type"
                     },
+                    "DIVE-4001": {
+                        "text": "You can add custom data types in addition to the default data types provided."
+                    },
+                    "DIVE-4002": {
+                        "text": "In this page, we have added 'img', 'radio', and 'tree' as custom data types."
+                    },
+                    "DIVE-4003": {
+                        "text": "Define them using vg.dataType.img = {...definition}, vg.dataType.radio = {...definition}, vg.dataType.tree = {...definition},"
+                    },
+                    "DIVE-4004": {
+                        "text": 'and use them by setting the attribute dataType="img", dataType="radio", dataType="tree" in v-col.'
+                    },
+                    "DIVE-4005": {
+                        "text": "If you set a value in dataType that is not one of the prepared data types such as 'text', 'number', 'mask', 'code', 'date', 'month', or the custom types defined in vg.dataType, an error will occur."
+                    },
+                    "DIVE-4050": {
+                        "text": "▼ You can define vg.dataType for a new data type as follows."
+                    },
+                    "DIVE-4051": {
+                        "code": 
+`<script>
+function vanillagrid_onBeforeCreate (e, vg) {
+    vg.dataType = {
+        "newDataType" : {
+            //Specify the style of the cell. Insert camelCase cssKey and cssValue as key-value pairs in the format element.style.{key} = {value}.
+            cellStyle: {
+            },
+
+            //Event method that occurs when the cell is selected. The target is the selected cell and data is the cell's getData() value.
+            onSelected : function (target, data) {
+            },
+
+            //Event method that occurs when the cell is unselected. The target is the unselected cell and data is the cell's getData() value.
+            onUnselected : function (target, data) {
+            },
+
+            //Event method that occurs when a key is pressed while the cell is selected.
+            //You can get the key from the event. Data is the cell's getData() value.
+            onSelectedAndKeyDown : function (event, data) {
+            },
+
+            //Event method that occurs when the cell is clicked. The event is the click event. Data is the cell's getData() value.
+            onClick : function (event, data) {
+            },
+
+            //Event method that occurs when the mouse is down on the cell. The event is the mousedown event. Data is the cell's getData() value.
+            onMousedown : function (event, data) {
+            },
+
+            //Method to determine what value to save when a value is saved in the cell.
+            //The parameter value is the value received when loading the cell, and the return value is saved in the cell's data.
+            getValue: function (value) {
+            },
+
+            //Method to determine what text to save in the cell (after applying the format). The text is used for filtering and sorting.
+            //The parameter value is the value received when loading the cell, and the return value is saved in the cell's text.
+            getText: function (value) {
+            },
+
+            //Method to determine which node to display when the cell is displayed. The parameter is the cell's getData() value.
+            //The returned Html element is displayed in the grid. An Html element must be returned, and if null is returned, a span node is created.
+            getChildNode: function (data) {
+            },
+
+            //Method to determine which node to create when the editor is created by double-clicking the cell. The parameters are cell, getData(), 
+            //call_modify is a function that calls to modify the current editor's value, 
+            //call_endEdit is a function that calls to delete the current editor node and end editing.
+            //An Html element must be returned, and if null is returned, editing is terminated.
+            getEditor: function (target, data, call_modify, call_endEdit) {
+            },
+
+            //Method to determine what format to insert the edited value into the cell after editing.
+            //The parameters are cell, getData(), and the return value is inserted into the cell's value.
+            getEditedValue: function (target, data) {
+            },
+            
+            //Method to determine the values to be created as options for the filter. The return value creates the filter options.
+            getFilterValue: function (value) {
+            },
+
+            //Method to determine the values to be sorted. The return value is used for sorting.
+            getSortValue: function (value) {
+            },
+
+            //Method to specify the value to be copied. The value is the cell's value.
+            getCopyValue: function (value) {
+            },
+
+            //Method to specify the value to be pasted. The data is the cell's getData() and the text is the text copied to the clipboard to be pasted.
+            getPasteValue: function (data, text) {
+            },
+        }
+    }
+}
+</script>
+`
+                    },
+                    "DIVE-4100": {
+                        "text": "The definition of vg.dataType for the 'img' data type is as follows."
+                    },
+                    "DIVE-4101": {
+                        "code": 
+`<script>
+function vanillagrid_onBeforeCreate (e, vg) {
+    vg.dataType = {
+        "img" : {
+            cellStyle: {
+                justifyContent: "center",
+                textAlign: "center",
+                padding: 0,
+            },
+            onSelected : function (target, data) {
+                if(target.firstChild.children[0]) target.firstChild.children[0].style.setProperty("opacity", "0.2");
+            },
+            onUnselected : function (target, data) {
+                if(target.firstChild.children[0]) target.firstChild.children[0].style.removeProperty("opacity");
+            },
+            getValue: function (value) {
+                if(!value) return null;
+                return value;
+            },
+            getText: function (value) {
+                if(!value) return null;
+                return value.alt;
+            },
+            getChildNode: function (data) {
+                const childNode = document.createElement("span");
+                if(!data) return childNode;
+                if(!data.value) return childNode;
+                childNode.style.display = "flex";
+                childNode.style.alignItems = "center";
+                childNode.style.position = "relative";
+                childNode.style.overflow = "hidden";
+                childNode.style.width = "100%";
+                const img = document.createElement("img");
+                const alt = document.createElement("span");
+                img.style.width = "100%"
+                // img.style.height = "100px"
+                img.style.zIndex = "1";
+                img.src = data.value.src;
+                img.alt = data.text;
+                alt.style.position = "absolute";
+                alt.style.fontSize = "12px";
+                alt.style.color = "black";
+                alt.style.textAlign = "left";
+                alt.style.display = "inline-block";
+                alt.style.width = "100%";
+                alt.style.whiteSpace = "normal";
+                alt.style.wordBreak = "break-all";
+                alt.innerText = data.text;
+                
+                img.gridId = data.gridId;
+                img.cellRow = data.row;
+                img.cellCol = data.col;
+
+                childNode.append(img);
+                childNode.append(alt);
+                childNode.addEventListener('click', function (e) {
+                    window[e.target.gridId].setTargetCell(e.target.cellRow, e.target.cellCol);
+                })
+                childNode.addEventListener('dblclick', function (e) {
+                    window[e.target.gridId].editCell(e.target.cellRow, e.target.cellCol);
+                })
+                return childNode;
+            },
+            getEditor: function (target, data, call_modify, call_endEdit) {
+                if(!data.value) return null;
+
+                const editor = document.createElement("input");
+                editor.setAttribute("type","text");
+                editor.style.width = target.offsetWidth + 'px';
+                editor.style.height = target.scrollHeight + editor.offsetHeight - editor.clientHeight + 'px';
+                editor.style.position = "absolute";
+                editor.style.zIndex = "200";
+                editor.value = data.text;
+
+                editor.addEventListener('keydown', function (e) {
+                    switch (e.key) {
+                        case 'Enter':
+                            call_modify();
+                            e.stopPropagation();
+                            e.preventDefault();
+                            break;
+                        case 'Escape':
+                            call_endEdit();
+                            e.stopPropagation();
+                            e.preventDefault();
+                            break;
+                        case 'Tab':
+                            call_modify();
+                            e.stopPropagation();
+                            e.preventDefault();
+                            break;
+                        case 'F2':
+                            call_modify();
+                            e.stopPropagation();
+                            e.preventDefault();
+                            break;
+                        default:
+                            break;
+                    }
+                });
+                return editor;
+            },
+            getEditedValue: function (target, data) {
+                if(!data.value) return null;
+                const newValue = data.value;
+                newValue.alt = target.value;
+                return newValue;
+            },
+            getFilterValue: function (value) {
+                if(!value) return null;
+                return "title : " + value.alt;
+            },
+            getSortValue: function (value) {
+                if(!value) return null;
+                return value.alt;
+            },
+            getCopyValue: function (value) {
+                if(!value) return null;
+                return value.alt;
+            },
+            getPasteValue: function (data, text) {
+                if(!data.value) return null;
+                const value = data.value;
+                value.alt = text;
+                return value;
+            },
+        },
+        //radio : ...
+    };
+}
+</script>
+`
+                    },
+                    "DIVE-4200": {
+                        "text": "The definition of vg.dataType for the 'radio' data type is as follows."
+                    },
+                    "DIVE-4201": {
+                        "code": 
+`<script>
+function vanillagrid_onBeforeCreate (e, vg) {
+    vg.dataType = {
+        radio : {
+            cellStyle: {
+                justifyContent: "center",
+                textAlign: "center",
+            },
+            onSelectedAndKeyDown : function (event, data) {
+                if(event.key === 'Enter' || event.key === ' ') {
+                    window[data.gridId].setColSameValue(data.col, "N", true);
+                    window[data.gridId].setCellValue(data.row, data.col, data.value === "Y" ? "N" : "Y", true);
+                    return false;
+                }
+            },
+            onClick : function (event, data) {
+                if(event.target.tagName !== 'INPUT') return;
+                let value = event.target.checked;
+                window[event.target.gridId].setColSameValue(event.target.cellCol, "N", true);
+                window[event.target.gridId].setCellValue(event.target.cellRow, event.target.cellCol, value ? "Y" : "N", true);
+            },
+            getValue: function (value) {
+                return value;
+            },
+            getText: function (value) {
+                const text = value === "Y" ? "true" : "false";
+                return text;
+            },
+            getChildNode: function (data) {
+                const childNode = document.createElement("input");
+                childNode.setAttribute("type", "radio");
+                childNode.setAttribute("name", data.name);
+                childNode.setAttribute("value", "" + data.row);
+                childNode.gridId = data.gridId;
+                childNode.cellRow = data.row;
+                childNode.cellCol = data.col;
+                childNode.checked = data.value === "Y";
+                return childNode;
+            },
+            getFilterValue: function (value) {
+                const filterValue = value === "Y" ? "●" : "○";
+                return filterValue;
+            },
+        }
+        //tree : ...
+    };
+}
+</script>
+`
+                    },
+                    "DIVE-4300": {
+                        "text": "The definition of vg.dataType for the 'tree' data type is as follows. (The example grid for the tree data type is the grid in the Deep dive! section at the top.)"
+                    },
+                    "DIVE-4301": {
+                        "code": 
+`<script>
+function vanillagrid_onBeforeCreate (e, vg) {
+    vg.dataType = {
+        tree : {
+            cellStyle: {
+                justifyContent: "left",
+                textAlign: "left",
+            },
+            getValue: function (value) {
+                if(value.constructor === Object) {
+                    return value;
+                } else {
+                    return {title: value, toggle: false};
+                }
+            },
+            getText: function (value) {
+                if(!value) return null
+                return value.title
+            },
+            getChildNode: function (data) {
+                if(!data.value) return document.createElement('span');
+
+                const treeSpan = document.createElement('div');
+                treeSpan.style.width = '100%'
+
+                const treeText = document.createElement('span');
+                treeText.innerText = data.text;
+                treeText.style.display = 'inline-block';
+                treeText.style.marginLeft = '10px';
+                treeText.style.maxWidth = '90%'
+                treeText.style.overflow = 'hidden'
+                treeText.style.textOverflow = 'ellipsis'
+                treeText.addEventListener('click', (e) => {
+                    onClick(e, data);
+                })
+
+                const treeToggle = document.createElement('span');
+                treeToggle.classList.add('far');
+                if(data.value.toggle) {
+                    treeToggle.classList.add('fa-minus-square');
+                    treeToggle.classList.remove('fa-plus-square');
+                }
+                else {
+                    treeToggle.classList.add('fa-plus-square');
+                    treeToggle.classList.remove('fa-minus-square');
+                }
+                treeToggle.style.fontSize = '0.85em';
+                treeToggle.addEventListener('click', (e) => {
+                    onClick(e, data);
+                })
+
+                const grid = window[data.gridId];
+
+                if(data.col + 1 <= grid.getColCount() && grid.getCellDataType(data.row, data.col + 1) !== 'tree') {
+                    if(data.value.toggle) {
+                        grid.setCellDataType(data.row, data.col + 1, grid.getColDataType(data.col + 1));
+                        grid.setCellFontColor(data.row, data.col + 1, "#333");
+                    }
+                    else {
+                        grid.setCellDataType(data.row, data.col + 1, "text");
+                        grid.setCellFontColor(data.row, data.col + 1, "#fff");
+                    }
+                }
+
+                for(let col = data.col; col > 3; col--) {
+                    if(grid.getCellDataType(data.row, col) === 'tree') {
+                        const preCellValue = grid.getCellValue(data.row, col - 1);
+                        if(preCellValue && !preCellValue.toggle) {
+                            treeText.innerText = '..';
+                        }
+                        break;
+                    }
+                }
+
+                if (data.row === 1) {
+                    treeSpan.append(treeToggle);
+                    treeSpan.append(treeText);
+                } else if (data.row > 1 && grid.getCellText(data.row - 1, data.col) !== data.text) {
+                    treeSpan.append(treeToggle);
+                    treeSpan.append(treeText);
+                }
+                
+                function onClick(e, data) {
+                    const grid = window[data.gridId];
+                    const toggle = !data.value.toggle;
+
+                    function openTree (nowRow, col) {
+                        let startRow;
+                        const title = grid.getCellText(nowRow, col);
+                        if(nowRow === 1) {
+                            startRow = nowRow;
+                        }
+                        else {
+                            for(let row = nowRow; row > 1; row--) {
+                                if(grid.getCellText(row, col) === title) {
+                                    startRow = row;
+                                    break;
+                                }
+                            }
+                        }
+                        const newValue = {title : title, toggle : true};
+
+                        for(let row = startRow; row <= grid.getRowCount(); row++) {
+                            if(title !== grid.getCellText(row, col)) break;
+                            grid.setCellValue(row, col, newValue);
+                            if(row !== startRow) {
+                                if(grid.getCellDataType(row, col + 1) === 'tree') {
+                                    if(row === 1 || grid.getCellText(row, col + 1) !== grid.getCellText(row - 1, col + 1)) {
+                                        grid.setRowVisible(row, true);
+                                    }
+                                }
+                                else {
+                                    grid.setRowVisible(row, true);
+                                }
+                            }
+                            else {
+                                //Logic to simply reload the cell
+                                for(let c = col + 1; c <= grid.getColCount(); c++) {
+                                    if (grid.getCellDataType(row, c) === 'tree') {
+                                        grid.setCellValue(row, c, grid.getCellValue(row, c));
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    function closeTree (nowRow, col) {
+                        let startRow = nowRow;
+                        const title = grid.getCellText(nowRow, col);
+                        if(!title) return;
+                        
+                        for(let row = startRow; row <= grid.getRowCount(); row++) {
+                            if(title !== grid.getCellText(row, col)) break;
+                            if(row !== startRow) {
+                                grid.setRowVisible(row, false);
+                            }
+                            for(let c = col; c <= grid.getColCount(); c++) {
+                                if(grid.getCellDataType(row, c) === 'tree') {
+                                    const newValue = grid.getCellValue(row, c);
+                                    if(newValue) {
+                                        newValue.toggle = false;
+                                        grid.setCellValue(row, c, newValue);
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    if(toggle) {
+                        for(let col = data.col; col > 2; col--) {
+                            openTree(data.row, col);
+                        }
+                    }
+                    else {
+                        closeTree(data.row, data.col);
+                    }
+                }
+            
+                return treeSpan;
+            },
+        }
+    };
+}
+</script>
+`
+                    }
                 },
             },
             api: {
@@ -1318,25 +2130,6 @@ function vanillagrid_onBeforeCreate (e, vg) {
             },
             intro: {
                 grid : {
-                    [CONSTS.SAMPLE_KEYS_INTRO[0]] : {
-                        "col1" : [
-                            {
-                                text : "해당 column은 text dataType입니다.",
-                            },
-                            {
-                                text : "Double-click을 하면 수정할 수 있습니다.",
-                            },
-                            {
-                                text : "F2키를 누르면 수정할 수 있습니다.",
-                            },
-                            {
-                                text : "엔터키를 누르면 editor에 들어가며,\n 내용을 select합니다.",
-                            },
-                            {
-                                text : "시도해 보세요!",
-                            },
-                        ]
-                    },
                     [CONSTS.SAMPLE_KEYS_INTRO[1]] : {
                         "col1" : setLinkData(CONSTS.GRID_ATTRIBUTES, "https://vanilla-grid.github.io/", {view:"api",gridId:"gridIdGrid",row:"index",colId:"col1"}),
                         "col2" : setLinkData(CONSTS.COLUMN_ATTRIBUTES, "https://vanilla-grid.github.io/", {view:"api",gridId:"gridIdGrid",row:"index",colId:"col1"}),
@@ -2114,7 +2907,7 @@ grid01_onKeydownGrid (e) {
                         text: 'End ColId :'
                     },
                     "STARTED-4014": {
-                        text: '이벤트 정의는 아래와 같습니다.'
+                        text: '▼ 이벤트 정의는 아래와 같습니다.'
                     },
                     "STARTED-4015": {
                         code: 
@@ -2213,21 +3006,1146 @@ addRowWithSetGridMount_onClick(e) {
             dive: {
                 grid: {
                 },
+                gridNoSearch : {
+                    [CONSTS.SAMPLE_KEYS_DIVE[1]] : {
+                        "title": [
+                            {
+                                text: "해리 포터와 마법사의 돌"
+                            },
+                            {
+                                text: "반지의 제왕"
+                            },
+                            {
+                                text: "셜록 홈즈"
+                            },
+                            {
+                                text: "무민 골짜기의 겨울"
+                            },
+                            {
+                                text: "작은 아씨들"
+                            },
+                            {
+                                text: "피터 팬"
+                            },
+                            {
+                                text: "어둠의 왼손"
+                            },
+                            {
+                                text: "앤 셜리"
+                            },
+                            {
+                                text: "나니아 연대기"
+                            },
+                            {
+                                text: "윈터스 본"
+                            },
+                            {
+                                text: "1984"
+                            },
+                            {
+                                text: "앵무새 죽이기"
+                            },
+                            {
+                                text: "오만과 편견"
+                            },
+                            {
+                                text: "위대한 개츠비"
+                            },
+                            {
+                                text: "멋진 신세계"
+                            },
+                            {
+                                text: "캐치-22"
+                            },
+                            {
+                                text: "백년의 고독"
+                            },
+                            {
+                                text: "호밀밭의 파수꾼"
+                            },
+                            {
+                                text: "호빗"
+                            },
+                            {
+                                text: "화씨 451도"
+                            }
+                        ]
+                    },
+                    [CONSTS.SAMPLE_KEYS_DIVE[2]] : {
+                        "pn": [
+                            {
+                                text: "똘이"
+                            },
+                            {
+                                text: "뚝이"
+                            },
+                            {
+                                text: "바둑이"
+                            },
+                            {
+                                text: "밤톨이"
+                            },
+                            {
+                                text: "초롱이"
+                            },
+                            {
+                                text: "두부"
+                            },
+                            {
+                                text: "도리"
+                            },
+                            {
+                                text: "쥬쥬"
+                            },
+                            {
+                                text: "방울이"
+                            },
+                            {
+                                text: "해피"
+                            },
+                            {
+                                text: "쫑이"
+                            },
+                            {
+                                text: "나비"
+                            },
+                            {
+                                text: "루루"
+                            },
+                            {
+                                text: "복실이"
+                            },
+                            {
+                                text: "모모"
+                            },
+                            {
+                                text: "까꿍이"
+                            },
+                            {
+                                text: "순이"
+                            },
+                            {
+                                text: "요롱이"
+                            },
+                            {
+                                text: "구름이"
+                            },
+                            {
+                                text: "별이"
+                            }
+                        ]
+                    },
+                    [CONSTS.SAMPLE_KEYS_DIVE[3]] : {
+                        "tn": [
+                            {
+                                "text": "서울 FC"
+                            },
+                            {
+                                "text": "부산 유나이티드"
+                            },
+                            {
+                                "text": "대구 FC"
+                            },
+                            {
+                                "text": "인천 유나이티드"
+                            },
+                            {
+                                "text": "광주 FC"
+                            },
+                            {
+                                "text": "대전 시티즌"
+                            },
+                            {
+                                "text": "울산 현대"
+                            },
+                            {
+                                "text": "수원 삼성 블루윙즈"
+                            },
+                            {
+                                "text": "전북 현대 모터스"
+                            },
+                            {
+                                "text": "제주 유나이티드"
+                            },
+                            {
+                                "text": "성남 FC"
+                            },
+                            {
+                                "text": "포항 스틸러스"
+                            },
+                            {
+                                "text": "강원 FC"
+                            },
+                            {
+                                "text": "전남 드래곤즈"
+                            },
+                            {
+                                "text": "경남 FC"
+                            },
+                            {
+                                "text": "안양 FC"
+                            },
+                            {
+                                "text": "부천 FC"
+                            },
+                            {
+                                "text": "안산 그리너스"
+                            },
+                            {
+                                "text": "서울 이랜드"
+                            },
+                            {
+                                "text": "수원 FC"
+                            }
+                        ],
+                    },
+                },
                 text : {
                     "DIVE-0000": {
                         text: "Deep dive!"
                     },
+                    "DIVE-0001": {
+                        text: "※ 위 grid는 'tree'와 'img'라는 dataType을 Vanillagrid 객체에 추가하여 커스터마이징한 grid입니다. deep dive에서는 vanilla grid의 심층기술들을 어떻게 활용하는지에 대해 알아봅니다."
+                    },
+                    "DIVE-0002": {
+                        text: "앞선 Getting started 까지는 단순히 vanilla grid 라이브러리를 사용하는 주니어 개발자를 위한 챕터였다면 Deep dive는 시스템의 공용을 책임지는 시니어급의 개발자들에게 도움이 될것입니다."
+                    },
+                    "DIVE-0003": {
+                        text: "이번 챕터를 통해 grid의 기본값을 정하고, 디자인 측면을 공통으로 수정하며, 필요한 dataType이나 footer 함수를 추가할 수 있습니다."
+                    },
+
                     "DIVE-1000": {
                         text: "생성과 소멸"
+                    },
+                    "DIVE-1001": {
+                        text: "Vanilla grid의 생성과 소멸은 아래와 같습니다."
+                    },
+                    "DIVE-1100": {
+                        text: "전역함수 getVanillagrid()"
+                    },
+                    "DIVE-1101": {
+                        text: "getVanillagrid()를 통해 vanilla grid 객체를 가져옵니다. 이하 (vg로 표현하겠습니다.)"
+                    },
+                    "DIVE-1102": {
+                        text: "해당 vg를 통해 화면에 정의 된 vanilla grid를 create, destory할 수 있습니다."
+                    },
+                    "DIVE-1103": {
+                        text: "또 vg의 정해진 key의 값을 재정의 하여 grid를 커스터마이징할 수 있습니다."
+                    },
+                    "DIVE-1103": {
+                        text: "vg를 재정의 하는 방법은 하단의 Vanilla grid object 섹션에서 자세히 다룹니다."
+                    },
+                    "DIVE-1200": {
+                        text: "vg.create()"
+                    },
+                    "DIVE-1201": {
+                        text: "화면에 Vanillagrid를 생성하는 함수 입니다. vg를 재정의 하는 로직은 vg.create() 전에 수행해야 합니다."
+                    },
+                    "DIVE-1202": {
+                        text: "그리고, vanilla grid 생성에 관련된 두개의 전역함수가 있습니다."
+                    },
+                    "DIVE-1300": {
+                        text: "전역함수 vanillagrid_onBeforeCreate(event, vanillagridObject)"
+                    },
+                    "DIVE-1301": {
+                        text: "vanillagrid_onBeforeCreate()는 vg.create() 전에 호출되는 전역 함수 입니다. 파라메터로 window load event와 vanilla grid object를 받습니다. vanilla grid object를 커스터마이징 할 수 있습니다. script에 재정의하여 사용할 수 있습니다."
+                    },
+                    "DIVE-1350": {
+                        text: "전역함수 vanillagrid_onAfterCreate(event, vanillagridObject)"
+                    },
+                    "DIVE-1351": {
+                        text: "vanillagrid_onAfterCreate()는 vg.create() 후에 호출되는 전역 함수 입니다. 파라메터로 window load event와 vanilla grid object를 받습니다. vanilla grid object를 커스터마이징 할 수 있습니다. script에 재정의하여 사용할 수 있습니다."
+                    },
+                    "DIVE-1400": {
+                        text: "기본으로 정의된 Create과정은 아래와 같습니다."
+                    },
+                    "DIVE-1401": {
+                        code: 
+`//하단 소스는 이미 Vanillagrid.js 파일에 선언되어있음.
+(() => {
+	window.addEventListener('load', function (e) {
+		const vg = getVanillagrid();    //vg를 생성
+        //vg.create()전에 vanillagrid_onBeforeCreate(e, vg)를 호출함
+        //vanillagrid_onBeforeCreate(e, vg)를 통해 vg 객체를 수정할 수 있음.
+		if (vanillagrid_onBeforeCreate(e, vg) === false) return;
+		vg.create();    //vanilla grid 생성.
+		vanillagrid_onAfterCreate(e, vg);   //생성후에 호출됨. vg 수정 가능
+	});
+})();
+`,
+                    },
+                    "DIVE-1402": {
+                        code: 
+`<script>
+//때문에 <script> 부분에 vanillagrid_onBeforeCreate(), vanillagrid_onAfterCreate()를 재정의 하여 vg를 커스터마이징 할 수 있다.
+function vanillagrid_onBeforeCreate(e, vg) {
+    console.log(vg);
+    //여기서 return false를 반환하면 vg를 create하지 않는다.
+}
+function vanillagrid_onAfterCreate(e, vg) {
+    console.log(vg);
+}
+</script>
+`,
+                    },
+                    "DIVE-1450": {
+                        text: "vg.destroy()"
+                    },
+                    "DIVE-1451": {
+                        text: "화면에 있는 Vanillagrid를 삭제하고 관련된 document이벤트나 요소를 모두 삭제하는 로직입니다. Vue 등의 library를 사용할 때 destroy시 vg.destroy()를 호출하고 mount시 다시 vg.create()를 호출하는 등으로 활용할 수 있습니다."
+                    },
+                    "DIVE-1500": {
+                        text: "Vanillagrid의 create, destroy기능은 Vue에서는 아래와 같이 활용할 수 있다."
+                    },
+                    "DIVE-1501": {
+                        text: "1. header에 Vanilla Grid를 선언합니다.",
+                    },
+                    "DIVE-1502": {
+                        code: 
+`<script src="Vanillagrid.min.1.0.0.js"></script>
+`,
+                    },
+                    "DIVE-1503": {
+                        text: "2. body의 마지막에",
+                    },
+                    "DIVE-1504": {
+                        code: 
+`<!--기존 생성 로직 방지-->
+<script> vanillagrid_onBeforeCreate = function(e, vn) {return false;} </script>
+`,
+                    },
+                    "DIVE-1505": {
+                        text: "를 추가합니다.",
+                    },
+                    "DIVE-1506": {
+                        text: "3. vue의 data에서",
+                    },
+                    "DIVE-1507": {
+                        code: 
+`//vanilla grid 객체 변수 선언
+data () {
+    return {
+        vg : null;
+    }
+}
+`,
+                    },
+                    "DIVE-1508": {
+                        text: "4. vue의 mouted에서",
+                    },
+                    "DIVE-1509": {
+                        code: 
+`//vanilla grid 객체 생성
+mounted: function() {
+    this.vg = getVanillagrid();
+    this.vg.create();
+    this.loadGrid();
+},
+`,
+                    },
+                    "DIVE-1510": {
+                        text: "5. vue의 beforeDestroy에서",
+                    },
+                    "DIVE-1511": {
+                        code: 
+`//vanilla grid 객체 제거
+beforeDestroy: function() {
+    this.vg.destroy();
+},
+`,
+                    },
+                    "DIVE-1512": {
+                        text: "6. 이렇게 하면 vue의 해당 컴포넌트가 destroy, mount될때 grid를 새로 그릴 수 있습니다.",
                     },
                     "DIVE-2000": {
                         text: "Vanilla grid 객체"
                     },
+                    "DIVE-2001": {
+                        text: "getVanillagrid()를 통해 가져오는 객체입니다. 이하 vg로 표현함. create()와 destroy()를 할 수 있습니다."
+                    },
+                    "DIVE-2002": {
+                        text: "vg는 몇가지 정의된 key의 값을 통해 개발자가 grid를 커스터마이징 할 수 있는 기능을 제공합니다."
+                    },
+                    "DIVE-2100": {
+                        text: "vg.sortAscSpan, vg.sortDescSpan"
+                    },
+                    "DIVE-2101": {
+                        text: "헤더를 더블클릭 시 나타나는 정렬 icon span요소 입니다."
+                    },
+                    "DIVE-2102": {
+                        text: "해당 값을 미리 정의해두면 더블클릭 시 해당 값이 요소로 나타납니다."
+                    },
+                    "DIVE-2103": {
+                        text: "값은 HTMLElement여야 합니다.(nodeType === 1)"
+                    },
+                    "DIVE-2104": {
+                        text: "default는 '▲', '▼'를 textContent로 갖는 span요소 입니다."
+                    },
+                    "DIVE-2105": {
+                        code: 
+`<script>
+//e는 window load event, vg는 vanilla grid object이다.
+function vanillagrid_onBeforeCreate (e, vg) {
+    //sortAscSpan 재정의
+    vg.sortAscSpan = document.createElement("i");   //fontawesome 사용 시
+    vg.sortAscSpan.setAttribute("class", "fas fa-sort-up");
+    vg.sortAscSpan.style.marginLeft = "7px";
+    //sortDescSpan 재정의
+    vg.sortDescSpan = document.createElement("i");  //fontawesome 사용 시
+    vg.sortDescSpan.setAttribute("class", "fas fa-sort-down");
+    vg.sortDescSpan.style.marginLeft = "7px";
+}
+</script>
+`,
+                    },
+                    "DIVE-2200": {
+                        text: "vg.filterSpan"
+                    },
+                    "DIVE-2201": {
+                        text: "헤더에 표시되는 필터 버튼 icon span요소 입니다."
+                    },
+                    "DIVE-2202": {
+                        text: "값은 HTMLElement여야 합니다.(nodeType === 1)"
+                    },
+                    "DIVE-2203": {
+                        text: "default는 'σ'를 textContent로 갖는 span요소 입니다."
+                    },
+                    "DIVE-2204": {
+                        code: 
+`<script>
+function vanillagrid_onBeforeCreate (e, vg) {
+    //filterSpan 재정의
+    vg.filterSpan = document.createElement("i");   //fontawesome 사용 시
+    vg.filterSpan.setAttribute("class", "fas fa-search");
+}
+</script>
+`,
+                    },
+                    "DIVE-2205": {
+                        text: "※ Getting started 페이지를 제외하고는 모두 해당 로직을 추가했습니다. 따라서 본 사이트에서 보이는 filter span과 sort span들은 fontawesome icon이 적용된 결과 입니다."
+                    },
+                    "DIVE-2300": {
+                        text: "vg.defaultGridInfo"
+                    },
+                    "DIVE-2301": {
+                        text: "grid에 대한 defualt 속성을 정의합니다."
+                    },
+                    "DIVE-2302": {
+                        text: "<vanilla-grid>에서 기능적인 속성을 정하는 값들에 대한 default 값입니다."
+                    },
+                    "DIVE-2303": {
+                        text: '예를 들어 시스템에서 사용하는 날짜 포맷이 "yyyy/mm/dd"인 경우 매번 <vanilla-grid>에 dateFormat="yyyy/mm/dd"를 할 필요 없이, vg.defaultGridInfo.dateFormat="yyyy/mm/dd"로 설정할 수 있습니다.'
+                    },
+                    "DIVE-2304": {
+                        code: 
+`<script>
+function vanillagrid_onBeforeCreate (e, vg) {
+    //모든 grid의 dateFormat의 default 값을 정의
+    vg.defaultGridInfo.dateFormat = "yyyy/mm/dd";
+    //모든 grid의 monthFormat의 default 값을 정의
+    vg.defaultGridInfo.monthFormat = "yyyy/mm";
+}
+</script>
+`,
+                    },
+                    "DIVE-2305": {
+                        text: '또 예를 들어 프로그램의 공통 정책으로 grid는 조회하는 기능만 사용하기로 했다면,'
+                    },
+                    "DIVE-2306": {
+                        code: 
+`<script>
+function vanillagrid_onBeforeCreate (e, vg) {
+    //모든 grid의 locked와 lockedColor의 default 값을 정의
+    vg.defaultGridInfo.locked = true;   //grid 잠금
+    vg.defaultGridInfo.lockedColor = false; //grid가 locked 상태일 시 background-color를 다르게 표기하지 않음
+}
+</script>
+`,
+                    },
+                    "DIVE-2307": {
+                        text: '이렇게 하면 매번 grid 선언 시 locked와 lockedColor 속성을 설정할 필요없이 항상 grid가 잠깁니다.'
+                    },
+                    "DIVE-2308": {
+                        text: 'vg.defaultGridInfo에 대한 자세한 정보는 API에 있습니다.'
+                    },
+                    "DIVE-2400": {
+                        text: "vg.defaultGridCssInfo"
+                    },
+                    "DIVE-2401": {
+                        text: "vg.defaultGridCssInfo 도 vg.defaultGridInfo와 동일합니다. 기능적인 속성이 아닌 css요소적인 속성들에 대한 default 값입니다."
+                    },
+                    "DIVE-2402": {
+                        text: "vg.defaultGridCssInfo를 활용하면 grid의 default css style을 정해놓고 매번 속성을 선언할 필요가 없습니다."
+                    },
+                    "DIVE-2403": {
+                        text: "예를 들어 excel과 비슷한 스타일의 grid를 공용으로 사용한다할 때 아래와 같이 코드를 선언할 수 있습니다."
+                    },
+                    "DIVE-2404": {
+                        code: 
+`<script>
+function vanillagrid_onBeforeCreate (e, vg) {
+    //default style을 정의
+    this.vg.defaultGridCssInfo.colorSet="green"
+    this.vg.defaultGridCssInfo.mouseoverCellBackColor="#efefef"
+    this.vg.defaultGridCssInfo.selectCellBackColor="#dfdfdf"
+    this.vg.defaultGridCssInfo.selectRowBackColor="#efefef"
+    this.vg.defaultGridCssInfo.mouseoverCellFontColor="#333"
+    this.vg.defaultGridCssInfo.selectCellFontColor="#333"
+}
+</script>
+`,
+                    },
+                    "DIVE-2405": {
+                        text: "※ 본 페이지는 filter span과, sort span, 그리고 defaultGridInfo와 defaultGridCssInfo를 위에 설명한 바와 같이 정의하겠습니다. 별도의 속성을 정의 하지 않으면 본페이지에서 grid는 아래와 같이 생성됩니다."
+                    },
+                    "DIVE-2406": {
+                        text: "▼ 본 페이지에 적용된 grid의 default 속성들은 아래와 같습니다."
+                    },
+                    "DIVE-2407": {
+                        code: 
+`<script>
+function vanillagrid_onBeforeCreate (e, vg) {
+    //filter span 재정의
+    vg.filterSpan = document.createElement("i");
+    vg.filterSpan.setAttribute("class", "fas fa-search");
+
+    //sort span 재정의
+    vg.sortAscSpan = document.createElement("i");
+    vg.sortAscSpan.setAttribute("class", "fas fa-sort-up");
+    vg.sortAscSpan.style.marginLeft = "7px";
+
+    vg.sortDescSpan = document.createElement("i");
+    vg.sortDescSpan.setAttribute("class", "fas fa-sort-down");
+    vg.sortDescSpan.style.marginLeft = "7px";
+
+    //vg.defaultGridInfo 설정
+    vg.defaultGridInfo.rownumSize = "40px";
+    vg.defaultGridInfo.statusVisible = false;
+    vg.defaultGridInfo.dateFormat = "yyyy/mm/dd";
+    vg.defaultGridInfo.monthFormat = "yyyy/mm";
+    vg.defaultGridInfo.alterRow = false;
+
+    //vg.defaultGridCssInfo 설정
+    vg.defaultGridCssInfo.colorSet="green";
+    vg.defaultGridCssInfo.mouseoverCellBackColor="#efefef";
+    vg.defaultGridCssInfo.selectCellBackColor="#dfdfdf";
+    vg.defaultGridCssInfo.selectRowBackColor="#efefef";
+    vg.defaultGridCssInfo.mouseoverCellFontColor="#333";
+    vg.defaultGridCssInfo.selectCellFontColor="#333";
+}
+</script>
+`,
+                    },
+                    "DIVE-2500": {
+                        text: "vg.defaultColInfo"
+                    },
+                    "DIVE-2501": {
+                        text: "column에 대한 default 속성을 정의합니다."
+                    },
+                    "DIVE-2502": {
+                        text: "default 설정은, v-col태그에 id 속성만(필수) 설정하고 column을 생성하면 text type의 컬럼이 생성됩니다."
+                    },
+                    "DIVE-2503": {
+                        text: "예를들어 이를 아래와 같이 설정하면"
+                    },
+                    "DIVE-2504": {
+                        code: 
+`<script>
+function vanillagrid_onBeforeCreate (e, vg) {
+    vg.defaultColInfo.dataType = "number";
+    vg.defaultColInfo.originWidth = "120px";
+}
+</script>
+`,
+                    },
+                    "DIVE-2505": {
+                        text: "v-col태그에 id 속성만(필수) 설정하고 column을 생성하면 number type의 컬럼이 생성되고, 크기는 120px로 자동 설정 됩니다."
+                    },
+                    "DIVE-2506": {
+                        text: "메소드 중 컬럼을 추가하는 메소드 addCol()이 있습니다."
+                    },
+                    "DIVE-2507": {
+                        text: "해당 메소드 호출 시 파라메터로 column의 정보를 적절히 넘기지 않으면 자동으로 default 설정된 column이 생성됩니다. (id는 필수)"
+                    },
+                    "DIVE-2508": {
+                        text: "이때 생성되는 컬럼도 vg.defaultColInfo로 설정된 컬럼이 추가됩니다."
+                    },
+                    "DIVE-2600": {
+                        text: "기타"
+                    },
+                    "DIVE-2601": {
+                        text: "vg.lessoreq0x7ffByte, vg.lessoreq0xffffByte, vg.greater0xffffByte는 maxByte체크시 사용하는 값입니다."
+                    },
+                    "DIVE-2602": {
+                        text: "vg.lessoreq0x7ffByte는 문자의 아스키 코드가 0x7ff Byte 보다 작거나 같은경우."
+                    },
+                    "DIVE-2603": {
+                        text: "vg.lessoreq0xffffByte는 문자의 아스키 코드가 0x7ff Byte 보다 크고, 0xffff Byte 보다 작거나 같은경우."
+                    },
+                    "DIVE-2604": {
+                        text: "vg.greater0xffffByte는 문자의 아스키 코드가 0xffff Byte 보다 큰 경우를 의미합니다."
+                    },
+                    "DIVE-2605": {
+                        text: "해당 문자에 대해 byte를 얼마나 부여할지에 대한 값이며 default로 각 2, 3, 4 입니다.(UTF-8 기준)"
+                    },
+                    "DIVE-2606": {
+                        text: "프로그램에서 사용하는 인코딩이 다른 경우 해당값을 변경하여 사용할 수 있습니다."
+                    },
+                    "DIVE-2607": {
+                        code: 
+`<script>
+function vanillagrid_onBeforeCreate (e, vg) {
+    //UTF-16
+    vg.lessoreq0x7ffByte = 2;
+    vg.lessoreq0xffffByte = 2;
+    vg.greater0xffffByte = 4;
+
+    //UTF-32
+    vg.lessoreq0x7ffByte = 4;
+    vg.lessoreq0xffffByte = 4;
+    vg.greater0xffffByte = 4;
+}
+</script>
+`,
+                    },
                     "DIVE-3000": {
                         text: "footer 함수"
                     },
+                    "DIVE-3001": {
+                        text: "기존의 footer 함수 이상의 기능이 필요할 때 footer 함수를 미리 정의하여 사용할 수 있습니다."
+                    },
+                    "DIVE-3002": {
+                        text: "vg.footerFormula는 객체입니다."
+                    },
+                    "DIVE-3003": {
+                        text: "key는 문자열 값이 들어가고, value는 function을 넣습니다."
+                    },
+                    "DIVE-3004": {
+                        text: "function은 파라메터로 column의 값들을 받습니다.(getColValues()) 반환되는 값은 해당 footer에 표기됩니다."
+                    },
+                    "DIVE-3005": {
+                        text: "▼ 아래와 같이 vg.footerFormula를 선언하고"
+                    },
+                    "DIVE-3006": {
+                        code: 
+`<script>
+function vanillagrid_onBeforeCreate (e, vg) {
+    this.vg.footerFormula = {
+        "CHECK_COUNT" : function (colValues) {
+            let count = 0;
+            colValues.forEach((val) => {
+                if(val === 'Y') count = count + 1;
+            });
+            return count;
+        }
+    }
+}
+</script>
+`,
+                    },
+                    "DIVE-3007": {
+                        text: "▼ 아래와 같이 v-col에서 footer속성에 key in으로 사용할 수 있습니다."
+                    },
+                    "DIVE-3008": {
+                        code: 
+`<vanilla-grid id="gridId">
+    <v-col id="test" dataType="checkbox" footer="CHECK_COUNT"></v-col>
+</vanilla-grid>
+`,
+                    },
+                    "DIVE-3009": {
+                        text: "▼ 본 페이지에서 적용한 footer function은 아래와 같습니다."
+                    },
+                    "DIVE-3010": {
+                        code: 
+`<script>
+function vanillagrid_onBeforeCreate (e, vg) {
+    vg.footerFormula = {
+        "CHECK_COUNT" : function (colValues) {
+            let count = 0;
+            colValues.forEach((val) => {
+                if(val === 'Y') count = count + 1;
+            });
+            return count;
+        },
+        "LAST_DATE" : function (colValues) {
+            const maxDateNum = Math.max(...colValues.map(date => Number(date)));
+            const maxDateStr = maxDateNum.toString();
+            const formattedDate = maxDateStr.slice(0, 4) + '/' + maxDateStr.slice(4, 6) + '/' + maxDateStr.slice(6);;
+            return formattedDate;
+        }
+    }
+}
+</script>
+`,
+                    },
+                    "DIVE-3011": {
+                        text: '위 내용과 같이 CHECK_COUNT와 LAST_DATE를 vg.footerFormula에 선언하고 v-col의 속성에 footer="CHECK_COUNT" footer="LAST_DATE"을 선언한 후 footer function을 사용합니다.'
+                    },
                     "DIVE-4000": {
                         text: "데이터 타입"
+                    },
+                    "DIVE-4001": {
+                        text: "기본으로 제공되는 data type외에 별도의 data type을 추가 할 수 있습니다."
+                    },
+                    "DIVE-4002": {
+                        text: "본 페이지에서는 임의의 data type으로 'img', 'radio', 'tree'를 추가해 보았습니다."
+                    },
+                    "DIVE-4003": {
+                        text: "vg.dataType.img = {...정의}, vg.dataType.radio = {...정의}, vg.dataType.tree = {...정의}의 방식으로 정의하며,"
+                    },
+                    "DIVE-4004": {
+                        text: 'v-col에 dataType="img", dataType="radio", dataType="tree"와 같이 속성을 설정해서 사용합니다.'
+                    },
+                    "DIVE-4005": {
+                        text: "기존의 준비된 dataType 속성 'text', 'number', 'mask', 'code', 'date', 'month' 등과 사용자가 vg.dataType에 정의한 속성외의 값을 dataType에 설정하면 오류가 발생합니다."
+                    },
+                    "DIVE-4050": {
+                        text: "▼ 새로운 data type에 대한 vg.dataType 정의는 아래와 같은 방법으로 코드를 작성할 수 있습니다."
+                    },
+                    "DIVE-4051": {
+                        code: 
+`<script>
+function vanillagrid_onBeforeCreate (e, vg) {
+    vg.dataType = {
+        "newDataType" : {
+            //cell의 style을 지정. element.style.{key} = {value} 형식의 카멜표현식 cssKey와 cssValue를 key-value로 삽입함.
+            cellStyle: {
+            },
+
+            //cell이 선택되었을 때 발생할 이벤트성 메소드. target은 해당 cell이며 data는 cell의 getData() 값이다.
+            onSelected : function (target, data) {
+            },
+
+            //cell이 선택 해제 되었을 때 발생할 이벤트성 메소드. target은 해당 cell이며 data는 cell의 getData() 값이다.
+            onUnselected : function (target, data) {
+            },
+
+            //cell이 선택된 상태에서 keyboard를 눌렀을 때 발생할 이벤트성 메소드.
+            //event에서 key를 가져올 수 있다. data는 cell의 getData() 값이다.
+            onSelectedAndKeyDown : function (event, data) {
+            },
+
+            //cell을 클릭할 때 발생할 이벤트성 메소드. event는 click이벤트. data는 cell의 getData() 값이다.
+            onClick : function (event, data) {
+            },
+
+            //cell을 mouse down할 때 발생할 이벤트성 메소드. event는 mousedown이벤트. data는 cell의 getData() 값이다.
+            onMousedown : function (event, data) {
+            },
+
+            //cell에 값이 저장될 때 어떤 값을 저장할지에 대한 메소드.
+            //파라메터로 cell에 값 load시 받는 값이 value로 들어오고, 반환값을 cell의 data에 저장한다.
+            getValue: function (value) {
+            },
+
+            //cell에 text가 저장될 때 어떤 text를 저장할지에(format적용 후) 대한 메소드. text는 필터, 정렬에 활용된다.
+            //파라메터로 cell에 값 load시 받는 값이 value로 들어오고, 반환값을 cell의 text에 저장한다.
+            getText: function (value) {
+            },
+
+            //cell이 화면에 표기될때 어떤 node를 보여줄지에 대한 메소드. 파라메터로 cell의 getData() 값을 받는다.
+            //반환되는 Html element가 grid에 표기된다. Html element를 반환해야하고 null반환 시 span node가 생성된다.
+            getChildNode: function (data) {
+            },
+
+            //cell을 더블클릭하여 editor를 생성 할때 어떤 node를 생성할 지에 대한 메소드. 파라메터로 cell, getData()를 받고,
+            //call_modify는 현재 editor의 값을 변경하라는 메소드를 호출하는 function,
+            //call_endEdit는 현재 editor node를 삭제하고 editing을 종료하라는 메소드를 호출하는 function이다
+            // Html element를 반환해야하고 null반환 시 edit이 종료 된다.
+            getEditor: function (target, data, call_modify, call_endEdit) {
+            },
+
+            //editing후 편집된 값을 cell에 어떤 형식으로 삽입할 지에 대한 메소드.
+            //파라메터로 cell, getData()를 받는다. 반환되는 값은 cell의 value에 삽입된다.
+            getEditedValue: function (target, data) {
+            },
+            
+            //filter의 options으로 생성될 값을 정하는 메소드. 반환되는 값으로 filter의 options을 만든다.
+            getFilterValue: function (value) {
+            },
+
+            //sort의 기준될 값을 정하는 메소드. 반환되는 값으로 정렬한다 만든다.
+            getSortValue: function (value) {
+            },
+
+            //복사할 값을 지정하는 메소드. value는 cell의 value이다.
+            getCopyValue: function (value) {
+            },
+
+            //붙여넣기할 값을 지정하는 메소드. data는 cell의 getData()이고 text는 클립보드에 복사되어 붙여넣기 될 text이다.
+            getPasteValue: function (data, text) {
+            },
+        }
+    }
+}
+</script>
+`,
+                    },
+                    "DIVE-4100": {
+                        text: "'img' data type에 대한 vg.dataType 정의는 다음과 같습니다."
+                    },
+                    "DIVE-4101": {
+                        code: 
+`<script>
+function vanillagrid_onBeforeCreate (e, vg) {
+    vg.dataType = {
+        "img" : {
+            cellStyle: {
+                justifyContent: "center",
+                textAlign: "center",
+                padding: 0,
+            },
+            onSelected : function (target, data) {
+                if(target.firstChild.children[0]) target.firstChild.children[0].style.setProperty("opacity", "0.2");
+            },
+            onUnselected : function (target, data) {
+                if(target.firstChild.children[0]) target.firstChild.children[0].style.removeProperty("opacity");
+            },
+            getValue: function (value) {
+                if(!value) return null;
+                return value;
+            },
+            getText: function (value) {
+                if(!value) return null;
+                return value.alt;
+            },
+            getChildNode: function (data) {
+                const childNode = document.createElement("span");
+                if(!data) return childNode;
+                if(!data.value) return childNode;
+                childNode.style.display = "flex";
+                childNode.style.alignItems = "center";
+                childNode.style.position = "relative";
+                childNode.style.overflow = "hidden";
+                childNode.style.width = "100%";
+                const img = document.createElement("img");
+                const alt = document.createElement("span");
+                img.style.width = "100%"
+                // img.style.height = "100px"
+                img.style.zIndex = "1";
+                img.src = data.value.src;
+                img.alt = data.text;
+                alt.style.position = "absolute";
+                alt.style.fontSize = "12px";
+                alt.style.color = "black";
+                alt.style.textAlign = "left";
+                alt.style.display = "inline-block";
+                alt.style.width = "100%";
+                alt.style.whiteSpace = "normal";
+                alt.style.wordBreak = "break-all";
+                alt.innerText = data.text;
+                
+                img.gridId = data.gridId;
+                img.cellRow = data.row;
+                img.cellCol = data.col;
+
+                childNode.append(img);
+                childNode.append(alt);
+                childNode.addEventListener('click', function (e) {
+                    window[e.target.gridId].setTargetCell(e.target.cellRow, e.target.cellCol);
+                })
+                childNode.addEventListener('dblclick', function (e) {
+                    window[e.target.gridId].editCell(e.target.cellRow, e.target.cellCol);
+                })
+                return childNode;
+            },
+            getEditor: function (target, data, call_modify, call_endEdit) {
+                if(!data.value) return null;
+
+                const editor = document.createElement("input");
+                editor.setAttribute("type","text");
+                editor.style.width = target.offsetWidth + 'px';
+                editor.style.height = target.scrollHeight + editor.offsetHeight - editor.clientHeight + 'px';
+                editor.style.position = "absolute";
+                editor.style.zIndex = "200";
+                editor.value = data.text;
+
+                editor.addEventListener('keydown', function (e) {
+                    switch (e.key) {
+                        case 'Enter':
+                            call_modify();
+                            e.stopPropagation();
+                            e.preventDefault();
+                            break;
+                        case 'Escape':
+                            call_endEdit();
+                            e.stopPropagation();
+                            e.preventDefault();
+                            break;
+                        case 'Tab':
+                            call_modify();
+                            e.stopPropagation();
+                            e.preventDefault();
+                            break;
+                        case 'F2':
+                            call_modify();
+                            e.stopPropagation();
+                            e.preventDefault();
+                            break;
+                        default:
+                            break;
+                    }
+                });
+                return editor;
+            },
+            getEditedValue: function (target, data) {
+                if(!data.value) return null;
+                const newValue = data.value;
+                newValue.alt = target.value;
+                return newValue;
+            },
+            getFilterValue: function (value) {
+                if(!value) return null;
+                return "title : " + value.alt;
+            },
+            getSortValue: function (value) {
+                if(!value) return null;
+                return value.alt;
+            },
+            getCopyValue: function (value) {
+                if(!value) return null;
+                return value.alt;
+            },
+            getPasteValue: function (data, text) {
+                if(!data.value) return null;
+                const value = data.value;
+                value.alt = text;
+                return value;
+            },
+        },
+        //radio : ...
+    };
+}
+</script>
+`,
+                    },
+                    "DIVE-4200": {
+                        text: "'radio' data type에 대한 vg.dataType 정의는 다음과 같습니다."
+                    },
+                    "DIVE-4201": {
+                        code: 
+`<script>
+function vanillagrid_onBeforeCreate (e, vg) {
+    vg.dataType = {
+        radio : {
+            cellStyle: {
+                justifyContent: "center",
+                textAlign: "center",
+            },
+            onSelectedAndKeyDown : function (event, data) {
+                if(event.key === 'Enter' || event.key === ' ') {
+                    window[data.gridId].setColSameValue(data.col, "N", true);
+                    window[data.gridId].setCellValue(data.row, data.col, data.value === "Y" ? "N" : "Y", true);
+                    return false;
+                }
+            },
+            onClick : function (event, data) {
+                if(event.target.tagName !== 'INPUT') return;
+                let value = event.target.checked;
+                window[event.target.gridId].setColSameValue(event.target.cellCol, "N", true);
+                window[event.target.gridId].setCellValue(event.target.cellRow, event.target.cellCol, value ? "Y" : "N", true);
+            },
+            getValue: function (value) {
+                return value;
+            },
+            getText: function (value) {
+                const text = value === "Y" ? "true" : "false";
+                return text;
+            },
+            getChildNode: function (data) {
+                const childNode = document.createElement("input");
+                childNode.setAttribute("type", "radio");
+                childNode.setAttribute("name", data.name);
+                childNode.setAttribute("value", "" + data.row);
+                childNode.gridId = data.gridId;
+                childNode.cellRow = data.row;
+                childNode.cellCol = data.col;
+                childNode.checked = data.value === "Y";
+                return childNode;
+            },
+            getFilterValue: function (value) {
+                const filterValue = value === "Y" ? "●" : "○";
+                return filterValue;
+            },
+        }
+        //tree : ...
+    };
+}
+</script>
+`,
+                    },
+                    "DIVE-4300": {
+                        text: "'tree' data type에 대한 vg.dataType 정의는 다음과 같습니다.(tree data type에 대한 예시 grid는 최 상단의 Deep dive!섹션의 grid입니다.)"
+                    },
+                    "DIVE-4301": {
+                        code: 
+`<script>
+function vanillagrid_onBeforeCreate (e, vg) {
+    vg.dataType = {
+        tree : {
+            cellStyle: {
+                justifyContent: "left",
+                textAlign: "left",
+            },
+            getValue: function (value) {
+                if(value.constructor === Object) {
+                    return value;
+                } else {
+                    return {title: value, toggle: false};
+                }
+            },
+            getText: function (value) {
+                if(!value) return null
+                return value.title
+            },
+            getChildNode: function (data) {
+                if(!data.value) return document.createElement('span');
+
+                const treeSpan = document.createElement('divs');
+                treeSpan.style.width = '100%'
+
+                const treeText = document.createElement('span');
+                treeText.innerText = data.text;
+                treeText.style.display = 'inline-block';
+                treeText.style.marginLeft = '10px';
+                treeText.style.maxWidth = '90%'
+                treeText.style.overflow = 'hidden'
+                treeText.style.textOverflow = 'ellipsis'
+                treeText.addEventListener('click', (e) => {
+                    onClick(e, data);
+                })
+
+                const treeToggle = document.createElement('span');
+                treeToggle.classList.add('far');
+                if(data.value.toggle) {
+                    treeToggle.classList.add('fa-minus-square');
+                    treeToggle.classList.remove('fa-plus-square');
+                }
+                else {
+                    treeToggle.classList.add('fa-plus-square');
+                    treeToggle.classList.remove('fa-minus-square');
+                }
+                treeToggle.style.fontSize = '0.85em';
+                treeToggle.addEventListener('click', (e) => {
+                    onClick(e, data);
+                })
+
+                const grid = window[data.gridId];
+
+                if(data.col + 1 <= grid.getColCount() && grid.getCellDataType(data.row, data.col + 1) !== 'tree') {
+                    if(data.value.toggle) {
+                        grid.setCellDataType(data.row, data.col + 1, grid.getColDataType(data.col + 1));
+                        grid.setCellFontColor(data.row, data.col + 1, "#333");
+                    }
+                    else {
+                        grid.setCellDataType(data.row, data.col + 1, "text");
+                        grid.setCellFontColor(data.row, data.col + 1, "#fff");
+                    }
+                }
+
+                for(let col = data.col; col > 3; col--) {
+                    if(grid.getCellDataType(data.row, col) === 'tree') {
+                        const preCellValue = grid.getCellValue(data.row, col - 1);
+                        if(preCellValue && !preCellValue.toggle) {
+                            treeText.innerText = '..';
+                        }
+                        break;
+                    }
+                }
+
+                if (data.row === 1) {
+                    treeSpan.append(treeToggle);
+                    treeSpan.append(treeText);
+                } else if (data.row > 1 && grid.getCellText(data.row - 1, data.col) !== data.text) {
+                    treeSpan.append(treeToggle);
+                    treeSpan.append(treeText);
+                }
+                
+                function onClick(e, data) {
+                    const grid = window[data.gridId];
+                    const toggle = !data.value.toggle;
+
+                    function openTree (nowRow, col) {
+                        let startRow;
+                        const title = grid.getCellText(nowRow, col);
+                        if(nowRow === 1) {
+                            startRow = nowRow;
+                        }
+                        else {
+                            for(let row = nowRow; row > 1; row--) {
+                                if(grid.getCellText(row, col) === title) {
+                                    startRow = row;
+                                    break;
+                                }
+                            }
+                        }
+                        const newValue = {title : title, toggle : true};
+
+                        for(let row = startRow; row <= grid.getRowCount(); row++) {
+                            if(title !== grid.getCellText(row, col)) break;
+                            grid.setCellValue(row, col, newValue);
+                            if(row !== startRow) {
+                                if(grid.getCellDataType(row, col + 1) === 'tree') {
+                                    if(row === 1 || grid.getCellText(row, col + 1) !== grid.getCellText(row - 1, col + 1)) {
+                                        grid.setRowVisible(row, true);
+                                    }
+                                }
+                                else {
+                                    grid.setRowVisible(row, true);
+                                }
+                            }
+                            else {
+                                //cell의 단순히 재load를 시키기 위한 로직
+                                for(let c = col + 1; c <= grid.getColCount(); c++) {
+                                    if (grid.getCellDataType(row, c) === 'tree') {
+                                        grid.setCellValue(row, c, grid.getCellValue(row, c));
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    function closeTree (nowRow, col) {
+                        let startRow = nowRow;
+                        const title = grid.getCellText(nowRow, col);
+                        if(!title) return;
+                        
+                        for(let row = startRow; row <= grid.getRowCount(); row++) {
+                            if(title !== grid.getCellText(row, col)) break;
+                            if(row !== startRow) {
+                                grid.setRowVisible(row, false);
+                            }
+                            for(let c = col; c <= grid.getColCount(); c++) {
+                                if(grid.getCellDataType(row, c) === 'tree') {
+                                    const newValue = grid.getCellValue(row, c);
+                                    if(newValue) {
+                                        newValue.toggle = false;
+                                        grid.setCellValue(row, c, newValue);
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    if(toggle) {
+                        for(let col = data.col; col > 2; col--) {
+                            openTree(data.row, col);
+                        }
+                    }
+                    else {
+                        closeTree(data.row, data.col);
+                    }
+                }
+            
+                return treeSpan;
+            },
+        }
+    };
+}
+</script>
+`,
                     },
                 },
             },
@@ -2261,10 +4179,6 @@ addRowWithSetGridMount_onClick(e) {
             this.ENG.intro.text[key].anchor = "anchor_" + idx;
         });
         //intro grid data에 cell정보 삽입(ENG)
-        //gridIntro01
-        for(let r = 0; r < this.ENG.intro.grid[CONSTS.SAMPLE_KEYS_INTRO[0]].col1.length; r++) {
-            setCellInfo(this.ENG.intro.grid[CONSTS.SAMPLE_KEYS_INTRO[0]].col1[r], CONSTS.SAMPLE_GRID_IDS_INTRO[0], r, "col1", CONSTS.VIEW_KEY_INTRO);
-        }
         //gridIntro02
         for(let r = 0; r < this.ENG.intro.grid[CONSTS.SAMPLE_KEYS_INTRO[1]].col1.length; r++) {
             setCellInfo(this.ENG.intro.grid[CONSTS.SAMPLE_KEYS_INTRO[1]].col1[r], CONSTS.SAMPLE_GRID_IDS_INTRO[1], r, "col1", CONSTS.VIEW_KEY_INTRO);
@@ -2284,10 +4198,6 @@ addRowWithSetGridMount_onClick(e) {
             this.KOR.intro.text[key].anchor = "anchor_" + idx;
         });
         //intro grid data에 cell정보 삽입(KOR)
-        //gridIntro01
-        for(let r = 0; r < this.KOR.intro.grid[CONSTS.SAMPLE_KEYS_INTRO[0]].col1.length; r++) {
-            setCellInfo(this.KOR.intro.grid[CONSTS.SAMPLE_KEYS_INTRO[0]].col1[r], CONSTS.SAMPLE_GRID_IDS_INTRO[0], r, "col1", CONSTS.VIEW_KEY_INTRO);
-        }
         //gridIntro02
         for(let r = 0; r < this.KOR.intro.grid[CONSTS.SAMPLE_KEYS_INTRO[1]].col1.length; r++) {
             setCellInfo(this.KOR.intro.grid[CONSTS.SAMPLE_KEYS_INTRO[1]].col1[r], CONSTS.SAMPLE_GRID_IDS_INTRO[1], r, "col1", CONSTS.VIEW_KEY_INTRO);
