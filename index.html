@@ -17,13 +17,13 @@
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
-	<script src="Vanillagrid.min.1.0.0.js?v=20240701"></script>
-	<script src="DataType.js?v=20240701"></script>
-	<script src="Consts.js?v=20240701"></script>
-	<script src="Contents.js?v=20240701"></script>
-	<script src="SampleDatas.js?v=20240701"></script>
-	<script src="SampleGrids.js?v=20240701"></script>
-	<script src="Component.js?v=20240701"></script>
+	<script src="Vanillagrid.min.1.0.0.js?v=20240702"></script>
+	<script src="DataType.js?v=20240702"></script>
+	<script src="Consts.js?v=20240702"></script>
+	<script src="Contents.js?v=20240702"></script>
+	<script src="SampleDatas.js?v=20240702"></script>
+	<script src="SampleGrids.js?v=20240702"></script>
+	<script src="Component.js?v=20240702"></script>
 	<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
 	<style>
 	*, ::before, ::after {
@@ -360,13 +360,13 @@
 	        const anchorId = urlParams.get('anchor');
 	        const lang = urlParams.get('lang');
 	        this.currentLang = lang ? lang : 'ENG';
-	        if(!viewId || ['intro','started','dive','api'].indexOf(viewId) < 0) viewId = 'dive';
+	        if(!viewId || ['intro','started','dive','api'].indexOf(viewId) < 0) viewId = 'intro';
 	        this.currentView = viewId;
 	        this.scrollAnchor(anchorId, null, 1000);
 		},
 	    data: {
 	    	currentLang : 'ENG',
-	        currentView : 'dive',
+	        currentView : 'intro',
 	        navItems: [
 	            { id: 'intro', name: 'Intro' },
 	            { id: 'started', name: 'Getting started' },
@@ -771,6 +771,16 @@
 					loadGrid() {
 						window[CONSTS.SAMPLE_GRID_IDS_INTRO[0]].load(SAMPLE_DATAS[this.currentLang].intro[CONSTS.SAMPLE_KEYS_INTRO[0]]);
 						window[CONSTS.SAMPLE_GRID_IDS_INTRO[1]].load(SAMPLE_DATAS[this.currentLang].intro[CONSTS.SAMPLE_KEYS_INTRO[1]]);
+						const grid01 = window[CONSTS.SAMPLE_GRID_IDS_INTRO[0]];
+
+	            		switch(this.currentLang) {
+	            			case 'KOR' :
+								grid01.setHeaderText('col1', 'header;text;고래 이름');
+	            				break;
+	            			default :
+								grid01.setHeaderText('col1', 'header;text;Whale Name');
+	            				break;
+						}
 					},
 					[CONSTS.SAMPLE_GRID_IDS_INTRO[0] + '_onAdd']() {	//gridIntro_onAdd
 						window[CONSTS.SAMPLE_GRID_IDS_INTRO[0]].addRow({
@@ -909,20 +919,62 @@
 						window[CONSTS.SAMPLE_GRID_IDS_STARTED[3]].load(SAMPLE_DATAS[this.currentLang].started[CONSTS.SAMPLE_KEYS_STARTED[3]]);
 						window[CONSTS.SAMPLE_GRID_IDS_STARTED[4]].load(SAMPLE_DATAS[this.currentLang].started[CONSTS.SAMPLE_KEYS_STARTED[4]]);
 						window[CONSTS.SAMPLE_GRID_IDS_STARTED[5]].load(SAMPLE_DATAS[this.currentLang].started[CONSTS.SAMPLE_KEYS_STARTED[5]]);
+						
+						const grid02 = window[CONSTS.SAMPLE_GRID_IDS_STARTED[1]];
+						const grid04 = window[CONSTS.SAMPLE_GRID_IDS_STARTED[3]];
+						grid04.setCellDataType(2, 4, 'mask');
+						grid04.setCellFormat(2, 4, 'AAA-99')
+						grid04.setCellDataType(3, 4, 'number');
+						grid04.setCellFormat(3, 4, '0 %');
+						grid04.setCellDataType(4, 4, 'date');
+						grid04.setCellDataType(5, 4, 'month');
+						grid04.setCellDataType(6, 4, 'select');
+						grid04.setCellDataType(7, 4, 'checkbox');
+						grid04.setCellDataType(8, 4, 'button');
+						grid04.setCellDataType(9, 4, 'link');
+						grid04.setCellDataType(10, 4, 'code');
+						grid04.setCellCodes(10, 4, ['C','U','D']);
 
-						const grid4 = window[CONSTS.SAMPLE_GRID_IDS_STARTED[3]];
-						grid4.setCellDataType(2, 4, 'mask');
-						grid4.setCellFormat(2, 4, 'AAA-99')
-						grid4.setCellDataType(3, 4, 'number');
-						grid4.setCellFormat(3, 4, '0 %');
-						grid4.setCellDataType(4, 4, 'date');
-						grid4.setCellDataType(5, 4, 'month');
-						grid4.setCellDataType(6, 4, 'select');
-						grid4.setCellDataType(7, 4, 'checkbox');
-						grid4.setCellDataType(8, 4, 'button');
-						grid4.setCellDataType(9, 4, 'link');
-						grid4.setCellDataType(10, 4, 'code');
-						grid4.setCellCodes(10, 4, ['C','U','D']);
+	            		switch(this.currentLang) {
+	            			case 'KOR' :
+								grid02.setHeaderText('dept', '시그마(σ) 버튼을 클릭하면 filter가 열립니다;filter1(mask);부서');
+								grid02.setHeaderText('f_nm', ';filter2(text);이름');
+								grid02.setHeaderText('l_nm', ';filter3(text);성');
+								grid02.setHeaderText('d_o_j', ';filter4(month);입사년월');
+								grid02.setHeaderText('e_id', '마지막 행 header를 더블클릭;sort1(text);사번');
+								grid02.setHeaderText('salary', ';sort2(number);연봉');
+								grid02.setHeaderText('status', ';checkbox;재직여부');
+
+								grid04.setHeaderText('dt', 'data Type;');
+								grid04.setHeaderText('do', '시도해 보세요!;');
+								grid04.setHeaderText('val', 'value;load된 값');
+								grid04.setHeaderText('type', ';type');
+								grid04.setHeaderText('edit', 'editor;');
+								grid04.setHeaderText('prst', '표현되는 tag');
+								grid04.setHeaderText('attr_g', '속성;grid');
+								grid04.setHeaderText('attr_c', ';column');
+								grid04.setHeaderText('rmk', '비고;');
+	            				break;
+	            			default :
+								grid02.setHeaderText('dept', 'Click the Sigma button to the left of the header;filter1(mask);dept');
+								grid02.setHeaderText('f_nm', ';filter2(text);first name');
+								grid02.setHeaderText('l_nm', ';filter3(text);last name');
+								grid02.setHeaderText('d_o_j', ';filter4(month);DOJ');
+								grid02.setHeaderText('e_id', 'Please double click;sort1(text);Employee ID');
+								grid02.setHeaderText('salary', ';sort2(number);salary');
+								grid02.setHeaderText('status', ';checkbox;status');
+								
+								grid04.setHeaderText('dt', 'dataType;');
+								grid04.setHeaderText('do', 'do it!;');
+								grid04.setHeaderText('val', 'value;load value');
+								grid04.setHeaderText('type', ';type');
+								grid04.setHeaderText('edit', 'editor;');
+								grid04.setHeaderText('prst', 'presentation;');
+								grid04.setHeaderText('attr_g', 'attributes;grid');
+								grid04.setHeaderText('attr_c', ';column');
+								grid04.setHeaderText('rmk', 'remark;');
+	            				break;
+						}
 					},
 					addRowNo(e) {
 						for(let i = 0; i < 50; i ++) {
@@ -959,6 +1011,7 @@
 					else {
 						this.vg.defaultGridCssInfo.height = '600px';
 					}
+
 					//filter, sort span customize
 					this.vg.filterSpan = document.createElement("i");
 					this.vg.filterSpan.setAttribute("class", "fas fa-search");
@@ -971,7 +1024,12 @@
 					this.vg.sortDescSpan.setAttribute("class", "fas fa-sort-down");
 					this.vg.sortDescSpan.style.marginLeft = "7px";
 
-					this.vg.dataType = getDataType();
+					//grid info customize
+					this.vg.defaultGridInfo.rownumSize = "40px";
+					this.vg.defaultGridInfo.statusVisible = false;
+					this.vg.defaultGridInfo.dateFormat = "yyyy/mm/dd"
+					this.vg.defaultGridInfo.monthFormat = "yyyy/mm"
+					this.vg.defaultGridInfo.alterRow = false;
 
 					this.vg.defaultGridCssInfo.colorSet="green"
 					this.vg.defaultGridCssInfo.mouseoverCellBackColor="#efefef"
@@ -979,6 +1037,24 @@
 					this.vg.defaultGridCssInfo.selectRowBackColor="#efefef"
 					this.vg.defaultGridCssInfo.mouseoverCellFontColor="#333"
 					this.vg.defaultGridCssInfo.selectCellFontColor="#333"
+
+					//add data type, footer function
+					this.vg.dataType = getDataType();
+					this.vg.footerFormula = {
+						"CHECK_COUNT" : function (colValues) {
+							let count = 0;
+							colValues.forEach((val) => {
+								if(val === 'Y') count = count + 1;
+							});
+							return count;
+						},
+						"LAST_DATE" : function (colValues) {
+							const maxDateNum = Math.max(...colValues.map(date => Number(date)));
+							const maxDateStr = maxDateNum.toString();
+							const formattedDate = maxDateStr.slice(0, 4) + '/' + maxDateStr.slice(4, 6) + '/' + maxDateStr.slice(6);;
+							return formattedDate;
+						}
+					}
 
 					this.vg.create();
 					this.loadGrid();
@@ -1056,7 +1132,14 @@
 	            	},
 					loadGrid() {
 						const grid01 = window[CONSTS.SAMPLE_GRID_IDS_DIVE[0]];
+						const grid02 = window[CONSTS.SAMPLE_GRID_IDS_DIVE[1]];
+						const grid03 = window[CONSTS.SAMPLE_GRID_IDS_DIVE[2]];
+						const grid04 = window[CONSTS.SAMPLE_GRID_IDS_DIVE[3]];
+
 						grid01.load(SAMPLE_DATAS[this.currentLang].dive[CONSTS.SAMPLE_KEYS_DIVE[0]]);
+						grid02.load(SAMPLE_DATAS[this.currentLang].dive[CONSTS.SAMPLE_KEYS_DIVE[1]]);
+						grid03.load(SAMPLE_DATAS[this.currentLang].dive[CONSTS.SAMPLE_KEYS_DIVE[2]]);
+						grid04.load(SAMPLE_DATAS[this.currentLang].dive[CONSTS.SAMPLE_KEYS_DIVE[3]]);
 
 						for(let r = 2; r <= grid01.getRowCount(); r++) {
 							if(grid01.getCellText(r - 1, 3) === grid01.getCellText(r, 3)) {
@@ -1070,12 +1153,42 @@
 								grid01.setColOriginWidth('lvl3', '150px');
 								grid01.setColOriginWidth('lvl4', '150px');
 								grid01.setColOriginWidth('lvl5', '150px');
+
+								grid02.setHeaderText('title', '도서명;');
+								grid02.setHeaderText('rentD', '대여;일자');
+								grid02.setHeaderText('rentM', ';년월');
+								grid02.setHeaderText('rentP', ';기간(일수)');
+								grid02.setHeaderText('overdue', '연체 여부;');
+
+								grid03.setHeaderText('pn', '펫 이름');
+								grid03.setHeaderText('lcd', '최근 검진일');
+								grid03.setHeaderText('w', '무게(kg)');
+								grid03.setHeaderText('v', '백신 접종\n여부');
+
+								grid04.setHeaderText('tn', '팀명');
+								grid04.setHeaderText('lg', '로고');
+								grid04.setHeaderText('ft', '응원팀');
 	            				break;
 	            			default :
 								grid01.setColOriginWidth('lvl2', '180px');
 								grid01.setColOriginWidth('lvl3', '180px');
 								grid01.setColOriginWidth('lvl4', '180px');
 								grid01.setColOriginWidth('lvl5', '180px');
+
+								grid02.setHeaderText('title', 'Book Title;');
+								grid02.setHeaderText('rentD', 'Rental;Date');
+								grid02.setHeaderText('rentM', ';Month');
+								grid02.setHeaderText('rentP', ';Periode(day)');
+								grid02.setHeaderText('overdue', 'Overdue;');
+
+								grid03.setHeaderText('pn', 'Pet Name');
+								grid03.setHeaderText('lcd', 'Last Checkup\nDate');
+								grid03.setHeaderText('w', 'Weight(kg)');
+								grid03.setHeaderText('v', 'Vaccinated');
+								
+								grid04.setHeaderText('tn', 'Team Name');
+								grid04.setHeaderText('lg', 'Logo');
+								grid04.setHeaderText('ft', 'Favorite\nTeam');
 	            				break;
 						}
 					},
