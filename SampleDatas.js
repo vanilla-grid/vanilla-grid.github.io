@@ -36,69 +36,6 @@ function getSampleDatas(CONSTS, CONTENTS) {
 
     function SampleDatas (CONSTS, CONTENTS) {
         const intro = {
-            [CONSTS.SAMPLE_KEYS_INTRO[0]] :
-            [
-                {
-                    col1 : null,
-                    col2 : "A",
-                    col3 : "MASK-123",
-                    col4 : "20200229",
-                    col5 : "202002",
-                    col6 : 10,
-                    col7 : [{value:"val1", text:"text1", selected:true},{value:"val2", text:"text2"},{value:"val3", text:"text3"}],
-                    col8 : "Y",
-                    col9 : "button",
-                    col10 : {value:"https://vanilla-note.github.io/",text:"go vanilla-note"},
-                },
-                {
-                    col1 : null,
-                    col2 : "B",
-                    col3 : "AAAA-999",
-                    col4 : "20210228",
-                    col5 : "202102",
-                    col6 : 20,
-                    col7 : [{value:"val1", text:"text1"},{value:"val2", text:"text2", selected:true},{value:"val3", text:"text3"}],
-                    col8 : "Y",
-                    col9 : "-",
-                    col10 : {value:"https://vanilla-grid.github.io/",text:"go vanilla-grid"},
-                },
-                {
-                    col1 : null,
-                    col2 : "C",
-                    col3 : "UPER-123",
-                    col4 : "20220228",
-                    col5 : "202202",
-                    col6 : 30,
-                    col7 : [{value:"val1", text:"text1"},{value:"val2", text:"text2"},{value:"val3", text:"text3", selected:true}],
-                    col8 : "Y",
-                    col9 : "B",
-                    col10 : {value:"https://vanilla-note.github.io/",text:"go vanilla-note"},
-                },
-                {
-                    col1 : null,
-                    col2 : "D",
-                    col3 : "CASE-321",
-                    col4 : "20230228",
-                    col5 : "202302",
-                    col6 : 40,
-                    col7 : [{value:"val1", text:"text1", selected:true},{value:"val2", text:"text2"},{value:"val3", text:"text3"}],
-                    col8 : "N",
-                    col9 : "Click me!",
-                    col10 : {value:"https://vanilla-grid.github.io/",text:"go vanilla-grid"},
-                },
-                {
-                    col1 : null,
-                    col2 : "E",
-                    col3 : "ONLY-000",
-                    col4 : "20240229",
-                    col5 : "202402",
-                    col6 : 50,
-                    col7 : [{value:"val1", text:"text1"},{value:"val2", text:"text2", selected:true},{value:"val3", text:"text3"}],
-                    col8 : "N",
-                    col9 : "Submit",
-                    col10 : {value:"https://vanilla-note.github.io/",text:"go vanilla-note"},
-                },
-            ],
             [CONSTS.SAMPLE_KEYS_INTRO[1]] : (() => {
                 const row = {
                     col1 : {value: null, text: null, target: "_self"},
@@ -549,7 +486,372 @@ function getSampleDatas(CONSTS, CONTENTS) {
             return result;
         };
         const dive = {
-            [CONSTS.SAMPLE_KEYS_DIVE[0]] : null,
+            [CONSTS.SAMPLE_KEYS_DIVE[1]] : [
+                {
+                    title: null,
+                    rentD: "20240110",
+                    rentM: "202401",
+                    rentP: "14",
+                    overdue: "N",
+                },
+                {
+                    title: null,
+                    rentD: "20240215",
+                    rentM: "202402",
+                    rentP: "30",
+                    overdue: "Y",
+                },
+                {
+                    title: null,
+                    rentD: "20240305",
+                    rentM: "202403",
+                    rentP: "7",
+                    overdue: "N",
+                },
+                {
+                    title: null,
+                    rentD: "20240412",
+                    rentM: "202404",
+                    rentP: "21",
+                    overdue: "N",
+                },
+                {
+                    title: null,
+                    rentD: "20240518",
+                    rentM: "202405",
+                    rentP: "14",
+                    overdue: "Y",
+                },
+                {
+                    title: null,
+                    rentD: "20240620",
+                    rentM: "202406",
+                    rentP: "10",
+                    overdue: "N",
+                },
+                {
+                    title: null,
+                    rentD: "20240711",
+                    rentM: "202407",
+                    rentP: "28",
+                    overdue: "Y",
+                },
+                {
+                    title: null,
+                    rentD: "20240808",
+                    rentM: "202408",
+                    rentP: "14",
+                    overdue: "N",
+                },
+                {
+                    title: null,
+                    rentD: "20240914",
+                    rentM: "202409",
+                    rentP: "20",
+                    overdue: "N",
+                },
+                {
+                    title: null,
+                    rentD: "20241022",
+                    rentM: "202410",
+                    rentP: "15",
+                    overdue: "Y",
+                },
+                {
+                    title: null,
+                    rentD: "20240110",
+                    rentM: "202401",
+                    rentP: "14",
+                    overdue: "N",
+                },
+                {
+                    title: null,
+                    rentD: "20240215",
+                    rentM: "202402",
+                    rentP: "30",
+                    overdue: "Y",
+                },
+                {
+                    title: null,
+                    rentD: "20240305",
+                    rentM: "202403",
+                    rentP: "7",
+                    overdue: "N",
+                },
+                {
+                    title: null,
+                    rentD: "20240412",
+                    rentM: "202404",
+                    rentP: "21",
+                    overdue: "N",
+                },
+                {
+                    title: null,
+                    rentD: "20240518",
+                    rentM: "202405",
+                    rentP: "14",
+                    overdue: "Y",
+                },
+                {
+                    title: null,
+                    rentD: "20240620",
+                    rentM: "202406",
+                    rentP: "10",
+                    overdue: "N",
+                },
+                {
+                    title: null,
+                    rentD: "20240711",
+                    rentM: "202407",
+                    rentP: "28",
+                    overdue: "Y",
+                },
+                {
+                    title: null,
+                    rentD: "20240808",
+                    rentM: "202408",
+                    rentP: "14",
+                    overdue: "N",
+                },
+                {
+                    title: null,
+                    rentD: "20240914",
+                    rentM: "202409",
+                    rentP: "20",
+                    overdue: "N",
+                },
+                {
+                    title: null,
+                    rentD: "20241022",
+                    rentM: "202410",
+                    rentP: "15",
+                    overdue: "Y",
+                }
+            ],
+            [CONSTS.SAMPLE_KEYS_DIVE[2]] : [
+                {
+                    pn: null,
+                    lcd: "20240620",
+                    w: "5.2",
+                    v: "Y",
+                },
+                {
+                    pn: null,
+                    lcd: "20240615",
+                    w: "4.8",
+                    v: "N",
+                },
+                {
+                    pn: null,
+                    lcd: "20240701",
+                    w: "6.5",
+                    v: "Y",
+                },
+                {
+                    pn: null,
+                    lcd: "20240525",
+                    w: "3.9",
+                    v: "Y",
+                },
+                {
+                    pn: null,
+                    lcd: "20240630",
+                    w: "5.0",
+                    v: "N",
+                },
+                {
+                    pn: null,
+                    lcd: "20240702",
+                    w: "4.3",
+                    v: "Y",
+                },
+                {
+                    pn: null,
+                    lcd: "20240610",
+                    w: "3.2",
+                    v: "N",
+                },
+                {
+                    pn: null,
+                    lcd: "20240515",
+                    w: "7.1",
+                    v: "Y",
+                },
+                {
+                    pn: null,
+                    lcd: "20240625",
+                    w: "4.7",
+                    v: "N",
+                },
+                {
+                    pn: null,
+                    lcd: "20240703",
+                    w: "6.0",
+                    v: "Y",
+                },
+                {
+                    pn: null,
+                    lcd: "20240618",
+                    w: "5.4",
+                    v: "Y",
+                },
+                {
+                    pn: null,
+                    lcd: "20240622",
+                    w: "4.9",
+                    v: "N",
+                },
+                {
+                    pn: null,
+                    lcd: "20240705",
+                    w: "6.2",
+                    v: "Y",
+                },
+                {
+                    pn: null,
+                    lcd: "20240528",
+                    w: "3.6",
+                    v: "Y",
+                },
+                {
+                    pn: null,
+                    lcd: "20240708",
+                    w: "5.1",
+                    v: "N",
+                },
+                {
+                    pn: null,
+                    lcd: "20240614",
+                    w: "4.5",
+                    v: "Y",
+                },
+                {
+                    pn: null,
+                    lcd: "20240621",
+                    w: "6.3",
+                    v: "Y",
+                },
+                {
+                    pn: null,
+                    lcd: "20240518",
+                    w: "3.8",
+                    v: "N",
+                },
+                {
+                    pn: null,
+                    lcd: "20240704",
+                    w: "7.0",
+                    v: "Y",
+                },
+                {
+                    pn: null,
+                    lcd: "20240626",
+                    w: "4.4",
+                    v: "N",
+                }
+            ],
+            [CONSTS.SAMPLE_KEYS_DIVE[3]] : [
+                {
+                    tn: null,
+                    lg: null,
+                    ft: "N",
+                },
+                {
+                    tn: null,
+                    lg: null,
+                    ft: "N",
+                },
+                {
+                    tn: null,
+                    lg: null,
+                    ft: "N",
+                },
+                {
+                    tn: null,
+                    lg: null,
+                    ft: "N",
+                },
+                {
+                    tn: null,
+                    lg: null,
+                    ft: "N",
+                },
+                {
+                    tn: null,
+                    lg: null,
+                    ft: "N",
+                },
+                {
+                    tn: null,
+                    lg: null,
+                    ft: "N",
+                },
+                {
+                    tn: null,
+                    lg: null,
+                    ft: "N",
+                },
+                {
+                    tn: null,
+                    lg: null,
+                    ft: "N",
+                },
+                {
+                    tn: null,
+                    lg: null,
+                    ft: "Y",
+                },
+                {
+                    tn: null,
+                    lg: null,
+                    ft: "N",
+                },
+                {
+                    tn: null,
+                    lg: null,
+                    ft: "N",
+                },
+                {
+                    tn: null,
+                    lg: null,
+                    ft: "N",
+                },
+                {
+                    tn: null,
+                    lg: null,
+                    ft: "N",
+                },
+                {
+                    tn: null,
+                    lg: null,
+                    ft: "N",
+                },
+                {
+                    tn: null,
+                    lg: null,
+                    ft: "N",
+                },
+                {
+                    tn: null,
+                    lg: null,
+                    ft: "N",
+                },
+                {
+                    tn: null,
+                    lg: null,
+                    ft: "N",
+                },
+                {
+                    tn: null,
+                    lg: null,
+                    ft: "N",
+                },
+                {
+                    tn: null,
+                    lg: null,
+                    ft: "N",
+                },
+            ],
         }
 
         const api = {
@@ -594,12 +896,168 @@ function getSampleDatas(CONSTS, CONTENTS) {
         const deptENG = getDept('ENG');
         this.ENG = {
             intro : {
-                [CONSTS.SAMPLE_KEYS_INTRO[0]] : setTextData(
-                    intro[[CONSTS.SAMPLE_KEYS_INTRO[0]]],
-                    [
-                        {key : "col1", value : CONTENTS.ENG.intro.grid[CONSTS.SAMPLE_KEYS_INTRO[0]].col1},
-                    ]
-                ),
+                [CONSTS.SAMPLE_KEYS_INTRO[0]] : [
+                    {
+                        "col1": "Blue Whale",
+                        "col2": "L",
+                        "col3": "00001",
+                        "col4": "20230115",
+                        "col5": "202301",
+                        "col6": 24,
+                        "col7": [
+                            {"value": "1", "text": "Endangered", "selected": true},
+                            {"value": "2", "text": "Vulnerable"},
+                            {"value": "3", "text": "Least Concern"}
+                        ],
+                        "col8": "Y",
+                        "col9": "play sound",
+                        "col10": {"value": "https://", "text": "View Details"}
+                    },
+                    {
+                        "col1": "Humpback Whale",
+                        "col2": "L",
+                        "col3": "00002",
+                        "col4": "20230220",
+                        "col5": "202302",
+                        "col6": 15,
+                        "col7": [
+                            {"value": "1", "text": "Endangered"},
+                            {"value": "2", "text": "Vulnerable", "selected": true},
+                            {"value": "3", "text": "Least Concern"}
+                        ],
+                        "col8": "N",
+                        "col9": "play sound",
+                        "col10": {"value": "https://", "text": "View Details"}
+                    },
+                    {
+                        "col1": "Sperm Whale",
+                        "col2": "L",
+                        "col3": "00003",
+                        "col4": "20230310",
+                        "col5": "202303",
+                        "col6": 18,
+                        "col7": [
+                            {"value": "1", "text": "Endangered"},
+                            {"value": "2", "text": "Vulnerable", "selected": true},
+                            {"value": "3", "text": "Least Concern"}
+                        ],
+                        "col8": "Y",
+                        "col9": "play sound",
+                        "col10": {"value": "https://", "text": "View Details"}
+                    },
+                    {
+                        "col1": "Fin Whale",
+                        "col2": "L",
+                        "col3": "00004",
+                        "col4": "20230522",
+                        "col5": "202305",
+                        "col6": 21,
+                        "col7": [
+                            {"value": "1", "text": "Endangered", "selected": true},
+                            {"value": "2", "text": "Vulnerable"},
+                            {"value": "3", "text": "Least Concern"}
+                        ],
+                        "col8": "N",
+                        "col9": "play sound",
+                        "col10": {"value": "https://", "text": "View Details"}
+                    },
+                    {
+                        "col1": "Gray Whale",
+                        "col2": "L",
+                        "col3": "00005",
+                        "col4": "20230625",
+                        "col5": "202306",
+                        "col6": 15,
+                        "col7": [
+                            {"value": "1", "text": "Endangered", "selected": true},
+                            {"value": "2", "text": "Vulnerable"},
+                            {"value": "3", "text": "Least Concern"}
+                        ],
+                        "col8": "Y",
+                        "col9": "play sound",
+                        "col10": {"value": "https://", "text": "View Details"}
+                    },
+                    {
+                        "col1": "Orca",
+                        "col2": "M",
+                        "col3": "00006",
+                        "col4": "20230418",
+                        "col5": "202304",
+                        "col6": 8,
+                        "col7": [
+                            {"value": "1", "text": "Endangered"},
+                            {"value": "2", "text": "Vulnerable"},
+                            {"value": "3", "text": "Least Concern", "selected": true}
+                        ],
+                        "col8": "N",
+                        "col9": "play sound",
+                        "col10": {"value": "https://", "text": "View Details"}
+                    },
+                    {
+                        "col1": "False Killer Whale",
+                        "col2": "M",
+                        "col3": "00007",
+                        "col4": "20230805",
+                        "col5": "202308",
+                        "col6": 10,
+                        "col7": [
+                            {"value": "1", "text": "Endangered"},
+                            {"value": "2", "text": "Vulnerable", "selected": true},
+                            {"value": "3", "text": "Least Concern"}
+                        ],
+                        "col8": "Y",
+                        "col9": "play sound",
+                        "col10": {"value": "https://", "text": "View Details"}
+                    },
+                    {
+                        "col1": "Beluga",
+                        "col2": "S",
+                        "col3": "00008",
+                        "col4": "20230730",
+                        "col5": "202307",
+                        "col6": 6,
+                        "col7": [
+                            {"value": "1", "text": "Endangered"},
+                            {"value": "2", "text": "Vulnerable"},
+                            {"value": "3", "text": "Least Concern", "selected": true}
+                        ],
+                        "col8": "Y",
+                        "col9": "play sound",
+                        "col10": {"value": "https://", "text": "View Details"}
+                    },
+                    {
+                        "col1": "Dolphin",
+                        "col2": "S",
+                        "col3": "00009",
+                        "col4": "20230912",
+                        "col5": "202309",
+                        "col6": 2.5,
+                        "col7": [
+                            {"value": "1", "text": "Endangered"},
+                            {"value": "2", "text": "Vulnerable"},
+                            {"value": "3", "text": "Least Concern", "selected": true}
+                        ],
+                        "col8": "N",
+                        "col9": "play sound",
+                        "col10": {"value": "https://", "text": "View Details"}
+                    },
+                    {
+                        "col1": "Minke Whale",
+                        "col2": "M",
+                        "col3": "00010",
+                        "col4": "20231019",
+                        "col5": "202310",
+                        "col6": 8,
+                        "col7": [
+                            {"value": "1", "text": "Endangered"},
+                            {"value": "2", "text": "Vulnerable", "selected": true},
+                            {"value": "3", "text": "Least Concern"}
+                        ],
+                        "col8": "Y",
+                        "col9": "play sound",
+                        "col10": {"value": "https://", "text": "View Details"}
+                    }
+                ],
                 [CONSTS.SAMPLE_KEYS_INTRO[1]] : setLinkData(
                     intro[[CONSTS.SAMPLE_KEYS_INTRO[1]]],
                     [
@@ -642,7 +1100,7 @@ function getSampleDatas(CONSTS, CONTENTS) {
                         lvl3: deptENG.humanResourcesTeam,
                         lvl4: deptENG.recruitmentTeam,
                         lvl5: "James Smith",
-                        img: {src:"https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzR8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D", alt:"Jurica Koletić"},
+                        img: {src:"https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzR8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D", alt:"Unsplash Jurica Koletić"},
                     },
                     {
                         lvl1: deptENG.company,
@@ -650,7 +1108,7 @@ function getSampleDatas(CONSTS, CONTENTS) {
                         lvl3: deptENG.humanResourcesTeam,
                         lvl4: deptENG.recruitmentTeam,
                         lvl5: "Mary Johnson",
-                        img: {src:"https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", alt:"Michael Dam"},
+                        img: {src:"https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", alt:"Unsplash Michael Dam"},
                     },
                     {
                         lvl1: deptENG.company,
@@ -658,7 +1116,7 @@ function getSampleDatas(CONSTS, CONTENTS) {
                         lvl3: deptENG.humanResourcesTeam,
                         lvl4: deptENG.recruitmentTeam,
                         lvl5: "John Williams",
-                        img: {src:"https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", alt:"Stephanie Liverani"},
+                        img: {src:"https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", alt:"Unsplash Stephanie Liverani"},
                     },
                     {
                         lvl1: deptENG.company,
@@ -666,7 +1124,7 @@ function getSampleDatas(CONSTS, CONTENTS) {
                         lvl3: deptENG.humanResourcesTeam,
                         lvl4: deptENG.trainingTeam,
                         lvl5: "Patricia Brown",
-                        img: {src:"https://images.unsplash.com/photo-1544723795-3fb6469f5b39?q=80&w=1589&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", alt:"Luis Villasmil"},
+                        img: {src:"https://images.unsplash.com/photo-1544723795-3fb6469f5b39?q=80&w=1589&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", alt:"Unsplash Luis Villasmil"},
                     },
                     {
                         lvl1: deptENG.company,
@@ -674,7 +1132,7 @@ function getSampleDatas(CONSTS, CONTENTS) {
                         lvl3: deptENG.humanResourcesTeam,
                         lvl4: deptENG.trainingTeam,
                         lvl5: "Robert Jones",
-                        img: {src:"https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", alt:"Sales Solutions"},
+                        img: {src:"https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", alt:"Unsplash Sales Solutions"},
                     },
                     {
                         lvl1: deptENG.company,
@@ -1117,6 +1575,24 @@ function getSampleDatas(CONSTS, CONTENTS) {
                         img: null,
                     }
                 ],
+                [CONSTS.SAMPLE_KEYS_DIVE[1]] : setTextData(
+                    dive[[CONSTS.SAMPLE_KEYS_DIVE[1]]],
+                    [
+                        {key : "title", value : CONTENTS.ENG.dive.gridNoSearch[CONSTS.SAMPLE_KEYS_DIVE[1]].title},
+                    ]
+                ),
+                [CONSTS.SAMPLE_KEYS_DIVE[2]] : setTextData(
+                    dive[[CONSTS.SAMPLE_KEYS_DIVE[2]]],
+                    [
+                        {key : "pn", value : CONTENTS.ENG.dive.gridNoSearch[CONSTS.SAMPLE_KEYS_DIVE[2]].pn},
+                    ]
+                ),
+                [CONSTS.SAMPLE_KEYS_DIVE[3]] : setTextData(
+                    dive[[CONSTS.SAMPLE_KEYS_DIVE[3]]],
+                    [
+                        {key : "tn", value : CONTENTS.ENG.dive.gridNoSearch[CONSTS.SAMPLE_KEYS_DIVE[3]].tn},
+                    ]
+                ),
             },
             api : {
                 [CONSTS.SAMPLE_KEYS_API[0]] : api[[CONSTS.SAMPLE_KEYS_API[0]]],
@@ -1126,12 +1602,168 @@ function getSampleDatas(CONSTS, CONTENTS) {
         const deptKOR = getDept('KOR');
         this.KOR = {
             intro : {
-                [CONSTS.SAMPLE_KEYS_INTRO[0]] : setTextData(
-                    intro[[CONSTS.SAMPLE_KEYS_INTRO[0]]],
-                    [
-                        {key : "col1", value : CONTENTS.KOR.intro.grid[CONSTS.SAMPLE_KEYS_INTRO[0]].col1},
-                    ]
-                ),
+                [CONSTS.SAMPLE_KEYS_INTRO[0]] : [
+                    {
+                        "col1": "대왕고래",
+                        "col2": "L",
+                        "col3": "00001",
+                        "col4": "20230115",
+                        "col5": "202301",
+                        "col6": 24,
+                        "col7": [
+                            {"value": "1", "text": "멸종위기", "selected": true},
+                            {"value": "2", "text": "취약"},
+                            {"value": "3", "text": "최소관심"}
+                        ],
+                        "col8": "Y",
+                        "col9": "소리재생",
+                        "col10": {"value": "https://", "text": "자세히 보기"}
+                    },
+                    {
+                        "col1": "혹등고래",
+                        "col2": "L",
+                        "col3": "00002",
+                        "col4": "20230220",
+                        "col5": "202302",
+                        "col6": 15,
+                        "col7": [
+                            {"value": "1", "text": "멸종위기"},
+                            {"value": "2", "text": "취약", "selected": true},
+                            {"value": "3", "text": "최소관심"}
+                        ],
+                        "col8": "N",
+                        "col9": "소리재생",
+                        "col10": {"value": "https://", "text": "자세히 보기"}
+                    },
+                    {
+                        "col1": "향유고래",
+                        "col2": "L",
+                        "col3": "00003",
+                        "col4": "20230310",
+                        "col5": "202303",
+                        "col6": 18,
+                        "col7": [
+                            {"value": "1", "text": "멸종위기"},
+                            {"value": "2", "text": "취약", "selected": true},
+                            {"value": "3", "text": "최소관심"}
+                        ],
+                        "col8": "Y",
+                        "col9": "소리재생",
+                        "col10": {"value": "https://", "text": "자세히 보기"}
+                    },
+                    {
+                        "col1": "참고래",
+                        "col2": "L",
+                        "col3": "00004",
+                        "col4": "20230522",
+                        "col5": "202305",
+                        "col6": 21,
+                        "col7": [
+                            {"value": "1", "text": "멸종위기", "selected": true},
+                            {"value": "2", "text": "취약"},
+                            {"value": "3", "text": "최소관심"}
+                        ],
+                        "col8": "N",
+                        "col9": "소리재생",
+                        "col10": {"value": "https://", "text": "자세히 보기"}
+                    },
+                    {
+                        "col1": "귀신고래",
+                        "col2": "L",
+                        "col3": "00005",
+                        "col4": "20230625",
+                        "col5": "202306",
+                        "col6": 15,
+                        "col7": [
+                            {"value": "1", "text": "멸종위기", "selected": true},
+                            {"value": "2", "text": "취약"},
+                            {"value": "3", "text": "최소관심"}
+                        ],
+                        "col8": "Y",
+                        "col9": "소리재생",
+                        "col10": {"value": "https://", "text": "자세히 보기"}
+                    },
+                    {
+                        "col1": "범고래",
+                        "col2": "M",
+                        "col3": "00006",
+                        "col4": "20230418",
+                        "col5": "202304",
+                        "col6": 8,
+                        "col7": [
+                            {"value": "1", "text": "멸종위기"},
+                            {"value": "2", "text": "취약"},
+                            {"value": "3", "text": "최소관심", "selected": true}
+                        ],
+                        "col8": "N",
+                        "col9": "소리재생",
+                        "col10": {"value": "https://", "text": "자세히 보기"}
+                    },
+                    {
+                        "col1": "흑범고래",
+                        "col2": "M",
+                        "col3": "00007",
+                        "col4": "20230805",
+                        "col5": "202308",
+                        "col6": 10,
+                        "col7": [
+                            {"value": "1", "text": "멸종위기"},
+                            {"value": "2", "text": "취약", "selected": true},
+                            {"value": "3", "text": "최소관심"}
+                        ],
+                        "col8": "Y",
+                        "col9": "소리재생",
+                        "col10": {"value": "https://", "text": "자세히 보기"}
+                    },
+                    {
+                        "col1": "벨루가",
+                        "col2": "S",
+                        "col3": "00008",
+                        "col4": "20230730",
+                        "col5": "202307",
+                        "col6": 6,
+                        "col7": [
+                            {"value": "1", "text": "멸종위기"},
+                            {"value": "2", "text": "취약"},
+                            {"value": "3", "text": "최소관심", "selected": true}
+                        ],
+                        "col8": "Y",
+                        "col9": "소리재생",
+                        "col10": {"value": "https://", "text": "자세히 보기"}
+                    },
+                    {
+                        "col1": "돌고래",
+                        "col2": "S",
+                        "col3": "00009",
+                        "col4": "20230912",
+                        "col5": "202309",
+                        "col6": 2.5,
+                        "col7": [
+                            {"value": "1", "text": "멸종위기"},
+                            {"value": "2", "text": "취약"},
+                            {"value": "3", "text": "최소관심", "selected": true}
+                        ],
+                        "col8": "N",
+                        "col9": "소리재생",
+                        "col10": {"value": "https://", "text": "자세히 보기"}
+                    },
+                    {
+                        "col1": "민크고래",
+                        "col2": "M",
+                        "col3": "00010",
+                        "col4": "20231019",
+                        "col5": "202310",
+                        "col6": 8,
+                        "col7": [
+                            {"value": "1", "text": "멸종위기"},
+                            {"value": "2", "text": "취약", "selected": true},
+                            {"value": "3", "text": "최소관심"}
+                        ],
+                        "col8": "Y",
+                        "col9": "소리재생",
+                        "col10": {"value": "https://", "text": "자세히 보기"}
+                    }
+                ],
                 [CONSTS.SAMPLE_KEYS_INTRO[1]] : setLinkData(
                     intro[[CONSTS.SAMPLE_KEYS_INTRO[1]]],
                     [
@@ -1174,7 +1806,7 @@ function getSampleDatas(CONSTS, CONTENTS) {
                         lvl3: deptKOR.humanResourcesTeam,
                         lvl4: deptKOR.recruitmentTeam,
                         lvl5: "James Smith",
-                        img: {src:"https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzR8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D", alt:"Jurica Koletić"},
+                        img: {src:"https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzR8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D", alt:"Unsplash Jurica Koletić"},
                     },
                     {
                         lvl1: deptKOR.company,
@@ -1182,7 +1814,7 @@ function getSampleDatas(CONSTS, CONTENTS) {
                         lvl3: deptKOR.humanResourcesTeam,
                         lvl4: deptKOR.recruitmentTeam,
                         lvl5: "Mary Johnson",
-                        img: {src:"https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", alt:"Michael Dam"},
+                        img: {src:"https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", alt:"Unsplash Michael Dam"},
                     },
                     {
                         lvl1: deptKOR.company,
@@ -1190,7 +1822,7 @@ function getSampleDatas(CONSTS, CONTENTS) {
                         lvl3: deptKOR.humanResourcesTeam,
                         lvl4: deptKOR.recruitmentTeam,
                         lvl5: "John Williams",
-                        img: {src:"https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", alt:"Stephanie Liverani"},
+                        img: {src:"https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", alt:"Unsplash Stephanie Liverani"},
                     },
                     {
                         lvl1: deptKOR.company,
@@ -1198,7 +1830,7 @@ function getSampleDatas(CONSTS, CONTENTS) {
                         lvl3: deptKOR.humanResourcesTeam,
                         lvl4: deptKOR.trainingTeam,
                         lvl5: "Patricia Brown",
-                        img: {src:"https://images.unsplash.com/photo-1544723795-3fb6469f5b39?q=80&w=1589&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", alt:"Luis Villasmil"},
+                        img: {src:"https://images.unsplash.com/photo-1544723795-3fb6469f5b39?q=80&w=1589&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", alt:"Unsplash Luis Villasmil"},
                     },
                     {
                         lvl1: deptKOR.company,
@@ -1206,7 +1838,7 @@ function getSampleDatas(CONSTS, CONTENTS) {
                         lvl3: deptKOR.humanResourcesTeam,
                         lvl4: deptKOR.trainingTeam,
                         lvl5: "Robert Jones",
-                        img: {src:"https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", alt:"Sales Solutions"},
+                        img: {src:"https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", alt:"Unsplash Sales Solutions"},
                     },
                     {
                         lvl1: deptKOR.company,
@@ -1649,6 +2281,24 @@ function getSampleDatas(CONSTS, CONTENTS) {
                         img: null,
                     }
                 ],
+                [CONSTS.SAMPLE_KEYS_DIVE[1]] : setTextData(
+                    dive[[CONSTS.SAMPLE_KEYS_DIVE[1]]],
+                    [
+                        {key : "title", value : CONTENTS.KOR.dive.gridNoSearch[CONSTS.SAMPLE_KEYS_DIVE[1]].title},
+                    ]
+                ),
+                [CONSTS.SAMPLE_KEYS_DIVE[2]] : setTextData(
+                    dive[[CONSTS.SAMPLE_KEYS_DIVE[2]]],
+                    [
+                        {key : "pn", value : CONTENTS.KOR.dive.gridNoSearch[CONSTS.SAMPLE_KEYS_DIVE[2]].pn},
+                    ]
+                ),
+                [CONSTS.SAMPLE_KEYS_DIVE[3]] : setTextData(
+                    dive[[CONSTS.SAMPLE_KEYS_DIVE[3]]],
+                    [
+                        {key : "tn", value : CONTENTS.KOR.dive.gridNoSearch[CONSTS.SAMPLE_KEYS_DIVE[3]].tn},
+                    ]
+                ),
             },
             api : {
                 [CONSTS.SAMPLE_KEYS_API[0]] : api[[CONSTS.SAMPLE_KEYS_API[0]]],
