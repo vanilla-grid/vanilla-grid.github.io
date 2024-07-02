@@ -32,16 +32,16 @@ function getSampleGrids(CONSTS) {
         this.intro = {
             [CONSTS.SAMPLE_KEYS_INTRO[0]] :
 `<vanilla-grid id="` + CONSTS.SAMPLE_GRID_IDS_INTRO[0] + `">
-    <v-col id="col1" header="header;column1;text" dataType="text" width="270px"></v-col>
-    <v-col id="col2" header=";column2;code" dataType="code" codes="A;B;C;D;E" width="80px"></v-col>
-    <v-col id="col3" header=";column3;mask" dataType="mask" format="AAAA-999" width="120px"></v-col>
-    <v-col id="col4" header=";column4;date" dataType="date" width="120px"></v-col>
-    <v-col id="col5" header=";column4;month" dataType="month" footer="MAX;MIN;SUM;AVG" width="120px"></v-col>
-    <v-col id="col6" header=";column5;number" dataType="number" footer="$$MAX;$$MIN;$$SUM;$$AVG" format="$ #,##0.####" width="120px"></v-col>
-    <v-col id="col7" header=";column6;select" dataType="select" width="120px"></v-col>
-    <v-col id="col8" header=";column7;checkbox" dataType="checkbox" width="100px"></v-col>
-    <v-col id="col9" header=";column8;button" dataType="button" width="120px"></v-col>
-    <v-col id="col10" header=";column9;link" dataType="link" width="150px"></v-col>
+    <v-col id="col1" header="header;text;Whale Name" dataType="text" width="150px"></v-col>
+    <v-col id="col2" header=";code;size" dataType="code" codes="L;M;S" width="60px"></v-col>
+    <v-col id="col3" header=";mask;ID" dataType="mask" format="99999" width="80px" align="center"></v-col>
+    <v-col id="col4" header=";date;Found Date" dataType="date" width="120px"></v-col>
+    <v-col id="col5" header=";month;Habitat\nMonth" dataType="month" footer="MAX;MIN;SUM;AVG" width="80px"></v-col>
+    <v-col id="col6" header=";number;Avg\nLength" dataType="number" footer="$$MAX;$$MIN;$$SUM;$$AVG" format="#,##0.## (m)" width="80px"></v-col>
+    <v-col id="col7" header=";select;Protection\nStatus" dataType="select" width="150px"></v-col>
+    <v-col id="col8" header=";checkbox;Protected" dataType="checkbox" width="90px"></v-col>
+    <v-col id="col9" header=";button;Play sound" dataType="button" width="120px"></v-col>
+    <v-col id="col10" header=";link;Go link" dataType="link" width="100px"></v-col>
 </vanilla-grid>`,
             [CONSTS.SAMPLE_KEYS_INTRO[1]] :
 `<vanilla-grid id="` + CONSTS.SAMPLE_GRID_IDS_INTRO[1] + `" rownumVisible="false" statusVisible="false" wordBreak="break-all" whiteSpace="normal">
@@ -146,6 +146,28 @@ function getSampleGrids(CONSTS) {
     <v-col id="lvl4" header="level3" dataType="tree" width="180" verticalAlign="top"></v-col>
     <v-col id="lvl5" header="level4" dataType="tree" width="180" verticalAlign="top"></v-col>
     <v-col id="img" header="level5" dataType="img" width="220" verticalAlign="top" locked="true" lockedColor="false"></v-col>
+</vanilla-grid>`,
+            [CONSTS.SAMPLE_KEYS_DIVE[1]] :
+`<!--There are no attributes-->
+<vanilla-grid id="` + CONSTS.SAMPLE_GRID_IDS_DIVE[1] + `">
+    <v-col id="title" header="Book Title;" dataType="text" width="250"></v-col>
+    <v-col id="rentD" header="Rental;Date" dataType="date" width="120"></v-col>
+    <v-col id="rentM" header=";Month" dataType="month" width="120"></v-col>
+    <v-col id="rentP" header=";Periode(day)" dataType="number" width="120"></v-col>
+    <v-col id="overdue" header="Overdue;" dataType="checkbox" width="120"></v-col>
+</vanilla-grid>`,
+            [CONSTS.SAMPLE_KEYS_DIVE[2]] :
+`<vanilla-grid id="` + CONSTS.SAMPLE_GRID_IDS_DIVE[2] + `">
+    <v-col id="pn" header="Pet Name;" dataType="text" width="200"></v-col>
+    <v-col id="lcd" header="Last Checkup Date" dataType="date" width="120" footer="last date;LAST_DATE"></v-col>
+    <v-col id="w" header="Weight (kg)" dataType="number" format="0.0" width="100" footer="AVG;$$AVG"></v-col>
+    <v-col id="v" header="Vaccinated" dataType="checkbox" width="100" footer="count;CHECK_COUNT"></v-col>
+</vanilla-grid>`,
+            [CONSTS.SAMPLE_KEYS_DIVE[3]] :
+`<vanilla-grid id="` + CONSTS.SAMPLE_GRID_IDS_DIVE[3] + `">
+    <v-col id="tn" header="Team Name;" dataType="text" width="200"></v-col>
+    <v-col id="lg" header="Logo" dataType="img" width="120"></v-col>
+    <v-col id="ft" header="Favorite Team" dataType="radio" width="100"></v-col>
 </vanilla-grid>`,
         }
 
