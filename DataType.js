@@ -39,16 +39,6 @@ function getDataType() {
                 justifyContent: "left",
                 textAlign: "left",
             },
-            onSelected : function (target, data) {
-            },
-            onUnselected : function (target, data) {
-            },
-            onSelectedAndKeyDown : function (event, data) {
-            },
-            onClick : function (event, data) {
-            },
-            onMousedown : function (event, data) {
-            },
             getValue: function (value) {
                 if(value.constructor === Object) {
                     return value;
@@ -202,14 +192,6 @@ function getDataType() {
             
                 return treeSpan;
             },
-            getFilterValue: function (value) {
-            },
-            getSortValue: function (value) {
-            },
-            getCopyValue: function (value) {
-            },
-            getPasteValue: function (data, text) {
-            },
         };
         this.radio = {
             cellStyle: {
@@ -220,6 +202,8 @@ function getDataType() {
                 if(event.key === 'Enter' || event.key === ' ') {
                     window[data.gridId].setColSameValue(data.col, "N", true);
                     window[data.gridId].setCellValue(data.row, data.col, data.value === "Y" ? "N" : "Y", true);
+                    event.stopPropagation();
+                    event.preventDefault();
                     return false;
                 }
             },
@@ -259,16 +243,10 @@ function getDataType() {
                 padding: 0,
             },
             onSelected : function (target, data) {
-                target.firstChild.children[0].style.setProperty("opacity", "0.2");
+                if(target.firstChild.children[0]) target.firstChild.children[0].style.setProperty("opacity", "0.2");
             },
             onUnselected : function (target, data) {
-                target.firstChild.children[0].style.removeProperty("opacity");
-            },
-            onSelectedAndKeyDown : function (event, data) {
-            },
-            onClick : function (event, data) {
-            },
-            onMousedown : function (event, data) {
+                if(target.firstChild.children[0]) target.firstChild.children[0].style.removeProperty("opacity");
             },
             getValue: function (value) {
                 if(!value) return null;
@@ -323,6 +301,7 @@ function getDataType() {
             },
             getEditor: function (target, data, call_modify, call_endEdit) {
                 if(!data.value) return null;
+
                 const editor = document.createElement("input");
                 editor.setAttribute("type","text");
                 editor.style.width = target.offsetWidth + 'px';
