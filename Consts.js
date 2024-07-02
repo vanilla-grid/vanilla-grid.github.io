@@ -416,7 +416,7 @@ function getConsts () {
         this.SAMPLE_GRID_IDS_INTRO = this.SAMPLE_KEYS_INTRO.map(str => `grid${str.charAt(0).toUpperCase() + str.slice(1)}`);
         this.SAMPLE_KEYS_STARTED = ['started01','started02','started03','started04','started05','started06','started07'];
         this.SAMPLE_GRID_IDS_STARTED = this.SAMPLE_KEYS_STARTED.map(str => `grid${str.charAt(0).toUpperCase() + str.slice(1)}`);
-        this.SAMPLE_KEYS_DIVE = ['dive01'];
+        this.SAMPLE_KEYS_DIVE = ['dive01','dive02','dive03','dive04'];
         this.SAMPLE_GRID_IDS_DIVE = this.SAMPLE_KEYS_DIVE.map(str => `grid${str.charAt(0).toUpperCase() + str.slice(1)}`);
         this.SAMPLE_KEYS_API = ['api01'];
         this.SAMPLE_GRID_IDS_API = this.SAMPLE_KEYS_API.map(str => `grid${str.charAt(0).toUpperCase() + str.slice(1)}`);
