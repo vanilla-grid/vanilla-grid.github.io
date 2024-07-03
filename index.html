@@ -17,13 +17,13 @@
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
-	<script src="Vanillagrid.min.1.0.0.js?v=20240702"></script>
-	<script src="DataType.js?v=20240702"></script>
-	<script src="Consts.js?v=20240702"></script>
-	<script src="Contents.js?v=20240702"></script>
-	<script src="SampleDatas.js?v=20240702"></script>
-	<script src="SampleGrids.js?v=20240702"></script>
-	<script src="Component.js?v=20240702"></script>
+	<script src="Vanillagrid.min.1.0.0.js?v=20240703"></script>
+	<script src="DataType.js?v=20240703"></script>
+	<script src="Consts.js?v=20240703"></script>
+	<script src="Contents.js?v=20240703"></script>
+	<script src="SampleDatas.js?v=20240703"></script>
+	<script src="SampleGrids.js?v=20240703"></script>
+	<script src="Component.js?v=20240703"></script>
 	<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
 	<style>
 	*, ::before, ::after {
@@ -359,14 +359,14 @@
 	        let viewId = urlParams.get('view');
 	        const anchorId = urlParams.get('anchor');
 	        const lang = urlParams.get('lang');
-	        this.currentLang = lang ? lang : 'ENG';
-	        if(!viewId || ['intro','started','dive','api'].indexOf(viewId) < 0) viewId = 'intro';
+	        this.currentLang = lang ? lang : 'KOR';
+	        if(!viewId || ['intro','started','dive','api'].indexOf(viewId) < 0) viewId = 'api';
 	        this.currentView = viewId;
 	        this.scrollAnchor(anchorId, null, 1000);
 		},
 	    data: {
-	    	currentLang : 'ENG',
-	        currentView : 'intro',
+	    	currentLang : 'KOR',
+	        currentView : 'api',
 	        navItems: [
 	            { id: 'intro', name: 'Intro' },
 	            { id: 'started', name: 'Getting started' },
@@ -776,20 +776,61 @@
 	            		switch(this.currentLang) {
 	            			case 'KOR' :
 								grid01.setHeaderText('col1', 'header;text;고래 이름');
+								grid01.setHeaderText('col2', 'header;text;크기\n코드');
+								grid01.setHeaderText('col3', 'header;text;식별 번호');
+								grid01.setHeaderText('col4', 'header;text;발견 최근 날짜');
+								grid01.setHeaderText('col5', 'header;text;서식지 발견\n최근 년월');
+								grid01.setHeaderText('col6', 'header;text;평균\n길이');
+								grid01.setHeaderText('col7', 'header;text;보호 등급');
+								grid01.setHeaderText('col8', 'header;text;보호 상태');
+								grid01.setHeaderText('col9', 'header;text;소리 재생');
+								grid01.setHeaderText('col10', 'header;text;더 알아보기');
 	            				break;
 	            			default :
 								grid01.setHeaderText('col1', 'header;text;Whale Name');
+								grid01.setHeaderText('col2', 'header;text;Size\nCode');
+								grid01.setHeaderText('col3', 'header;text;ID');
+								grid01.setHeaderText('col4', 'header;text;Last Found\nDate');
+								grid01.setHeaderText('col5', 'header;text;Last Found\nHabitat Month');
+								grid01.setHeaderText('col6', 'header;text;Avg\nLength');
+								grid01.setHeaderText('col7', 'header;text;Protection Status');
+								grid01.setHeaderText('col8', 'header;text;Protected');
+								grid01.setHeaderText('col9', 'header;text;Play Sound');
+								grid01.setHeaderText('col10', 'header;text;View More');
 	            				break;
 						}
 					},
 					[CONSTS.SAMPLE_GRID_IDS_INTRO[0] + '_onAdd']() {	//gridIntro_onAdd
-						window[CONSTS.SAMPLE_GRID_IDS_INTRO[0]].addRow({
-							col4 : "1900-01-01",
-							col5 : 0,
-							col6 : [{value:"val1", text:"text1", selected:true},{value:"val2", text:"text2"},{value:"val3", text:"text3"}],
-							col8 : "created",
-							col9 : {value:"https://vanilla-note.github.io/",text:"go vanilla-note"},
-						});
+						switch(this.currentLang) {
+	            			case 'KOR' :
+								window[CONSTS.SAMPLE_GRID_IDS_INTRO[0]].addRow({
+									col4 : "1900-01-01",
+									col5 : "1900-01",
+									col6 : 0,
+									col7 :	[
+												{"value": "1", "text": "멸종위기"},
+												{"value": "2", "text": "취약"},
+												{"value": "3", "text": "최소관심", "selected": true}
+											],
+									col9 : "소리 재생",
+									col10 : {value:"https://ko.wikipedia.org/wiki/%EC%9C%84%ED%82%A4%EB%B0%B1%EA%B3%BC:%EB%8C%80%EB%AC%B8",text:"자세히 보기"},
+								});
+	            				break;
+	            			default :
+								window[CONSTS.SAMPLE_GRID_IDS_INTRO[0]].addRow({
+									col4 : "1900-01-01",
+									col5 : "1900-01",
+									col6 : 0,
+									col7 :	[
+												{"value": "1", "text": "Endangered"},
+												{"value": "2", "text": "Vulnerable"},
+												{"value": "3", "text": "Least Concern", "selected": true}
+											],
+									col9 : "play sound",
+									col10 : {value:"https://en.wikipedia.org/wiki",text:"View Details"},
+								});
+	            				break;
+						}
 					},
 					[CONSTS.SAMPLE_GRID_IDS_INTRO[0] + '_onRemove']() {	//gridIntro_onRemove
 						const targetRow = window[CONSTS.SAMPLE_GRID_IDS_INTRO[0]].getTargetRow();
@@ -817,10 +858,10 @@
 					if(this.isMobileSize) {
 						this.vg.defaultGridCssInfo.sizeLevel = 7;
 						this.vg.defaultGridCssInfo.cellMinHeight = 28;
-						this.vg.defaultGridCssInfo.height = '400px';
+						this.vg.defaultGridCssInfo.height = '500px';
 					}
 					else {
-						this.vg.defaultGridCssInfo.height = '500px';
+						this.vg.defaultGridCssInfo.height = '600px';
 					}
 					
 					window[CONSTS.SAMPLE_GRID_IDS_STARTED[5]+"_onActiveCells"] = function (startRow, startColId, endRow, endColId) {
@@ -1210,7 +1251,7 @@
 						this.vg.defaultGridCssInfo.height = '500px';
 					}
 					else {
-						this.vg.defaultGridCssInfo.height = '400px';
+						this.vg.defaultGridCssInfo.height = '900px';
 					}
 					//filter, sort span customize
 					this.vg.filterSpan = document.createElement("i");
@@ -1299,7 +1340,125 @@
 	    	            }, 100);
 	            	},
 					loadGrid() {
-						// window[CONSTS.SAMPLE_GRID_IDS_API[0]].load(SAMPLE_DATAS[this.currentLang].api[CONSTS.SAMPLE_KEYS_API[0]]);
+						const grid01 = window[CONSTS.SAMPLE_GRID_IDS_API[0]];
+						const grid02 = window[CONSTS.SAMPLE_GRID_IDS_API[1]];
+						const grid03 = window[CONSTS.SAMPLE_GRID_IDS_API[2]];
+						const grid04 = window[CONSTS.SAMPLE_GRID_IDS_API[3]];
+						const grid05 = window[CONSTS.SAMPLE_GRID_IDS_API[4]];
+						const grid06 = window[CONSTS.SAMPLE_GRID_IDS_API[5]];
+						const grid07 = window[CONSTS.SAMPLE_GRID_IDS_API[6]];
+						const grid08 = window[CONSTS.SAMPLE_GRID_IDS_API[7]];
+						const grid09 = window[CONSTS.SAMPLE_GRID_IDS_API[8]];
+
+						grid01.load(SAMPLE_DATAS[this.currentLang].api[CONSTS.SAMPLE_KEYS_API[0]]);
+						grid02.load(SAMPLE_DATAS[this.currentLang].api[CONSTS.SAMPLE_KEYS_API[1]]);
+						grid03.load(SAMPLE_DATAS[this.currentLang].api[CONSTS.SAMPLE_KEYS_API[2]]);
+						grid04.load(SAMPLE_DATAS[this.currentLang].api[CONSTS.SAMPLE_KEYS_API[3]]);
+						grid05.load(SAMPLE_DATAS[this.currentLang].api[CONSTS.SAMPLE_KEYS_API[4]]);
+						grid06.load(SAMPLE_DATAS[this.currentLang].api[CONSTS.SAMPLE_KEYS_API[5]]);
+						grid07.load(SAMPLE_DATAS[this.currentLang].api[CONSTS.SAMPLE_KEYS_API[6]]);
+						grid08.load(SAMPLE_DATAS[this.currentLang].api[CONSTS.SAMPLE_KEYS_API[7]]);
+						grid09.load(SAMPLE_DATAS[this.currentLang].api[CONSTS.SAMPLE_KEYS_API[8]]);
+
+						if(!this.isMobileSize) {
+							grid07.setGridHeight('600px');
+							grid09.setGridHeight('700px');
+						}
+
+	            		switch(this.currentLang) {
+	            			case 'KOR' :
+								grid01.setHeaderText('attribute', '속성명');
+								grid01.setHeaderText('type', '유형');
+								grid01.setHeaderText('default', '기본값');
+								grid01.setHeaderText('remark', '비고');
+
+								grid02.setHeaderText('attribute', '속성명');
+								grid02.setHeaderText('type', '유형');
+								grid02.setHeaderText('default', '기본값');
+								grid02.setHeaderText('remark', '비고');
+
+								grid03.setHeaderText('event', '이벤트');
+								grid03.setHeaderText('parameter', '파라메터');
+								grid03.setHeaderText('remark', '비고');
+								
+								grid04.setHeaderText('related', '관련');
+								grid04.setHeaderText('method', '메소드');
+								grid04.setHeaderText('parameter', '파라메터');
+								grid04.setHeaderText('return', '반환값')
+								grid04.setHeaderText('remark', '비고');
+								
+								grid05.setHeaderText('function', '함수')
+								grid05.setHeaderText('parameter', '파라메터');
+								grid05.setHeaderText('return', '반환값')
+								grid05.setHeaderText('remark', '비고');
+
+								grid06.setHeaderText('attribute', '속성명');
+								grid06.setHeaderText('type', '유형');
+								grid06.setHeaderText('default', '기본값');
+								grid06.setHeaderText('remark', '비고');
+								
+								grid07.setHeaderText('attribute', '속성명');
+								grid07.setHeaderText('type', '유형');
+								grid07.setHeaderText('default', '기본값');
+								grid07.setHeaderText('remark', '비고');
+								
+								grid08.setHeaderText('attribute', '속성명');
+								grid08.setHeaderText('type', '유형');
+								grid08.setHeaderText('default', '기본값');
+								grid08.setHeaderText('remark', '비고');
+								
+								grid09.setHeaderText('attribute', '속성명');
+								grid09.setHeaderText('type', '유형');
+								grid09.setHeaderText('default', '기본값');
+								grid09.setHeaderText('remark', '비고');
+	            				break;
+							default :
+								grid01.setHeaderText('attribute', 'attribute');
+								grid01.setHeaderText('type', 'type');
+								grid01.setHeaderText('default', 'default');
+								grid01.setHeaderText('remark', 'remark');
+
+								grid02.setHeaderText('attribute', 'attribute');
+								grid02.setHeaderText('type', 'type');
+								grid02.setHeaderText('default', 'default');
+								grid02.setHeaderText('remark', 'remark');
+
+								grid03.setHeaderText('event', 'event');
+								grid03.setHeaderText('parameter', 'parameter');
+								grid03.setHeaderText('remark', 'remark');
+
+								grid04.setHeaderText('related', 'related');
+								grid04.setHeaderText('method', 'method');
+								grid04.setHeaderText('parameter', 'parameter');
+								grid04.setHeaderText('return', 'return')
+								grid04.setHeaderText('remark', 'remark');
+
+								grid05.setHeaderText('function', 'function')
+								grid05.setHeaderText('parameter', 'parameter');
+								grid05.setHeaderText('return', 'return')
+								grid05.setHeaderText('remark', 'remark');
+
+								grid06.setHeaderText('attribute', 'attribute');
+								grid06.setHeaderText('type', 'type');
+								grid06.setHeaderText('default', 'default');
+								grid06.setHeaderText('remark', 'remark');
+								
+								grid07.setHeaderText('attribute', 'attribute');
+								grid07.setHeaderText('type', 'type');
+								grid07.setHeaderText('default', 'default');
+								grid07.setHeaderText('remark', 'remark');
+								
+								grid08.setHeaderText('attribute', 'attribute');
+								grid08.setHeaderText('type', 'type');
+								grid08.setHeaderText('default', 'default');
+								grid08.setHeaderText('remark', 'remark');
+								
+								grid09.setHeaderText('attribute', 'attribute');
+								grid09.setHeaderText('type', 'type');
+								grid09.setHeaderText('default', 'default');
+								grid09.setHeaderText('remark', 'remark');
+	            				break;
+						}
 					},
 	            },
 	        },
