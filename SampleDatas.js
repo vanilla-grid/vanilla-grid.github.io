@@ -1,5 +1,5 @@
 function getSampleDatas(CONSTS, CONTENTS) {
-    const refactoringDatas = (n) => {
+    const refactoringDatas01 = (n) => {
         const rows = [];
         for(let i = 0; i < n; i++) {
             rows.push({
@@ -29,6 +29,18 @@ function getSampleDatas(CONSTS, CONTENTS) {
                 X: null,
                 Y: null,
                 Z: null,
+            });
+        }
+        return rows;
+    };
+    const refactoringDatas02 = (n) => {
+        const rows = [];
+        for(let i = 0; i < n; i++) {
+            rows.push({
+                attribute: null,
+                type: null,
+                default: null,
+                remark: null,
             });
         }
         return rows;
@@ -385,8 +397,8 @@ function getSampleDatas(CONSTS, CONTENTS) {
                     rmk : null,
                 },
             ],
-            [CONSTS.SAMPLE_KEYS_STARTED[4]] : refactoringDatas(100),
-            [CONSTS.SAMPLE_KEYS_STARTED[5]] : refactoringDatas(100),
+            [CONSTS.SAMPLE_KEYS_STARTED[4]] : refactoringDatas01(100),
+            [CONSTS.SAMPLE_KEYS_STARTED[5]] : refactoringDatas01(100),
         };
 
         const getDept = function(lang) {
@@ -855,12 +867,48 @@ function getSampleDatas(CONSTS, CONTENTS) {
         }
 
         const api = {
-            [CONSTS.SAMPLE_KEYS_API[0]] :
-            [
-                {
-                    col1 : null,
-                },
-            ],
+            [CONSTS.SAMPLE_KEYS_API[0]] : refactoringDatas02(CONSTS.GRID_ATTRIBUTES.length),
+            [CONSTS.SAMPLE_KEYS_API[1]] : refactoringDatas02(CONSTS.COLUMN_ATTRIBUTES.length),
+            [CONSTS.SAMPLE_KEYS_API[2]] : (function() {
+                const rows = [];
+                for(let i = 0; i < CONSTS.EVENTS.length; i++) {
+                    rows.push({
+                        event: null,
+                        parameter: null,
+                        remark: null,
+                    });
+                }
+                return rows;
+            })(),
+            [CONSTS.SAMPLE_KEYS_API[3]] : (function() {
+                const rows = [];
+                for(let i = 0; i < CONSTS.METHODS.length; i++) {
+                    rows.push({
+                        related: null,
+                        method: null,
+                        parameter: null,
+                        return: null,
+                        remark: null,
+                    });
+                }
+                return rows;
+            })(),
+            [CONSTS.SAMPLE_KEYS_API[4]] : (function() {
+                const rows = [];
+                for(let i = 0; i < CONSTS.VGO_FUNCTION.length; i++) {
+                    rows.push({
+                        function: null,
+                        parameter: null,
+                        return: null,
+                        remark: null,
+                    });
+                }
+                return rows;
+            })(),
+            [CONSTS.SAMPLE_KEYS_API[5]] : refactoringDatas02(CONSTS.VGO_ATTRIBUTES.length),
+            [CONSTS.SAMPLE_KEYS_API[6]] : refactoringDatas02(CONSTS.VGO_GRID_INFO_ATTRIBUTES.length),
+            [CONSTS.SAMPLE_KEYS_API[7]] : refactoringDatas02(CONSTS.VGO_GRID_CSSINFO_ATTRIBUTES.length),
+            [CONSTS.SAMPLE_KEYS_API[8]] : refactoringDatas02(CONSTS.VGO_COLUMN_INFO_ATTRIBUTES.length),
         }
 
         function setTextData (data, arr) {
@@ -911,7 +959,7 @@ function getSampleDatas(CONSTS, CONTENTS) {
                         ],
                         "col8": "Y",
                         "col9": "play sound",
-                        "col10": {"value": "https://", "text": "View Details"}
+                        "col10": {"value": "https://en.wikipedia.org/wiki/Blue_whale", "text": "View Details"}
                     },
                     {
                         "col1": "Humpback Whale",
@@ -927,7 +975,7 @@ function getSampleDatas(CONSTS, CONTENTS) {
                         ],
                         "col8": "N",
                         "col9": "play sound",
-                        "col10": {"value": "https://", "text": "View Details"}
+                        "col10": {"value": "https://en.wikipedia.org/wiki/Humpback_whale", "text": "View Details"}
                     },
                     {
                         "col1": "Sperm Whale",
@@ -943,7 +991,7 @@ function getSampleDatas(CONSTS, CONTENTS) {
                         ],
                         "col8": "Y",
                         "col9": "play sound",
-                        "col10": {"value": "https://", "text": "View Details"}
+                        "col10": {"value": "https://en.wikipedia.org/wiki/Sperm_whale", "text": "View Details"}
                     },
                     {
                         "col1": "Fin Whale",
@@ -959,7 +1007,7 @@ function getSampleDatas(CONSTS, CONTENTS) {
                         ],
                         "col8": "N",
                         "col9": "play sound",
-                        "col10": {"value": "https://", "text": "View Details"}
+                        "col10": {"value": "https://en.wikipedia.org/wiki/Fin_whale", "text": "View Details"}
                     },
                     {
                         "col1": "Gray Whale",
@@ -975,7 +1023,7 @@ function getSampleDatas(CONSTS, CONTENTS) {
                         ],
                         "col8": "Y",
                         "col9": "play sound",
-                        "col10": {"value": "https://", "text": "View Details"}
+                        "col10": {"value": "https://en.wikipedia.org/wiki/Fin_whale", "text": "View Details"}
                     },
                     {
                         "col1": "Orca",
@@ -991,7 +1039,7 @@ function getSampleDatas(CONSTS, CONTENTS) {
                         ],
                         "col8": "N",
                         "col9": "play sound",
-                        "col10": {"value": "https://", "text": "View Details"}
+                        "col10": {"value": "https://en.wikipedia.org/wiki/Orca", "text": "View Details"}
                     },
                     {
                         "col1": "False Killer Whale",
@@ -1007,10 +1055,10 @@ function getSampleDatas(CONSTS, CONTENTS) {
                         ],
                         "col8": "Y",
                         "col9": "play sound",
-                        "col10": {"value": "https://", "text": "View Details"}
+                        "col10": {"value": "https://en.wikipedia.org/wiki/False_killer_whale", "text": "View Details"}
                     },
                     {
-                        "col1": "Beluga",
+                        "col1": "Beluga Whale",
                         "col2": "S",
                         "col3": "00008",
                         "col4": "20230730",
@@ -1023,7 +1071,7 @@ function getSampleDatas(CONSTS, CONTENTS) {
                         ],
                         "col8": "Y",
                         "col9": "play sound",
-                        "col10": {"value": "https://", "text": "View Details"}
+                        "col10": {"value": "https://en.wikipedia.org/wiki/Beluga_whale", "text": "View Details"}
                     },
                     {
                         "col1": "Dolphin",
@@ -1039,7 +1087,7 @@ function getSampleDatas(CONSTS, CONTENTS) {
                         ],
                         "col8": "N",
                         "col9": "play sound",
-                        "col10": {"value": "https://", "text": "View Details"}
+                        "col10": {"value": "https://en.wikipedia.org/wiki/Dolphin", "text": "View Details"}
                     },
                     {
                         "col1": "Minke Whale",
@@ -1055,7 +1103,7 @@ function getSampleDatas(CONSTS, CONTENTS) {
                         ],
                         "col8": "Y",
                         "col9": "play sound",
-                        "col10": {"value": "https://", "text": "View Details"}
+                        "col10": {"value": "https://en.wikipedia.org/wiki/Minke_whale", "text": "View Details"}
                     }
                 ],
                 [CONSTS.SAMPLE_KEYS_INTRO[1]] : setLinkData(
@@ -1595,7 +1643,87 @@ function getSampleDatas(CONSTS, CONTENTS) {
                 ),
             },
             api : {
-                [CONSTS.SAMPLE_KEYS_API[0]] : api[[CONSTS.SAMPLE_KEYS_API[0]]],
+                [CONSTS.SAMPLE_KEYS_API[0]] : setTextData(
+                    api[[CONSTS.SAMPLE_KEYS_API[0]]],
+                    [
+                        {key : "attribute", value : CONTENTS.ENG.api.grid[CONSTS.SAMPLE_KEYS_API[0]].attribute},
+                        {key : "type", value : CONTENTS.ENG.api.gridNoSearch[CONSTS.SAMPLE_KEYS_API[0]].type},
+                        {key : "default", value : CONTENTS.ENG.api.gridNoSearch[CONSTS.SAMPLE_KEYS_API[0]].default},
+                        {key : "remark", value : CONTENTS.ENG.api.grid[CONSTS.SAMPLE_KEYS_API[0]].remark},
+                    ]
+                ),
+                [CONSTS.SAMPLE_KEYS_API[1]] : setTextData(
+                    api[[CONSTS.SAMPLE_KEYS_API[1]]],
+                    [
+                        {key : "attribute", value : CONTENTS.ENG.api.grid[CONSTS.SAMPLE_KEYS_API[1]].attribute},
+                        {key : "type", value : CONTENTS.ENG.api.gridNoSearch[CONSTS.SAMPLE_KEYS_API[1]].type},
+                        {key : "default", value : CONTENTS.ENG.api.gridNoSearch[CONSTS.SAMPLE_KEYS_API[1]].default},
+                        {key : "remark", value : CONTENTS.ENG.api.grid[CONSTS.SAMPLE_KEYS_API[1]].remark},
+                    ]
+                ),
+                [CONSTS.SAMPLE_KEYS_API[2]] : setTextData(
+                    api[[CONSTS.SAMPLE_KEYS_API[2]]],
+                    [
+                        {key : "event", value : CONTENTS.ENG.api.grid[CONSTS.SAMPLE_KEYS_API[2]].event},
+                        {key : "parameter", value : CONTENTS.ENG.api.gridNoSearch[CONSTS.SAMPLE_KEYS_API[2]].parameter},
+                        {key : "remark", value : CONTENTS.ENG.api.grid[CONSTS.SAMPLE_KEYS_API[2]].remark},
+                    ]
+                ),
+                [CONSTS.SAMPLE_KEYS_API[3]] : setTextData(
+                    api[[CONSTS.SAMPLE_KEYS_API[3]]],
+                    [
+                        {key : "related", value : CONTENTS.ENG.api.gridNoSearch[CONSTS.SAMPLE_KEYS_API[3]].related},
+                        {key : "method", value : CONTENTS.ENG.api.grid[CONSTS.SAMPLE_KEYS_API[3]].method},
+                        {key : "parameter", value : CONTENTS.ENG.api.gridNoSearch[CONSTS.SAMPLE_KEYS_API[3]].parameter},
+                        {key : "return", value : CONTENTS.ENG.api.gridNoSearch[CONSTS.SAMPLE_KEYS_API[3]].return},
+                        {key : "remark", value : CONTENTS.ENG.api.grid[CONSTS.SAMPLE_KEYS_API[3]].remark},
+                    ]
+                ),
+                [CONSTS.SAMPLE_KEYS_API[4]] : setTextData(
+                    api[[CONSTS.SAMPLE_KEYS_API[4]]],
+                    [
+                        {key : "function", value : CONTENTS.ENG.api.grid[CONSTS.SAMPLE_KEYS_API[4]].function},
+                        {key : "parameter", value : CONTENTS.ENG.api.gridNoSearch[CONSTS.SAMPLE_KEYS_API[4]].parameter},
+                        {key : "return", value : CONTENTS.ENG.api.gridNoSearch[CONSTS.SAMPLE_KEYS_API[4]].return},
+                        {key : "remark", value : CONTENTS.ENG.api.grid[CONSTS.SAMPLE_KEYS_API[4]].remark},
+                    ]
+                ),
+                [CONSTS.SAMPLE_KEYS_API[5]] : setTextData(
+                    api[[CONSTS.SAMPLE_KEYS_API[5]]],
+                    [
+                        {key : "attribute", value : CONTENTS.ENG.api.grid[CONSTS.SAMPLE_KEYS_API[5]].attribute},
+                        {key : "type", value : CONTENTS.ENG.api.gridNoSearch[CONSTS.SAMPLE_KEYS_API[5]].type},
+                        {key : "default", value : CONTENTS.ENG.api.gridNoSearch[CONSTS.SAMPLE_KEYS_API[5]].default},
+                        {key : "remark", value : CONTENTS.ENG.api.grid[CONSTS.SAMPLE_KEYS_API[5]].remark},
+                    ]
+                ),
+                [CONSTS.SAMPLE_KEYS_API[6]] : setTextData(
+                    api[[CONSTS.SAMPLE_KEYS_API[6]]],
+                    [
+                        {key : "attribute", value : CONTENTS.ENG.api.grid[CONSTS.SAMPLE_KEYS_API[6]].attribute},
+                        {key : "type", value : CONTENTS.ENG.api.gridNoSearch[CONSTS.SAMPLE_KEYS_API[6]].type},
+                        {key : "default", value : CONTENTS.ENG.api.gridNoSearch[CONSTS.SAMPLE_KEYS_API[6]].default},
+                        {key : "remark", value : CONTENTS.ENG.api.grid[CONSTS.SAMPLE_KEYS_API[6]].remark},
+                    ]
+                ),
+                [CONSTS.SAMPLE_KEYS_API[7]] : setTextData(
+                    api[[CONSTS.SAMPLE_KEYS_API[7]]],
+                    [
+                        {key : "attribute", value : CONTENTS.ENG.api.grid[CONSTS.SAMPLE_KEYS_API[7]].attribute},
+                        {key : "type", value : CONTENTS.ENG.api.gridNoSearch[CONSTS.SAMPLE_KEYS_API[7]].type},
+                        {key : "default", value : CONTENTS.ENG.api.gridNoSearch[CONSTS.SAMPLE_KEYS_API[7]].default},
+                        {key : "remark", value : CONTENTS.ENG.api.grid[CONSTS.SAMPLE_KEYS_API[7]].remark},
+                    ]
+                ),
+                [CONSTS.SAMPLE_KEYS_API[8]] : setTextData(
+                    api[[CONSTS.SAMPLE_KEYS_API[8]]],
+                    [
+                        {key : "attribute", value : CONTENTS.ENG.api.grid[CONSTS.SAMPLE_KEYS_API[8]].attribute},
+                        {key : "type", value : CONTENTS.ENG.api.gridNoSearch[CONSTS.SAMPLE_KEYS_API[8]].type},
+                        {key : "default", value : CONTENTS.ENG.api.gridNoSearch[CONSTS.SAMPLE_KEYS_API[8]].default},
+                        {key : "remark", value : CONTENTS.ENG.api.grid[CONSTS.SAMPLE_KEYS_API[8]].remark},
+                    ]
+                ),
             },
         };
 
@@ -1617,7 +1745,7 @@ function getSampleDatas(CONSTS, CONTENTS) {
                         ],
                         "col8": "Y",
                         "col9": "소리재생",
-                        "col10": {"value": "https://", "text": "자세히 보기"}
+                        "col10": {"value": "https://ko.wikipedia.org/wiki/%EB%8C%80%EC%99%95%EA%B3%A0%EB%9E%98", "text": "자세히 보기"}
                     },
                     {
                         "col1": "혹등고래",
@@ -1633,7 +1761,7 @@ function getSampleDatas(CONSTS, CONTENTS) {
                         ],
                         "col8": "N",
                         "col9": "소리재생",
-                        "col10": {"value": "https://", "text": "자세히 보기"}
+                        "col10": {"value": "https://ko.wikipedia.org/wiki/%ED%98%B9%EB%93%B1%EA%B3%A0%EB%9E%98", "text": "자세히 보기"}
                     },
                     {
                         "col1": "향유고래",
@@ -1649,7 +1777,7 @@ function getSampleDatas(CONSTS, CONTENTS) {
                         ],
                         "col8": "Y",
                         "col9": "소리재생",
-                        "col10": {"value": "https://", "text": "자세히 보기"}
+                        "col10": {"value": "https://ko.wikipedia.org/wiki/%ED%96%A5%EC%9C%A0%EA%B3%A0%EB%9E%98", "text": "자세히 보기"}
                     },
                     {
                         "col1": "참고래",
@@ -1665,7 +1793,7 @@ function getSampleDatas(CONSTS, CONTENTS) {
                         ],
                         "col8": "N",
                         "col9": "소리재생",
-                        "col10": {"value": "https://", "text": "자세히 보기"}
+                        "col10": {"value": "https://ko.wikipedia.org/wiki/%EC%B0%B8%EA%B3%A0%EB%9E%98", "text": "자세히 보기"}
                     },
                     {
                         "col1": "귀신고래",
@@ -1681,7 +1809,7 @@ function getSampleDatas(CONSTS, CONTENTS) {
                         ],
                         "col8": "Y",
                         "col9": "소리재생",
-                        "col10": {"value": "https://", "text": "자세히 보기"}
+                        "col10": {"value": "https://ko.wikipedia.org/wiki/%EA%B7%80%EC%8B%A0%EA%B3%A0%EB%9E%98", "text": "자세히 보기"}
                     },
                     {
                         "col1": "범고래",
@@ -1697,7 +1825,7 @@ function getSampleDatas(CONSTS, CONTENTS) {
                         ],
                         "col8": "N",
                         "col9": "소리재생",
-                        "col10": {"value": "https://", "text": "자세히 보기"}
+                        "col10": {"value": "https://ko.wikipedia.org/wiki/%EB%B2%94%EA%B3%A0%EB%9E%98", "text": "자세히 보기"}
                     },
                     {
                         "col1": "흑범고래",
@@ -1713,10 +1841,10 @@ function getSampleDatas(CONSTS, CONTENTS) {
                         ],
                         "col8": "Y",
                         "col9": "소리재생",
-                        "col10": {"value": "https://", "text": "자세히 보기"}
+                        "col10": {"value": "https://ko.wikipedia.org/wiki/%ED%9D%91%EB%B2%94%EA%B3%A0%EB%9E%98", "text": "자세히 보기"}
                     },
                     {
-                        "col1": "벨루가",
+                        "col1": "흰돌고래(벨루가)",
                         "col2": "S",
                         "col3": "00008",
                         "col4": "20230730",
@@ -1729,7 +1857,7 @@ function getSampleDatas(CONSTS, CONTENTS) {
                         ],
                         "col8": "Y",
                         "col9": "소리재생",
-                        "col10": {"value": "https://", "text": "자세히 보기"}
+                        "col10": {"value": "https://ko.wikipedia.org/wiki/%ED%9D%B0%EB%8F%8C%EA%B3%A0%EB%9E%98", "text": "자세히 보기"}
                     },
                     {
                         "col1": "돌고래",
@@ -1745,10 +1873,10 @@ function getSampleDatas(CONSTS, CONTENTS) {
                         ],
                         "col8": "N",
                         "col9": "소리재생",
-                        "col10": {"value": "https://", "text": "자세히 보기"}
+                        "col10": {"value": "https://ko.wikipedia.org/wiki/%EB%8F%8C%EA%B3%A0%EB%9E%98", "text": "자세히 보기"}
                     },
                     {
-                        "col1": "민크고래",
+                        "col1": "민부리고래",
                         "col2": "M",
                         "col3": "00010",
                         "col4": "20231019",
@@ -1761,7 +1889,7 @@ function getSampleDatas(CONSTS, CONTENTS) {
                         ],
                         "col8": "Y",
                         "col9": "소리재생",
-                        "col10": {"value": "https://", "text": "자세히 보기"}
+                        "col10": {"value": "https://ko.wikipedia.org/wiki/%EB%AF%BC%EB%B6%80%EB%A6%AC%EA%B3%A0%EB%9E%98", "text": "자세히 보기"}
                     }
                 ],
                 [CONSTS.SAMPLE_KEYS_INTRO[1]] : setLinkData(
@@ -2301,7 +2429,87 @@ function getSampleDatas(CONSTS, CONTENTS) {
                 ),
             },
             api : {
-                [CONSTS.SAMPLE_KEYS_API[0]] : api[[CONSTS.SAMPLE_KEYS_API[0]]],
+                [CONSTS.SAMPLE_KEYS_API[0]] : setTextData(
+                    api[[CONSTS.SAMPLE_KEYS_API[0]]],
+                    [
+                        {key : "attribute", value : CONTENTS.KOR.api.grid[CONSTS.SAMPLE_KEYS_API[0]].attribute},
+                        {key : "type", value : CONTENTS.KOR.api.gridNoSearch[CONSTS.SAMPLE_KEYS_API[0]].type},
+                        {key : "default", value : CONTENTS.KOR.api.gridNoSearch[CONSTS.SAMPLE_KEYS_API[0]].default},
+                        {key : "remark", value : CONTENTS.KOR.api.grid[CONSTS.SAMPLE_KEYS_API[0]].remark},
+                    ]
+                ),
+                [CONSTS.SAMPLE_KEYS_API[1]] : setTextData(
+                    api[[CONSTS.SAMPLE_KEYS_API[1]]],
+                    [
+                        {key : "attribute", value : CONTENTS.KOR.api.grid[CONSTS.SAMPLE_KEYS_API[1]].attribute},
+                        {key : "type", value : CONTENTS.KOR.api.gridNoSearch[CONSTS.SAMPLE_KEYS_API[1]].type},
+                        {key : "default", value : CONTENTS.KOR.api.gridNoSearch[CONSTS.SAMPLE_KEYS_API[1]].default},
+                        {key : "remark", value : CONTENTS.KOR.api.grid[CONSTS.SAMPLE_KEYS_API[1]].remark},
+                    ]
+                ),
+                [CONSTS.SAMPLE_KEYS_API[2]] : setTextData(
+                    api[[CONSTS.SAMPLE_KEYS_API[2]]],
+                    [
+                        {key : "event", value : CONTENTS.KOR.api.grid[CONSTS.SAMPLE_KEYS_API[2]].event},
+                        {key : "parameter", value : CONTENTS.KOR.api.gridNoSearch[CONSTS.SAMPLE_KEYS_API[2]].parameter},
+                        {key : "remark", value : CONTENTS.KOR.api.grid[CONSTS.SAMPLE_KEYS_API[2]].remark},
+                    ]
+                ),
+                [CONSTS.SAMPLE_KEYS_API[3]] : setTextData(
+                    api[[CONSTS.SAMPLE_KEYS_API[3]]],
+                    [
+                        {key : "related", value : CONTENTS.KOR.api.gridNoSearch[CONSTS.SAMPLE_KEYS_API[3]].related},
+                        {key : "method", value : CONTENTS.KOR.api.grid[CONSTS.SAMPLE_KEYS_API[3]].method},
+                        {key : "parameter", value : CONTENTS.KOR.api.gridNoSearch[CONSTS.SAMPLE_KEYS_API[3]].parameter},
+                        {key : "return", value : CONTENTS.KOR.api.gridNoSearch[CONSTS.SAMPLE_KEYS_API[3]].return},
+                        {key : "remark", value : CONTENTS.KOR.api.grid[CONSTS.SAMPLE_KEYS_API[3]].remark},
+                    ]
+                ),
+                [CONSTS.SAMPLE_KEYS_API[4]] : setTextData(
+                    api[[CONSTS.SAMPLE_KEYS_API[4]]],
+                    [
+                        {key : "function", value : CONTENTS.KOR.api.grid[CONSTS.SAMPLE_KEYS_API[4]].function},
+                        {key : "parameter", value : CONTENTS.KOR.api.gridNoSearch[CONSTS.SAMPLE_KEYS_API[4]].parameter},
+                        {key : "return", value : CONTENTS.KOR.api.gridNoSearch[CONSTS.SAMPLE_KEYS_API[4]].return},
+                        {key : "remark", value : CONTENTS.KOR.api.grid[CONSTS.SAMPLE_KEYS_API[4]].remark},
+                    ]
+                ),
+                [CONSTS.SAMPLE_KEYS_API[5]] : setTextData(
+                    api[[CONSTS.SAMPLE_KEYS_API[5]]],
+                    [
+                        {key : "attribute", value : CONTENTS.KOR.api.grid[CONSTS.SAMPLE_KEYS_API[5]].attribute},
+                        {key : "type", value : CONTENTS.KOR.api.gridNoSearch[CONSTS.SAMPLE_KEYS_API[5]].type},
+                        {key : "default", value : CONTENTS.KOR.api.gridNoSearch[CONSTS.SAMPLE_KEYS_API[5]].default},
+                        {key : "remark", value : CONTENTS.KOR.api.grid[CONSTS.SAMPLE_KEYS_API[5]].remark},
+                    ]
+                ),
+                [CONSTS.SAMPLE_KEYS_API[6]] : setTextData(
+                    api[[CONSTS.SAMPLE_KEYS_API[6]]],
+                    [
+                        {key : "attribute", value : CONTENTS.KOR.api.grid[CONSTS.SAMPLE_KEYS_API[6]].attribute},
+                        {key : "type", value : CONTENTS.KOR.api.gridNoSearch[CONSTS.SAMPLE_KEYS_API[6]].type},
+                        {key : "default", value : CONTENTS.KOR.api.gridNoSearch[CONSTS.SAMPLE_KEYS_API[6]].default},
+                        {key : "remark", value : CONTENTS.KOR.api.grid[CONSTS.SAMPLE_KEYS_API[6]].remark},
+                    ]
+                ),
+                [CONSTS.SAMPLE_KEYS_API[7]] : setTextData(
+                    api[[CONSTS.SAMPLE_KEYS_API[7]]],
+                    [
+                        {key : "attribute", value : CONTENTS.KOR.api.grid[CONSTS.SAMPLE_KEYS_API[7]].attribute},
+                        {key : "type", value : CONTENTS.KOR.api.gridNoSearch[CONSTS.SAMPLE_KEYS_API[7]].type},
+                        {key : "default", value : CONTENTS.KOR.api.gridNoSearch[CONSTS.SAMPLE_KEYS_API[7]].default},
+                        {key : "remark", value : CONTENTS.KOR.api.grid[CONSTS.SAMPLE_KEYS_API[7]].remark},
+                    ]
+                ),
+                [CONSTS.SAMPLE_KEYS_API[8]] : setTextData(
+                    api[[CONSTS.SAMPLE_KEYS_API[8]]],
+                    [
+                        {key : "attribute", value : CONTENTS.KOR.api.grid[CONSTS.SAMPLE_KEYS_API[8]].attribute},
+                        {key : "type", value : CONTENTS.KOR.api.gridNoSearch[CONSTS.SAMPLE_KEYS_API[8]].type},
+                        {key : "default", value : CONTENTS.KOR.api.gridNoSearch[CONSTS.SAMPLE_KEYS_API[8]].default},
+                        {key : "remark", value : CONTENTS.KOR.api.grid[CONSTS.SAMPLE_KEYS_API[8]].remark},
+                    ]
+                ),
             },
         };
     }
