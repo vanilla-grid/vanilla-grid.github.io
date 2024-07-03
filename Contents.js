@@ -1,17 +1,24 @@
 function getContents(CONSTS) {
-    function setLinkData (arr, link, paramObj) {
+    function setLinkData(arr, link, paramObj) {
         let _link = link;
         Object.keys(paramObj).forEach(key => {
             _link += "&" + key + "=" + paramObj[key];
         });
         const ds = [];
-        arr.forEach((at, index) => {
+        let i = 0;
+    
+        while (i < arr.length) {
+            const at = arr[i];
+            i++;
+            if (ds.some(tD => tD.text === at.name)) {
+                continue;
+            }
             const tD = {};
-            const href = _link.replace(/index/g, String(index + 1));
+            const href = _link.replace(/index/g, String(i));
             tD.value = href;
-            tD.text = at;
+            tD.text = at.name;
             ds.push(tD);
-        });
+        }
         return ds;
     }
     function setCellInfo (cell, gridId, row, colId, viewId) {
@@ -52,7 +59,7 @@ function getContents(CONSTS) {
                 },
             },
             intro: {
-                grid : {
+                grid: {
                     [CONSTS.SAMPLE_KEYS_INTRO[1]] : {
                         "col1" : setLinkData(CONSTS.GRID_ATTRIBUTES, "https://vanilla-grid.github.io/", {view:"api",gridId:"gridIdGrid",row:"index",colId:"col1"}),
                         "col2" : setLinkData(CONSTS.COLUMN_ATTRIBUTES, "https://vanilla-grid.github.io/", {view:"api",gridId:"gridIdGrid",row:"index",colId:"col1"}),
@@ -287,7 +294,7 @@ beforeDestroy: function() {
                 },
             },
             started: {
-                grid : {
+                grid: {
                     [CONSTS.SAMPLE_KEYS_STARTED[3]] : {
                         "rmk" : [
                             {
@@ -2076,7 +2083,404 @@ function vanillagrid_onBeforeCreate (e, vg) {
             },
             api: {
                 grid: {
-
+                    [CONSTS.SAMPLE_KEYS_API[0]] : {
+                        "attribute": (function() {
+                            const attributes = [];
+                            CONSTS.GRID_ATTRIBUTES.forEach((attr) => {
+                                const obj = {
+                                    text : attr.name,
+                                }
+                                attributes.push(obj);
+                            });
+                            return attributes;
+                        })(),
+                        "remark": (function() {
+                            const remark = [];
+                            CONSTS.GRID_ATTRIBUTES.forEach((attr) => {
+                                const obj = {
+                                    text : attr.remarkEng,
+                                }
+                                remark.push(obj);
+                            });
+                            return remark;
+                        })(),
+                    },
+                    [CONSTS.SAMPLE_KEYS_API[1]] : {
+                        "attribute": (function() {
+                            const attributes = [];
+                            CONSTS.COLUMN_ATTRIBUTES.forEach((attr) => {
+                                const obj = {
+                                    text : attr.name,
+                                }
+                                attributes.push(obj);
+                            });
+                            return attributes;
+                        })(),
+                        "remark": (function() {
+                            const remark = [];
+                            CONSTS.COLUMN_ATTRIBUTES.forEach((attr) => {
+                                const obj = {
+                                    text : attr.remarkEng,
+                                }
+                                remark.push(obj);
+                            });
+                            return remark;
+                        })(),
+                    },
+                    [CONSTS.SAMPLE_KEYS_API[2]] : {
+                        "event": (function() {
+                            const attributes = [];
+                            CONSTS.EVENTS.forEach((attr) => {
+                                const obj = {
+                                    text : attr.name,
+                                }
+                                attributes.push(obj);
+                            });
+                            return attributes;
+                        })(),
+                        "remark": (function() {
+                            const remark = [];
+                            CONSTS.EVENTS.forEach((attr) => {
+                                const obj = {
+                                    text : attr.remarkEng,
+                                }
+                                remark.push(obj);
+                            });
+                            return remark;
+                        })(),
+                    },
+                    [CONSTS.SAMPLE_KEYS_API[3]] : {
+                        "method": (function() {
+                            const attributes = [];
+                            CONSTS.METHODS.forEach((attr) => {
+                                const obj = {
+                                    text : attr.name,
+                                }
+                                attributes.push(obj);
+                            });
+                            return attributes;
+                        })(),
+                        "remark": (function() {
+                            const remark = [];
+                            CONSTS.METHODS.forEach((attr) => {
+                                const obj = {
+                                    text : attr.remarkEng,
+                                }
+                                remark.push(obj);
+                            });
+                            return remark;
+                        })(),
+                    },
+                    [CONSTS.SAMPLE_KEYS_API[4]] : {
+                        "function": (function() {
+                            const attributes = [];
+                            CONSTS.VGO_FUNCTION.forEach((attr) => {
+                                const obj = {
+                                    text : attr.function,
+                                }
+                                attributes.push(obj);
+                            });
+                            return attributes;
+                        })(),
+                        "remark": (function() {
+                            const remark = [];
+                            CONSTS.VGO_FUNCTION.forEach((attr) => {
+                                const obj = {
+                                    text : attr.remarkEng,
+                                }
+                                remark.push(obj);
+                            });
+                            return remark;
+                        })(),
+                    },
+                    [CONSTS.SAMPLE_KEYS_API[5]] : {
+                        "attribute": (function() {
+                            const attributes = [];
+                            CONSTS.VGO_ATTRIBUTES.forEach((attr) => {
+                                const obj = {
+                                    text : attr.attribute,
+                                }
+                                attributes.push(obj);
+                            });
+                            return attributes;
+                        })(),
+                        "remark": (function() {
+                            const remark = [];
+                            CONSTS.VGO_ATTRIBUTES.forEach((attr) => {
+                                const obj = {
+                                    text : attr.remarkEng,
+                                }
+                                remark.push(obj);
+                            });
+                            return remark;
+                        })(),
+                    },
+                    [CONSTS.SAMPLE_KEYS_API[6]] : {
+                        "attribute": (function() {
+                            const attributes = [];
+                            CONSTS.VGO_GRID_INFO_ATTRIBUTES.forEach((attr) => {
+                                const obj = {
+                                    text : attr.attribute,
+                                }
+                                attributes.push(obj);
+                            });
+                            return attributes;
+                        })(),
+                        "remark": (function() {
+                            const remark = [];
+                            CONSTS.VGO_GRID_INFO_ATTRIBUTES.forEach((attr) => {
+                                const obj = {
+                                    text : attr.remarkEng,
+                                }
+                                remark.push(obj);
+                            });
+                            return remark;
+                        })(),
+                    },
+                    [CONSTS.SAMPLE_KEYS_API[7]] : {
+                        "attribute": (function() {
+                            const attributes = [];
+                            CONSTS.VGO_GRID_CSSINFO_ATTRIBUTES.forEach((attr) => {
+                                const obj = {
+                                    text : attr.attribute,
+                                }
+                                attributes.push(obj);
+                            });
+                            return attributes;
+                        })(),
+                        "remark": (function() {
+                            const remark = [];
+                            CONSTS.VGO_GRID_CSSINFO_ATTRIBUTES.forEach((attr) => {
+                                const obj = {
+                                    text : attr.remarkEng,
+                                }
+                                remark.push(obj);
+                            });
+                            return remark;
+                        })(),
+                    },
+                    [CONSTS.SAMPLE_KEYS_API[8]] : {
+                        "attribute": (function() {
+                            const attributes = [];
+                            CONSTS.VGO_COLUMN_INFO_ATTRIBUTES.forEach((attr) => {
+                                const obj = {
+                                    text : attr.attribute,
+                                }
+                                attributes.push(obj);
+                            });
+                            return attributes;
+                        })(),
+                        "remark": (function() {
+                            const remark = [];
+                            CONSTS.VGO_COLUMN_INFO_ATTRIBUTES.forEach((attr) => {
+                                const obj = {
+                                    text : attr.remarkEng,
+                                }
+                                remark.push(obj);
+                            });
+                            return remark;
+                        })(),
+                    },
+                },
+                gridNoSearch: {
+                    [CONSTS.SAMPLE_KEYS_API[0]] : {
+                        "type": (function() {
+                            const type = [];
+                            CONSTS.GRID_ATTRIBUTES.forEach((attr) => {
+                                const obj = {
+                                    text : attr.type,
+                                }
+                                type.push(obj);
+                            });
+                            return type;
+                        })(),
+                        "default": (function() {
+                            const def = [];
+                            CONSTS.GRID_ATTRIBUTES.forEach((attr) => {
+                                const obj = {
+                                    text : attr.default,
+                                }
+                                def.push(obj);
+                            });
+                            return def;
+                        })(),
+                    },
+                    [CONSTS.SAMPLE_KEYS_API[1]] : {
+                        "type": (function() {
+                            const type = [];
+                            CONSTS.COLUMN_ATTRIBUTES.forEach((attr) => {
+                                const obj = {
+                                    text : attr.type,
+                                }
+                                type.push(obj);
+                            });
+                            return type;
+                        })(),
+                        "default": (function() {
+                            const def = [];
+                            CONSTS.COLUMN_ATTRIBUTES.forEach((attr) => {
+                                const obj = {
+                                    text : attr.default,
+                                }
+                                def.push(obj);
+                            });
+                            return def;
+                        })(),
+                    },
+                    [CONSTS.SAMPLE_KEYS_API[2]] : {
+                        "parameter": (function() {
+                            const type = [];
+                            CONSTS.EVENTS.forEach((attr) => {
+                                const obj = {
+                                    text : attr.param,
+                                }
+                                type.push(obj);
+                            });
+                            return type;
+                        })(),
+                    },
+                    [CONSTS.SAMPLE_KEYS_API[3]] : {
+                        "related": (function() {
+                            const type = [];
+                            CONSTS.METHODS.forEach((attr) => {
+                                const obj = {
+                                    text : attr.related,
+                                }
+                                type.push(obj);
+                            });
+                            return type;
+                        })(),
+                        "parameter": (function() {
+                            const type = [];
+                            CONSTS.METHODS.forEach((attr) => {
+                                const obj = {
+                                    text : attr.param,
+                                }
+                                type.push(obj);
+                            });
+                            return type;
+                        })(),
+                        "return": (function() {
+                            const type = [];
+                            CONSTS.METHODS.forEach((attr) => {
+                                const obj = {
+                                    text : attr.return,
+                                }
+                                type.push(obj);
+                            });
+                            return type;
+                        })(),
+                    },
+                    [CONSTS.SAMPLE_KEYS_API[4]] : {
+                        "parameter": (function() {
+                            const type = [];
+                            CONSTS.VGO_FUNCTION.forEach((attr) => {
+                                const obj = {
+                                    text : attr.param,
+                                }
+                                type.push(obj);
+                            });
+                            return type;
+                        })(),
+                        "return": (function() {
+                            const type = [];
+                            CONSTS.VGO_FUNCTION.forEach((attr) => {
+                                const obj = {
+                                    text : attr.return,
+                                }
+                                type.push(obj);
+                            });
+                            return type;
+                        })(),
+                    },
+                    [CONSTS.SAMPLE_KEYS_API[5]] : {
+                        "type": (function() {
+                            const type = [];
+                            CONSTS.VGO_ATTRIBUTES.forEach((attr) => {
+                                const obj = {
+                                    text : attr.type,
+                                }
+                                type.push(obj);
+                            });
+                            return type;
+                        })(),
+                        "default": (function() {
+                            const def = [];
+                            CONSTS.VGO_ATTRIBUTES.forEach((attr) => {
+                                const obj = {
+                                    text : attr.default,
+                                }
+                                def.push(obj);
+                            });
+                            return def;
+                        })(),
+                    },
+                    [CONSTS.SAMPLE_KEYS_API[6]] : {
+                        "type": (function() {
+                            const type = [];
+                            CONSTS.VGO_GRID_INFO_ATTRIBUTES.forEach((attr) => {
+                                const obj = {
+                                    text : attr.type,
+                                }
+                                type.push(obj);
+                            });
+                            return type;
+                        })(),
+                        "default": (function() {
+                            const def = [];
+                            CONSTS.VGO_GRID_INFO_ATTRIBUTES.forEach((attr) => {
+                                const obj = {
+                                    text : attr.default,
+                                }
+                                def.push(obj);
+                            });
+                            return def;
+                        })(),
+                    },
+                    [CONSTS.SAMPLE_KEYS_API[7]] : {
+                        "type": (function() {
+                            const type = [];
+                            CONSTS.VGO_GRID_CSSINFO_ATTRIBUTES.forEach((attr) => {
+                                const obj = {
+                                    text : attr.type,
+                                }
+                                type.push(obj);
+                            });
+                            return type;
+                        })(),
+                        "default": (function() {
+                            const def = [];
+                            CONSTS.VGO_GRID_CSSINFO_ATTRIBUTES.forEach((attr) => {
+                                const obj = {
+                                    text : attr.default,
+                                }
+                                def.push(obj);
+                            });
+                            return def;
+                        })(),
+                    },
+                    [CONSTS.SAMPLE_KEYS_API[8]] : {
+                        "type": (function() {
+                            const type = [];
+                            CONSTS.VGO_COLUMN_INFO_ATTRIBUTES.forEach((attr) => {
+                                const obj = {
+                                    text : attr.type,
+                                }
+                                type.push(obj);
+                            });
+                            return type;
+                        })(),
+                        "default": (function() {
+                            const def = [];
+                            CONSTS.VGO_COLUMN_INFO_ATTRIBUTES.forEach((attr) => {
+                                const obj = {
+                                    text : attr.default,
+                                }
+                                def.push(obj);
+                            });
+                            return def;
+                        })(),
+                    },
                 },
                 text : {
                     "API-0000": {
@@ -2093,6 +2497,21 @@ function vanillagrid_onBeforeCreate (e, vg) {
                     },
                     "API-4000": {
                         text: "Vanilla grid object"
+                    },
+                    "API-4200": {
+                        text: "global & vanilla grid object function"
+                    },
+                    "API-4400": {
+                        text: "vanilla grid object attributes"
+                    },
+                    "API-4600": {
+                        text: "default grid info attributes"
+                    },
+                    "API-4800": {
+                        text: "default grid css info attributes"
+                    },
+                    "API-5000": {
+                        text: "default column info attributes"
                     },
                 },
             },
@@ -2129,7 +2548,7 @@ function vanillagrid_onBeforeCreate (e, vg) {
                 },
             },
             intro: {
-                grid : {
+                grid: {
                     [CONSTS.SAMPLE_KEYS_INTRO[1]] : {
                         "col1" : setLinkData(CONSTS.GRID_ATTRIBUTES, "https://vanilla-grid.github.io/", {view:"api",gridId:"gridIdGrid",row:"index",colId:"col1"}),
                         "col2" : setLinkData(CONSTS.COLUMN_ATTRIBUTES, "https://vanilla-grid.github.io/", {view:"api",gridId:"gridIdGrid",row:"index",colId:"col1"}),
@@ -2362,7 +2781,7 @@ beforeDestroy: function() {
                 },
             },
             started: {
-                grid : {
+                grid: {
                     [CONSTS.SAMPLE_KEYS_STARTED[3]] : {
                         "rmk" : [
                             {
@@ -3577,10 +3996,10 @@ function vanillagrid_onBeforeCreate (e, vg) {
                         text: "vg.lessoreq0x7ffByte, vg.lessoreq0xffffByte, vg.greater0xffffByte는 maxByte체크시 사용하는 값입니다."
                     },
                     "DIVE-2602": {
-                        text: "vg.lessoreq0x7ffByte는 문자의 아스키 코드가 0x7ff Byte 보다 작거나 같은경우."
+                        text: "vg.lessoreq0x7ffByte는 문자의 아스키 코드가 0x7ff Byte 보다 작거나 같은 경우."
                     },
                     "DIVE-2603": {
-                        text: "vg.lessoreq0xffffByte는 문자의 아스키 코드가 0x7ff Byte 보다 크고, 0xffff Byte 보다 작거나 같은경우."
+                        text: "vg.lessoreq0xffffByte는 문자의 아스키 코드가 0x7ff Byte 보다 크고, 0xffff Byte 보다 작거나 같은 경우."
                     },
                     "DIVE-2604": {
                         text: "vg.greater0xffffByte는 문자의 아스키 코드가 0xffff Byte 보다 큰 경우를 의미합니다."
@@ -4151,7 +4570,404 @@ function vanillagrid_onBeforeCreate (e, vg) {
             },
             api: {
                 grid: {
-
+                    [CONSTS.SAMPLE_KEYS_API[0]] : {
+                        "attribute": (function() {
+                            const attributes = [];
+                            CONSTS.GRID_ATTRIBUTES.forEach((attr) => {
+                                const obj = {
+                                    text : attr.name,
+                                }
+                                attributes.push(obj);
+                            });
+                            return attributes;
+                        })(),
+                        "remark": (function() {
+                            const remark = [];
+                            CONSTS.GRID_ATTRIBUTES.forEach((attr) => {
+                                const obj = {
+                                    text : attr.remarkKor,
+                                }
+                                remark.push(obj);
+                            });
+                            return remark;
+                        })(),
+                    },
+                    [CONSTS.SAMPLE_KEYS_API[1]] : {
+                        "attribute": (function() {
+                            const attributes = [];
+                            CONSTS.COLUMN_ATTRIBUTES.forEach((attr) => {
+                                const obj = {
+                                    text : attr.name,
+                                }
+                                attributes.push(obj);
+                            });
+                            return attributes;
+                        })(),
+                        "remark": (function() {
+                            const remark = [];
+                            CONSTS.COLUMN_ATTRIBUTES.forEach((attr) => {
+                                const obj = {
+                                    text : attr.remarkKor,
+                                }
+                                remark.push(obj);
+                            });
+                            return remark;
+                        })(),
+                    },
+                    [CONSTS.SAMPLE_KEYS_API[2]] : {
+                        "event": (function() {
+                            const attributes = [];
+                            CONSTS.EVENTS.forEach((attr) => {
+                                const obj = {
+                                    text : attr.name,
+                                }
+                                attributes.push(obj);
+                            });
+                            return attributes;
+                        })(),
+                        "remark": (function() {
+                            const remark = [];
+                            CONSTS.EVENTS.forEach((attr) => {
+                                const obj = {
+                                    text : attr.remarkKor,
+                                }
+                                remark.push(obj);
+                            });
+                            return remark;
+                        })(),
+                    },
+                    [CONSTS.SAMPLE_KEYS_API[3]] : {
+                        "method": (function() {
+                            const attributes = [];
+                            CONSTS.METHODS.forEach((attr) => {
+                                const obj = {
+                                    text : attr.name,
+                                }
+                                attributes.push(obj);
+                            });
+                            return attributes;
+                        })(),
+                        "remark": (function() {
+                            const remark = [];
+                            CONSTS.METHODS.forEach((attr) => {
+                                const obj = {
+                                    text : attr.remarkKor,
+                                }
+                                remark.push(obj);
+                            });
+                            return remark;
+                        })(),
+                    },
+                    [CONSTS.SAMPLE_KEYS_API[4]] : {
+                        "function": (function() {
+                            const attributes = [];
+                            CONSTS.VGO_FUNCTION.forEach((attr) => {
+                                const obj = {
+                                    text : attr.function,
+                                }
+                                attributes.push(obj);
+                            });
+                            return attributes;
+                        })(),
+                        "remark": (function() {
+                            const remark = [];
+                            CONSTS.VGO_FUNCTION.forEach((attr) => {
+                                const obj = {
+                                    text : attr.remarkKor,
+                                }
+                                remark.push(obj);
+                            });
+                            return remark;
+                        })(),
+                    },
+                    [CONSTS.SAMPLE_KEYS_API[5]] : {
+                        "attribute": (function() {
+                            const attributes = [];
+                            CONSTS.VGO_ATTRIBUTES.forEach((attr) => {
+                                const obj = {
+                                    text : attr.attribute,
+                                }
+                                attributes.push(obj);
+                            });
+                            return attributes;
+                        })(),
+                        "remark": (function() {
+                            const remark = [];
+                            CONSTS.VGO_ATTRIBUTES.forEach((attr) => {
+                                const obj = {
+                                    text : attr.remarkKor,
+                                }
+                                remark.push(obj);
+                            });
+                            return remark;
+                        })(),
+                    },
+                    [CONSTS.SAMPLE_KEYS_API[6]] : {
+                        "attribute": (function() {
+                            const attributes = [];
+                            CONSTS.VGO_GRID_INFO_ATTRIBUTES.forEach((attr) => {
+                                const obj = {
+                                    text : attr.attribute,
+                                }
+                                attributes.push(obj);
+                            });
+                            return attributes;
+                        })(),
+                        "remark": (function() {
+                            const remark = [];
+                            CONSTS.VGO_GRID_INFO_ATTRIBUTES.forEach((attr) => {
+                                const obj = {
+                                    text : attr.remarkKor,
+                                }
+                                remark.push(obj);
+                            });
+                            return remark;
+                        })(),
+                    },
+                    [CONSTS.SAMPLE_KEYS_API[7]] : {
+                        "attribute": (function() {
+                            const attributes = [];
+                            CONSTS.VGO_GRID_CSSINFO_ATTRIBUTES.forEach((attr) => {
+                                const obj = {
+                                    text : attr.attribute,
+                                }
+                                attributes.push(obj);
+                            });
+                            return attributes;
+                        })(),
+                        "remark": (function() {
+                            const remark = [];
+                            CONSTS.VGO_GRID_CSSINFO_ATTRIBUTES.forEach((attr) => {
+                                const obj = {
+                                    text : attr.remarkKor,
+                                }
+                                remark.push(obj);
+                            });
+                            return remark;
+                        })(),
+                    },
+                    [CONSTS.SAMPLE_KEYS_API[8]] : {
+                        "attribute": (function() {
+                            const attributes = [];
+                            CONSTS.VGO_COLUMN_INFO_ATTRIBUTES.forEach((attr) => {
+                                const obj = {
+                                    text : attr.attribute,
+                                }
+                                attributes.push(obj);
+                            });
+                            return attributes;
+                        })(),
+                        "remark": (function() {
+                            const remark = [];
+                            CONSTS.VGO_COLUMN_INFO_ATTRIBUTES.forEach((attr) => {
+                                const obj = {
+                                    text : attr.remarkKor,
+                                }
+                                remark.push(obj);
+                            });
+                            return remark;
+                        })(),
+                    },
+                },
+                gridNoSearch: {
+                    [CONSTS.SAMPLE_KEYS_API[0]] : {
+                        "type": (function() {
+                            const type = [];
+                            CONSTS.GRID_ATTRIBUTES.forEach((attr) => {
+                                const obj = {
+                                    text : attr.type,
+                                }
+                                type.push(obj);
+                            });
+                            return type;
+                        })(),
+                        "default": (function() {
+                            const def = [];
+                            CONSTS.GRID_ATTRIBUTES.forEach((attr) => {
+                                const obj = {
+                                    text : attr.default,
+                                }
+                                def.push(obj);
+                            });
+                            return def;
+                        })(),
+                    },
+                    [CONSTS.SAMPLE_KEYS_API[1]] : {
+                        "type": (function() {
+                            const type = [];
+                            CONSTS.COLUMN_ATTRIBUTES.forEach((attr) => {
+                                const obj = {
+                                    text : attr.type,
+                                }
+                                type.push(obj);
+                            });
+                            return type;
+                        })(),
+                        "default": (function() {
+                            const def = [];
+                            CONSTS.COLUMN_ATTRIBUTES.forEach((attr) => {
+                                const obj = {
+                                    text : attr.default,
+                                }
+                                def.push(obj);
+                            });
+                            return def;
+                        })(),
+                    },
+                    [CONSTS.SAMPLE_KEYS_API[2]] : {
+                        "parameter": (function() {
+                            const type = [];
+                            CONSTS.EVENTS.forEach((attr) => {
+                                const obj = {
+                                    text : attr.param,
+                                }
+                                type.push(obj);
+                            });
+                            return type;
+                        })(),
+                    },
+                    [CONSTS.SAMPLE_KEYS_API[3]] : {
+                        "related": (function() {
+                            const type = [];
+                            CONSTS.METHODS.forEach((attr) => {
+                                const obj = {
+                                    text : attr.related,
+                                }
+                                type.push(obj);
+                            });
+                            return type;
+                        })(),
+                        "parameter": (function() {
+                            const type = [];
+                            CONSTS.METHODS.forEach((attr) => {
+                                const obj = {
+                                    text : attr.param,
+                                }
+                                type.push(obj);
+                            });
+                            return type;
+                        })(),
+                        "return": (function() {
+                            const type = [];
+                            CONSTS.METHODS.forEach((attr) => {
+                                const obj = {
+                                    text : attr.return,
+                                }
+                                type.push(obj);
+                            });
+                            return type;
+                        })(),
+                    },
+                    [CONSTS.SAMPLE_KEYS_API[4]] : {
+                        "parameter": (function() {
+                            const type = [];
+                            CONSTS.VGO_FUNCTION.forEach((attr) => {
+                                const obj = {
+                                    text : attr.param,
+                                }
+                                type.push(obj);
+                            });
+                            return type;
+                        })(),
+                        "return": (function() {
+                            const type = [];
+                            CONSTS.VGO_FUNCTION.forEach((attr) => {
+                                const obj = {
+                                    text : attr.return,
+                                }
+                                type.push(obj);
+                            });
+                            return type;
+                        })(),
+                    },
+                    [CONSTS.SAMPLE_KEYS_API[5]] : {
+                        "type": (function() {
+                            const type = [];
+                            CONSTS.VGO_ATTRIBUTES.forEach((attr) => {
+                                const obj = {
+                                    text : attr.type,
+                                }
+                                type.push(obj);
+                            });
+                            return type;
+                        })(),
+                        "default": (function() {
+                            const def = [];
+                            CONSTS.VGO_ATTRIBUTES.forEach((attr) => {
+                                const obj = {
+                                    text : attr.default,
+                                }
+                                def.push(obj);
+                            });
+                            return def;
+                        })(),
+                    },
+                    [CONSTS.SAMPLE_KEYS_API[6]] : {
+                        "type": (function() {
+                            const type = [];
+                            CONSTS.VGO_GRID_INFO_ATTRIBUTES.forEach((attr) => {
+                                const obj = {
+                                    text : attr.type,
+                                }
+                                type.push(obj);
+                            });
+                            return type;
+                        })(),
+                        "default": (function() {
+                            const def = [];
+                            CONSTS.VGO_GRID_INFO_ATTRIBUTES.forEach((attr) => {
+                                const obj = {
+                                    text : attr.default,
+                                }
+                                def.push(obj);
+                            });
+                            return def;
+                        })(),
+                    },
+                    [CONSTS.SAMPLE_KEYS_API[7]] : {
+                        "type": (function() {
+                            const type = [];
+                            CONSTS.VGO_GRID_CSSINFO_ATTRIBUTES.forEach((attr) => {
+                                const obj = {
+                                    text : attr.type,
+                                }
+                                type.push(obj);
+                            });
+                            return type;
+                        })(),
+                        "default": (function() {
+                            const def = [];
+                            CONSTS.VGO_GRID_CSSINFO_ATTRIBUTES.forEach((attr) => {
+                                const obj = {
+                                    text : attr.default,
+                                }
+                                def.push(obj);
+                            });
+                            return def;
+                        })(),
+                    },
+                    [CONSTS.SAMPLE_KEYS_API[8]] : {
+                        "type": (function() {
+                            const type = [];
+                            CONSTS.VGO_COLUMN_INFO_ATTRIBUTES.forEach((attr) => {
+                                const obj = {
+                                    text : attr.type,
+                                }
+                                type.push(obj);
+                            });
+                            return type;
+                        })(),
+                        "default": (function() {
+                            const def = [];
+                            CONSTS.VGO_COLUMN_INFO_ATTRIBUTES.forEach((attr) => {
+                                const obj = {
+                                    text : attr.default,
+                                }
+                                def.push(obj);
+                            });
+                            return def;
+                        })(),
+                    },
                 },
                 text : {
                     "API-0000": {
@@ -4168,6 +4984,21 @@ function vanillagrid_onBeforeCreate (e, vg) {
                     },
                     "API-4000": {
                         text: "Vanilla grid 객체"
+                    },
+                    "API-4200": {
+                        text: "전역 & vanilla grid 객체 함수"
+                    },
+                    "API-4400": {
+                        text: "vanilla grid 객체 속성"
+                    },
+                    "API-4600": {
+                        text: "default grid 기능적 속성"
+                    },
+                    "API-4800": {
+                        text: "default grid css관련 속성"
+                    },
+                    "API-5000": {
+                        text: "default column 속성"
                     },
                 },
             },
@@ -4249,11 +5080,137 @@ function vanillagrid_onBeforeCreate (e, vg) {
             this.ENG.api.text[key].view = CONSTS.VIEW_KEY_API;
             this.ENG.api.text[key].anchor = "anchor_" + idx;
         });
+        // gridApi01
+        for(let r = 0; r < this.ENG.api.grid[CONSTS.SAMPLE_KEYS_API[0]].attribute.length; r++) {
+            setCellInfo(this.ENG.api.grid[CONSTS.SAMPLE_KEYS_API[0]].attribute[r], CONSTS.SAMPLE_GRID_IDS_API[0], r, "attribute", CONSTS.VIEW_KEY_API);
+        }
+        for(let r = 0; r < this.ENG.api.grid[CONSTS.SAMPLE_KEYS_API[0]].remark.length; r++) {
+            setCellInfo(this.ENG.api.grid[CONSTS.SAMPLE_KEYS_API[0]].remark[r], CONSTS.SAMPLE_GRID_IDS_API[0], r, "remark", CONSTS.VIEW_KEY_API);
+        }
+        // gridApi02
+        for(let r = 0; r < this.ENG.api.grid[CONSTS.SAMPLE_KEYS_API[1]].attribute.length; r++) {
+            setCellInfo(this.ENG.api.grid[CONSTS.SAMPLE_KEYS_API[1]].attribute[r], CONSTS.SAMPLE_GRID_IDS_API[1], r, "attribute", CONSTS.VIEW_KEY_API);
+        }
+        for(let r = 0; r < this.ENG.api.grid[CONSTS.SAMPLE_KEYS_API[1]].remark.length; r++) {
+            setCellInfo(this.ENG.api.grid[CONSTS.SAMPLE_KEYS_API[1]].remark[r], CONSTS.SAMPLE_GRID_IDS_API[1], r, "remark", CONSTS.VIEW_KEY_API);
+        }
+        // gridApi03
+        for(let r = 0; r < this.ENG.api.grid[CONSTS.SAMPLE_KEYS_API[2]].event.length; r++) {
+            setCellInfo(this.ENG.api.grid[CONSTS.SAMPLE_KEYS_API[2]].event[r], CONSTS.SAMPLE_GRID_IDS_API[2], r, "event", CONSTS.VIEW_KEY_API);
+        }
+        for(let r = 0; r < this.ENG.api.grid[CONSTS.SAMPLE_KEYS_API[2]].remark.length; r++) {
+            setCellInfo(this.ENG.api.grid[CONSTS.SAMPLE_KEYS_API[2]].remark[r], CONSTS.SAMPLE_GRID_IDS_API[2], r, "remark", CONSTS.VIEW_KEY_API);
+        }
+        // gridApi04
+        for(let r = 0; r < this.ENG.api.grid[CONSTS.SAMPLE_KEYS_API[3]].method.length; r++) {
+            setCellInfo(this.ENG.api.grid[CONSTS.SAMPLE_KEYS_API[3]].method[r], CONSTS.SAMPLE_GRID_IDS_API[3], r, "method", CONSTS.VIEW_KEY_API);
+        }
+        for(let r = 0; r < this.ENG.api.grid[CONSTS.SAMPLE_KEYS_API[3]].remark.length; r++) {
+            setCellInfo(this.ENG.api.grid[CONSTS.SAMPLE_KEYS_API[3]].remark[r], CONSTS.SAMPLE_GRID_IDS_API[3], r, "remark", CONSTS.VIEW_KEY_API);
+        }
+        // gridApi05
+        for(let r = 0; r < this.ENG.api.grid[CONSTS.SAMPLE_KEYS_API[4]].function.length; r++) {
+            setCellInfo(this.ENG.api.grid[CONSTS.SAMPLE_KEYS_API[4]].function[r], CONSTS.SAMPLE_GRID_IDS_API[4], r, "function", CONSTS.VIEW_KEY_API);
+        }
+        for(let r = 0; r < this.ENG.api.grid[CONSTS.SAMPLE_KEYS_API[4]].remark.length; r++) {
+            setCellInfo(this.ENG.api.grid[CONSTS.SAMPLE_KEYS_API[4]].remark[r], CONSTS.SAMPLE_GRID_IDS_API[4], r, "remark", CONSTS.VIEW_KEY_API);
+        }
+        // gridApi06
+        for(let r = 0; r < this.ENG.api.grid[CONSTS.SAMPLE_KEYS_API[5]].attribute.length; r++) {
+            setCellInfo(this.ENG.api.grid[CONSTS.SAMPLE_KEYS_API[5]].attribute[r], CONSTS.SAMPLE_GRID_IDS_API[5], r, "attribute", CONSTS.VIEW_KEY_API);
+        }
+        for(let r = 0; r < this.ENG.api.grid[CONSTS.SAMPLE_KEYS_API[5]].remark.length; r++) {
+            setCellInfo(this.ENG.api.grid[CONSTS.SAMPLE_KEYS_API[5]].remark[r], CONSTS.SAMPLE_GRID_IDS_API[5], r, "remark", CONSTS.VIEW_KEY_API);
+        }
+        // gridApi07
+        for(let r = 0; r < this.ENG.api.grid[CONSTS.SAMPLE_KEYS_API[6]].attribute.length; r++) {
+            setCellInfo(this.ENG.api.grid[CONSTS.SAMPLE_KEYS_API[6]].attribute[r], CONSTS.SAMPLE_GRID_IDS_API[6], r, "attribute", CONSTS.VIEW_KEY_API);
+        }
+        for(let r = 0; r < this.ENG.api.grid[CONSTS.SAMPLE_KEYS_API[6]].remark.length; r++) {
+            setCellInfo(this.ENG.api.grid[CONSTS.SAMPLE_KEYS_API[6]].remark[r], CONSTS.SAMPLE_GRID_IDS_API[6], r, "remark", CONSTS.VIEW_KEY_API);
+        }
+        // gridApi08
+        for(let r = 0; r < this.ENG.api.grid[CONSTS.SAMPLE_KEYS_API[7]].attribute.length; r++) {
+            setCellInfo(this.ENG.api.grid[CONSTS.SAMPLE_KEYS_API[7]].attribute[r], CONSTS.SAMPLE_GRID_IDS_API[7], r, "attribute", CONSTS.VIEW_KEY_API);
+        }
+        for(let r = 0; r < this.ENG.api.grid[CONSTS.SAMPLE_KEYS_API[7]].remark.length; r++) {
+            setCellInfo(this.ENG.api.grid[CONSTS.SAMPLE_KEYS_API[7]].remark[r], CONSTS.SAMPLE_GRID_IDS_API[7], r, "remark", CONSTS.VIEW_KEY_API);
+        }
+        // gridApi09
+        for(let r = 0; r < this.ENG.api.grid[CONSTS.SAMPLE_KEYS_API[8]].attribute.length; r++) {
+            setCellInfo(this.ENG.api.grid[CONSTS.SAMPLE_KEYS_API[8]].attribute[r], CONSTS.SAMPLE_GRID_IDS_API[8], r, "attribute", CONSTS.VIEW_KEY_API);
+        }
+        for(let r = 0; r < this.ENG.api.grid[CONSTS.SAMPLE_KEYS_API[8]].remark.length; r++) {
+            setCellInfo(this.ENG.api.grid[CONSTS.SAMPLE_KEYS_API[8]].remark[r], CONSTS.SAMPLE_GRID_IDS_API[8], r, "remark", CONSTS.VIEW_KEY_API);
+        }
         //api view key, anchor id 삽입
         Object.keys(this.KOR.api.text).forEach((key, idx) => {
             this.KOR.api.text[key].view = CONSTS.VIEW_KEY_API;
             this.KOR.api.text[key].anchor = "anchor_" + idx;
         });
+        // gridApi01
+        for(let r = 0; r < this.KOR.api.grid[CONSTS.SAMPLE_KEYS_API[0]].attribute.length; r++) {
+            setCellInfo(this.KOR.api.grid[CONSTS.SAMPLE_KEYS_API[0]].attribute[r], CONSTS.SAMPLE_GRID_IDS_API[0], r, "attribute", CONSTS.VIEW_KEY_API);
+        }
+        for(let r = 0; r < this.KOR.api.grid[CONSTS.SAMPLE_KEYS_API[0]].remark.length; r++) {
+            setCellInfo(this.KOR.api.grid[CONSTS.SAMPLE_KEYS_API[0]].remark[r], CONSTS.SAMPLE_GRID_IDS_API[0], r, "remark", CONSTS.VIEW_KEY_API);
+        }
+        // gridApi02
+        for(let r = 0; r < this.KOR.api.grid[CONSTS.SAMPLE_KEYS_API[1]].attribute.length; r++) {
+            setCellInfo(this.KOR.api.grid[CONSTS.SAMPLE_KEYS_API[1]].attribute[r], CONSTS.SAMPLE_GRID_IDS_API[1], r, "attribute", CONSTS.VIEW_KEY_API);
+        }
+        for(let r = 0; r < this.KOR.api.grid[CONSTS.SAMPLE_KEYS_API[1]].remark.length; r++) {
+            setCellInfo(this.KOR.api.grid[CONSTS.SAMPLE_KEYS_API[1]].remark[r], CONSTS.SAMPLE_GRID_IDS_API[1], r, "remark", CONSTS.VIEW_KEY_API);
+        }
+        // gridApi03
+        for(let r = 0; r < this.KOR.api.grid[CONSTS.SAMPLE_KEYS_API[2]].event.length; r++) {
+            setCellInfo(this.KOR.api.grid[CONSTS.SAMPLE_KEYS_API[2]].event[r], CONSTS.SAMPLE_GRID_IDS_API[2], r, "event", CONSTS.VIEW_KEY_API);
+        }
+        for(let r = 0; r < this.KOR.api.grid[CONSTS.SAMPLE_KEYS_API[2]].remark.length; r++) {
+            setCellInfo(this.KOR.api.grid[CONSTS.SAMPLE_KEYS_API[2]].remark[r], CONSTS.SAMPLE_GRID_IDS_API[2], r, "remark", CONSTS.VIEW_KEY_API);
+        }
+        // gridApi04
+        for(let r = 0; r < this.KOR.api.grid[CONSTS.SAMPLE_KEYS_API[3]].method.length; r++) {
+            setCellInfo(this.KOR.api.grid[CONSTS.SAMPLE_KEYS_API[3]].method[r], CONSTS.SAMPLE_GRID_IDS_API[3], r, "method", CONSTS.VIEW_KEY_API);
+        }
+        for(let r = 0; r < this.KOR.api.grid[CONSTS.SAMPLE_KEYS_API[3]].remark.length; r++) {
+            setCellInfo(this.KOR.api.grid[CONSTS.SAMPLE_KEYS_API[3]].remark[r], CONSTS.SAMPLE_GRID_IDS_API[3], r, "remark", CONSTS.VIEW_KEY_API);
+        }
+        // gridApi05
+        for(let r = 0; r < this.KOR.api.grid[CONSTS.SAMPLE_KEYS_API[4]].function.length; r++) {
+            setCellInfo(this.KOR.api.grid[CONSTS.SAMPLE_KEYS_API[4]].function[r], CONSTS.SAMPLE_GRID_IDS_API[4], r, "function", CONSTS.VIEW_KEY_API);
+        }
+        for(let r = 0; r < this.KOR.api.grid[CONSTS.SAMPLE_KEYS_API[4]].remark.length; r++) {
+            setCellInfo(this.KOR.api.grid[CONSTS.SAMPLE_KEYS_API[4]].remark[r], CONSTS.SAMPLE_GRID_IDS_API[4], r, "remark", CONSTS.VIEW_KEY_API);
+        }
+        // gridApi06
+        for(let r = 0; r < this.KOR.api.grid[CONSTS.SAMPLE_KEYS_API[5]].attribute.length; r++) {
+            setCellInfo(this.KOR.api.grid[CONSTS.SAMPLE_KEYS_API[5]].attribute[r], CONSTS.SAMPLE_GRID_IDS_API[5], r, "attribute", CONSTS.VIEW_KEY_API);
+        }
+        for(let r = 0; r < this.KOR.api.grid[CONSTS.SAMPLE_KEYS_API[5]].remark.length; r++) {
+            setCellInfo(this.KOR.api.grid[CONSTS.SAMPLE_KEYS_API[5]].remark[r], CONSTS.SAMPLE_GRID_IDS_API[5], r, "remark", CONSTS.VIEW_KEY_API);
+        }
+        // gridApi07
+        for(let r = 0; r < this.KOR.api.grid[CONSTS.SAMPLE_KEYS_API[6]].attribute.length; r++) {
+            setCellInfo(this.KOR.api.grid[CONSTS.SAMPLE_KEYS_API[6]].attribute[r], CONSTS.SAMPLE_GRID_IDS_API[6], r, "attribute", CONSTS.VIEW_KEY_API);
+        }
+        for(let r = 0; r < this.KOR.api.grid[CONSTS.SAMPLE_KEYS_API[6]].remark.length; r++) {
+            setCellInfo(this.KOR.api.grid[CONSTS.SAMPLE_KEYS_API[6]].remark[r], CONSTS.SAMPLE_GRID_IDS_API[6], r, "remark", CONSTS.VIEW_KEY_API);
+        }
+        // gridApi08
+        for(let r = 0; r < this.KOR.api.grid[CONSTS.SAMPLE_KEYS_API[7]].attribute.length; r++) {
+            setCellInfo(this.KOR.api.grid[CONSTS.SAMPLE_KEYS_API[7]].attribute[r], CONSTS.SAMPLE_GRID_IDS_API[7], r, "attribute", CONSTS.VIEW_KEY_API);
+        }
+        for(let r = 0; r < this.KOR.api.grid[CONSTS.SAMPLE_KEYS_API[7]].remark.length; r++) {
+            setCellInfo(this.KOR.api.grid[CONSTS.SAMPLE_KEYS_API[7]].remark[r], CONSTS.SAMPLE_GRID_IDS_API[7], r, "remark", CONSTS.VIEW_KEY_API);
+        }
+        // gridApi09
+        for(let r = 0; r < this.KOR.api.grid[CONSTS.SAMPLE_KEYS_API[8]].attribute.length; r++) {
+            setCellInfo(this.KOR.api.grid[CONSTS.SAMPLE_KEYS_API[8]].attribute[r], CONSTS.SAMPLE_GRID_IDS_API[8], r, "attribute", CONSTS.VIEW_KEY_API);
+        }
+        for(let r = 0; r < this.KOR.api.grid[CONSTS.SAMPLE_KEYS_API[8]].remark.length; r++) {
+            setCellInfo(this.KOR.api.grid[CONSTS.SAMPLE_KEYS_API[8]].remark[r], CONSTS.SAMPLE_GRID_IDS_API[8], r, "remark", CONSTS.VIEW_KEY_API);
+        }
     }
     return new Contents(CONSTS);
 }
