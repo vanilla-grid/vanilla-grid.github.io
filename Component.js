@@ -165,7 +165,7 @@ function getComponents(CONSTS, SAMPLE_GRIDS) {
                     <br><br>
                     <div class="explain-box">
                         <p class="h6">{{getCommonContent("COMMON-0000")}}</p>
-                        <pre><code>{{SAMPLE_GRIDS.intro[CONSTS.SAMPLE_KEYS_INTRO[0]]}}</code></pre>
+                        <pre><code>`+ getCode(SAMPLE_GRIDS.intro[CONSTS.SAMPLE_KEYS_INTRO[0]]) +`</code></pre>
                         <p class="h6 text-danger" :id="getContentAnchor('INTRO-0001')">{{getContentText("INTRO-0001")}}</p>
                         <p class="h6">{{getCommonContent("COMMON-0001")}}</p>
                         <pre><code>[\n{{getContentData(CONSTS.SAMPLE_KEYS_INTRO[0])}},\n...\n]</code></pre>
@@ -795,39 +795,74 @@ function getComponents(CONSTS, SAMPLE_GRIDS) {
                 <div class="text-left" :class="getMainClass">
                     <br><br><br>
                     <p class="h3 padding-top" :id="apiSubs[0]"><span class="dot"><i class="fas fa-book-open"></i></span><b :id="getContentAnchor('API-0000')">{{getContentText("API-0000")}}</b></p>
-                    <div class="explain-box">
-                        <p class="h5" :id="getContentAnchor('API-')">{{getContentText("API-")}}</p>
+                    <div class="grid-box">`
+                    + SAMPLE_GRIDS.api[CONSTS.SAMPLE_KEYS_API[0]] +
+                    `
                     </div>
-                    <br><br><br>
-                    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                    <br><br><br><br><br><br>
 
                     <p class="h3 padding-top" :id="apiSubs[1]"><span class="dot"><i class="fas fa-book-open"></i></span><b :id="getContentAnchor('API-1000')">{{getContentText("API-1000")}}</b></p>
-                    <div class="explain-box">
-                        <p class="h5" :id="getContentAnchor('API-')">{{getContentText("API-")}}</p>
+                    <div class="grid-box">`
+                    + SAMPLE_GRIDS.api[CONSTS.SAMPLE_KEYS_API[1]] +
+                    `
                     </div>
-                    <br><br><br>
-                    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                    <br><br><br><br><br><br>
 
                     <p class="h3 padding-top" :id="apiSubs[2]"><span class="dot"><i class="fas fa-book-open"></i></span><b :id="getContentAnchor('API-2000')">{{getContentText("API-2000")}}</b></p>
-                    <div class="explain-box">
-                        <p class="h5" :id="getContentAnchor('API-')">{{getContentText("API-")}}</p>
+                    <div class="grid-box">`
+                    + SAMPLE_GRIDS.api[CONSTS.SAMPLE_KEYS_API[2]] +
+                    `
                     </div>
-                    <br><br><br>
-                    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                    <br><br><br><br><br><br>
 
                     <p class="h3 padding-top" :id="apiSubs[3]"><span class="dot"><i class="fas fa-book-open"></i></span><b :id="getContentAnchor('API-3000')">{{getContentText("API-3000")}}</b></p>
-                    <div class="explain-box">
-                        <p class="h5" :id="getContentAnchor('API-')">{{getContentText("API-")}}</p>
+                    <div class="grid-box">`
+                    + SAMPLE_GRIDS.api[CONSTS.SAMPLE_KEYS_API[3]] +
+                    `
                     </div>
-                    <br><br><br>
-                    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                    <br><br><br><br><br><br>
 
                     <p class="h3 padding-top" :id="apiSubs[4]"><span class="dot"><i class="fas fa-book-open"></i></span><b :id="getContentAnchor('API-4000')">{{getContentText("API-4000")}}</b></p>
                     <div class="explain-box">
-                        <p class="h5" :id="getContentAnchor('API-')">{{getContentText("API-")}}</p>
+                        <p class="h4"><span class="dot"><i class="fas fa-pencil-alt"></i></span><b :id="getContentAnchor('API-4200')">{{ getContentText("API-4200") }}</b></p>
+                    </div>
+                    <div class="grid-box">`
+                    + SAMPLE_GRIDS.api[CONSTS.SAMPLE_KEYS_API[4]] +
+                    `
+                    </div>
+                    <br><br>
+                    <div class="explain-box">
+                        <p class="h4"><span class="dot"><i class="fas fa-pencil-alt"></i></span><b :id="getContentAnchor('API-4400')">{{ getContentText("API-4400") }}</b></p>
+                    </div>
+                    <div class="grid-box">`
+                    + SAMPLE_GRIDS.api[CONSTS.SAMPLE_KEYS_API[5]] +
+                    `
+                    </div>
+                    <br><br>
+                    <div class="explain-box">
+                        <p class="h4"><span class="dot"><i class="fas fa-pencil-alt"></i></span><b :id="getContentAnchor('API-4600')">{{ getContentText("API-4600") }}</b></p>
+                    </div>
+                    <div class="grid-box">`
+                    + SAMPLE_GRIDS.api[CONSTS.SAMPLE_KEYS_API[6]] +
+                    `
+                    </div>
+                    <br><br>
+                    <div class="explain-box">
+                        <p class="h4"><span class="dot"><i class="fas fa-pencil-alt"></i></span><b :id="getContentAnchor('API-4800')">{{ getContentText("API-4800") }}</b></p>
+                    </div>
+                    <div class="grid-box">`
+                    + SAMPLE_GRIDS.api[CONSTS.SAMPLE_KEYS_API[7]] +
+                    `
+                    </div>
+                    <br><br>
+                    <div class="explain-box">
+                        <p class="h4"><span class="dot"><i class="fas fa-pencil-alt"></i></span><b :id="getContentAnchor('API-5000')">{{ getContentText("API-5000") }}</b></p>
+                    </div>
+                    <div class="grid-box">`
+                    + SAMPLE_GRIDS.api[CONSTS.SAMPLE_KEYS_API[8]] +
+                    `
                     </div>
                     <br><br><br>
-                    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
                 </div>
             </div>`;
         }
