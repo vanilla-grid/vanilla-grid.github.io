@@ -33,18 +33,18 @@ function getSampleGrids(CONSTS) {
             [CONSTS.SAMPLE_KEYS_INTRO[0]] :
 `<vanilla-grid id="` + CONSTS.SAMPLE_GRID_IDS_INTRO[0] + `">
     <v-col id="col1" header="header;text;Whale Name" dataType="text" width="150px"></v-col>
-    <v-col id="col2" header=";code;size" dataType="code" codes="L;M;S" width="60px"></v-col>
-    <v-col id="col3" header=";mask;ID" dataType="mask" format="99999" width="80px" align="center"></v-col>
-    <v-col id="col4" header=";date;Found Date" dataType="date" width="120px"></v-col>
-    <v-col id="col5" header=";month;Habitat\nMonth" dataType="month" footer="MAX;MIN;SUM;AVG" width="80px"></v-col>
+    <v-col id="col2" header=";code;Size Code" dataType="code" codes="L;M;S" width="60px"></v-col>
+    <v-col id="col3" header=";mask;ID" dataType="mask" format="99999" width="100px" align="center"></v-col>
+    <v-col id="col4" header=";date;Last Found\nDate" dataType="date" width="120px"></v-col>
+    <v-col id="col5" header=";month;Last Found\nHabitat Month" dataType="month" footer="MAX;MIN;SUM;AVG" width="120px"></v-col>
     <v-col id="col6" header=";number;Avg\nLength" dataType="number" footer="$$MAX;$$MIN;$$SUM;$$AVG" format="#,##0.## (m)" width="80px"></v-col>
     <v-col id="col7" header=";select;Protection\nStatus" dataType="select" width="150px"></v-col>
     <v-col id="col8" header=";checkbox;Protected" dataType="checkbox" width="90px"></v-col>
     <v-col id="col9" header=";button;Play sound" dataType="button" width="120px"></v-col>
-    <v-col id="col10" header=";link;Go link" dataType="link" width="100px"></v-col>
+    <v-col id="col10" header=";link;View More" dataType="link" width="100px"></v-col>
 </vanilla-grid>`,
             [CONSTS.SAMPLE_KEYS_INTRO[1]] :
-`<vanilla-grid id="` + CONSTS.SAMPLE_GRID_IDS_INTRO[1] + `" rownumVisible="false" statusVisible="false" wordBreak="break-all" whiteSpace="normal">
+`<vanilla-grid id="` + CONSTS.SAMPLE_GRID_IDS_INTRO[1] + `"  statusVisible="false" wordBreak="break-all" whiteSpace="normal">
     <v-col id="col1" header="grid\nattributes" dataType="link" width="25%"></v-col>
     <v-col id="col2" header="column\nattributes" dataType="link" width="25%"></v-col>
     <v-col id="col3" header="events" dataType="link" width="25%"></v-col>
@@ -173,11 +173,142 @@ function getSampleGrids(CONSTS) {
 
         this.api = {
             [CONSTS.SAMPLE_KEYS_API[0]] :
-`<vanilla-grid id="` + CONSTS.SAMPLE_GRID_IDS_API[0] + `">
-    <v-col id="col1" header="row1;row2;row3" dataType="text" width="400"></v-col>
+`<vanilla-grid id="` + CONSTS.SAMPLE_GRID_IDS_API[0] + `"
+    rownumSize="3%"
+    statusVisible="false"
+    locked="true"
+    lockedColor="false"
+    rownumLockedColor="false"
+    wordBreak="break-word"
+    whiteSpace="normal"
+>
+    <v-col id="attribute" width="15%"></v-col>
+    <v-col id="type" width="10%"></v-col>
+    <v-col id="default" width="10%"></v-col>
+    <v-col id="remark" width="62%" filterable="false" sortable="false"></v-col>
 </vanilla-grid>`,
-
-        }
+            [CONSTS.SAMPLE_KEYS_API[1]] :
+`<vanilla-grid id="` + CONSTS.SAMPLE_GRID_IDS_API[1] + `"
+    rownumSize="3%"
+    statusVisible="false"
+    locked="true"
+    lockedColor="false"
+    rownumLockedColor="false"
+    wordBreak="break-word"
+    whiteSpace="normal"
+>
+    <v-col id="attribute" width="13%"></v-col>
+    <v-col id="type" width="8%"></v-col>
+    <v-col id="default" width="8%"></v-col>
+    <v-col id="remark" width="68%" filterable="false" sortable="false"></v-col>
+</vanilla-grid>`,
+            [CONSTS.SAMPLE_KEYS_API[2]] :
+`<vanilla-grid id="` + CONSTS.SAMPLE_GRID_IDS_API[2] + `"
+    rownumSize="3%"
+    statusVisible="false"
+    locked="true"
+    lockedColor="false"
+    rownumLockedColor="false"
+    wordBreak="break-word"
+    whiteSpace="normal"
+>
+    <v-col id="event" width="15%"></v-col>
+    <v-col id="parameter" width="20%"></v-col>
+    <v-col id="remark" width="62%" filterable="false" sortable="false"></v-col>
+</vanilla-grid>`,
+            [CONSTS.SAMPLE_KEYS_API[3]] :
+`<vanilla-grid id="` + CONSTS.SAMPLE_GRID_IDS_API[3] + `"
+    rownumSize="5%"
+    statusVisible="false"
+    locked="true"
+    lockedColor="false"
+    rownumLockedColor="false"
+    wordBreak="break-word"
+    whiteSpace="normal"
+>
+    <v-col id="related" width="5%" rowMerge="true" verticalAlign="top" align="center"></v-col>
+    <v-col id="method" width="15%" rowMerge="true"></v-col>
+    <v-col id="parameter" width="15%"></v-col>
+    <v-col id="return" width="7%"></v-col>
+    <v-col id="remark" width="53%" filterable="false" sortable="false"></v-col>
+</vanilla-grid>`,
+            [CONSTS.SAMPLE_KEYS_API[4]] :
+`<vanilla-grid id="` + CONSTS.SAMPLE_GRID_IDS_API[4] + `"
+    height="400px"
+    rownumSize="3%"
+    statusVisible="false"
+    locked="true"
+    lockedColor="false"
+    rownumLockedColor="false"
+    wordBreak="break-word"
+    whiteSpace="normal"
+>
+    <v-col id="function" width="17%"></v-col>
+    <v-col id="parameter" width="15%"></v-col>
+    <v-col id="return" width="10%"></v-col>
+    <v-col id="remark" width="55%" filterable="false" sortable="false"></v-col>
+</vanilla-grid>`,
+[CONSTS.SAMPLE_KEYS_API[5]] :
+`<vanilla-grid id="` + CONSTS.SAMPLE_GRID_IDS_API[5] + `"
+    rownumSize="3%"
+    statusVisible="false"
+    locked="true"
+    lockedColor="false"
+    rownumLockedColor="false"
+    wordBreak="break-word"
+    whiteSpace="normal"
+>
+    <v-col id="attribute" width="25%"></v-col>
+    <v-col id="type" width="8%"></v-col>
+    <v-col id="default" width="7%"></v-col>
+    <v-col id="remark" width="57%" filterable="false" sortable="false"></v-col>
+</vanilla-grid>`,
+[CONSTS.SAMPLE_KEYS_API[6]] :
+`<vanilla-grid id="` + CONSTS.SAMPLE_GRID_IDS_API[6] + `"
+    rownumSize="3%"
+    statusVisible="false"
+    locked="true"
+    lockedColor="false"
+    rownumLockedColor="false"
+    wordBreak="break-word"
+    whiteSpace="normal"
+>
+    <v-col id="attribute" width="30%"></v-col>
+    <v-col id="type" width="17%"></v-col>
+    <v-col id="default" width="10%"></v-col>
+    <v-col id="remark" width="40%" filterable="false" sortable="false"></v-col>
+</vanilla-grid>`,
+[CONSTS.SAMPLE_KEYS_API[7]] :
+`<vanilla-grid id="` + CONSTS.SAMPLE_GRID_IDS_API[7] + `"
+    rownumSize="3%"
+    statusVisible="false"
+    locked="true"
+    lockedColor="false"
+    rownumLockedColor="false"
+    wordBreak="break-word"
+    whiteSpace="normal"
+>
+    <v-col id="attribute" width="30%"></v-col>
+    <v-col id="type" width="17%"></v-col>
+    <v-col id="default" width="10%"></v-col>
+    <v-col id="remark" width="40%" filterable="false" sortable="false"></v-col>
+</vanilla-grid>`,
+[CONSTS.SAMPLE_KEYS_API[8]] :
+`<vanilla-grid id="` + CONSTS.SAMPLE_GRID_IDS_API[8] + `"
+    rownumSize="3%"
+    statusVisible="false"
+    locked="true"
+    lockedColor="false"
+    rownumLockedColor="false"
+    wordBreak="break-word"
+    whiteSpace="normal"
+>
+    <v-col id="attribute" width="30%"></v-col>
+    <v-col id="type" width="17%"></v-col>
+    <v-col id="default" width="10%"></v-col>
+    <v-col id="remark" width="40%" filterable="false" sortable="false"></v-col>
+</vanilla-grid>`,
+        };
     }
     return new SampleGrids(CONSTS);
 };
