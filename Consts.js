@@ -1107,38 +1107,8 @@ function getConsts () {
                 "param": "e(event)",
                 "remarkKor": "grid에 focus를 둔채로 키보드 입력 시 발생하는 이벤트. event 자체를 parameter로 받는다. false 반환 시 keydown 이벤트를 막음.\n"
                             + "grid keydown 이벤트에 적용된 key 값 : \n"
-                            + "ctrl + z : 실행 취소.\n"
-                            + "ctrl + y : 재실행.\n"
-                            + "ctrl + a : 전체 cell 선택.\n"
-                            + "Tab : 다음 cell로 활성화 cell 이동.\n"
-                            + "F2 : focus cell 편집.\n"
-                            + "Enter : focus cell 편집, 편집 시작 시 cell의 내용을 drag함. checkbox 경우 토글 후 아래이동. select 경우 combo 오픈.\n"
-                            + "Space bar : checkbox 경우 토글, select 경우 combobox 오픈, button, link 경우 click함.\n"
-                            + " ArrowUp(↑) : 위 cell로 활성화 cell 이동.\n"
-                            + "ArrowDown(↓) : 아래 cell로 활성화 cell 이동.\n"
-                            + "ArrowLeft(←) : 왼쪽 cell로 활성화 cell 이동.\n"
-                            + "ArrowRight(→) : 오른쪽 cell로 활성화 cell 이동.\n"
-                            + "shift + ArrowUp(↑) : 최초 활성화 cell을 기준으로 위 cell을 다중 cell 선택.\n"
-                            + "shift + ArrowDown(↓) : 최초 활성화 cell을 기준으로 아래 cell을 다중 cell 선택.\n"
-                            + "shift + ArrowLeft(←) : 최초 활성화 cell을 기준으로 왼쪽 cell을 다중 cell 선택.\n"
-                            + "shift + ArrowRight(→) : 최초 활성화 cell을 기준으로 오른쪽 cell을 다중 cell 선택.",
-                "remarkEng": "Event occurs when a keyboard input is detected while the grid is focused. The event itself is passed as a parameter.\n"
-                            + "Returning false prevents the keydown event. Key values applied to the grid keydown event:\n"
-                            + "ctrl + z: Undo.\n"
-                            + "ctrl + y: Redo.\n"
-                            + "ctrl + a: Select all cells.\n"
-                            + "Tab: Move active cell to next cell.\n"
-                            + "F2: Edit focus cell.\n"
-                            + "Enter: Edit focus cell, drag cell content when editing starts. Checkbox: Toggle and move down. Select: Open combo.\n"
-                            + "Space bar: Toggle checkbox, open combobox for select, click for button and link.\n"
-                            + "ArrowUp (↑): Move active cell up.\n"
-                            + "ArrowDown (↓): Move active cell down.\n"
-                            + "ArrowLeft (←): Move active cell left.\n"
-                            + "ArrowRight (→): Move active cell right.\n"
-                            + "shift + ArrowUp (↑): Multi-select cells above based on the initial active cell.\n"
-                            + "shift + ArrowDown (↓): Multi-select cells below based on the initial active cell.\n"
-                            + "shift + ArrowLeft (←): Multi-select cells to the left based on the initial active cell.\n"
-                            + "shift + ArrowRight (→): Multi-select cells to the right based on the initial active cell."
+                            + "ctrl + z : 실행 취소.  ctrl + y : 재실행.  ctrl + a : 전체 cell 선택.  Tab : 다음 cell로 활성화 cell 이동.  F2 : focus cell 편집.  Enter : focus cell 편집, 편집 시작 시 cell의 내용을 drag함. checkbox 경우 토글 후 아래이동. select 경우 combo 오픈.  Space bar : checkbox 경우 토글, select 경우 combobox 오픈, button, link 경우 click함.  ArrowUp(↑) : 위 cell로 활성화 cell 이동.  ArrowDown(↓) : 아래 cell로 활성화 cell 이동.  ArrowLeft(←) : 왼쪽 cell로 활성화 cell 이동.  ArrowRight(→) : 오른쪽 cell로 활성화 cell 이동.  shift + ArrowUp(↑) : 최초 활성화 cell을 기준으로 위 cell을 다중 cell 선택.  shift + ArrowDown(↓) : 최초 활성화 cell을 기준으로 아래 cell을 다중 cell 선택.  shift + ArrowLeft(←) : 최초 활성화 cell을 기준으로 왼쪽 cell을 다중 cell 선택.  shift + ArrowRight(→) : 최초 활성화 cell을 기준으로 오른쪽 cell을 다중 cell 선택.",
+                "remarkEng": "Event occurs when a keyboard input is detected while the grid is focused. The event itself is passed as a parameter. Returning false prevents the keydown event. Key values applied to the grid keydown event: ctrl + z: Undo. ctrl + y: Redo. ctrl + a: Select all cells. Tab: Move active cell to next cell. F2: Edit focus cell. Enter: Edit focus cell, drag cell content when editing starts. Checkbox: Toggle and move down. Select: Open combo. Space bar: Toggle checkbox, open combobox for select, click for button and link. ArrowUp (↑): Move active cell up. ArrowDown (↓): Move active cell down. ArrowLeft (←): Move active cell left. ArrowRight (→): Move active cell right. shift + ArrowUp (↑): Multi-select cells above based on the initial active cell. shift + ArrowDown (↓): Multi-select cells below based on the initial active cell. shift + ArrowLeft (←): Multi-select cells to the left based on the initial active cell. shift + ArrowRight (→): Multi-select cells to the right based on the initial active cell."
             }
         ];
         this.METHODS = [
@@ -1219,10 +1189,8 @@ function getConsts () {
                 "name": "setFooterFormula",
                 "param": "colId(String) or colIndex(Number), formula(String)",
                 "return": "Boolean",
-                "remarkKor": "colId or colIndex열의 footer의 formula값을 ';'로 구분된 문자열인 formula로 설정한다. 정상 동작 시 true 반환.\n"
-                            + "Ex) $$MAX;$$MIN;$$SUM;$$AVG",
-                "remarkEng": "Sets the footer formula of the colId or colIndex column to formula, a string separated by ';'. Returns true if it operates normally.\n"
-                            + "Ex) $$MAX;$$MIN;$$SUM;$$AVG"
+                "remarkKor": "colId or colIndex열의 footer의 formula값을 ';'로 구분된 문자열인 formula로 설정한다. 정상 동작 시 true 반환. Ex) $$MAX;$$MIN;$$SUM;$$AVG",
+                "remarkEng": "Sets the footer formula of the colId or colIndex column to formula, a string separated by ';'. Returns true if it operates normally. Ex) $$MAX;$$MIN;$$SUM;$$AVG"
             },
             {
                 "related": "footer",
@@ -1238,8 +1206,7 @@ function getConsts () {
                 "param": "rowIndex(Number), colId(String) or colIndex(Number),  userFunction(function)",
                 "return": "Boolean",
                 "remarkKor": "rowIndex 행, colId or colIndex 열의 footer에 function을 정의한다. 정상 동작 시 true 반환. 해당 function은 파라메터로 grid의 getValues()의 결과값이 주어진다.",
-                "remarkEng": "Defines a function in the footer of the rowIndex row and colId or colIndex column. Returns true if it operates normally.\n"
-                            + "The function is given the result of the grid's getValues() as a parameter."
+                "remarkEng": "Defines a function in the footer of the rowIndex row and colId or colIndex column. Returns true if it operates normally. The function is given the result of the grid's getValues() as a parameter."
             },
             {
                 "related": "body",
@@ -1254,12 +1221,8 @@ function getConsts () {
                 "name": "load",
                 "param": "keyValueOrDatas ([{},{}...] or [[{},{}...]...])",
                 "return": "Boolean",
-                "remarkKor": "grid에 데이터를 load한다. 정상 동작 시 true 반환.\n"
-                            + "keyValue의 형식은 [{col1:'value1-1', col2: 'value1-2'}, {col1:'value2-1', col2:'value2-2'}]\n"
-                            + "Datas의 형식은 [[{id:'col1', value:'value1-1'}, {id:'col2', value:'value1-2'}], [{id:'col1', value:'value2-1'}, {id:'col2', value:'value2-2'}]]",
-                "remarkEng": "Loads data into the grid. Returns true if it operates normally.\n"
-                            + "The format of keyValue is [{col1:'value1-1', col2: 'value1-2'}, {col1:'value2-1', col2:'value2-2'}]\n"
-                            + "The format of Datas is [[{id:'col1', value:'value1-1'}, {id:'col2', value:'value1-2'}], [{id:'col1', value:'value2-1'}, {id:'col2', value:'value2-2'}]]"
+                "remarkKor": "grid에 데이터를 load한다. 정상 동작 시 true 반환. keyValue의 형식은 [{col1:'value1-1', col2: 'value1-2'}, {col1:'value2-1', col2:'value2-2'}] Datas의 형식은 [[{id:'col1', value:'value1-1'}, {id:'col2', value:'value1-2'}], [{id:'col1', value:'value2-1'}, {id:'col2', value:'value2-2'}]]",
+                "remarkEng": "Loads data into the grid. Returns true if it operates normally. The format of keyValue is [{col1:'value1-1', col2: 'value1-2'}, {col1:'value2-1', col2:'value2-2'}] The format of Datas is [[{id:'col1', value:'value1-1'}, {id:'col2', value:'value1-2'}], [{id:'col1', value:'value2-1'}, {id:'col2', value:'value2-2'}]]"
             },
             {
                 "related": "body",
@@ -1298,20 +1261,16 @@ function getConsts () {
                 "name": "getValues",
                 "param": "",
                 "return": "Array",
-                "remarkKor": "keyValue의 형식으로 데이터를 반환한다. 키와 값만 정의된 객체를 요소로 하는 배열\n"
-                            + "Ex) [{col1:'value1-1', col2: 'value1-2'}, {col1:'value2-1', col2:'value2-2'}]",
-                "remarkEng": "Returns data in keyValue format. An array of objects defined only by keys and values.\n"
-                            + "Ex) [{col1:'value1-1', col2: 'value1-2'}, {col1:'value2-1', col2:'value2-2'}]"
+                "remarkKor": "keyValue의 형식으로 데이터를 반환한다. 키와 값만 정의된 객체를 요소로 하는 배열 Ex) [{col1:'value1-1', col2: 'value1-2'}, {col1:'value2-1', col2:'value2-2'}]",
+                "remarkEng": "Returns data in keyValue format. An array of objects defined only by keys and values. Ex) [{col1:'value1-1', col2: 'value1-2'}, {col1:'value2-1', col2:'value2-2'}]"
             },
             {
                 "related": "body",
                 "name": "getDatas",
                 "param": "",
                 "return": "Array",
-                "remarkKor": "Datas의 형식으로 데이터를 반환한다. 각 cell의 값과 정보까지 정의된 객체의 배열(column)의 배열(row)\n"
-                            + "Ex) [[{id:'col1', value:'value1-1'}, {id:'col2', value:'value1-2'}], [{id:'col1', value:'value2-1'}, {id:'col2', value:'value2-2'}]]",
-                "remarkEng": "Returns data in Datas format. An array of arrays (rows) of objects (columns) defined by each cell's value and information.\n"
-                            + "Ex) [[{id:'col1', value:'value1-1'}, {id:'col2', value:'value1-2'}], [{id:'col1', value:'value2-1'}, {id:'col2', value:'value2-2'}]]"
+                "remarkKor": "Datas의 형식으로 데이터를 반환한다. 각 cell의 값과 정보까지 정의된 객체의 배열(column)의 배열(row) Ex) [[{id:'col1', value:'value1-1'}, {id:'col2', value:'value1-2'}], [{id:'col1', value:'value2-1'}, {id:'col2', value:'value2-2'}]]",
+                "remarkEng": "Returns data in Datas format. An array of arrays (rows) of objects (columns) defined by each cell's value and information. Ex) [[{id:'col1', value:'value1-1'}, {id:'col2', value:'value1-2'}], [{id:'col1', value:'value2-1'}, {id:'col2', value:'value2-2'}]]"
             },
             {
                 "related": "body",
@@ -1319,34 +1278,23 @@ function getConsts () {
                 "param": "colId(String) or colIndex(Number), isAsc(Boolean) = true,  isNumSort(Boolean) = false",
                 "return": "Boolean",
                 "remarkKor": "colId or colIndex열을 정렬한다. 정상 동작 시 true 반환. isAsc가 true이면 오름차순 정렬 아니면 내림차순정렬, isNumSort가 true이면 문자열 타입도 숫자형식으로 정렬한다.",
-                "remarkEng": "Sorts the colId or colIndex column. Returns true if it operates normally. Ascending order if isAsc is true, otherwise descending order.\n"
-                            + "Sorts string types as numeric if isNumSort is true."
+                "remarkEng": "Sorts the colId or colIndex column. Returns true if it operates normally. Ascending order if isAsc is true, otherwise descending order. Sorts string types as numeric if isNumSort is true."
             },
             {
                 "related": "body",
                 "name": "checkRequired",
                 "param": "userFunction(function)",
                 "return": "Boolean",
-                "remarkKor": "각 cell을 순회하며 isRequired가 true인데 null인 cell이 조회되면 해당 cell의 getCellData()된 정보를 파라메터로 userFunction을 호출한다.\n"
-                            + "userFunction이 없으면 자동 적용된 이벤트를 발생한다(오류 메시지 후 해당 cell을 editCell로 전환).\n"
-                            + "userFunction이 false를 반환하면 해당 cell을 editCell로 전환하지 않는다. 하나라도 필수 cell에 값이 없으면 false를 반환.",
-                "remarkEng": "Iterates over each cell and calls userFunction with getCellData() information of any cell where isRequired is true and the cell is null.\n"
-                            + "If userFunction is not provided, an automatically applied event occurs (error message followed by switching the cell to editCell).\n"
-                            + "If userFunction returns false, the cell is not switched to editCell. Returns false if any required cell is missing a value."
+                "remarkKor": "각 cell을 순회하며 isRequired가 true인데 null인 cell이 조회되면 해당 cell의 getCellData()된 정보를 파라메터로 userFunction을 호출한다. userFunction이 없으면 자동 적용된 이벤트를 발생한다.(오류 메시지 후 해당 cell을 editCell로 전환) userFunction이 false를 반환하면 해당 cell을 editCell로 전환하지 않는다. 하나라도 필수 cell에 값이 없으면 false를 반환.",
+                "remarkEng": "Iterates over each cell and calls userFunction with getCellData() information of any cell where isRequired is true and the cell is null. If userFunction is not provided, an automatically applied event occurs (error message followed by switching the cell to editCell). If userFunction returns false, the cell is not switched to editCell. Returns false if any required cell is missing a value."
             },
             {
                 "related": "body",
                 "name": "setGridMount",
                 "param": "isGridMount(Boolean)",
                 "return": "Boolean",
-                "remarkKor": "isGridMount가 false이면 해당 grid를 재 mount 하지않는다. 정상 동작 시 true 반환.\n"
-                            + "addRow등 메소드를 호출할 때마다 grid를 다시 그리는 기능이 많아 시스템 부하가 발생 할 수 있다.\n"
-                            + "grid조작 기능 진행 전 setGridMount(false) 처리 후 모든 grid조작 기능을 완료 후 setGridMount(true) 처리를 하면 시스템 부하를 줄일 수 있다.\n"
-                            + "setGridMount(true) 호출 시 변경된 사항이 적용된 그리드를 한번에 다시 로드한다.",
-                "remarkEng": "If isGridMount is false, the grid is not remounted. Returns true if it operates normally.\n"
-                            + "Frequent redrawing of the grid when calling methods like addRow can cause system load.\n"
-                            + "Set setGridMount(false) before performing grid operations and set setGridMount(true) after all grid operations are completed to reduce system load.\n"
-                            + "When setGridMount(true) is called, the grid with the applied changes is reloaded at once."
+                "remarkKor": "isGridMount가 false이면 해당 grid를 재 mount 하지않는다. 정상 동작 시 true 반환. addRow등 메소드를 호출할 때마다 grid를 다시 그리는 기능이 많아 시스템 부하가 발생 할 수 있다. grid조작 기능 진행 전 setGridMount(false) 처리 후 모든 grid조작 기능을 완료 후 setGridMount(true) 처리를 하면 시스템 부하를 줄일 수 있다. setGridMount(true) 호출 시 변경된 사항이 적용된 그리드를 한번에 다시 로드한다.",
+                "remarkEng": "If isGridMount is false, the grid is not remounted. Returns true if it operates normally. Frequent redrawing of the grid when calling methods like addRow can cause system load. Set setGridMount(false) before performing grid operations and set setGridMount(true) after all grid operations are completed to reduce system load. When setGridMount(true) is called, the grid with the applied changes is reloaded at once."
             },
             {
                 "related": "body",
@@ -1425,21 +1373,16 @@ function getConsts () {
                 "name": "setGridColor",
                 "param": "cssTextHexColor(String)",
                 "return": "Boolean",
-                "remarkKor": "grid의 색상을 변경한다. 메인색상 지정 시 해당 색상에 따른 그리드를 그린다. 정상 동작 시 true 반환. 16진수 색상을 입력한다.\n"
-                            + "Ex) '#ffffff'",
-                "remarkEng": "Changes the color of the grid. When specifying the main color, the grid is drawn according to the color.\n"
-                            + "Returns true if it operates normally. Enter a hexadecimal color.\n"
-                            + "Ex) '#ffffff'"
+                "remarkKor": "grid의 색상을 변경한다. 메인색상 지정 시 해당 색상에 따른 그리드를 그린다. 정상 동작 시 true 반환. 16진수 색상을 입력한다. Ex) '#ffffff'",
+                "remarkEng": "Changes the color of the grid. When specifying the main color, the grid is drawn according to the color. Returns true if it operates normally. Enter a hexadecimal color. Ex) '#ffffff'"
             },
             {
                 "related": "body",
                 "name": "setGridColorSet",
                 "param": "colorName(String)",
                 "return": "Boolean",
-                "remarkKor": "grid의 색상을 변경한다. 이미 설정된 Color set의 색상을 삽입할 수 있다. 정상 동작 시 true 반환.\n"
-                            + "'skyblue', 'blue', 'light-red', 'red', 'light-green', 'green', 'orange', 'yellow', 'purple', 'brown', 'black'",
-                "remarkEng": "Changes the color of the grid. You can insert the color of an already set color set. Returns true if it operates normally.\n"
-                            + "'skyblue', 'blue', 'light-red', 'red', 'light-green', 'green', 'orange', 'yellow', 'purple', 'brown', 'black'"
+                "remarkKor": "grid의 색상을 변경한다. 이미 설정된 Color set의 색상을 삽입할 수 있다. 정상 동작 시 true 반환. 'skyblue', 'blue', 'light-red', 'red', 'light-green', 'green', 'orange', 'yellow', 'purple', 'brown', 'black'",
+                "remarkEng": "Changes the color of the grid. You can insert the color of an already set color set. Returns true if it operates normally. 'skyblue', 'blue', 'light-red', 'red', 'light-green', 'green', 'orange', 'yellow', 'purple', 'brown', 'black'"
             },
             {
                 "related": "body",
@@ -1622,10 +1565,8 @@ function getConsts () {
                 "name": "setGridSelectionPolicy",
                 "param": "selectionPolicy(String)",
                 "return": "Boolean",
-                "remarkKor": "grid의 선택범위 정책을 설정한다. 정상 동작 시 true 반환.\n"
-                            + "'range' : 범위 선택, 'single' : 단일 셀 선택, 'none': 선택 불가.",
-                "remarkEng": "Sets the grid's selection range policy. Returns true if it operates normally.\n"
-                            + "'range': Range selection, 'single': Single cell selection, 'none': No selection."
+                "remarkKor": "grid의 선택범위 정책을 설정한다. 정상 동작 시 true 반환. 'range' : 범위 선택, 'single' : 단일 셀 선택, 'none': 선택 불가.",
+                "remarkEng": "Sets the grid's selection range policy. Returns true if it operates normally. 'range': Range selection, 'single': Single cell selection, 'none': No selection."
             },
             {
                 "related": "body",
@@ -1696,12 +1637,8 @@ function getConsts () {
                 "name": "setGridFrozenColCount",
                 "param": "frozenColCount(Number)",
                 "return": "Boolean",
-                "remarkKor": "grid의 고정 열을 설정한다. 0포함 양의 정수만 입력 가능. frozenRowCount와 함께 사용할 수 없다.\n"
-                            + "정상 동작 시 true 반환. frozenColCount는 각 Column의 width가 '%'단위로 지정된 Column이 있으면 사용할 수 없다.\n"
-                            + "'px'단위일때만 사용 가능하다.",
-                "remarkEng": "Sets the fixed columns of the grid. Only positive integers including 0 can be entered.\n"
-                            + "Cannot be used with frozenRowCount. Returns true if it operates normally.\n"
-                            + "FrozenColCount cannot be used if any column width is specified in '%'. Can only be used when the unit is 'px'."
+                "remarkKor": "grid의 고정 열을 설정한다. 0포함 양의 정수만 입력 가능. frozenRowCount와 함께 사용할 수 없다. 정상 동작 시 true 반환. frozenColCount는 각 Column의 width가 '%'단위로 지정된 Column이 있으면 사용할 수 없다. 'px'단위일때만 사용 가능하다.",
+                "remarkEng": "Sets the fixed columns of the grid. Only positive integers including 0 can be entered. Cannot be used with frozenRowCount. Returns true if it operates normally. FrozenColCount cannot be used if any column width is specified in '%'. Can only be used when the unit is 'px'."
             },
             {
                 "related": "body",
@@ -1828,10 +1765,8 @@ function getConsts () {
                 "name": "setColInfo",
                 "param": "colInfo(Object)",
                 "return": "Boolean",
-                "remarkKor": "colInfo의 정보를 갱신한다. 변경될 column은 colInfo.id로 정한다. 정상 동작 시 true 반환.\n"
-                            + "colInfo에 삽입되지 않은 정보는 vg.defaultColInfo로 정의된 default값을 따른다.",
-                "remarkEng": "Updates the information of colInfo. The column to be changed is determined by colInfo.id. Returns true if it operates normally.\n"
-                            + "Information not inserted into colInfo follows the default value defined by vg.defaultColInfo."
+                "remarkKor": "colInfo의 정보를 갱신한다. 변경될 column은 colInfo.id로 정한다. 정상 동작 시 true 반환. colInfo에 삽입되지 않은 정보는 vg.defaultColInfo로 정의된 default값을 따른다.",
+                "remarkEng": "Updates the information of colInfo. The column to be changed is determined by colInfo.id. Returns true if it operates normally. Information not inserted into colInfo follows the default value defined by vg.defaultColInfo."
             },
             {
                 "related": "column",
@@ -1966,10 +1901,8 @@ function getConsts () {
                 "name": "setColRowMerge",
                 "param": "colId(String) or colIndex(Number), isRowMerge(Boolean)",
                 "return": "Boolean",
-                "remarkKor": "colId or colIndex 열의. rowMerge를 설정한다. RowMerge가 true 시 해당 col은 행으로 merge한다. 정상 동작 시 true 반환.\n"
-                            + "Merge는 만나는 각 cell의 dataType, format, value가 동일할 시에 merge된다.",
-                "remarkEng": "Sets the rowMerge of the colId or colIndex column. If rowMerge is true, the column merges by row. Returns true if it operates normally.\n"
-                            + "Merge occurs when the dataType, format, and value of each cell encountered are the same."
+                "remarkKor": "colId or colIndex 열의. rowMerge를 설정한다. RowMerge가 true 시 해당 col은 행으로 merge한다. 정상 동작 시 true 반환. Merge는 만나는 각 cell의 dataType, format, value가 동일할 시에 merge된다.",
+                "remarkEng": "Sets the rowMerge of the colId or colIndex column. If rowMerge is true, the column merges by row. Returns true if it operates normally. Merge occurs when the dataType, format, and value of each cell encountered are the same."
             },
             {
                 "related": "column",
@@ -1984,10 +1917,8 @@ function getConsts () {
                 "name": "setColColMerge",
                 "param": "colId(String) or colIndex(Number), isColMerge(Boolean)",
                 "return": "Boolean",
-                "remarkKor": "colId or colIndex 열의. colMerge를 설정한다. colMerge가 true 시 해당 col은 행으로 merge한다. 정상 동작 시 true 반환.\n"
-                            + "Merge는 만나는 각 cell의 dataType, format, value가 동일할 시에 merge된다. colMerge는 colMerge가 true인 행을 기준으로 앞의 행과 col merge한다.",
-                "remarkEng": "Sets the colMerge of the colId or colIndex column. If colMerge is true, the column merges by column. Returns true if it operates normally.\n"
-                            + "Merge occurs when the dataType, format, and value of each cell encountered are the same. colMerge merges with the previous row based on the row with colMerge set to true."
+                "remarkKor": "colId or colIndex 열의. colMerge를 설정한다. colMerge가 true 시 해당 col은 행으로 merge한다. 정상 동작 시 true 반환. Merge는 만나는 각 cell의 dataType, format, value가 동일할 시에 merge된다. colMerge는 colMerge가 true인 행을 기준으로 앞의 행과 col merge한다.",
+                "remarkEng": "Sets the colMerge of the colId or colIndex column. If colMerge is true, the column merges by column. Returns true if it operates normally. Merge occurs when the dataType, format, and value of each cell encountered are the same. colMerge merges with the previous row based on the row with colMerge set to true."
             },
             {
                 "related": "column",
@@ -2098,10 +2029,8 @@ function getConsts () {
                 "name": "setColDataType",
                 "param": "colId(String) or colIndex(Number), dataType(String)",
                 "return": "Boolean",
-                "remarkKor": "colId or colIndex 열의 dataType을 설정한다. 정상 동작 시 true 반환.\n"
-                            + "dataType : 'text', 'date', 'month', 'mask', 'select', 'checkbox', 'button', 'link', 'code'",
-                "remarkEng": "Sets the dataType of the colId or colIndex column. Returns true if it operates normally.\n"
-                            + "dataType: 'text', 'date', 'month', 'mask', 'select', 'checkbox', 'button', 'link', 'code'"
+                "remarkKor": "colId or colIndex 열의 dataType을 설정한다. 정상 동작 시 true 반환. dataType : 'text', 'date', 'month', 'mask', 'select', 'checkbox', 'button', 'link', 'code'",
+                "remarkEng": "Sets the dataType of the colId or colIndex column. Returns true if it operates normally. dataType: 'text', 'date', 'month', 'mask', 'select', 'checkbox', 'button', 'link', 'code'"
             },
             {
                 "related": "column",
@@ -2197,8 +2126,7 @@ function getConsts () {
                 "param": "colId(String) or colIndex(Number), defaultCode(String)",
                 "return": "Boolean",
                 "remarkKor": "colId or colIndex 열의 defaultCode를 설정한다. defaultCode는 cell의 dataType이 'code'일 때 유효하다. 값이 없을 경우 default값. 정상 동작 시 true 반환.",
-                "remarkEng": "Sets the defaultCode of the colId or colIndex column. DefaultCode is valid when the cell's dataType is 'code'.\n"
-                            + "If there is no value, it is the default value. Returns true if it operates normally."
+                "remarkEng": "Sets the defaultCode of the colId or colIndex column. DefaultCode is valid when the cell's dataType is 'code'. If there is no value, it is the default value. Returns true if it operates normally."
             },
             {
                 "related": "column",
@@ -2229,10 +2157,8 @@ function getConsts () {
                 "name": "setColMaxByte",
                 "param": "colId(String) or colIndex(Number), maxByte(Number)",
                 "return": "Boolean",
-                "remarkKor": "colId or colIndex 열의 maxByte를 설정한다. maxByte는 cell의 dataType이 'text'일 때 유효하다. 정상 동작 시 true 반환.\n"
-                            + "특수기호 등의 byte 산정을 어떻게 할 지는 vg.lessoreq0x7ffByte(charCode <= 0x7FF), vg.lessoreq0xffffByte(charCode <= 0xFFFF), vg.greater0xffffByte(charCode > 0xFFFF)으로 설정할 수 있다. 기본값은 2, 3, 4.",
-                "remarkEng": "Sets the maxByte of the colId or colIndex column. MaxByte is valid when the cell's dataType is 'text'. Returns true if it operates normally.\n"
-                            + "How to calculate the byte of special symbols can be set to vg.lessoreq0x7ffByte (charCode <= 0x7FF), vg.lessoreq0xffffByte (charCode <= 0xFFFF), vg.greater0xffffByte (charCode > 0xFFFF). The default values are 2, 3, 4."
+                "remarkKor": "colId or colIndex 열의 maxByte를 설정한다. maxByte는 cell의 dataType이 'text'일 때 유효하다. 정상 동작 시 true 반환. 특수기호 등의 byte 산정을 어떻게 할 지는 vg.lessoreq0x7ffByte(charCode <= 0x7FF), vg.lessoreq0xffffByte(charCode <= 0xFFFF), vg.greater0xffffByte(charCode > 0xFFFF)으로 설정할 수 있다. 기본값은 2, 3, 4.",
+                "remarkEng": "Sets the maxByte of the colId or colIndex column. MaxByte is valid when the cell's dataType is 'text'. Returns true if it operates normally. How to calculate the byte of special symbols can be set to vg.lessoreq0x7ffByte (charCode <= 0x7FF), vg.lessoreq0xffffByte (charCode <= 0xFFFF), vg.greater0xffffByte (charCode > 0xFFFF). The default values are 2, 3, 4."
             },
             {
                 "related": "column",
@@ -2279,12 +2205,8 @@ function getConsts () {
                 "name": "setColRoundNumber",
                 "param": "colId(String) or colIndex(Number), roundNumber(Number)",
                 "return": "Boolean",
-                "remarkKor": "colId or colIndex 열의 roundNumber를 설정한다. roundNumber는 cell의 dataType이 'number'일 때 유효하다. 정상 동작 시 true 반환.\n"
-                            + "roundNumber 양의 정수 : 반올림 할 소수점 자리 지정.\n"
-                            + "roundNumber 음의 정수 : 반올림 할 정수부 자리 지정.",
-                "remarkEng": "Sets the roundNumber of the colId or colIndex column. RoundNumber is valid when the cell's dataType is 'number'. Returns true if it operates normally.\n"
-                            + "roundNumber positive integer: specifies the decimal place to be rounded.\n"
-                            + "roundNumber negative integer: specifies the integer place to be rounded."
+                "remarkKor": "colId or colIndex 열의 roundNumber를 설정한다. roundNumber는 cell의 dataType이 'number'일 때 유효하다. 정상 동작 시 true 반환. roundNumber 양의 정수 : 반올림 할 소수점 자리 지정. roundNumber 음의 정수 : 반올림 할 정수부 자리 지정.",
+                "remarkEng": "Sets the roundNumber of the colId or colIndex column. RoundNumber is valid when the cell's dataType is 'number'. Returns true if it operates normally. roundNumber positive integer: specifies the decimal place to be rounded. roundNumber negative integer: specifies the integer place to be rounded."
             },
             {
                 "related": "column",
@@ -2483,10 +2405,8 @@ function getConsts () {
                 "name": "addRow",
                 "param": "keyValueOrDatas(1row) ({} or [{},{}...])",
                 "return": "Boolean",
-                "remarkKor": "1행 형태의 KeyValue 입력 시 colInfo를 참조하여 1행을 마지막 행 뒤에 추가하고. keyValue의 값을 삽입한다. 정상동작 시 true 반환.\n"
-                            + "1행 형태의 Datas 입력 시 Datas의 값과 cell정보를 참조하여 1행을 마지막 행 뒤에 추가한다. 정상동작 시 true 반환.",
-                "remarkEng": "When inputting one row in KeyValue form, it adds one row after the last row referencing colInfo and inserts the values of keyValue. Returns true if it operates normally.\n"
-                            + "When inputting one row in Datas form, it adds one row after the last row referencing the values and cell information of Datas. Returns true if it operates normally."
+                "remarkKor": "1행 형태의 KeyValue 입력 시 colInfo를 참조하여 1행을 마지막 행 뒤에 추가하고. keyValue의 값을 삽입한다. 정상동작 시 true 반환. 1행 형태의 Datas 입력 시 Datas의 값과 cell정보를 참조하여 1행을 마지막 행 뒤에 추가한다. 정상동작 시 true 반환.",
+                "remarkEng": "When inputting one row in KeyValue form, it adds one row after the last row referencing colInfo and inserts the values of keyValue. Returns true if it operates normally. When inputting one row in Datas form, it adds one row after the last row referencing the values and cell information of Datas. Returns true if it operates normally."
             },
             {
                 "related": "row",
@@ -2541,10 +2461,8 @@ function getConsts () {
                 "name": "setRowValues",
                 "param": "row(Number) values({}), doRecode(Boolean) = false",
                 "return": "Boolean",
-                "remarkKor": "row번째 행의 cell에 values({colId:value, colId:value…})를 통해 값을 삽입한다.\n"
-                            + "doRecode가 true일 시 사용자가 실행취소, 재실행을 할 수 있다. 정상 동작 시 true 반환.",
-                "remarkEng": "Inserts values into the cells of the row-th row through values({colId:value, colId:value…}).\n"
-                            + "If doRecode is true, the user can undo or redo. Returns true if it operates normally."
+                "remarkKor": "row번째 행의 cell에 values({colId:value, colId:value…})를 통해 값을 삽입한다. doRecode가 true일 시 사용자가 실행취소, 재실행을 할 수 있다. 정상 동작 시 true 반환.",
+                "remarkEng": "Inserts values into the cells of the row-th row through values({colId:value, colId:value…}). If doRecode is true, the user can undo or redo. Returns true if it operates normally."
             },
             {
                 "related": "row",
@@ -2583,10 +2501,8 @@ function getConsts () {
                 "name": "setRowDataType",
                 "param": "row(Number), dataType(String)",
                 "return": "Boolean",
-                "remarkKor": "row번째 행의 dataType을 설정한다. 정상동작 시 true 반환.\n"
-                            + "dataType : 'text', 'date', 'month', 'mask', 'select', 'checkbox', 'button', 'link', 'code'",
-                "remarkEng": "Sets the dataType of the row-th row. Returns true if it operates normally.\n"
-                            + "dataType: 'text', 'date', 'month', 'mask', 'select', 'checkbox', 'button', 'link', 'code'"
+                "remarkKor": "row번째 행의 dataType을 설정한다. 정상동작 시 true 반환. dataType : 'text', 'date', 'month', 'mask', 'select', 'checkbox', 'button', 'link', 'code'",
+                "remarkEng": "Sets the dataType of the row-th row. Returns true if it operates normally. dataType: 'text', 'date', 'month', 'mask', 'select', 'checkbox', 'button', 'link', 'code'"
             },
             {
                 "related": "row",
@@ -2673,60 +2589,48 @@ function getConsts () {
                 "name": "searchRowsWithMatched",
                 "param": "matches(Object)",
                 "return": "Array",
-                "remarkKor": "matches객체의 {colId:value, colId:value..} 조건을 통해 colId와 값이 일치하는 행을 반환한다.\n"
-                            + "조건이 모두 일치해야 반환한다. 행의 번호를 배열로 반환한다.",
-                "remarkEng": "Returns rows that match the colId and value based on the conditions of the matches object {colId:value, colId:value..}.\n"
-                            + "All conditions must match to be returned. Returns the row numbers as an array."
+                "remarkKor": "matches객체의 {colId:value, colId:value..} 조건을 통해 colId와 값이 일치하는 행을 반환한다. 조건이 모두 일치해야 반환한다. 행의 번호를 배열로 반환한다.",
+                "remarkEng": "Returns rows that match the colId and value based on the conditions of the matches object {colId:value, colId:value..}. All conditions must match to be returned. Returns the row numbers as an array."
             },
             {
                 "related": "row",
                 "name": "searchRowDatasWithMatched",
                 "param": "matches(Object)",
                 "return": "Array",
-                "remarkKor": "matches객체의 {colId:value, colId:value..} 조건을 통해 colId와 값이 일치하는 행을 반환한다.\n"
-                            + "조건이 모두 일치해야 반환한다. 행을 Datas[[{},{}..],[{},{}..]...] 형태로 반환한다.",
-                "remarkEng": "Returns rows that match the colId and value based on the conditions of the matches object {colId:value, colId:value..}.\n"
-                            + "All conditions must match to be returned. Returns the rows as Datas [[{},{}..],[{},{}..]...]."
+                "remarkKor": "matches객체의 {colId:value, colId:value..} 조건을 통해 colId와 값이 일치하는 행을 반환한다. 조건이 모두 일치해야 반환한다. 행을 Datas[[{},{}..],[{},{}..]...] 형태로 반환한다.",
+                "remarkEng": "Returns rows that match the colId and value based on the conditions of the matches object {colId:value, colId:value..}. All conditions must match to be returned. Returns the rows as Datas [[{},{}..],[{},{}..]...]."
             },
             {
                 "related": "row",
                 "name": "searchRowValuesWithMatched",
                 "param": "matches(Object)",
                 "return": "Array",
-                "remarkKor": "matches객체의 {colId:value, colId:value..} 조건을 통해 colId와 값이 일치하는 행을 반환한다.\n"
-                            + "조건이 모두 일치해야 반환한다. 행을 keyValues[{},{}...] 형태로 반환한다.",
-                "remarkEng": "Returns rows that match the colId and value based on the conditions of the matches object {colId:value, colId:value..}.\n"
-                            + "All conditions must match to be returned. Returns the rows as keyValues [ {},{}... ]."
+                "remarkKor": "matches객체의 {colId:value, colId:value..} 조건을 통해 colId와 값이 일치하는 행을 반환한다. 조건이 모두 일치해야 반환한다. 행을 keyValues[{},{}...] 형태로 반환한다.",
+                "remarkEng": "Returns rows that match the colId and value based on the conditions of the matches object {colId:value, colId:value..}. All conditions must match to be returned. Returns the rows as keyValues [ {},{}... ]."
             },
             {
                 "related": "row",
                 "name": "searchRowsWithFunction",
                 "param": "matchFunction(function)",
                 "return": "Array",
-                "remarkKor": "사용자가 삽입하는 matchFunction을 통해 반환값이 true인 행을 반환한다.\n"
-                            + "matchFunction에는 파라메터로 getRowDatas(row)결과 값이 전달된다. 행의 번호를 배열로 반환한다.",
-                "remarkEng": "Returns rows for which the return value is true through the matchFunction inserted by the user.\n"
-                            + "The result value of getRowDatas(row) is passed as a parameter to matchFunction. Returns the row numbers as an array."
+                "remarkKor": "사용자가 삽입하는 matchFunction을 통해 반환값이 true인 행을 반환한다. matchFunction에는 파라메터로 getRowDatas(row)결과 값이 전달된다. 행의 번호를 배열로 반환한다.",
+                "remarkEng": "Returns rows for which the return value is true through the matchFunction inserted by the user. The result value of getRowDatas(row) is passed as a parameter to matchFunction. Returns the row numbers as an array."
             },
             {
                 "related": "row",
                 "name": "searchRowDatasWithFunction",
                 "param": "matchFunction(function)",
                 "return": "Array",
-                "remarkKor": "사용자가 삽입하는 matchFunction을 통해 반환값이 true인 행을 반환한다.\n"
-                            + "matchFunction에는 파라메터로 getRowDatas(row)결과 값이 전달된다. 행을 Datas[[{},{}..],[{},{}..]...] 형태로 반환한다.",
-                "remarkEng": "Returns rows for which the return value is true through the matchFunction inserted by the user.\n"
-                            + "The result value of getRowDatas(row) is passed as a parameter to matchFunction. Returns the rows as Datas [[{},{}..],[{},{}..]...]."
+                "remarkKor": "사용자가 삽입하는 matchFunction을 통해 반환값이 true인 행을 반환한다. matchFunction에는 파라메터로 getRowDatas(row)결과 값이 전달된다. 행을 Datas[[{},{}..],[{},{}..]...] 형태로 반환한다.",
+                "remarkEng": "Returns rows for which the return value is true through the matchFunction inserted by the user. The result value of getRowDatas(row) is passed as a parameter to matchFunction. Returns the rows as Datas [[{},{}..],[{},{}..]...]."
             },
             {
                 "related": "row",
                 "name": "searchRowValuesWithFunction",
                 "param": "matchFunction(function)",
                 "return": "Array",
-                "remarkKor": "사용자가 삽입하는 matchFunction을 통해 반환값이 true인 행을 반환한다.\n"
-                            + "matchFunction에는 파라메터로 getRowDatas(row)결과 값이 전달된다. 행을 keyValues[{},{}...] 형태로 반환한다.",
-                "remarkEng": "Returns rows for which the return value is true through the matchFunction inserted by the user.\n"
-                            + "The result value of getRowDatas(row) is passed as a parameter to matchFunction. Returns the rows as keyValues [ {},{}... ]."
+                "remarkKor": "사용자가 삽입하는 matchFunction을 통해 반환값이 true인 행을 반환한다. matchFunction에는 파라메터로 getRowDatas(row)결과 값이 전달된다. 행을 keyValues[{},{}...] 형태로 반환한다.",
+                "remarkEng": "Returns rows for which the return value is true through the matchFunction inserted by the user. The result value of getRowDatas(row) is passed as a parameter to matchFunction. Returns the rows as keyValues [ {},{}... ]."
             },
             {
                 "related": "cell",
@@ -2734,8 +2638,7 @@ function getConsts () {
                 "param": "row(Number), colId(String) or colIndex(Number), cellData(Object)",
                 "return": "Boolean",
                 "remarkKor": "row행 colId or colIndex 열 cell의 정보를 변경한다. cellData는 {id:'colId',value:'value'..}인 객체형태이다. 정상 동작 시 true 반환.",
-                "remarkEng": "Changes the information of the cell in the colId or colIndex column in the row-th row.\n"
-                            + "cellData is an object in the form {id:'colId', value:'value'..}. Returns true if it operates normally."
+                "remarkEng": "Changes the information of the cell in the colId or colIndex column in the row-th row. cellData is an object in the form {id:'colId', value:'value'..}. Returns true if it operates normally."
             },
             {
                 "related": "cell",
@@ -2774,10 +2677,8 @@ function getConsts () {
                 "name": "setCellRequired",
                 "param": "row(Number), colId(String) or colIndex(Number), isRequired(Boolean)",
                 "return": "Boolean",
-                "remarkKor": "row행 colId or colIndex 열 cell의 required를 설정한다.\n"
-                            + "Required가 true시 checkRequired()를 통해 필수 체크할 수 있다. 정상 동작 시 true 반환.",
-                "remarkEng": "Sets the required status of the cell in the colId or colIndex column in the row-th row.\n"
-                            + "If required is true, it can be checked through checkRequired(). Returns true if it operates normally."
+                "remarkKor": "row행 colId or colIndex 열 cell의 required를 설정한다. Required가 true시 checkRequired()를 통해 필수 체크할 수 있다. 정상 동작 시 true 반환.",
+                "remarkEng": "Sets the required status of the cell in the colId or colIndex column in the row-th row. If required is true, it can be checked through checkRequired(). Returns true if it operates normally."
             },
             {
                 "related": "cell",
@@ -2792,10 +2693,8 @@ function getConsts () {
                 "name": "setCellDataType",
                 "param": "row(Number), colId(String) or colIndex(Number), dataType(String)",
                 "return": "Boolean",
-                "remarkKor": "row행 colId or colIndex 열 cell의 dataType을 설정한다. 정상 동작 시 true 반환.\n"
-                            + "dataType : 'text', 'date', 'month', 'mask', 'select', 'checkbox', 'button', 'link', 'code'",
-                "remarkEng": "Sets the dataType of the cell in the colId or colIndex column in the row-th row. Returns true if it operates normally.\n"
-                            + "dataType: 'text', 'date', 'month', 'mask', 'select', 'checkbox', 'button', 'link', 'code'"
+                "remarkKor": "row행 colId or colIndex 열 cell의 dataType을 설정한다. 정상 동작 시 true 반환. dataType : 'text', 'date', 'month', 'mask', 'select', 'checkbox', 'button', 'link', 'code'",
+                "remarkEng": "Sets the dataType of the cell in the colId or colIndex column in the row-th row. Returns true if it operates normally. dataType: 'text', 'date', 'month', 'mask', 'select', 'checkbox', 'button', 'link', 'code'"
             },
             {
                 "related": "cell",
@@ -2811,8 +2710,7 @@ function getConsts () {
                 "param": "row(Number), colId(String) or colIndex(Number), isLocked(Boolean)",
                 "return": "Boolean",
                 "remarkKor": "row행 colId or colIndex 열 cell의 locked를 설정한다. Locked가 true시 column의 cell값을 변경할 수 없다. 정상 동작 시 true 반환.",
-                "remarkEng": "Sets the locked status of the cell in the colId or colIndex column in the row-th row.\n"
-                            + "If locked is true, the cell value of the column cannot be changed. Returns true if it operates normally."
+                "remarkEng": "Sets the locked status of the cell in the colId or colIndex column in the row-th row. If locked is true, the cell value of the column cannot be changed. Returns true if it operates normally."
             },
             {
                 "related": "cell",
@@ -2828,8 +2726,7 @@ function getConsts () {
                 "param": "row(Number), colId(String) or colIndex(Number), isLockedColor(Boolean)",
                 "return": "Boolean",
                 "remarkKor": "row행 colId or colIndex 열 cell의 lockedColor를 설정한다. LockedColor가 true시 locked된 cell에 대해 배경색을 표현한다. 정상 동작 시 true 반환.",
-                "remarkEng": "Sets the lockedColor of the cell in the colId or colIndex column in the row-th row.\n"
-                            + "If lockedColor is true, the background color is displayed for locked cells. Returns true if it operates normally."
+                "remarkEng": "Sets the lockedColor of the cell in the colId or colIndex column in the row-th row. If lockedColor is true, the background color is displayed for locked cells. Returns true if it operates normally."
             },
             {
                 "related": "cell",
@@ -2845,8 +2742,7 @@ function getConsts () {
                 "param": "row(Number), colId(String) or colIndex(Number), format(String)",
                 "return": "Boolean",
                 "remarkKor": "row행 colId or colIndex 열 cell의 format을 설정한다. Format은 cell의 dataType이 'mask'와 'number'일 때 유효하다. 정상 동작 시 true 반환.",
-                "remarkEng": "Sets the format of the cell in the colId or colIndex column in the row-th row.\n"
-                            + "Format is valid when the cell's dataType is 'mask' and 'number'. Returns true if it operates normally."
+                "remarkEng": "Sets the format of the cell in the colId or colIndex column in the row-th row. Format is valid when the cell's dataType is 'mask' and 'number'. Returns true if it operates normally."
             },
             {
                 "related": "cell",
@@ -2878,8 +2774,7 @@ function getConsts () {
                 "param": "row(Number), colId(String) or colIndex(Number), defaultCode(String)",
                 "return": "Boolean",
                 "remarkKor": "row행 colId or colIndex 열 cell의 defaultCode를 설정한다. defaultCode는 cell의 dataType이 'code'일 때 유효하다. 값이 없을 경우 default값. 정상 동작 시 true 반환.",
-                "remarkEng": "Sets the defaultCode of the cell in the colId or colIndex column in the row-th row.\n"
-                            + "defaultCode is valid when the cell's dataType is 'code'. If there is no value, it uses the default value. Returns true if it operates normally."
+                "remarkEng": "Sets the defaultCode of the cell in the colId or colIndex column in the row-th row. defaultCode is valid when the cell's dataType is 'code'. If there is no value, it uses the default value. Returns true if it operates normally."
             },
             {
                 "related": "cell",
@@ -2895,8 +2790,7 @@ function getConsts () {
                 "param": "row(Number), colId(String) or colIndex(Number), maxLength(Number)",
                 "return": "Boolean",
                 "remarkKor": "row행 colId or colIndex 열 cell의 maxLength를 설정한다. maxLength는 cell의 dataType이 'text'일 때 유효하다. 정상 동작 시 true 반환.",
-                "remarkEng": "Sets the maxLength of the cell in the colId or colIndex column in the row-th row.\n"
-                            + "maxLength is valid when the cell's dataType is 'text'. Returns true if it operates normally."
+                "remarkEng": "Sets the maxLength of the cell in the colId or colIndex column in the row-th row. maxLength is valid when the cell's dataType is 'text'. Returns true if it operates normally."
             },
             {
                 "related": "cell",
@@ -2911,13 +2805,8 @@ function getConsts () {
                 "name": "setCellMaxByte",
                 "param": "row(Number), colId(String) or colIndex(Number), maxByte(Number)",
                 "return": "Boolean",
-                "remarkKor": "row행 colId or colIndex 열 cell의 maxByte를 설정한다. maxByte는 cell의 dataType이 'text'일 때 유효하다.\n"
-                            + "정상 동작 시 true 반환. 특수기호 등의 byte 산정을 어떻게 할 지는\n"
-                            + "vg.lessoreq0x7ffByte(charCode <= 0x7FF), vg.lessoreq0xffffByte(charCode <= 0xFFFF), vg.greater0xffffByte(charCode > 0xFFFF)으로 설정할 수 있다. 기본값은 2, 3, 4.",
-                "remarkEng": "Sets the maxByte of the cell in the colId or colIndex column in the row-th row.\n"
-                            + "maxByte is valid when the cell's dataType is 'text'. Returns true if it operates normally.\n"
-                            + "How to calculate the byte of special characters can be set with\n"
-                            + "vg.lessoreq0x7ffByte(charCode <= 0x7FF), vg.lessoreq0xffffByte(charCode <= 0xFFFF), vg.greater0xffffByte(charCode > 0xFFFF). Default values are 2, 3, 4."
+                "remarkKor": "row행 colId or colIndex 열 cell의 maxByte를 설정한다. maxByte는 cell의 dataType이 'text'일 때 유효하다. 정상 동작 시 true 반환. 특수기호 등의 byte 산정을 어떻게 할 지는 vg.lessoreq0x7ffByte(charCode <= 0x7FF), vg.lessoreq0xffffByte(charCode <= 0xFFFF), vg.greater0xffffByte(charCode > 0xFFFF)으로 설정할 수 있다. 기본값은 2, 3, 4.",
+                "remarkEng": "Sets the maxByte of the cell in the colId or colIndex column in the row-th row. maxByte is valid when the cell's dataType is 'text'. Returns true if it operates normally. How to calculate the byte of special characters can be set with vg.lessoreq0x7ffByte(charCode <= 0x7FF), vg.lessoreq0xffffByte(charCode <= 0xFFFF), vg.greater0xffffByte(charCode > 0xFFFF). Default values are 2, 3, 4."
             },
             {
                 "related": "cell",
@@ -2933,8 +2822,7 @@ function getConsts () {
                 "param": "row(Number), colId(String) or colIndex(Number), maxNumber(Number)",
                 "return": "Boolean",
                 "remarkKor": "row행 colId or colIndex 열 cell의 maxNumber를 설정한다. maxNumber는 cell의 dataType이 'number'일 때 유효하다. 정상 동작 시 true 반환.",
-                "remarkEng": "Sets the maxNumber of the cell in the colId or colIndex column in the row-th row.\n"
-                            + "maxNumber is valid when the cell's dataType is 'number'. Returns true if it operates normally."
+                "remarkEng": "Sets the maxNumber of the cell in the colId or colIndex column in the row-th row. maxNumber is valid when the cell's dataType is 'number'. Returns true if it operates normally."
             },
             {
                 "related": "cell",
@@ -2950,8 +2838,7 @@ function getConsts () {
                 "param": "row(Number), colId(String) or colIndex(Number), minNumber(Number)",
                 "return": "Boolean",
                 "remarkKor": "row행 colId or colIndex 열 cell의 minNumber를 설정한다. minNumber는 cell의 dataType이 'number'일 때 유효하다. 정상 동작 시 true 반환.",
-                "remarkEng": "Sets the minNumber of the cell in the colId or colIndex column in the row-th row.\n"
-                            + "minNumber is valid when the cell's dataType is 'number'. Returns true if it operates normally."
+                "remarkEng": "Sets the minNumber of the cell in the colId or colIndex column in the row-th row. minNumber is valid when the cell's dataType is 'number'. Returns true if it operates normally."
             },
             {
                 "related": "cell",
@@ -2966,13 +2853,8 @@ function getConsts () {
                 "name": "setCellRoundNumber",
                 "param": "row(Number), colId(String) or colIndex(Number), roundNumber(Number)",
                 "return": "Boolean",
-                "remarkKor": "row행 colId or colIndex 열 cell의 roundNumber를 설정한다. roundNumber는 cell의 dataType이 'number'일 때 유효하다. 정상 동작 시 true 반환.\n"
-                            + "roundNumber 양의 정수 : 반올림 할 소수점 자리 지정.\n"
-                            + "roundNumber 음의 정수 : 반올림 할 정수부 자리 지정.",
-                "remarkEng": "Sets the roundNumber of the cell in the colId or colIndex column in the row-th row.\n"
-                            + "roundNumber is valid when the cell's dataType is 'number'. Returns true if it operates normally.\n"
-                            + "roundNumber positive integer: specifies the decimal place to be rounded.\n"
-                            + "roundNumber negative integer: specifies the integer place to be rounded."
+                "remarkKor": "row행 colId or colIndex 열 cell의 roundNumber를 설정한다. roundNumber는 cell의 dataType이 'number'일 때 유효하다. 정상 동작 시 true 반환. roundNumber 양의 정수 : 반올림 할 소수점 자리 지정. roundNumber 음의 정수 : 반올림 할 정수부 자리 지정.",
+                "remarkEng": "Sets the roundNumber of the cell in the colId or colIndex column in the row-th row. roundNumber is valid when the cell's dataType is 'number'. Returns true if it operates normally. roundNumber positive integer: specifies the decimal place to be rounded. roundNumber negative integer: specifies the integer place to be rounded."
             },
             {
                 "related": "cell",
@@ -3068,8 +2950,7 @@ function getConsts () {
                 "param": "row(Number), colId(String) or colIndex(Number)",
                 "return": "Boolean",
                 "remarkKor": "row행 colId or colIndex 열의 visible을 설정한다. 정확히는 cell의 자식 node의 visible. cssText 문자열을 삽입한다. 정상 동작 시 true 반환.",
-                "remarkEng": "Sets the visible of the cell in the colId or colIndex column in the row-th row. Specifically, it sets the visible of the child node of the cell.\n"
-                            + "Inserts a cssText string. Returns true if it operates normally."
+                "remarkEng": "Sets the visible of the cell in the colId or colIndex column in the row-th row. Specifically, it sets the visible of the child node of the cell. Inserts a cssText string. Returns true if it operates normally."
             },
             {
                 "related": "cell",
@@ -3133,8 +3014,7 @@ function getConsts () {
                 "param": "row(Number), colId(String) or colIndex(Number), isFontItalic(Boolean)",
                 "return": "Boolean",
                 "remarkKor": "row행 colId or colIndex 열 cell의 fontItalic를 설정한다. fontItalic가 true이면 기울게 표현. 정상 동작 시 true 반환.",
-                "remarkEng": "Sets the fontItalic of the cell in the colId or colIndex column in the row-th row.\n"
-                            + "If fontItalic is true, the text is displayed in italics. Returns true if it operates normally."
+                "remarkEng": "Sets the fontItalic of the cell in the colId or colIndex column in the row-th row. If fontItalic is true, the text is displayed in italics. Returns true if it operates normally."
             },
             {
                 "related": "cell",
@@ -3150,8 +3030,7 @@ function getConsts () {
                 "param": "row(Number), colId(String) or colIndex(Number), isFontThruline(Boolean)",
                 "return": "Boolean",
                 "remarkKor": "row행 colId or colIndex 열 cell의 fontThruline를 설정한다. fontThruline가 true이면 취소선 글씨 표현. 정상 동작 시 true 반환.",
-                "remarkEng": "Sets the fontThruline of the cell in the colId or colIndex column in the row-th row.\n"
-                            + "If fontThruline is true, the text is displayed with a strikethrough. Returns true if it operates normally."
+                "remarkEng": "Sets the fontThruline of the cell in the colId or colIndex column in the row-th row. If fontThruline is true, the text is displayed with a strikethrough. Returns true if it operates normally."
             },
             {
                 "related": "cell",
@@ -3167,8 +3046,7 @@ function getConsts () {
                 "param": "row(Number), colId(String) or colIndex(Number), isFontUnderline(Boolean)",
                 "return": "Boolean",
                 "remarkKor": "row행 colId or colIndex 열 cell의 fontUnderline를 설정한다. fontUnderline가 true이면 밑줄 글씨 표현. 정상 동작 시 true 반환.",
-                "remarkEng": "Sets the fontUnderline of the cell in the colId or colIndex column in the row-th row.\n"
-                            + "If fontUnderline is true, the text is displayed with an underline. Returns true if it operates normally."
+                "remarkEng": "Sets the fontUnderline of the cell in the colId or colIndex column in the row-th row. If fontUnderline is true, the text is displayed with an underline. Returns true if it operates normally."
             },
             {
                 "related": "cell",
@@ -3208,8 +3086,7 @@ function getConsts () {
                 "param": "startRow(Number), startColId(String) or startColIndex(Number), endRow(Number), endColId(String) or endColIndex(Number)",
                 "return": "Boolean",
                 "remarkKor": "start row, start colId or colIndex ~ end row, end colId or colIndex 범위까지 cell을 선택한다. 정상 동작 시 true 반환. 초과한 범위를 선택하려 하면 에러 발생.",
-                "remarkEng": "Selects the cells in the range from start row, start colId or colIndex to end row, end colId or colIndex.\n"
-                            + "Returns true if it operates normally. An error occurs if an out-of-bounds range is selected."
+                "remarkEng": "Selects the cells in the range from start row, start colId or colIndex to end row, end colId or colIndex. Returns true if it operates normally. An error occurs if an out-of-bounds range is selected."
             },
             {
                 "related": "active",
@@ -3264,14 +3141,8 @@ function getConsts () {
                 "name": "removeGridMethod",
                 "param": "",
                 "return": "",
-                "remarkKor": "grid id를 통해 호출하는 모든 함수를 삭제한다. 해킹 방지용 기능(완벽한 보안은 아님).\n"
-                            + "Vnilla-grid에서는 window[gridId]를 전역 변수로 선언하고 해당 변수를 통해 모든 method를 접근한다.\n"
-                            + "removeGridMethod를 사용하면 window[gridId]를 삭제하여 method 접근이 불가하다.\n"
-                            + "예로 document에서 'F12'를 통해 개발자 모드 접근 시 removeGridMethod를 호출한다.",
-                "remarkEng": "Deletes all functions called through the grid id. This is an anti-hacking feature (not complete security).\n"
-                            + "In Vnilla-grid, window[gridId] is declared as a global variable and all methods are accessed through this variable.\n"
-                            + "If removeGridMethod is used, window[gridId] is deleted and method access is not possible.\n"
-                            + "For example, removeGridMethod is called when accessing developer mode through 'F12' in the document."
+                "remarkKor": "grid id를 통해 호출하는 모든 함수를 삭제한다. 해킹 방지용 기능.(완벽한 보안은 아님) Vnilla-grid에서는 window[gridId]를 전역 변수로 선언하고 해당 변수를 통해 모든 method를 접근한다. removeGridMethod를 사용하면 window[gridId]를 삭제하여 method 접근이 불가하다. 예로 document에서 'F12'를 통해 개발자 모드 접근 시 removeGridMethod를 호출한다.",
+                "remarkEng": "Deletes all functions called through the grid id. This is an anti-hacking feature (not complete security). In Vnilla-grid, window[gridId] is declared as a global variable and all methods are accessed through this variable. If removeGridMethod is used, window[gridId] is deleted and method access is not possible. For example, removeGridMethod is called when accessing developer mode through 'F12' in the document."
             }
         ];
         this.VGO_FUNCTION = [
@@ -3280,8 +3151,7 @@ function getConsts () {
                 "param": "",
                 "return": "vg(Object)",
                 "remarkKor": "Vanillagrid 객체를 생성하며 return하는 클로저 함수. Vanillagrid에 대한 고급 정보들이 포함. 하단부터 'vg'로 표기함.",
-                "remarkEng": "A closure function that creates and returns a Vanillagrid object.\n"
-                            + "Includes advanced information about Vanillagrid. Referred to as 'vg' from below."
+                "remarkEng": "A closure function that creates and returns a Vanillagrid object. Includes advanced information about Vanillagrid. Referred to as 'vg' from below."
             },
             {
                 "function": "vanillagrid_onBeforeCreate",
@@ -3309,8 +3179,7 @@ function getConsts () {
                 "param": "",
                 "return": "",
                 "remarkKor": "document에 mount된 vanillagrid와 모든 관련 객체를 삭제한다. 다시 getVanillagrid하여 grid를 생성할 수 있다.",
-                "remarkEng": "Deletes the mounted vanillagrid and all related objects from the document.\n"
-                            + "The grid can be created again by calling getVanillagrid."
+                "remarkEng": "Deletes the mounted vanillagrid and all related objects from the document. The grid can be created again by calling getVanillagrid."
             }
         ];
         this.VGO_ATTRIBUTES = [
@@ -3339,27 +3208,15 @@ function getConsts () {
                 "attribute": "vg.filterSpan",
                 "type": "Html node",
                 "default": "null",
-                "remarkKor": "Html node이다. vg.create()전에 사용자화된 Html node를 삽입하면 해당 node가 header의 filter span으로 대체된다.\n"
-                            + "ex)\n"
-                            + "vg.filterSpan = document.createElement('i');\n"
-                            + "vg.filterSpan.setAttribute('class', 'fas fa-search');\n"
-                            + "vg.create();",
-                "remarkEng": "Html node. If a customized Html node is inserted before vg.create(), it replaces the header's filter span.\n"
-                            + "ex)\n"
-                            + "vg.filterSpan = document.createElement('i');\n"
-                            + "vg.filterSpan.setAttribute('class', 'fas fa-search');\n"
-                            + "vg.create();"
+                "remarkKor": "Html node이다. vg.create()전에 사용자화된 Html node를 삽입하면 해당 node가 header의 filter span으로 대체된다. ex) vg.filterSpan = document.createElement('i'); vg.filterSpan.setAttribute('class', 'fas fa-search'); vg.create();",
+                "remarkEng": "Html node. If a customized Html node is inserted before vg.create(), it replaces the header's filter span. ex) vg.filterSpan = document.createElement('i'); vg.filterSpan.setAttribute('class', 'fas fa-search'); vg.create();"
             },
             {
                 "attribute": "vg.footerFormula",
                 "type": "Object",
                 "default": "{}",
-                "remarkKor": "key(String) - value(Function)으로 구성된 객체이다.\n"
-                            + "vg.create()전에 설정하면 해당 footer에 key를 통해 자동으로 해당 function을 수행하여 값을 받는다.\n"
-                            + "funxtion의 구조는 colValues를 파라메터로 받고 footer에 보여줄 값을 반환한다.",
-                "remarkEng": "An object consisting of key(String) - value(Function).\n"
-                            + "If set before vg.create(), the function associated with the key is automatically executed for the footer, and its value is obtained.\n"
-                            + "The structure of the function receives colValues as a parameter and returns the value to be displayed in the footer."
+                "remarkKor": "key(String) - value(Function)으로 구성된 객체이다. vg.create()전에 설정하면 해당 footer에 key를 통해 자동으로 해당 function을 수행하여 값을 받는다. funxtion의 구조는 colValues를 파라메터로 받고 footer에 보여줄 값을 반환한다. ex) vg.footerFormula = { 'CONCAT' : function (colValues) { return colValues.join(','); }, 'CHECK_COUNT' : function (colValues) { let count = 1; colValues.forEach((val) => { if(val === 'true') count = count * 2; }); return count; } } <v-col id='check' dataType='checkbox' footer='CHECK_COUNT'></v-col>",
+                "remarkEng": "An object consisting of key(String) - value(Function). If set before vg.create(), the function associated with the key is automatically executed for the footer, and its value is obtained. The structure of the function receives colValues as a parameter and returns the value to be displayed in the footer. ex) vg.footerFormula = { 'CONCAT' : function (colValues) { return colValues.join(','); }, 'CHECK_COUNT' : function (colValues) { let count = 1; colValues.forEach((val) => { if(val === 'true') count = count * 2; }); return count; } } <v-col id='check' dataType='checkbox' footer='CHECK_COUNT'></v-col>"
             },
             {
                 "attribute": "vg.dataType",
@@ -3372,10 +3229,8 @@ function getConsts () {
                 "attribute": "vg.dataType.cellStyle",
                 "type": "Object",
                 "default": "null",
-                "remarkKor": "dataType의 cell의 style을 지정한다. element.style[key] = cellStyle[key]로 값이 삽입된다.\n"
-                            + "키는 js 요소 style지정 키로, 값은 css문자열 그대로 넣어야함.",
-                "remarkEng": "Specifies the style of the cell for the dataType. The value is inserted as element.style[key] = cellStyle[key].\n"
-                            + "The key is the JS element style key, and the value is the CSS string."
+                "remarkKor": "dataType의 cell의 style을 지정한다. element.style[key] = cellStyle[key]로 값이 삽입된다. 키는 js 요소 style지정 키로, 값은 css문자열 그대로 넣어야함.",
+                "remarkEng": "Specifies the style of the cell for the dataType. The value is inserted as element.style[key] = cellStyle[key]. The key is the JS element style key, and the value is the CSS string."
             },
             {
                 "attribute": "vg.dataType.onSelected",
@@ -3395,139 +3250,106 @@ function getConsts () {
                 "attribute": "vg.dataType.onSelectedAndKeyDown",
                 "type": "function",
                 "default": "null",
-                "remarkKor": "cell을 선택할 상태에서 키보드를 눌렀을 때 호출하는 function.\n"
-                            + "파라메터로 event, cell의 getData()값을 받는다. false를 반환 시 기존 동작을 하지 않는다.",
-                "remarkEng": "Function called when a key is pressed while the cell is selected.\n"
-                            + "Receives event and the cell's getData() as parameters. If it returns false, the default behavior is not executed."
+                "remarkKor": "cell을 선택할 상태에서 키보드를 눌렀을 때 호출하는 function. 파라메터로 event, cell의 getData()값을 받는다. false를 반환 시 기존 동작을 하지 않는다.",
+                "remarkEng": "Function called when a key is pressed while the cell is selected. Receives event and the cell's getData() as parameters. If it returns false, the default behavior is not executed."
             },
             {
                 "attribute": "vg.dataType.onClick",
                 "type": "function",
                 "default": "null",
-                "remarkKor": "cell 또는 cell의 childNode를 클릭했을 때 호출하는 function.\n"
-                            + "파라메터로 event, cell의 getData()값을 받는다. false를 반환 시 기존 동작을 하지 않는다.",
-                "remarkEng": "Function called when the cell or its child node is clicked.\n"
-                            + "Receives event and the cell's getData() as parameters. If it returns false, the default behavior is not executed."
+                "remarkKor": "cell 또는 cell의 childNode를 클릭했을 때 호출하는 function. 파라메터로 event, cell의 getData()값을 받는다. false를 반환 시 기존 동작을 하지 않는다.",
+                "remarkEng": "Function called when the cell or its child node is clicked. Receives event and the cell's getData() as parameters. If it returns false, the default behavior is not executed."
             },
             {
                 "attribute": "vg.dataType.onMousedown",
                 "type": "function",
                 "default": "null",
-                "remarkKor": "cell 또는 cell의 childNode를 mouse down했을 때 호출하는 function.\n"
-                            + "파라메터로 event, cell의 getData()값을 받는다. false를 반환 시 기존 동작을 하지 않는다.",
-                "remarkEng": "Function called when the cell or its child node is mouse-downed.\n"
-                            + "Receives event and the cell's getData() as parameters. If it returns false, the default behavior is not executed."
+                "remarkKor": "cell 또는 cell의 childNode를 mouse down했을 때 호출하는 function. 파라메터로 event, cell의 getData()값을 받는다. false를 반환 시 기존 동작을 하지 않는다.",
+                "remarkEng": "Function called when the cell or its child node is mouse-downed. Receives event and the cell's getData() as parameters. If it returns false, the default behavior is not executed."
             },
             {
                 "attribute": "vg.dataType.getValue",
                 "type": "function",
                 "default": "null",
-                "remarkKor": "cell에 최종으로 저장될 값을 반환하는 function. 파라메터로 cell의 value를 받는다.\n"
-                            + "반환값은 cell의 최종 value로 삽입된다. cell value는 cell이 가지고 있는 값이다. 정의되지 않으면 기존 수정 value를 최종 value로 삽입함.",
-                "remarkEng": "Function that returns the final value to be stored in the cell. Receives the cell's value as a parameter.\n"
-                            + "The return value is inserted as the cell's final value. The cell value is the value that the cell has.\n"
-                            + "If not defined, the default modified value is inserted as the final value."
+                "remarkKor": "cell에 최종으로 저장될 값을 반환하는 function. 파라메터로 cell의 value를 받는다. 반환값은 cell의 최종 value로 삽입된다. cell value는 cell이 가지고 있는 값이다. 정의되지 않으면 기존 수정 value를 최종 value로 삽입함.",
+                "remarkEng": "Function that returns the final value to be stored in the cell. Receives the cell's value as a parameter. The return value is inserted as the cell's final value. The cell value is the value that the cell has. If not defined, the default modified value is inserted as the final value."
             },
             {
                 "attribute": "vg.dataType.getText",
                 "type": "function",
                 "default": "null",
-                "remarkKor": "cell의 text값으로 삽입될 값을 반환하는 function. 파라메터로 cell의 value를 받는다.\n"
-                            + "반환 값은 cell의 최종 text값으로 삽입된다. text값은 화면에 표기되는 값이다. 정의되지 않으면 기존 수정 value를 최종 value로 삽입함.",
-                "remarkEng": "Function that returns the value to be inserted as the cell's text. Receives the cell's value as a parameter.\n"
-                            + "The return value is inserted as the cell's final text value. The text value is the value displayed on the screen.\n"
-                            + "If not defined, the default modified value is inserted as the final value."
+                "remarkKor": "cell의 text값으로 삽입될 값을 반환하는 function. 파라메터로 cell의 value를 받는다. 반환 값은 cell의 최종 text값으로 삽입된다. text값은 화면에 표기되는 값이다. 정의되지 않으면 기존 수정 value를 최종 value로 삽입함.",
+                "remarkEng": "Function that returns the value to be inserted as the cell's text. Receives the cell's value as a parameter. The return value is inserted as the cell's final text value. The text value is the value displayed on the screen. If not defined, the default modified value is inserted as the final value."
             },
             {
                 "attribute": "vg.dataType.getChildNode",
                 "type": "function",
                 "default": "null",
-                "remarkKor": "화면에 표기될 Html node를 반환하는 function. 파라메터로 cell의 getData()를 받는다.\n"
-                            + "반환 값은 Html node이다. 정의하지 않으면 단순 span에 cell의 value가 표기된다.",
-                "remarkEng": "Function that returns the Html node to be displayed on the screen. Receives the cell's getData() as a parameter.\n"
-                            + "The return value is an Html node. If not defined, a simple span with the cell's value is displayed."
+                "remarkKor": "화면에 표기될 Html node를 반환하는 function. 파라메터로 cell의 getData()를 받는다. 반환 값은 Html node이다. 정의하지 않으면 단순 span에 cell의 value가 표기된다.",
+                "remarkEng": "Function that returns the Html node to be displayed on the screen. Receives the cell's getData() as a parameter. The return value is an Html node. If not defined, a simple span with the cell's value is displayed."
             },
             {
                 "attribute": "vg.dataType.getEditor",
                 "type": "function",
                 "default": "null",
-                "remarkKor": "편집 node를 반환하는 function. cell 더블클릭 등으로 cell edit을 할때 editor를 불러오는 function이다.\n"
-                            + "파라메터로 cell node, cell의 getData()값, 변경호출 함수, edit종료 호출 함수를 받는다. 반환값은 Html node여야 한다.\n"
-                            + "getEditor를 정의하지 않으면 해당 dataType은 edit 창을 생성하지 않는다.",
-                "remarkEng": "Function that returns the editor node. It is called when editing the cell, such as double-clicking the cell.\n"
-                            + "Receives the cell node, the cell's getData() value, the change call function, and the edit end call function as parameters.\n"
-                            + "The return value must be an Html node. If getEditor is not defined, the dataType does not create an edit window."
+                "remarkKor": "편집 node를 반환하는 function. cell 더블클릭 등으로 cell edit을 할때 editor를 불러오는 function이다. 파라메터로 cell node, cell의 getData()값, 변경호출 함수, edit종료 호출 함수를 받는다. 반환값은 Html node여야 한다. getEditor를 정의하지 않으면 해당 dataType은 edit 창을 생성하지 않는다.",
+                "remarkEng": "Function that returns the editor node. It is called when editing the cell, such as double-clicking the cell. Receives the cell node, the cell's getData() value, the change call function, and the edit end call function as parameters. The return value must be an Html node. If getEditor is not defined, the dataType does not create an edit window."
             },
             {
                 "attribute": "vg.dataType.getEditedValue",
                 "type": "function",
                 "default": "null",
-                "remarkKor": "cell 편집 후 cell에 삽입 될 값을 반환하는 function. 파라메터로 cell에 editor node와 cell의 getData() 값을 받는다.\n"
-                            + "반환 값은 cell의 value로 삽입된다. 새 dataType은 있지만 getEditedValue 함수를 정의하지 않으면, 해당 dataType은 편집을 해도 수정되지 않는다.",
-                "remarkEng": "Function that returns the value to be inserted into the cell after editing. Receives the editor node of the cell and the cell's getData() value as parameters.\n"
-                            + "The return value is inserted as the cell's value. If there is a new dataType but the getEditedValue function is not defined, the dataType is not modified even if edited."
+                "remarkKor": "cell 편집 후 cell에 삽입 될 값을 반환하는 function. 파라메터로 cell에 editor node와 cell의 getData() 값을 받는다. 반환 값은 cell의 value로 삽입된다. 새 dataType은 있지만 getEditedValue 함수를 정의하지 않으면, 해당 dataType은 편집을 해도 수정되지 않는다.",
+                "remarkEng": "Function that returns the value to be inserted into the cell after editing. Receives the editor node of the cell and the cell's getData() value as parameters. The return value is inserted as the cell's value. If there is a new dataType but the getEditedValue function is not defined, the dataType is not modified even if edited."
             },
             {
                 "attribute": "vg.dataType.getFilterValue",
                 "type": "function",
                 "default": "null",
                 "remarkKor": "filter를 구분 할 값을 반환하는 function. 파라메터로 cell의 값을 받는다. 반환된 값으로 filter를 판단한다. getFilterValue를 정의하지 않으면 자동으로 getText의 값이 반환됨.",
-                "remarkEng": "Function that returns the value to be distinguished by the filter. Receives the cell's value as a parameter.\n"
-                            + "The returned value is judged by the filter. If getFilterValue is not defined, the value of getText is automatically returned."
+                "remarkEng": "Function that returns the value to be distinguished by the filter. Receives the cell's value as a parameter. The returned value is judged by the filter. If getFilterValue is not defined, the value of getText is automatically returned."
             },
             {
                 "attribute": "vg.dataType.getSortValue",
                 "type": "function",
                 "default": "null",
                 "remarkKor": "정렬 시 정렬 기준으로 될 값을 반환하는 function. 파라메터로 cell의 값을 받는다. 반환된 값을 기준으로 cell을 정렬한다. getSortValue를 정의하지 않으면 자동으로 getText의 값이 반환됨.",
-                "remarkEng": "Function that returns the value to be the sorting criterion when sorting. Receives the cell's value as a parameter.\n"
-                            + "The cells are sorted based on the returned value. If getSortValue is not defined, the value of getText is automatically returned."
+                "remarkEng": "Function that returns the value to be the sorting criterion when sorting. Receives the cell's value as a parameter. The cells are sorted based on the returned value. If getSortValue is not defined, the value of getText is automatically returned."
             },
             {
                 "attribute": "vg.dataType.getCopyValue",
                 "type": "function",
                 "default": "null",
                 "remarkKor": "cell을 복사할 때 호출할 function. 파라메터로 cell의 getValue()를 받는다. 반환 값은 클립보드에 복사 값으로 들어갈 값이다. getCopyValue를 정의하지 않으면 자동으로 getText의 값이 반환됨.",
-                "remarkEng": "Function called when copying the cell. Receives the cell's getValue() as a parameter.\n"
-                            + "The return value is the value that goes into the clipboard. If getCopyValue is not defined, the value of getText is automatically returned."
+                "remarkEng": "Function called when copying the cell. Receives the cell's getValue() as a parameter. The return value is the value that goes into the clipboard. If getCopyValue is not defined, the value of getText is automatically returned."
             },
             {
                 "attribute": "vg.dataType.getPasteValue",
                 "type": "function",
                 "default": "null",
                 "remarkKor": "cell에 복사값을 붙여넣기 할 때 호출할 function. 파라메터로 cell의 getData()와 복사된 text값을 받는다. 반환 값은 cell에 삽입될 값이다.",
-                "remarkEng": "Function called when pasting a copied value into the cell. Receives the cell's getData() and the copied text value as parameters.\n"
-                            + "The return value is the value to be inserted into the cell."
+                "remarkEng": "Function called when pasting a copied value into the cell. Receives the cell's getData() and the copied text value as parameters. The return value is the value to be inserted into the cell."
             },
             {
                 "attribute": "vg.lessoreq0x7ffByte",
                 "type": "Number",
                 "default": "2",
-                "remarkKor": "문자열의 byte 체크 시 사용하는 값. 문자의 아스키 코드가 0x7ff Byte 보다 작거나 같은 경우 산정할 byte값이다.\n"
-                            + "ex) UTF-8, 16 기준 2, UTF-32 기준 4",
-                "remarkEng": "The value used when checking the byte of a string.\n"
-                            + "The byte value is calculated if the character's ASCII code is less than or equal to 0x7ff Byte.\n"
-                            + "ex) 2 for UTF-8, 16, 4 for UTF-32"
+                "remarkKor": "문자열의 byte 체크 시 사용하는 값. 문자의 아스키 코드가 0x7ff Byte 보다 작거나 같은 경우 산정할 byte값이다. ex) UTF-8, 16 기준 2, UTF-32 기준 4",
+                "remarkEng": "The value used when checking the byte of a string. The byte value is calculated if the character's ASCII code is less than or equal to 0x7ff Byte. ex) 2 for UTF-8, 16, 4 for UTF-32"
             },
             {
                 "attribute": "vg.lessoreq0xffffByte",
                 "type": "Number",
                 "default": "3",
-                "remarkKor": "문자열의 byte 체크 시 사용하는 값. 문자의 아스키 코드가 0x7ff Byte 보다 크고, 0xffff Byte 보다 작거나 같은 경우 산정할 byte값이다.\n"
-                            + "ex) UTF-8 기준 3, UTF-16 기준 2, UTF-32 기준 4",
-                "remarkEng": "The value used when checking the byte of a string.\n"
-                            + "The byte value is calculated if the character's ASCII code is greater than 0x7ff Byte and less than or equal to 0xffff Byte.\n"
-                            + "ex) 3 for UTF-8, 2 for UTF-16, 4 for UTF-32"
+                "remarkKor": "문자열의 byte 체크 시 사용하는 값. 문자의 아스키 코드가 0x7ff Byte 보다 크고, 0xffff Byte 보다 작거나 같은 경우 산정할 byte값이다. ex) UTF-8 기준 3, UTF-16 기준 2, UTF-32 기준 4",
+                "remarkEng": "The value used when checking the byte of a string. The byte value is calculated if the character's ASCII code is greater than 0x7ff Byte and less than or equal to 0xffff Byte. ex) 3 for UTF-8, 2 for UTF-16, 4 for UTF-32"
             },
             {
                 "attribute": "vg.greater0xffffByte",
                 "type": "Number",
                 "default": "4",
-                "remarkKor": "문자열의 byte 체크 시 사용하는 값. 문자의 아스키 코드가 0xffff Byte 보다 큰 경우 산정할 byte값이다.\n"
-                            + "ex) UTF-8, 16, 32 기준 4",
-                "remarkEng": "The value used when checking the byte of a string.\n"
-                            + "The byte value is calculated if the character's ASCII code is greater than 0xffff Byte.\n"
-                            + "ex) 4 for UTF-8, 16, 32"
+                "remarkKor": "문자열의 byte 체크 시 사용하는 값. 문자의 아스키 코드가 0xffff Byte 보다 큰 경우 산정할 byte값이다. ex) UTF-8, 16, 32 기준 4",
+                "remarkEng": "The value used when checking the byte of a string. The byte value is calculated if the character's ASCII code is greater than 0xffff Byte. ex) 4 for UTF-8, 16, 32"
             }
         ];
         this.VGO_GRID_INFO_ATTRIBUTES = [
