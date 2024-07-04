@@ -573,6 +573,13 @@
 							return highlightedStr;
 						}
 
+						function getTextWithoutTag (c) {
+							const r = c.replace(/"([^"]*)"/g, (m) => {
+								return m.replace(/\n/g, '&#92;n');
+							});
+							return r.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+						}
+
 						function getResText (searchTexts) {
 							const resText = [];
 							Object.keys(searchTexts).forEach(key => {
@@ -581,7 +588,7 @@
 									const regex = new RegExp(schText, 'i');
 									if (regex.test(str)) {
 										const item = JSON.parse(JSON.stringify(searchTexts[key]));
-										item.li = highlightAndTrim(item.text, schText);
+										item.li = highlightAndTrim(getTextWithoutTag(item.text), schText);
 										item.schText = schText;
 										resText.push(item);
 									}
@@ -600,7 +607,7 @@
 											const regex = new RegExp(schText, 'i');
 											if (regex.test(str)) {
 												const item = JSON.parse(JSON.stringify(data));
-												item.li = highlightAndTrim(item.text, schText);
+												item.li = highlightAndTrim(getTextWithoutTag(item.text), schText);
 												item.schText = schText;
 												resGrid.push(item);
 											}
@@ -681,7 +688,7 @@
 	            mounted: function() {
 					this.handleScroll();
 					window.addEventListener('scroll', this.handleScroll);
-
+					
 					this.vg = getVanillagrid();
 					if(this.isMobileSize) {
 						this.vg.defaultGridCssInfo.sizeLevel = 7;
