@@ -31,20 +31,7 @@ function getSampleGrids(CONSTS) {
     function SampleGrids (CONSTS) {
         this.intro = {
             [CONSTS.SAMPLE_KEYS_INTRO[0]] :
-`<vanilla-grid id="` + CONSTS.SAMPLE_GRID_IDS_INTRO[0] + `"
-    rownumSize="40px"
-    alterRow="false"
-    colorSet="blue"
-    verticalBorderSize="0"
-    mouseoverCellBackColor="#efefef"
-    selectCellBackColor="#dfdfdf"
-    selectRowBackColor="#efefef"
-    mouseoverCellFontColor="#333"
-    selectCellFontColor="#333"
-    linkHoverFontColor="#333"
-    linkActiveFontColor="#111"
-    linkFocusFontColor="#111"
-    >
+`<vanilla-grid id="` + CONSTS.SAMPLE_GRID_IDS_INTRO[0] + `" rownumSize="40px" verticalBorderSize="0">
     <v-col id="col0" header="header;img;Picture" dataType="img" width="140px"></v-col>
     <v-col id="col1" header=";text;Whale Name" dataType="text" width="130px"></v-col>
     <v-col id="col2" header=";code;Size Code" dataType="code" codes="L;M;S" width="60px"></v-col>
