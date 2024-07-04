@@ -31,10 +31,24 @@ function getSampleGrids(CONSTS) {
     function SampleGrids (CONSTS) {
         this.intro = {
             [CONSTS.SAMPLE_KEYS_INTRO[0]] :
-`<vanilla-grid id="` + CONSTS.SAMPLE_GRID_IDS_INTRO[0] + `">
-    <v-col id="col1" header="header;text;Whale Name" dataType="text" width="150px"></v-col>
+`<vanilla-grid id="` + CONSTS.SAMPLE_GRID_IDS_INTRO[0] + `"
+    rownumSize="40px"
+    alterRow="false"
+    colorSet="blue"
+    verticalBorderSize="0"
+    mouseoverCellBackColor="#efefef"
+    selectCellBackColor="#dfdfdf"
+    selectRowBackColor="#efefef"
+    mouseoverCellFontColor="#333"
+    selectCellFontColor="#333"
+    linkHoverFontColor="#333"
+    linkActiveFontColor="#111"
+    linkFocusFontColor="#111"
+    >
+    <v-col id="col0" header="header;img;picture" dataType="img" width="140px"></v-col>
+    <v-col id="col1" header="header;text;Whale Name" dataType="text" width="130px"></v-col>
     <v-col id="col2" header=";code;Size Code" dataType="code" codes="L;M;S" width="60px"></v-col>
-    <v-col id="col3" header=";mask;ID" dataType="mask" format="99999" width="100px" align="center"></v-col>
+    <v-col id="col3" header=";mask;ID" dataType="mask" format="99999" width="60px" align="center"></v-col>
     <v-col id="col4" header=";date;Last Found\nDate" dataType="date" width="120px"></v-col>
     <v-col id="col5" header=";month;Last Found\nHabitat Month" dataType="month" footer="MAX;MIN;SUM;AVG" width="120px"></v-col>
     <v-col id="col6" header=";number;Avg\nLength" dataType="number" footer="$$MAX;$$MIN;$$SUM;$$AVG" format="#,##0.## (m)" width="80px"></v-col>
