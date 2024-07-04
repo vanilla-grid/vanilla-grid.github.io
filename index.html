@@ -17,13 +17,13 @@
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
-	<script src="Vanillagrid.min.1.0.0.js?v=202407041336"></script>
-	<script src="DataType.js?v=202407041336"></script>
-	<script src="Consts.js?v=202407041336"></script>
-	<script src="Contents.js?v=202407041339"></script>
-	<script src="SampleDatas.js?v=202407041336"></script>
-	<script src="SampleGrids.js?v=202407041336"></script>
-	<script src="Component.js?v=202407041336"></script>
+	<script src="Vanillagrid.min.1.0.0.js?v=202407041437"></script>
+	<script src="DataType.js?v=202407041437"></script>
+	<script src="Consts.js?v=202407041437"></script>
+	<script src="Contents.js?v=202407041437"></script>
+	<script src="SampleDatas.js?v=202407041437"></script>
+	<script src="SampleGrids.js?v=202407041437"></script>
+	<script src="Component.js?v=202407041437"></script>
 	<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
 	<style>
 	*, ::before, ::after {
@@ -689,7 +689,7 @@
 						this.vg.defaultGridCssInfo.height = '400px';
 					}
 					else {
-						this.vg.defaultGridCssInfo.height = '500px';
+						this.vg.defaultGridCssInfo.height = '600px';
 					}
 					//filter, sort span customize
 					this.vg.filterSpan = document.createElement("i");
@@ -702,6 +702,9 @@
 					this.vg.sortDescSpan = document.createElement("i");
 					this.vg.sortDescSpan.setAttribute("class", "fas fa-sort-down");
 					this.vg.sortDescSpan.style.marginLeft = "7px";
+
+					//add data type
+					this.vg.dataType = getDataType();
 
 					this.vg.create();
 					this.loadGrid();
@@ -785,27 +788,27 @@
 	            		switch(this.currentLang) {
 	            			case 'KOR' :
 								grid01.setHeaderText('col1', 'header;text;고래 이름');
-								grid01.setHeaderText('col2', 'header;text;크기\n코드');
-								grid01.setHeaderText('col3', 'header;text;식별 번호');
-								grid01.setHeaderText('col4', 'header;text;발견 최근 날짜');
-								grid01.setHeaderText('col5', 'header;text;서식지 발견\n최근 년월');
-								grid01.setHeaderText('col6', 'header;text;평균\n길이');
-								grid01.setHeaderText('col7', 'header;text;보호 등급');
-								grid01.setHeaderText('col8', 'header;text;보호 상태');
-								grid01.setHeaderText('col9', 'header;text;소리 재생');
-								grid01.setHeaderText('col10', 'header;text;더 알아보기');
+								grid01.setHeaderText('col2', ';code;크기\n코드');
+								grid01.setHeaderText('col3', ';mask;식별 번호');
+								grid01.setHeaderText('col4', ';date;발견 최근 날짜');
+								grid01.setHeaderText('col5', ';month;서식지 발견\n최근 년월');
+								grid01.setHeaderText('col6', ';number;평균\n길이');
+								grid01.setHeaderText('col7', ';select;보호 등급');
+								grid01.setHeaderText('col8', ';checkbox;보호 상태');
+								grid01.setHeaderText('col9', ';button;소리 재생');
+								grid01.setHeaderText('col10', ';link;더 알아보기');
 	            				break;
 	            			default :
 								grid01.setHeaderText('col1', 'header;text;Whale Name');
-								grid01.setHeaderText('col2', 'header;text;Size\nCode');
-								grid01.setHeaderText('col3', 'header;text;ID');
-								grid01.setHeaderText('col4', 'header;text;Last Found\nDate');
-								grid01.setHeaderText('col5', 'header;text;Last Found\nHabitat Month');
-								grid01.setHeaderText('col6', 'header;text;Avg\nLength');
-								grid01.setHeaderText('col7', 'header;text;Protection Status');
-								grid01.setHeaderText('col8', 'header;text;Protected');
-								grid01.setHeaderText('col9', 'header;text;Play Sound');
-								grid01.setHeaderText('col10', 'header;text;View More');
+								grid01.setHeaderText('col2', ';code;Size\nCode');
+								grid01.setHeaderText('col3', ';mask;ID');
+								grid01.setHeaderText('col4', ';date;Last Found\nDate');
+								grid01.setHeaderText('col5', ';month;Last Found\nHabitat Month');
+								grid01.setHeaderText('col6', ';number;Avg\nLength');
+								grid01.setHeaderText('col7', ';select;Protection Status');
+								grid01.setHeaderText('col8', ';checkbox;Protected');
+								grid01.setHeaderText('col9', ';button;Play Sound');
+								grid01.setHeaderText('col10', ';link;View More');
 	            				break;
 						}
 					},
