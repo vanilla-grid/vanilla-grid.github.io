@@ -17,13 +17,13 @@
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
-	<script src="Vanillagrid.min.1.0.0.js?v=202407041447"></script>
-	<script src="DataType.js?v=202407041447"></script>
-	<script src="Consts.js?v=202407041447"></script>
-	<script src="Contents.js?v=202407041447"></script>
-	<script src="SampleDatas.js?v=202407041447"></script>
-	<script src="SampleGrids.js?v=202407041447"></script>
-	<script src="Component.js?v=202407041447"></script>
+	<script src="Vanillagrid.min.1.0.0.js?v=202407041627"></script>
+	<script src="DataType.js?v=202407041627"></script>
+	<script src="Consts.js?v=202407041627"></script>
+	<script src="Contents.js?v=202407041627"></script>
+	<script src="SampleDatas.js?v=202407041627"></script>
+	<script src="SampleGrids.js?v=202407041627"></script>
+	<script src="Component.js?v=202407041627"></script>
 	<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
 	<style>
 	*, ::before, ::after {
@@ -386,7 +386,7 @@
 				{ id: 'ENG', name: 'ENG' },
 				{ id: 'KOR', name: 'KOR' },
 			],
-	        isMobileSize: window.innerWidth <= 600 ? true : false,
+	        isMobileSize: window.innerWidth <= 800 ? true : false,
 	    },
 	    computed: {
         	isMobile() {
@@ -414,7 +414,7 @@
 	                clearTimeout(this.resizeTimeout);
 	            }
 	            this.resizeTimeout = setTimeout(() => {
-		        	this.isMobileSize = window.innerWidth <= 600 ? true : false;
+		        	this.isMobileSize = window.innerWidth <= 800 ? true : false;
 	            }, 10);
 			},
 			changeSub(id, e) {
@@ -582,39 +582,47 @@
 
 						function getResText (searchTexts) {
 							const resText = [];
-							Object.keys(searchTexts).forEach(key => {
-								if(searchTexts[key].text && typeof searchTexts[key].text === 'string') {
-									const str = searchTexts[key].text ? searchTexts[key].text.replace(/\s+/g, '') : "";
-									const regex = new RegExp(schText, 'i');
-									if (regex.test(str)) {
-										const item = JSON.parse(JSON.stringify(searchTexts[key]));
-										item.li = highlightAndTrim(getTextWithoutTag(item.text), schText);
-										item.schText = schText;
-										resText.push(item);
+							try {
+								Object.keys(searchTexts).forEach(key => {
+									if(searchTexts[key].text && typeof searchTexts[key].text === 'string') {
+										const str = searchTexts[key].text ? searchTexts[key].text.replace(/\s+/g, '') : "";
+										const regex = new RegExp(schText, 'i');
+										if (regex.test(str)) {
+											const item = JSON.parse(JSON.stringify(searchTexts[key]));
+											item.li = highlightAndTrim(getTextWithoutTag(item.text), schText);
+											item.schText = schText;
+											resText.push(item);
+										}
 									}
-								}
-							});
+								});	
+							} catch (error) {
+								return [];
+							}
 							return resText;
 						}
 
 						function getResGrid (searchGrids) {
 							const resGrid = [];
-							Object.keys(searchGrids).forEach(gridId => {
-								Object.keys(searchGrids[gridId]).forEach((colId) => {
-									searchGrids[gridId][colId].forEach((data) => {
-										if(data.text && typeof data.text === 'string') {
-											const str = data.text ? data.text.replace(/\s+/g, '') : "";
-											const regex = new RegExp(schText, 'i');
-											if (regex.test(str)) {
-												const item = JSON.parse(JSON.stringify(data));
-												item.li = highlightAndTrim(getTextWithoutTag(item.text), schText);
-												item.schText = schText;
-												resGrid.push(item);
+							try {
+								Object.keys(searchGrids).forEach(gridId => {
+									Object.keys(searchGrids[gridId]).forEach((colId) => {
+										searchGrids[gridId][colId].forEach((data) => {
+											if(data.text && typeof data.text === 'string') {
+												const str = data.text ? data.text.replace(/\s+/g, '') : "";
+												const regex = new RegExp(schText, 'i');
+												if (regex.test(str)) {
+													const item = JSON.parse(JSON.stringify(data));
+													item.li = highlightAndTrim(getTextWithoutTag(item.text), schText);
+													item.schText = schText;
+													resGrid.push(item);
+												}
 											}
-										}
+										});
 									});
 								});
-							});
+							} catch (error) {
+								return [];
+							}
 							return resGrid;
 						}
 						
