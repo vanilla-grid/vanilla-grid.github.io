@@ -31,7 +31,7 @@ function getContents(CONSTS) {
         this.ENG = {
             common: {
                 "COMMON-0000" : {
-                    text: "▼ The example code is as follows."
+                    text: "▼ The example code for the grid above is as follows."
                 },
                 "COMMON-0001" : {
                     text: "▼ The data inserted into the grid above is as follows."
@@ -92,10 +92,10 @@ function getContents(CONSTS) {
 //Below is an example of a grid with 5 columns and 2 rows of data.
 const keyValues = [
     {
-        col1 : 'val1', col2 : '202202', col3 : 'ABC', col4 : 1, col5 : '20240101', //column key-value..
+        col1 : 'Blue Whale', col2 : 'L', col3 : '00001', col4 : '20230115', col5 : '202301', //column key-value..
     },
     {
-        col1 : 'val1', col2 : '202202', col3 : 'ABC', col4 : 1, col5 : '20240101', //column key-value..
+        col1 : 'Humpback Whale', col2 : 'L', col3 : '00002', col4 : '20230220', col5 : '202302', //column key-value..
     },
 ]`,
                     },
@@ -112,36 +112,36 @@ const keyValues = [
 const datas = [
     [
         {
-            id: 'col1', value: 'val11', dataType: 'text', fontBold: true, //column info..
+            id: 'col1', value: 'Blue Whale', dataType: 'text', //column info..
         },
         {
-            id: 'col2', value: '202202', dataType: 'month', //column info..
+            id: 'col2', value: 'L', dataType: 'code', codes: 'L;M;S', //column info..
         },
         {
-            id: 'col3', value: 'ABC', dataType: 'mask', format:'AAA', //column info..
+            id: 'col3', value: '00001', dataType: 'mask', format:'99999', //column info..
         },
         {
-            id: 'col4', value: '1', dataType: 'number', //column info..
+            id: 'col4', value: '20230115', dataType: 'date', //column info..
         },
         {
-            id: 'col5', value: '20240101', dataType: 'date', //column info..
+            id: 'col5', value: '202301', dataType: 'month', //column info..
         },
     ],
     [
         {
-            id: 'col1', value: 'val11', dataType: 'text', fontBold: true, //column info..
+            id: 'col1', value: 'Humpback Whale', dataType: 'text', //column info..
         },
         {
-            id: 'col2', value: '202202', dataType: 'month', //column info..
+            id: 'col2', value: 'L', dataType: 'code', codes: 'L;M;S', //column info..
         },
         {
-            id: 'col3', value: 'abc', dataType: 'mask', format:'aaa', //column info..
+            id: 'col3', value: '00002', dataType: 'mask', format:'99999', //column info..
         },
         {
-            id: 'col4', value: '1', dataType: 'number', //column info..
+            id: 'col4', value: '20230220', dataType: 'date', //column info..
         },
         {
-            id: 'col5', value: '20240101', dataType: 'date', //column info..
+            id: 'col5', value: '202302', dataType: 'month', //column info..
         },
     ],
 ]`,
@@ -2517,7 +2517,7 @@ function vanillagrid_onBeforeCreate (e, vg) {
         this.KOR = {
             common: {
                 "COMMON-0000" : {
-                    text: "▼ 예시 코드는 아래와 같습니다."
+                    text: "▼ 위 grid의 예시 코드는 아래와 같습니다."
                 },
                 "COMMON-0001" : {
                     text: "▼ 위 grid에 삽입한 데이터는 아래와 같습니다."
@@ -2578,10 +2578,10 @@ function vanillagrid_onBeforeCreate (e, vg) {
 //아래는 5열의 grid에 2줄의 데이터를 표현합니다.
 const keyValues = [
     {
-        col1 : 'val1', col2 : '202202', col3 : 'ABC', col4 : 1, col5 : '20240101', //column key-value..
+        col1 : '대왕고래', col2 : 'L', col3 : '00001', col4 : '20230115', col5 : '202301', //column key-value..
     },
     {
-        col1 : 'val1', col2 : '202202', col3 : 'ABC', col4 : 1, col5 : '20240101', //column key-value..
+        col1 : '혹등고래', col2 : 'L', col3 : '00002', col4 : '20230220', col5 : '202302', //column key-value..
     },
     //...
 ]`,
@@ -2599,36 +2599,36 @@ const keyValues = [
 const datas = [
     [
         {
-            id: 'col1', value: 'val11', dataType: 'text', fontBold: true, //column info..
+            id: 'col1', value: '대왕고래', dataType: 'text', //column info..
         },
         {
-            id: 'col2', value: '202202', dataType: 'month', //column info..
+            id: 'col2', value: 'L', dataType: 'code', codes: 'L;M;S', //column info..
         },
         {
-            id: 'col3', value: 'ABC', dataType: 'mask', format:'AAA', //column info..
+            id: 'col3', value: '00001', dataType: 'mask', format:'99999', //column info..
         },
         {
-            id: 'col4', value: '1', dataType: 'number', //column info..
+            id: 'col4', value: '20230115', dataType: 'date', //column info..
         },
         {
-            id: 'col5', value: '20240101', dataType: 'date', //column info..
+            id: 'col5', value: '202301', dataType: 'month', //column info..
         },
     ],
     [
         {
-            id: 'col1', value: 'val11', dataType: 'text', fontBold: true, //column info..
+            id: 'col1', value: '혹등고래', dataType: 'text', //column info..
         },
         {
-            id: 'col2', value: '202202', dataType: 'month', //column info..
+            id: 'col2', value: 'L', dataType: 'code', codes: 'L;M;S', //column info..
         },
         {
-            id: 'col3', value: 'abc', dataType: 'mask', format:'aaa', //column info..
+            id: 'col3', value: '00002', dataType: 'mask', format:'99999', //column info..
         },
         {
-            id: 'col4', value: '1', dataType: 'number', //column info..
+            id: 'col4', value: '20230220', dataType: 'date', //column info..
         },
         {
-            id: 'col5', value: '20240101', dataType: 'date', //column info..
+            id: 'col5', value: '202302', dataType: 'month', //column info..
         },
     ],
     //...
