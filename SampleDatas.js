@@ -895,7 +895,8 @@ function getSampleDatas(CONSTS, CONTENTS) {
         this.ENG = {
             intro : {
                 [CONSTS.SAMPLE_KEYS_INTRO[0]] : [
-                    {
+                    {   
+                        "col0": {src:"whale/Blue Whale.jpg", alt:"Blue Whale from Wiki"},
                         "col1": "Blue Whale",
                         "col2": "L",
                         "col3": "00001",
@@ -912,6 +913,7 @@ function getSampleDatas(CONSTS, CONTENTS) {
                         "col10": {"value": "https://en.wikipedia.org/wiki/Blue_whale", "text": "View Details"}
                     },
                     {
+                        "col0": {src:"whale/Humpback Whale.jpg", alt:"Humpback Whale from Wiki"},
                         "col1": "Humpback Whale",
                         "col2": "L",
                         "col3": "00002",
@@ -928,6 +930,7 @@ function getSampleDatas(CONSTS, CONTENTS) {
                         "col10": {"value": "https://en.wikipedia.org/wiki/Humpback_whale", "text": "View Details"}
                     },
                     {
+                        "col0": {src:"whale/Sperm Whale.jpg", alt:"Sperm Whale from Wiki"},
                         "col1": "Sperm Whale",
                         "col2": "L",
                         "col3": "00003",
@@ -944,6 +947,7 @@ function getSampleDatas(CONSTS, CONTENTS) {
                         "col10": {"value": "https://en.wikipedia.org/wiki/Sperm_whale", "text": "View Details"}
                     },
                     {
+                        "col0": {src:"whale/Fin Whale.jpg", alt:"Fin Whale from Wiki"},
                         "col1": "Fin Whale",
                         "col2": "L",
                         "col3": "00004",
@@ -960,6 +964,7 @@ function getSampleDatas(CONSTS, CONTENTS) {
                         "col10": {"value": "https://en.wikipedia.org/wiki/Fin_whale", "text": "View Details"}
                     },
                     {
+                        "col0": {src:"whale/Gray Whale.jpg", alt:"Gray Whale from Wiki"},
                         "col1": "Gray Whale",
                         "col2": "L",
                         "col3": "00005",
@@ -976,6 +981,7 @@ function getSampleDatas(CONSTS, CONTENTS) {
                         "col10": {"value": "https://en.wikipedia.org/wiki/Fin_whale", "text": "View Details"}
                     },
                     {
+                        "col0": {src:"whale/Orca.jpg", alt:"Orca from Wiki"},
                         "col1": "Orca",
                         "col2": "M",
                         "col3": "00006",
@@ -992,6 +998,7 @@ function getSampleDatas(CONSTS, CONTENTS) {
                         "col10": {"value": "https://en.wikipedia.org/wiki/Orca", "text": "View Details"}
                     },
                     {
+                        "col0": {src:"whale/False Killer Whale.jpg", alt:"False Killer Whale from Wiki"},
                         "col1": "False Killer Whale",
                         "col2": "M",
                         "col3": "00007",
@@ -1008,6 +1015,7 @@ function getSampleDatas(CONSTS, CONTENTS) {
                         "col10": {"value": "https://en.wikipedia.org/wiki/False_killer_whale", "text": "View Details"}
                     },
                     {
+                        "col0": {src:"whale/Beluga Whale.jpg", alt:"Beluga Whale from Wiki"},
                         "col1": "Beluga Whale",
                         "col2": "S",
                         "col3": "00008",
@@ -1024,6 +1032,7 @@ function getSampleDatas(CONSTS, CONTENTS) {
                         "col10": {"value": "https://en.wikipedia.org/wiki/Beluga_whale", "text": "View Details"}
                     },
                     {
+                        "col0": {src:"whale/Dolphin.jpg", alt:"Dolphin from Wiki"},
                         "col1": "Dolphin",
                         "col2": "S",
                         "col3": "00009",
@@ -1040,6 +1049,7 @@ function getSampleDatas(CONSTS, CONTENTS) {
                         "col10": {"value": "https://en.wikipedia.org/wiki/Dolphin", "text": "View Details"}
                     },
                     {
+                        "col0": {src:"whale/Minke Whale.jpg", alt:"Minke Whale from Wiki"},
                         "col1": "Minke Whale",
                         "col2": "M",
                         "col3": "00010",
@@ -1682,6 +1692,7 @@ function getSampleDatas(CONSTS, CONTENTS) {
             intro : {
                 [CONSTS.SAMPLE_KEYS_INTRO[0]] : [
                     {
+                        "col0": {src:"whale/Blue Whale.jpg", alt:"Blue Whale from Wiki"},
                         "col1": "대왕고래",
                         "col2": "L",
                         "col3": "00001",
@@ -1698,6 +1709,7 @@ function getSampleDatas(CONSTS, CONTENTS) {
                         "col10": {"value": "https://ko.wikipedia.org/wiki/%EB%8C%80%EC%99%95%EA%B3%A0%EB%9E%98", "text": "자세히 보기"}
                     },
                     {
+                        "col0": {src:"whale/Humpback Whale.jpg", alt:"Humpback Whale from Wiki"},
                         "col1": "혹등고래",
                         "col2": "L",
                         "col3": "00002",
@@ -1714,6 +1726,7 @@ function getSampleDatas(CONSTS, CONTENTS) {
                         "col10": {"value": "https://ko.wikipedia.org/wiki/%ED%98%B9%EB%93%B1%EA%B3%A0%EB%9E%98", "text": "자세히 보기"}
                     },
                     {
+                        "col0": {src:"whale/Sperm Whale.jpg", alt:"Sperm Whale from Wiki"},
                         "col1": "향유고래",
                         "col2": "L",
                         "col3": "00003",
@@ -1730,6 +1743,7 @@ function getSampleDatas(CONSTS, CONTENTS) {
                         "col10": {"value": "https://ko.wikipedia.org/wiki/%ED%96%A5%EC%9C%A0%EA%B3%A0%EB%9E%98", "text": "자세히 보기"}
                     },
                     {
+                        "col0": {src:"whale/Fin Whale.jpg", alt:"Fin Whale from Wiki"},
                         "col1": "참고래",
                         "col2": "L",
                         "col3": "00004",
@@ -1746,6 +1760,7 @@ function getSampleDatas(CONSTS, CONTENTS) {
                         "col10": {"value": "https://ko.wikipedia.org/wiki/%EC%B0%B8%EA%B3%A0%EB%9E%98", "text": "자세히 보기"}
                     },
                     {
+                        "col0": {src:"whale/Gray Whale.jpg", alt:"Gray Whale from Wiki"},
                         "col1": "귀신고래",
                         "col2": "L",
                         "col3": "00005",
@@ -1762,6 +1777,7 @@ function getSampleDatas(CONSTS, CONTENTS) {
                         "col10": {"value": "https://ko.wikipedia.org/wiki/%EA%B7%80%EC%8B%A0%EA%B3%A0%EB%9E%98", "text": "자세히 보기"}
                     },
                     {
+                        "col0": {src:"whale/Orca.jpg", alt:"Orca from Wiki"},
                         "col1": "범고래",
                         "col2": "M",
                         "col3": "00006",
@@ -1778,6 +1794,7 @@ function getSampleDatas(CONSTS, CONTENTS) {
                         "col10": {"value": "https://ko.wikipedia.org/wiki/%EB%B2%94%EA%B3%A0%EB%9E%98", "text": "자세히 보기"}
                     },
                     {
+                        "col0": {src:"whale/False Killer Whale.jpg", alt:"False Killer Whale from Wiki"},
                         "col1": "흑범고래",
                         "col2": "M",
                         "col3": "00007",
@@ -1794,7 +1811,8 @@ function getSampleDatas(CONSTS, CONTENTS) {
                         "col10": {"value": "https://ko.wikipedia.org/wiki/%ED%9D%91%EB%B2%94%EA%B3%A0%EB%9E%98", "text": "자세히 보기"}
                     },
                     {
-                        "col1": "흰돌고래(벨루가)",
+                        "col0": {src:"whale/Beluga Whale.jpg", alt:"Beluga Whale from Wiki"},
+                        "col1": "흰돌고래",
                         "col2": "S",
                         "col3": "00008",
                         "col4": "20230730",
@@ -1810,6 +1828,7 @@ function getSampleDatas(CONSTS, CONTENTS) {
                         "col10": {"value": "https://ko.wikipedia.org/wiki/%ED%9D%B0%EB%8F%8C%EA%B3%A0%EB%9E%98", "text": "자세히 보기"}
                     },
                     {
+                        "col0": {src:"whale/Dolphin.jpg", alt:"Dolphin from Wiki"},
                         "col1": "돌고래",
                         "col2": "S",
                         "col3": "00009",
@@ -1826,6 +1845,7 @@ function getSampleDatas(CONSTS, CONTENTS) {
                         "col10": {"value": "https://ko.wikipedia.org/wiki/%EB%8F%8C%EA%B3%A0%EB%9E%98", "text": "자세히 보기"}
                     },
                     {
+                        "col0": {src:"whale/Minke Whale.jpg", alt:"Minke Whale from Wiki"},
                         "col1": "민부리고래",
                         "col2": "M",
                         "col3": "00010",
