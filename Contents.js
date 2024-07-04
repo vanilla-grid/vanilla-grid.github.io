@@ -167,11 +167,19 @@ const datas = [
                         text: "The current page is implemented using vue 2 and bootstrap 3. Let's take this method as an example."
                     },
                     "INTRO-0303": {
-                        text: "1. Declare Vanilla Grid in the header."
+                        text: "1-1. Declare Vanilla Grid in the header."
                     },
                     "INTRO-0304": {
                         code: 
 `<script src="Vanillagrid.min.1.0.0.js"></script>
+`,
+                    },
+                    "INTRO-0315": {
+                        text: "1-2. or use npm."
+                    },
+                    "INTRO-0316": {
+                        code: 
+`npm i vanillagrid
 `,
                     },
                     "INTRO-0305": {
@@ -284,6 +292,9 @@ beforeDestroy: function() {
                     },
                     "INTRO-0500": {
                         text: "Browser Compatibility"
+                    },
+                    "INTRO-0501": {
+                        text: "※ Vanillagrid.js primarily uses ES6 syntax. If you need compatibility with older environments, consider using Babel!"
                     },
                     "INTRO-0600": {
                         text: "License"
@@ -403,11 +414,19 @@ beforeDestroy: function() {
                         text: "Starting Vanilla Grid is very simple.",
                     },
                     "STARTED-0002": {
-                        text: "1. Declare Vanilla Grid in the header.",
+                        text: "1-1. Declare Vanilla Grid in the header.",
                     },
                     "STARTED-0003": {
                         code: 
 `<script src="Vanillagrid.min.1.0.0.js"></script>
+`,
+                    },
+                    "STARTED-0006": {
+                        text: "1-2. or use npm."
+                    },
+                    "STARTED-0007": {
+                        code: 
+`npm i vanillagrid
 `,
                     },
                     "STARTED-0004": {
@@ -1070,65 +1089,35 @@ addRowWithSetGridMount_onClick(e) {
                     [CONSTS.SAMPLE_KEYS_DIVE[3]] : {
                         "tn": [
                             {
-                                "text": "Seoul FC"
+                                "text": "LG Twins"
                             },
                             {
-                                "text": "Busan United"
+                                "text": "Kt wiz"
                             },
                             {
-                                "text": "Daegu FC"
+                                "text": "SSG Landers"
                             },
                             {
-                                "text": "Incheon United"
+                                "text": "NC Dinos"
                             },
                             {
-                                "text": "Gwangju FC"
+                                "text": "Doosan Bears"
                             },
                             {
-                                "text": "Daejeon Citizen"
+                                "text": "KIA Tigers"
                             },
                             {
-                                "text": "Ulsan Hyundai"
+                                "text": "Lotte Giants"
                             },
                             {
-                                "text": "Suwon Samsung Bluewings"
+                                "text": "Samsung Lions"
                             },
                             {
-                                "text": "Jeonbuk Hyundai Motors"
+                                "text": "Hanwha Eagles"
                             },
                             {
-                                "text": "Jeju United"
+                                "text": "Kiwoom Heroes"
                             },
-                            {
-                                "text": "Seongnam FC"
-                            },
-                            {
-                                "text": "Pohang Steelers"
-                            },
-                            {
-                                "text": "Gangwon FC"
-                            },
-                            {
-                                "text": "Jeonnam Dragons"
-                            },
-                            {
-                                "text": "Gyeongnam FC"
-                            },
-                            {
-                                "text": "Anyang FC"
-                            },
-                            {
-                                "text": "Bucheon FC"
-                            },
-                            {
-                                "text": "Ansan Greeners"
-                            },
-                            {
-                                "text": "Seoul E-Land"
-                            },
-                            {
-                                "text": "Suwon FC"
-                            }
                         ],
                     },
                 },
@@ -1230,12 +1219,20 @@ function vanillagrid_onAfterCreate(e, vg) {
                         "text": "The create and destroy functions of Vanillagrid can be used in Vue as follows."
                     },
                     "DIVE-1501": {
-                        "text": "1. Declare Vanilla Grid in the header."
+                        "text": "1-1. Declare Vanilla Grid in the header."
                     },
                     "DIVE-1502": {
                         "code": 
 `<script src="Vanillagrid.min.1.0.0.js"></script>
 `
+                    },
+                    "DIVE-1513": {
+                        text: "1-2. or use npm.",
+                    },
+                    "DIVE-1514": {
+                        code: 
+`npm i vanillagrid
+`,
                     },
                     "DIVE-1503": {
                         "text": "2. At the end of the body,"
@@ -2658,11 +2655,19 @@ const datas = [
                         text: "현재 페이지는 vue 2 와 bootstrap 3 를 활용하여 구현했습니다. 해당 방식을 예로 들어보겠습니다.",
                     },
                     "INTRO-0303": {
-                        text: "1. header에 Vanilla Grid를 선언합니다.",
+                        text: "1-1. header에 Vanilla Grid를 선언합니다.",
                     },
                     "INTRO-0304": {
                         code: 
 `<script src="Vanillagrid.min.1.0.0.js"></script>
+`,
+                    },
+                    "INTRO-0315": {
+                        text: "1-2. 또는 npm을 사용합니다.."
+                    },
+                    "INTRO-0316": {
+                        code: 
+`npm i vanillagrid
 `,
                     },
                     "INTRO-0305": {
@@ -2771,6 +2776,9 @@ beforeDestroy: function() {
                     },
                     "INTRO-0500": {
                         text: "브라우저 호환성",
+                    },
+                    "INTRO-0501": {
+                        text: "※ Vanillagrid.js는 ES6 문법을 주로 사용했습니다. 더 낮은 호환을 원하시면 babel을 사용하세요!",
                     },
                     "INTRO-0600": {
                         text: "라이센스",
@@ -2890,11 +2898,19 @@ beforeDestroy: function() {
                         text: "Vanilla Grid를 시작하는 방법은 매우 간단합니다.",
                     },
                     "STARTED-0002": {
-                        text: "1. header에 Vanilla Grid를 선언합니다.",
+                        text: "1-1. header에 Vanilla Grid를 선언합니다.",
                     },
                     "STARTED-0003": {
                         code: 
 `<script src="Vanillagrid.min.1.0.0.js"></script>
+`,
+                    },
+                    "STARTED-0006": {
+                        text: "1-2. 또는 npm을 사용합니다."
+                    },
+                    "STARTED-0007": {
+                        code: 
+`npm i vanillagrid
 `,
                     },
                     "STARTED-0004": {
@@ -3557,65 +3573,35 @@ addRowWithSetGridMount_onClick(e) {
                     [CONSTS.SAMPLE_KEYS_DIVE[3]] : {
                         "tn": [
                             {
-                                "text": "서울 FC"
+                                "text": "LG 트윈스"
                             },
                             {
-                                "text": "부산 유나이티드"
+                                "text": "Kt 위즈"
                             },
                             {
-                                "text": "대구 FC"
+                                "text": "SSG 랜더스"
                             },
                             {
-                                "text": "인천 유나이티드"
+                                "text": "NC 다이노스"
                             },
                             {
-                                "text": "광주 FC"
+                                "text": "두산 베어스"
                             },
                             {
-                                "text": "대전 시티즌"
+                                "text": "KIA 타이거즈"
                             },
                             {
-                                "text": "울산 현대"
+                                "text": "롯데 자이언츠"
                             },
                             {
-                                "text": "수원 삼성 블루윙즈"
+                                "text": "삼성 라이온즈"
                             },
                             {
-                                "text": "전북 현대 모터스"
+                                "text": "한화 이글스"
                             },
                             {
-                                "text": "제주 유나이티드"
+                                "text": "키움 히어로즈"
                             },
-                            {
-                                "text": "성남 FC"
-                            },
-                            {
-                                "text": "포항 스틸러스"
-                            },
-                            {
-                                "text": "강원 FC"
-                            },
-                            {
-                                "text": "전남 드래곤즈"
-                            },
-                            {
-                                "text": "경남 FC"
-                            },
-                            {
-                                "text": "안양 FC"
-                            },
-                            {
-                                "text": "부천 FC"
-                            },
-                            {
-                                "text": "안산 그리너스"
-                            },
-                            {
-                                "text": "서울 이랜드"
-                            },
-                            {
-                                "text": "수원 FC"
-                            }
                         ],
                     },
                 },
@@ -3717,11 +3703,19 @@ function vanillagrid_onAfterCreate(e, vg) {
                         text: "Vanillagrid의 create, destroy기능은 Vue에서는 아래와 같이 활용할 수 있다."
                     },
                     "DIVE-1501": {
-                        text: "1. header에 Vanilla Grid를 선언합니다.",
+                        text: "1-1. header에 Vanilla Grid를 선언합니다.",
                     },
                     "DIVE-1502": {
                         code: 
 `<script src="Vanillagrid.min.1.0.0.js"></script>
+`,
+                    },
+                    "DIVE-1513": {
+                        text: "1-2. 또는 npm을 사용합니다..",
+                    },
+                    "DIVE-1514": {
+                        code: 
+`npm i vanillagrid
 `,
                     },
                     "DIVE-1503": {
