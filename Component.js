@@ -206,6 +206,8 @@ function getComponents(CONSTS, SAMPLE_GRIDS) {
                         <p class="h5" :id="getContentAnchor('INTRO-0302')">{{getContentText("INTRO-0302")}}</p>
                         <p class="h5" :id="getContentAnchor('INTRO-0303')">{{getContentText("INTRO-0303")}}</p>
                         <pre><code>{{getContentCode("INTRO-0304")}}</code></pre>
+                        <p class="h5" :id="getContentAnchor('INTRO-0315')">{{getContentText("INTRO-0315")}}</p>
+                        <pre><code>{{getContentCode("INTRO-0316")}}</code></pre>
                         <p class="h5" :id="getContentAnchor('INTRO-0305')">{{getContentText("INTRO-0305")}}</p>
                         <pre><code>{{getContentCode("INTRO-0306")}}</code></pre>
                         <p class="h5" :id="getContentAnchor('INTRO-0307')">{{getContentText("INTRO-0307")}}</p>
@@ -245,6 +247,7 @@ function getComponents(CONSTS, SAMPLE_GRIDS) {
                     <br><br><br>
                     <p class="h3 padding-top" :id="introSubs[2]"><span class="dot"><i class="fas fa-book-open"></i></span><b :id="getContentAnchor('INTRO-0500')">{{getContentText("INTRO-0500")}}</b></p>
                     <div class="explain-box">
+                        <p class="h6 text-danger" :id="getContentAnchor('INTRO-0501')">{{getContentText("INTRO-0501")}}</p>
 						<table class="table">
 							<tbody>
 								<tr>
@@ -255,48 +258,48 @@ function getComponents(CONSTS, SAMPLE_GRIDS) {
 								<tr>
 									<td class="text-center" rowspan="5"><i class="fas fa-desktop"></i></th>
 									<td><i class="fab fa-chrome"></i>&nbsp;&nbsp;Chrome</th>
-									<td class="text-success">0</td>
+									<td class="text-success">54</td>
 								</tr>
 								<tr>
 									<td><i class="fab fa-edge"></i>&nbsp;&nbsp;Edge</th>
-									<td class="text-success">0</td>
+									<td class="text-success">14</td>
 								</tr>
 								<tr>
 									<td><i class="fab fa-safari"></i>&nbsp;&nbsp;Safari</th>
-									<td class="text-success">0</td>
+									<td class="text-success">10.1</td>
 								</tr>
 								<tr>
 									<td><i class="fab fa-firefox"></i>&nbsp;&nbsp;Firefox</th>
-									<td class="text-success">0</td>
+									<td class="text-success">47</td>
 								</tr>
 								<tr>
 									<td><i class="fab fa-opera"></i>&nbsp;&nbsp;Opera</th>
-									<td class="text-success">0</td>
+									<td class="text-success">41</td>
 								</tr>
 								<tr>
 									<td class="text-center" rowspan="6"><i class="fas fa-mobile-alt"></i></th>
 									<td><i class="fab fa-chrome"></i>&nbsp;&nbsp;Chrome Android</th>
-									<td class="text-success">0</td>
+									<td class="text-success">54</td>
 								</tr>
 								<tr>
 									<td><i class="fab fa-safari"></i>&nbsp;&nbsp;Safari on IOS</th>
-									<td class="text-success">0</td>
+									<td class="text-success">10.3</td>
 								</tr>
 								<tr>
 									<td><i class="fab fa-firefox"></i>&nbsp;&nbsp;Firefox for Android</th>
-									<td class="text-danger">0</td>
+									<td class="text-success">47</td>
 								</tr>
 								<tr>
 									<td><i class="fab fa-opera"></i>&nbsp;&nbsp;Opera Android</th>
-									<td class="text-success">0</td>
+									<td class="text-success">41</td>
 								</tr>
 								<tr>
 									<td><i class="fas fa-globe"></i>&nbsp;&nbsp;Samsung Internet</th>
-									<td class="text-success">0</td>
+									<td class="text-success">6.2</td>
 								</tr>
 								<tr>
 									<td><i class="fab fa-android"></i>&nbsp;&nbsp;WebView Android</th>
-									<td class="text-success">0</td>
+									<td class="text-success">54</td>
 								</tr>
 							</tbody>
 						</table>
@@ -334,6 +337,8 @@ function getComponents(CONSTS, SAMPLE_GRIDS) {
                         <p class="h5" :id="getContentAnchor('STARTED-0001')">{{getContentText("STARTED-0001")}}</p>
                         <p class="h5" :id="getContentAnchor('STARTED-0002')">{{getContentText("STARTED-0002")}}</p>
                         <pre><code>{{getContentCode("STARTED-0003")}}</code></pre>
+                        <p class="h5" :id="getContentAnchor('STARTED-0006')">{{getContentText("STARTED-0006")}}</p>
+                        <pre><code>{{getContentCode("STARTED-0007")}}</code></pre>
                         <p class="h5" :id="getContentAnchor('STARTED-0004')">{{getContentText("STARTED-0004")}}</p>
                         <pre><code>{{getContentCode("STARTED-0005")}}</code></pre>
                         <p class="h5">{{getCommonContent("COMMON-0009")}}</p>
@@ -638,6 +643,8 @@ function getComponents(CONSTS, SAMPLE_GRIDS) {
                         <p class="h5" :id="getContentAnchor('DIVE-1500')">{{getContentText("DIVE-1500")}}</p>
                         <p class="h5" :id="getContentAnchor('DIVE-1501')">{{getContentText("DIVE-1501")}}</p>
                         <pre><code>{{getContentCode("DIVE-1502")}}</code></pre>
+                        <p class="h5" :id="getContentAnchor('DIVE-1513')">{{getContentText("DIVE-1513")}}</p>
+                        <pre><code>{{getContentCode("DIVE-1514")}}</code></pre>
                         <p class="h5" :id="getContentAnchor('DIVE-1503')">{{getContentText("DIVE-1503")}}</p>
                         <pre><code>{{getContentCode("DIVE-1504")}}</code></pre>
                         <p class="h5" :id="getContentAnchor('DIVE-1505')">{{getContentText("DIVE-1505")}}</p>
