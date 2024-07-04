@@ -218,7 +218,7 @@ function getSampleGrids(CONSTS) {
 </vanilla-grid>`,
             [CONSTS.SAMPLE_KEYS_API[3]] :
 `<vanilla-grid id="` + CONSTS.SAMPLE_GRID_IDS_API[3] + `"
-    rownumSize="5%"
+    rownumSize="4%"
     statusVisible="false"
     locked="true"
     lockedColor="false"
@@ -230,7 +230,7 @@ function getSampleGrids(CONSTS) {
     <v-col id="method" width="15%" rowMerge="true"></v-col>
     <v-col id="parameter" width="15%"></v-col>
     <v-col id="return" width="7%"></v-col>
-    <v-col id="remark" width="53%" filterable="false" sortable="false"></v-col>
+    <v-col id="remark" width="54%" filterable="false" sortable="false"></v-col>
 </vanilla-grid>`,
             [CONSTS.SAMPLE_KEYS_API[4]] :
 `<vanilla-grid id="` + CONSTS.SAMPLE_GRID_IDS_API[4] + `"
