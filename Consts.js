@@ -5,12 +5,16 @@ function getConsts () {
         this.VIEW_KEY_DIVE = "dive";
         this.VIEW_KEY_API = "api";
         this.SAMPLE_KEYS_INTRO = ['intro01', 'intro02'];
+        this.SAMPLE_GRID_IDS_INTRO = [];
         this.SAMPLE_GRID_IDS_INTRO = this.SAMPLE_KEYS_INTRO.map(str => `grid${str.charAt(0).toUpperCase() + str.slice(1)}`);
         this.SAMPLE_KEYS_STARTED = ['started01','started02','started03','started04','started05','started06','started07'];
+        this.SAMPLE_GRID_IDS_STARTED = [];
         this.SAMPLE_GRID_IDS_STARTED = this.SAMPLE_KEYS_STARTED.map(str => `grid${str.charAt(0).toUpperCase() + str.slice(1)}`);
         this.SAMPLE_KEYS_DIVE = ['dive01','dive02','dive03','dive04'];
+        this.SAMPLE_GRID_IDS_DIVE = [];
         this.SAMPLE_GRID_IDS_DIVE = this.SAMPLE_KEYS_DIVE.map(str => `grid${str.charAt(0).toUpperCase() + str.slice(1)}`);
         this.SAMPLE_KEYS_API = ['api01','api02','api03','api04','api05','api06','api07','api08','api09'];
+        this.SAMPLE_GRID_IDS_API = [];
         this.SAMPLE_GRID_IDS_API = this.SAMPLE_KEYS_API.map(str => `grid${str.charAt(0).toUpperCase() + str.slice(1)}`);
 
         this.GRID_ATTRIBUTES = [
