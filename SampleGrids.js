@@ -165,7 +165,7 @@ function getSampleGrids(CONSTS) {
 </vanilla-grid>`,
             [CONSTS.SAMPLE_KEYS_DIVE[3]] :
 `<vanilla-grid id="` + CONSTS.SAMPLE_GRID_IDS_DIVE[3] + `">
-    <v-col id="tn" header="Team Name;" dataType="text" width="200"></v-col>
+    <v-col id="tn" header="Team Name;" dataType="text" width="180"></v-col>
     <v-col id="lg" header="Logo" dataType="img" width="120"></v-col>
     <v-col id="ft" header="Favorite Team" dataType="radio" width="100"></v-col>
 </vanilla-grid>`,
