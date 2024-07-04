@@ -254,10 +254,7 @@ function getDataType() {
             },
             getText: function (value) {
                 if(!value) return null;
-                if (value.alt && typeof value.alt === "string" && value.alt.startsWith("Unsplash ")) {
-                    value.alt = value.alt.slice("Unsplash ".length);
-                }
-                return "Unsplash " + value.alt;
+                return value.alt;
             },
             getChildNode: function (data) {
                 const childNode = document.createElement("span");
