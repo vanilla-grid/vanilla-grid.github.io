@@ -1,8 +1,8 @@
 function getContents(CONSTS) {
     function setLinkData(arr, link, paramObj) {
         let _link = link;
-        Object.keys(paramObj).forEach(key => {
-            _link += "&" + key + "=" + paramObj[key];
+        Object.keys(paramObj).forEach((key, index) => {
+            _link += (index === 0 ? "?" : "&") + key + "=" + paramObj[key];
         });
         const ds = [];
         let i = 0;
@@ -61,10 +61,10 @@ function getContents(CONSTS) {
             intro: {
                 grid: {
                     [CONSTS.SAMPLE_KEYS_INTRO[1]] : {
-                        "col1" : setLinkData(CONSTS.GRID_ATTRIBUTES, "https://vanilla-grid.github.io/", {view:"api",gridId:"gridIdGrid",row:"index",colId:"col1"}),
-                        "col2" : setLinkData(CONSTS.COLUMN_ATTRIBUTES, "https://vanilla-grid.github.io/", {view:"api",gridId:"gridIdGrid",row:"index",colId:"col1"}),
-                        "col3" : setLinkData(CONSTS.EVENTS, "https://vanilla-grid.github.io/", {view:"api",gridId:"gridIdGrid",row:"index",colId:"col1"}),
-                        "col4" : setLinkData(CONSTS.METHODS, "https://vanilla-grid.github.io/", {view:"api",gridId:"gridIdGrid",row:"index",colId:"col1"}),
+                        "col1" : setLinkData(CONSTS.GRID_ATTRIBUTES, "https://vanilla-grid.github.io/", {view:"api",gridId:CONSTS.SAMPLE_GRID_IDS_API[0],row:"index",colId:"attribute",lang:"ENG"}),
+                        "col2" : setLinkData(CONSTS.COLUMN_ATTRIBUTES, "https://vanilla-grid.github.io/", {view:"api",gridId:CONSTS.SAMPLE_GRID_IDS_API[1],row:"index",colId:"attribute",lang:"ENG"}),
+                        "col3" : setLinkData(CONSTS.EVENTS, "https://vanilla-grid.github.io/", {view:"api",gridId:CONSTS.SAMPLE_GRID_IDS_API[2],row:"index",colId:"event",lang:"ENG"}),
+                        "col4" : setLinkData(CONSTS.METHODS, "https://vanilla-grid.github.io/", {view:"api",gridId:CONSTS.SAMPLE_GRID_IDS_API[3],row:"index",colId:"method",lang:"ENG"}),
                     },
                 },
                 text : {
@@ -2550,10 +2550,10 @@ function vanillagrid_onBeforeCreate (e, vg) {
             intro: {
                 grid: {
                     [CONSTS.SAMPLE_KEYS_INTRO[1]] : {
-                        "col1" : setLinkData(CONSTS.GRID_ATTRIBUTES, "https://vanilla-grid.github.io/", {view:"api",gridId:"gridIdGrid",row:"index",colId:"col1"}),
-                        "col2" : setLinkData(CONSTS.COLUMN_ATTRIBUTES, "https://vanilla-grid.github.io/", {view:"api",gridId:"gridIdGrid",row:"index",colId:"col1"}),
-                        "col3" : setLinkData(CONSTS.EVENTS, "https://vanilla-grid.github.io/", {view:"api",gridId:"gridIdGrid",row:"index",colId:"col1"}),
-                        "col4" : setLinkData(CONSTS.METHODS, "https://vanilla-grid.github.io/", {view:"api",gridId:"gridIdGrid",row:"index",colId:"col1"}),
+                        "col1" : setLinkData(CONSTS.GRID_ATTRIBUTES, "https://vanilla-grid.github.io/", {view:"api",gridId:CONSTS.SAMPLE_GRID_IDS_API[0],row:"index",colId:"attribute",lang:"ENG"}),
+                        "col2" : setLinkData(CONSTS.COLUMN_ATTRIBUTES, "https://vanilla-grid.github.io/", {view:"api",gridId:CONSTS.SAMPLE_GRID_IDS_API[1],row:"index",colId:"attribute",lang:"ENG"}),
+                        "col3" : setLinkData(CONSTS.EVENTS, "https://vanilla-grid.github.io/", {view:"api",gridId:CONSTS.SAMPLE_GRID_IDS_API[2],row:"index",colId:"event",lang:"ENG"}),
+                        "col4" : setLinkData(CONSTS.METHODS, "https://vanilla-grid.github.io/", {view:"api",gridId:CONSTS.SAMPLE_GRID_IDS_API[3],row:"index",colId:"method",lang:"ENG"}),
                     },
                 },
                 text : {
