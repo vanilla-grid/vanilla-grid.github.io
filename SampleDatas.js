@@ -765,103 +765,53 @@ function getSampleDatas(CONSTS, CONTENTS) {
             [CONSTS.SAMPLE_KEYS_DIVE[3]] : [
                 {
                     tn: null,
-                    lg: null,
+                    lg: {src:"logo/lg.jpg", alt:"LG Twins"},
                     ft: "N",
                 },
                 {
                     tn: null,
-                    lg: null,
+                    lg: {src:"logo/kt.jpg", alt:"Kt wiz"},
                     ft: "N",
                 },
                 {
                     tn: null,
-                    lg: null,
+                    lg: {src:"logo/ssg.jpg", alt:"SSG Landers"},
                     ft: "N",
                 },
                 {
                     tn: null,
-                    lg: null,
+                    lg: {src:"logo/nc.jpg", alt:"NC Dinos"},
                     ft: "N",
                 },
                 {
                     tn: null,
-                    lg: null,
+                    lg: {src:"logo/doosan.jpg", alt:"Doosan Bears"},
                     ft: "N",
                 },
                 {
                     tn: null,
-                    lg: null,
+                    lg: {src:"logo/kia.jpg", alt:"KIA Tigers"},
                     ft: "N",
                 },
                 {
                     tn: null,
-                    lg: null,
+                    lg: {src:"logo/lotte.jpg", alt:"Lotte Giants"},
                     ft: "N",
                 },
                 {
                     tn: null,
-                    lg: null,
+                    lg: {src:"logo/samsung.jpg", alt:"Samsung Lions"},
                     ft: "N",
                 },
                 {
                     tn: null,
-                    lg: null,
+                    lg: {src:"logo/hanwha.jpg", alt:"Hanwha Eagles"},
                     ft: "N",
                 },
                 {
                     tn: null,
-                    lg: null,
+                    lg: {src:"logo/kiwoom.jpg", alt:"Kiwwom Heroes"},
                     ft: "Y",
-                },
-                {
-                    tn: null,
-                    lg: null,
-                    ft: "N",
-                },
-                {
-                    tn: null,
-                    lg: null,
-                    ft: "N",
-                },
-                {
-                    tn: null,
-                    lg: null,
-                    ft: "N",
-                },
-                {
-                    tn: null,
-                    lg: null,
-                    ft: "N",
-                },
-                {
-                    tn: null,
-                    lg: null,
-                    ft: "N",
-                },
-                {
-                    tn: null,
-                    lg: null,
-                    ft: "N",
-                },
-                {
-                    tn: null,
-                    lg: null,
-                    ft: "N",
-                },
-                {
-                    tn: null,
-                    lg: null,
-                    ft: "N",
-                },
-                {
-                    tn: null,
-                    lg: null,
-                    ft: "N",
-                },
-                {
-                    tn: null,
-                    lg: null,
-                    ft: "N",
                 },
             ],
         }
