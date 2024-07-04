@@ -691,9 +691,9 @@
 					
 					this.vg = getVanillagrid();
 					if(this.isMobileSize) {
-						this.vg.defaultGridCssInfo.sizeLevel = 7;
-						this.vg.defaultGridCssInfo.cellMinHeight = 28;
-						this.vg.defaultGridCssInfo.height = '400px';
+						this.vg.defaultGridCssInfo.sizeLevel = 6;
+						this.vg.defaultGridCssInfo.cellMinHeight = 24;
+						this.vg.defaultGridCssInfo.height = '500px';
 					}
 					else {
 						this.vg.defaultGridCssInfo.height = '700px';
@@ -877,8 +877,8 @@
 
 					this.vg = getVanillagrid();
 					if(this.isMobileSize) {
-						this.vg.defaultGridCssInfo.sizeLevel = 7;
-						this.vg.defaultGridCssInfo.cellMinHeight = 28;
+						this.vg.defaultGridCssInfo.sizeLevel = 6;
+						this.vg.defaultGridCssInfo.cellMinHeight = 24;
 						this.vg.defaultGridCssInfo.height = '500px';
 					}
 					else {
@@ -983,7 +983,12 @@
 						window[CONSTS.SAMPLE_GRID_IDS_STARTED[5]].load(SAMPLE_DATAS[this.currentLang].started[CONSTS.SAMPLE_KEYS_STARTED[5]]);
 						
 						const grid02 = window[CONSTS.SAMPLE_GRID_IDS_STARTED[1]];
+						const grid03 = window[CONSTS.SAMPLE_GRID_IDS_STARTED[2]];
 						const grid04 = window[CONSTS.SAMPLE_GRID_IDS_STARTED[3]];
+
+						if(this.isMobileSize) {
+							grid03.setGridHeight('400px');
+						}
 						grid04.setCellDataType(2, 4, 'mask');
 						grid04.setCellFormat(2, 4, 'AAA-99')
 						grid04.setCellDataType(3, 4, 'number');
@@ -1066,8 +1071,8 @@
 
 					this.vg = getVanillagrid();
 					if (this.isMobileSize) {
-						this.vg.defaultGridCssInfo.sizeLevel = 7;
-						this.vg.defaultGridCssInfo.cellMinHeight = 28;
+						this.vg.defaultGridCssInfo.sizeLevel = 6;
+						this.vg.defaultGridCssInfo.cellMinHeight = 24;
 						this.vg.defaultGridCssInfo.height = '500px';
 					}
 					else {
@@ -1267,8 +1272,8 @@
 
 					this.vg = getVanillagrid();
 					if(this.isMobileSize) {
-						this.vg.defaultGridCssInfo.sizeLevel = 7;
-						this.vg.defaultGridCssInfo.cellMinHeight = 28;
+						this.vg.defaultGridCssInfo.sizeLevel = 6;
+						this.vg.defaultGridCssInfo.cellMinHeight = 24;
 						this.vg.defaultGridCssInfo.height = '500px';
 					}
 					else {
