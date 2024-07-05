@@ -17,13 +17,13 @@
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
-	<script src="Vanillagrid.min.1.0.0.js?v=202407041653"></script>
-	<script src="DataType.js?v=202407041653"></script>
-	<script src="Consts.js?v=202407041653"></script>
-	<script src="Contents.js?v=202407041653"></script>
-	<script src="SampleDatas.js?v=202407041653"></script>
-	<script src="SampleGrids.js?v=202407041653"></script>
-	<script src="Component.js?v=202407041653"></script>
+	<script src="Vanillagrid.min.1.0.0.js?v=20240705"></script>
+	<script src="DataType.js?v=20240705"></script>
+	<script src="Consts.js?v=20240705"></script>
+	<script src="Contents.js?v=20240705"></script>
+	<script src="SampleDatas.js?v=20240705"></script>
+	<script src="SampleGrids.js?v=20240705"></script>
+	<script src="Component.js?v=20240705"></script>
 	<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
 	<style>
 	*, ::before, ::after {
@@ -363,8 +363,8 @@
 			const row = urlParams.get('row');
 			const colId = urlParams.get('colId');
 
-			this.currentLang = lang ? lang : 'ENG';
-	        if(!viewId || ['intro','started','dive','api'].indexOf(viewId) < 0) viewId = 'intro';
+			this.currentLang = lang ? lang : 'KOR';
+	        if(!viewId || ['intro','started','dive','api'].indexOf(viewId) < 0) viewId = 'dive';
 	        this.currentView = viewId;
 	        if(anchorId) {
 				this.scrollAnchor(anchorId, null, 1000);
@@ -374,8 +374,8 @@
 			}
 		},
 	    data: {
-	    	currentLang : 'ENG',
-	        currentView : 'intro',
+	    	currentLang : 'KOR',
+	        currentView : 'dive',
 	        navItems: [
 	            { id: 'intro', name: 'Intro' },
 	            { id: 'started', name: 'Getting started' },
@@ -452,10 +452,10 @@
 			getContentCode(key) {
 				return CONTENTS[this.currentLang][this.currentView].text[key] ? CONTENTS[this.currentLang][this.currentView].text[key].code : null;
 			},
-			getContentData(key) {
+			getContentData(key, idx = 0) {
 				const datas = SAMPLE_DATAS[this.currentLang][this.currentView][key];
 				if(!datas) return null;
-				return datas[0];
+				return datas[idx];
 			},
 			removeHighlightContent() {
 				//기존 highlight 제거
@@ -833,6 +833,7 @@
 						switch(this.currentLang) {
 	            			case 'KOR' :
 								window[CONSTS.SAMPLE_GRID_IDS_INTRO[0]].addRow({
+									col0: {src:"whale/Whale.jpg", alt:"Whale"},
 									col4 : "1900-01-01",
 									col5 : "1900-01",
 									col6 : 0,
@@ -847,6 +848,7 @@
 	            				break;
 	            			default :
 								window[CONSTS.SAMPLE_GRID_IDS_INTRO[0]].addRow({
+									col0: {src:"whale/Whale.jpg", alt:"Whale"},
 									col4 : "1900-01-01",
 									col5 : "1900-01",
 									col6 : 0,
@@ -922,6 +924,7 @@
 	            		currentSub : 'started',
 	            		startedSubs : ['started','simpUse','attr','events','methods'],
 						resizeTimeout : null,
+						isDoingAddRow : false,
 					}
 				},
 	            computed: {
@@ -990,10 +993,12 @@
 						window[CONSTS.SAMPLE_GRID_IDS_STARTED[4]].load(SAMPLE_DATAS[this.currentLang].started[CONSTS.SAMPLE_KEYS_STARTED[4]]);
 						window[CONSTS.SAMPLE_GRID_IDS_STARTED[5]].load(SAMPLE_DATAS[this.currentLang].started[CONSTS.SAMPLE_KEYS_STARTED[5]]);
 						
+						const grid01 = window[CONSTS.SAMPLE_GRID_IDS_STARTED[0]];
 						const grid02 = window[CONSTS.SAMPLE_GRID_IDS_STARTED[1]];
 						const grid03 = window[CONSTS.SAMPLE_GRID_IDS_STARTED[2]];
 						const grid04 = window[CONSTS.SAMPLE_GRID_IDS_STARTED[3]];
 
+						grid01.setGridHeight('400px');
 						if(this.isMobileSize) {
 							grid03.setGridHeight('400px');
 						}
@@ -1052,19 +1057,32 @@
 						}
 					},
 					addRowNo(e) {
-						for(let i = 0; i < 50; i ++) {
-							window[CONSTS.SAMPLE_GRID_IDS_STARTED[6]].addRow();
-						}
+						const _this = this;
+						window[CONSTS.SAMPLE_GRID_IDS_STARTED[6]].clear();
+						if(_this.isDoingAddRow) return;
+						_this.isDoingAddRow = true;
+
+						setTimeout(function() {
+							for(let i = 0; i < 50; i ++) {
+								window[CONSTS.SAMPLE_GRID_IDS_STARTED[6]].addRow();
+							}
+							_this.isDoingAddRow = false;
+						}, 1000);
 					},
 					addRowYes(e) {
-						window[CONSTS.SAMPLE_GRID_IDS_STARTED[6]].setGridMount(false);
-						for(let i = 0; i < 50; i ++) {
-							window[CONSTS.SAMPLE_GRID_IDS_STARTED[6]].addRow();
-						}
-						window[CONSTS.SAMPLE_GRID_IDS_STARTED[6]].setGridMount(true);
-					},
-					gridClear(e) {
+						const _this = this;
 						window[CONSTS.SAMPLE_GRID_IDS_STARTED[6]].clear();
+						if(_this.isDoingAddRow) return;
+						_this.isDoingAddRow = true;
+
+						setTimeout(function() {
+							window[CONSTS.SAMPLE_GRID_IDS_STARTED[6]].setGridMount(false);
+							for(let i = 0; i < 50; i ++) {
+								window[CONSTS.SAMPLE_GRID_IDS_STARTED[6]].addRow();
+							}
+							window[CONSTS.SAMPLE_GRID_IDS_STARTED[6]].setGridMount(true);
+							_this.isDoingAddRow = false;
+						}, 1000);
 					},
 	            },
 	        },
