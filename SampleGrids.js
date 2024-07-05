@@ -45,7 +45,7 @@ function getSampleGrids(CONSTS) {
     <v-col id="col10" header=";link;View More" dataType="link" width="100px"></v-col>
 </vanilla-grid>`,
             [CONSTS.SAMPLE_KEYS_INTRO[1]] :
-`<vanilla-grid id="` + CONSTS.SAMPLE_GRID_IDS_INTRO[1] + `"  statusVisible="false" wordBreak="break-all" whiteSpace="normal">
+`<vanilla-grid id="` + CONSTS.SAMPLE_GRID_IDS_INTRO[1] + `" rownumVisible="false" statusVisible="false" wordBreak="break-all" whiteSpace="normal">
     <v-col id="col1" header="grid\nattributes" dataType="link" width="25%"></v-col>
     <v-col id="col2" header="column\nattributes" dataType="link" width="25%"></v-col>
     <v-col id="col3" header="events" dataType="link" width="25%"></v-col>
@@ -69,13 +69,13 @@ function getSampleGrids(CONSTS) {
     <v-col id="status" header=";checkbox;status" dataType="checkbox" width="80"></v-col>
 </vanilla-grid>`,
             [CONSTS.SAMPLE_KEYS_STARTED[2]] :
-`<vanilla-grid id="` + CONSTS.SAMPLE_GRID_IDS_STARTED[2] + `" height="300px" nullValue="-">
+`<vanilla-grid id="` + CONSTS.SAMPLE_GRID_IDS_STARTED[2] + `" rownumVisible="false" height="300px" nullValue="-">
     <v-col id="col1" header="footer\ntitle" dataType="text" width="110" footer="Maximum :;Minimum :;Summation :;Average :" align="center"></v-col>
     <v-col id="col2" header="footer\ntest" dataType="number" width="200" footer="$$MAX;$$MIN;$$SUM;$$AVG"></v-col>
 </vanilla-grid>`,
             [CONSTS.SAMPLE_KEYS_STARTED[3]] :
 `<vanilla-grid id="` + CONSTS.SAMPLE_GRID_IDS_STARTED[3] + `" rownumVisible="false" statusVisible="false" lockedColor="false" filterable="false" frozenColCount="3">
-    <v-col id="dt" header="dataType;" width="80" align="center" locked="true"></v-col>
+    <v-col id="dt" header="dataType;" width="80" align="center" locked="true" fontBold="true"></v-col>
     <v-col id="do" header="do it!;" width="120"></v-col>
     <v-col id="val" header="value;load value" width="130" locked="true"></v-col>
     <v-col id="type" header=";type" width="120" locked="true"></v-col>
