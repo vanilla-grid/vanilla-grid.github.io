@@ -238,9 +238,9 @@ beforeDestroy: function() {
                         text: "Purpose of Production"
                     },
                     "INTRO-0401": {
-                        text: "Vanillanote is a solo development. It was developed for learning javascript. Therefore, 100% reliability cannot be guaranteed when using it, "
+                        text: "Vanillagrid is a solo development. It was developed for learning javascript. Therefore, 100% reliability cannot be guaranteed when using it, "
                                 + "and there are some limitations. However, I believe it will show excellent performance. "
-                                + "Vanillanote started development to reduce the time required to develop a new grid each time I proceed with a personal project. "
+                                + "Vanillagrid started development to reduce the time required to develop a new grid each time I proceed with a personal project. "
                                 + "It was developed with the goal of developing a grid that can be used without libraries or frameworks in any environment "
                                 + "such as Jquery, Vue, React, etc. For this reason, this program uses only Vanilla JS. The pros and cons of Vanillagrid are as follows."
                     },
@@ -2787,8 +2787,8 @@ beforeDestroy: function() {
                         text: "제작 목적",
                     },
                     "INTRO-0401": {
-                        text: "Vanillanote는 1인 개발입니다. javascript학습용으로 개발하였습니다. 따라서 사용 시 100%신뢰를 보장할 수 없으며, 제한되는 기능이 다소 있습니다. 하지만 훌륭한 퍼포먼스는 보일 것이라 생각합니다. "
-                            + "Vanillanote는 개인 프로젝트를 진행 할 때 마다 grid를 새로 개발하는 소요를 줄이고자 개발을 시작했습니다. "
+                        text: "Vanillagrid는 1인 개발입니다. javascript학습용으로 개발하였습니다. 따라서 사용 시 100%신뢰를 보장할 수 없으며, 제한되는 기능이 다소 있습니다. 하지만 훌륭한 퍼포먼스는 보일 것이라 생각합니다. "
+                            + "Vanillagrid는 개인 프로젝트를 진행 할 때 마다 grid를 새로 개발하는 소요를 줄이고자 개발을 시작했습니다. "
                             + "Jquery, Vue, React등 어떤 환경에서도 라이브러리 또는 프레임워크 없이 사용할 수 있는 grid개발을 목적으로 하였습니다. "
                             + "때문에 본 프로그램은 Vanilla JS만을 사용하였습니다. Vanillagrid의 장단점은 다음과 같습니다.",
                     },
