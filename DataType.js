@@ -53,11 +53,11 @@ function getDataType() {
             getChildNode: function (data) {
                 if(!data.value) return document.createElement('span');
 
-                const treeSpan = document.createElement('divs');
+                const treeSpan = document.createElement('div');
                 treeSpan.style.width = '100%'
 
                 const treeText = document.createElement('span');
-                treeText.innerText = data.text;
+                treeText.textContent = data.text;
                 treeText.style.display = 'inline-block';
                 treeText.style.marginLeft = '10px';
                 treeText.style.maxWidth = '90%'
@@ -99,7 +99,7 @@ function getDataType() {
                     if(grid.getCellDataType(data.row, col) === 'tree') {
                         const preCellValue = grid.getCellValue(data.row, col - 1);
                         if(preCellValue && !preCellValue.toggle) {
-                            treeText.innerText = '..';
+                            treeText.textContent = '..';
                         }
                         break;
                     }
@@ -201,17 +201,15 @@ function getDataType() {
             onSelectedAndKeyDown : function (event, data) {
                 if(event.key === 'Enter' || event.key === ' ') {
                     window[data.gridId].setColSameValue(data.col, "N", true);
-                    window[data.gridId].setCellValue(data.row, data.col, data.value === "Y" ? "N" : "Y", true);
+                    window[data.gridId].setCellValue(data.row, data.col, "Y", true);
                     event.stopPropagation();
                     event.preventDefault();
                     return false;
                 }
             },
             onClick : function (event, data) {
-                if(event.target.tagName !== 'INPUT') return;
-                let value = event.target.checked;
-                window[event.target.gridId].setColSameValue(event.target.cellCol, "N", true);
-                window[event.target.gridId].setCellValue(event.target.cellRow, event.target.cellCol, value ? "Y" : "N", true);
+                window[data.gridId].setColSameValue(data.col, "N", true);
+                window[data.gridId].setCellValue(data.row, data.col, "Y", true);
             },
             getValue: function (value) {
                 return value;
@@ -280,7 +278,7 @@ function getDataType() {
                 alt.style.width = "100%";
                 alt.style.whiteSpace = "normal";
                 alt.style.wordBreak = "break-all";
-                alt.innerText = data.text;
+                alt.textContent = data.text;
                 
                 img.gridId = data.gridId;
                 img.cellRow = data.row;
