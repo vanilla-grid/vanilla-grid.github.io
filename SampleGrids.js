@@ -142,10 +142,10 @@ function getSampleGrids(CONSTS) {
     buttonHoverBackColor="#eee"
     buttonActiveBackColor="#ddd"
 >
-    <v-col id="lvl2" header="level1" dataType="tree" width="180" verticalAlign="top"></v-col>
-    <v-col id="lvl3" header="level2" dataType="tree" width="180" verticalAlign="top"></v-col>
-    <v-col id="lvl4" header="level3" dataType="tree" width="180" verticalAlign="top"></v-col>
-    <v-col id="lvl5" header="level4" dataType="tree" width="180" verticalAlign="top"></v-col>
+    <v-col id="lvl2" header="level1" dataType="tree" width="220" verticalAlign="top"></v-col>
+    <v-col id="lvl3" header="level2" dataType="tree" width="220" verticalAlign="top"></v-col>
+    <v-col id="lvl4" header="level3" dataType="tree" width="220" verticalAlign="top"></v-col>
+    <v-col id="lvl5" header="level4" dataType="tree" width="220" verticalAlign="top"></v-col>
     <v-col id="img" header="level5" dataType="img" width="220" verticalAlign="top" locked="true" lockedColor="false"></v-col>
 </vanilla-grid>`,
             [CONSTS.SAMPLE_KEYS_DIVE[1]] :
