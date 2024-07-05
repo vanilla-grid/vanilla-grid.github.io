@@ -343,7 +343,7 @@ beforeDestroy: function() {
                             },
                             {
                                 text : 'dataType="link".\nAnchor tag type.\nHolds values in object format.\n{value: "https://vanilla-grid.github.io/", text: "Go", target: "_blank"}\n'
-                                        + 'After creating the anchor tag, value is set as href, text as innerText, and target as the target attribute value.\nCannot be edited.\nDisplayed as an anchor tag on the screen.',
+                                        + 'After creating the anchor tag, value is set as href, text as textContent, and target as the target attribute value.\nCannot be edited.\nDisplayed as an anchor tag on the screen.',
                             },
                             {
                                 text : 'dataType="code".\nString input type determined by the codes attribute. Strings not in the codes attribute cannot be inserted.\nThe codes attribute is set as a string separated by ";".\nThe default value is set by the defaultCode attribute.\nHolds values in string format.\nWhen editing, creates an input box.\nDisplayed as a span tag on the screen.',
@@ -905,9 +905,6 @@ grid01_onKeydownGrid (e) {
                     },
                     "STARTED-5008": {
                         text: 'Add 50 rows (using setGridMount())'
-                    },
-                    "STARTED-5009": {
-                        text: 'clear'
                     },
                     "STARTED-5010": {
                         text: '※ Rows are added using the addRow(index) function. The addRow() method adds a row to the grid. Clicking the button above repeats this method 50 times. '
@@ -1714,31 +1711,41 @@ function vanillagrid_onBeforeCreate (e, vg) {
                     "DIVE-4100": {
                         "text": "The definition of vg.dataType for the 'img' data type is as follows."
                     },
-                    "DIVE-4101": {
+                    "DIVE-4150": {
                         "code": 
 `<script>
 function vanillagrid_onBeforeCreate (e, vg) {
     vg.dataType = {
         "img" : {
+            // Specify the justify-content, text-align, padding properties for the cell's style.
             cellStyle: {
                 justifyContent: "center",
                 textAlign: "center",
                 padding: 0,
             },
+            // Apply opacity 0.2 to the first child element of the cell when the cell is selected.
             onSelected : function (target, data) {
                 if(target.firstChild.children[0]) target.firstChild.children[0].style.setProperty("opacity", "0.2");
             },
+            // Remove the opacity style property from the first child element of the cell when the cell is unselected.
             onUnselected : function (target, data) {
                 if(target.firstChild.children[0]) target.firstChild.children[0].style.removeProperty("opacity");
             },
+            // Return the value itself unless the value is null.
             getValue: function (value) {
                 if(!value) return null;
                 return value;
             },
+            // Return the alt of the value unless the value is null.
             getText: function (value) {
                 if(!value) return null;
                 return value.alt;
             },
+            // Add <img></img> and a span (alt) as child elements to the parent span (childNode).
+            // Set the src of the img tag to the value's src, and the alt to the value's alt.
+            // Set the textContent of the alt to the value's alt.
+            // Add click and dblclick events to the childNode.
+            // (The cell automatically triggers setTargetCell and editCell events, but childNode needs to be inserted separately).
             getChildNode: function (data) {
                 const childNode = document.createElement("span");
                 if(!data) return childNode;
@@ -1750,8 +1757,7 @@ function vanillagrid_onBeforeCreate (e, vg) {
                 childNode.style.width = "100%";
                 const img = document.createElement("img");
                 const alt = document.createElement("span");
-                img.style.width = "100%"
-                // img.style.height = "100px"
+                img.style.width = "100%";
                 img.style.zIndex = "1";
                 img.src = data.value.src;
                 img.alt = data.text;
@@ -1763,7 +1769,7 @@ function vanillagrid_onBeforeCreate (e, vg) {
                 alt.style.width = "100%";
                 alt.style.whiteSpace = "normal";
                 alt.style.wordBreak = "break-all";
-                alt.innerText = data.text;
+                alt.textContent = data.text;
                 
                 img.gridId = data.gridId;
                 img.cellRow = data.row;
@@ -1773,12 +1779,16 @@ function vanillagrid_onBeforeCreate (e, vg) {
                 childNode.append(alt);
                 childNode.addEventListener('click', function (e) {
                     window[e.target.gridId].setTargetCell(e.target.cellRow, e.target.cellCol);
-                })
+                });
                 childNode.addEventListener('dblclick', function (e) {
                     window[e.target.gridId].editCell(e.target.cellRow, e.target.cellCol);
-                })
+                });
                 return childNode;
             },
+            // Return an input element to be provided to the user as an editor when a cell edit event occurs.
+            // Set the value of the input element to data.text.
+            // Call call_modify() on 'Enter', 'Tab', 'F2' keydown to reflect modifications.
+            // Call call_endEdit() on 'Escape' keydown to exit without reflecting modifications.
             getEditor: function (target, data, call_modify, call_endEdit) {
                 if(!data.value) return null;
 
@@ -1818,24 +1828,29 @@ function vanillagrid_onBeforeCreate (e, vg) {
                 });
                 return editor;
             },
+            // Insert the input value into the alt of the original data's value and return it as the newValue after editing.
             getEditedValue: function (target, data) {
                 if(!data.value) return null;
                 const newValue = data.value;
                 newValue.alt = target.value;
                 return newValue;
             },
+            // Apply value's alt values to the filter.
             getFilterValue: function (value) {
                 if(!value) return null;
                 return "title : " + value.alt;
             },
+            // Apply value's alt values to the sort.
             getSortValue: function (value) {
                 if(!value) return null;
                 return value.alt;
             },
+            // Return value's alt values for copying.
             getCopyValue: function (value) {
                 if(!value) return null;
                 return value.alt;
             },
+            // Insert the text value into the value's alt for pasting.
             getPasteValue: function (data, text) {
                 if(!data.value) return null;
                 const value = data.value;
@@ -1852,36 +1867,42 @@ function vanillagrid_onBeforeCreate (e, vg) {
                     "DIVE-4200": {
                         "text": "The definition of vg.dataType for the 'radio' data type is as follows."
                     },
-                    "DIVE-4201": {
+                    "DIVE-4250": {
                         "code": 
 `<script>
 function vanillagrid_onBeforeCreate (e, vg) {
     vg.dataType = {
         radio : {
+            // Specify the justify-content, text-align properties for the cell's style.
             cellStyle: {
                 justifyContent: "center",
                 textAlign: "center",
             },
+            // Change the cell's value to "Y" when the 'Enter' key is pressed while the cell is selected.
             onSelectedAndKeyDown : function (event, data) {
                 if(event.key === 'Enter' || event.key === ' ') {
                     window[data.gridId].setColSameValue(data.col, "N", true);
-                    window[data.gridId].setCellValue(data.row, data.col, data.value === "Y" ? "N" : "Y", true);
+                    window[data.gridId].setCellValue(data.row, data.col, "Y", true);
+                    event.stopPropagation();
+                    event.preventDefault();
                     return false;
                 }
             },
+            // Change the cell's value to "Y" when the cell is clicked with the mouse.
             onClick : function (event, data) {
-                if(event.target.tagName !== 'INPUT') return;
-                let value = event.target.checked;
-                window[event.target.gridId].setColSameValue(event.target.cellCol, "N", true);
-                window[event.target.gridId].setCellValue(event.target.cellRow, event.target.cellCol, value ? "Y" : "N", true);
+                window[data.gridId].setColSameValue(data.col, "N", true);
+                window[data.gridId].setCellValue(data.row, data.col, "Y", true);
             },
+            // Return the value as is.
             getValue: function (value) {
                 return value;
             },
+            // Return "true" if the value is "Y", otherwise return "false".
             getText: function (value) {
                 const text = value === "Y" ? "true" : "false";
                 return text;
             },
+            // Return an html element of type radio input with the data checked if the value is "Y".
             getChildNode: function (data) {
                 const childNode = document.createElement("input");
                 childNode.setAttribute("type", "radio");
@@ -1893,6 +1914,7 @@ function vanillagrid_onBeforeCreate (e, vg) {
                 childNode.checked = data.value === "Y";
                 return childNode;
             },
+            // Apply "●" for checked values and "○" for unchecked values to the filter.
             getFilterValue: function (value) {
                 const filterValue = value === "Y" ? "●" : "○";
                 return filterValue;
@@ -1908,60 +1930,91 @@ function vanillagrid_onBeforeCreate (e, vg) {
                         "text": "The definition of vg.dataType for the 'tree' data type is as follows. (The example grid for the tree data type is the grid in the Deep dive! section at the top.)"
                     },
                     "DIVE-4301": {
+                        "text": "※ The 'tree' data type requires data to be inserted such that one row represents continuous hierarchy data. For example, if there are levels 1 to 3, "
+                            + 'and level 1 is A, level 2 is AA, and level 3 is AAA, the row is represented as {level1: "A", level2: "AA", level3: "AAA"}. '
+                            + "In other words, when querying the data, include all the upper columns (level1, level2) that specify the hierarchy, and place them in front of the data."
+                    },
+                    "DIVE-4302": {
+                        "text": "※ 'tree' uses font awesome."
+                    },
+                    "DIVE-4350": {
                         "code": 
 `<script>
 function vanillagrid_onBeforeCreate (e, vg) {
     vg.dataType = {
         tree : {
+            // Specify the justify-content, text-align properties for the cell's style.
             cellStyle: {
                 justifyContent: "left",
                 textAlign: "left",
             },
+            // If the inserted value is of type object, return the value as is. It must be in the form of {title: (String), toggle: (boolean)}.
+            // If the inserted value is of type string, set the value as the title and return {title: value, toggle: false}.
             getValue: function (value) {
+                // Always return in the form of {title: (String), toggle: (boolean)}.
                 if(value.constructor === Object) {
                     return value;
                 } else {
                     return {title: value, toggle: false};
                 }
             },
+            // Return the title of the value as text.
             getText: function (value) {
-                if(!value) return null
-                return value.title
+                if(!value) return null;
+                return value.title;
             },
+            // Create a parent div element, treeSpan, and create child span elements, treeText and treeToggle.
+            // Append treeToggle and treeText only if the data.text of the cell one row above in the same column is different.
+            // (Do not display the same data in the higher hierarchy).
+            // Add the onClick function to the click events of treeText and treeToggle.
+            // onClick opens or closes the tree of upper and lower hierarchies according to data.value's toggle.
+            // When opening the tree:
+            // 1. Open all closed higher hierarchy trees (visible true).
+            // 2. Then open the cell one step lower (next column).
+            // 2-1. If the cell one step lower is of type tree, set all higher hierarchy trees to visible true and show the title.
+            // 2-2. If the cell one step lower is not of type tree, assign the data type and set the fontColor to "#333". (Effect of showing the cell one step lower).
+            // When closing the tree:
+            // 1. Close all open lower hierarchy trees (visible false).
+            // 2. If the cell one step lower is not of type tree, set the data type to "text" and the fontColor to "#fff". (Effect of hiding the cell one step lower).
             getChildNode: function (data) {
                 if(!data.value) return document.createElement('span');
 
                 const treeSpan = document.createElement('div');
-                treeSpan.style.width = '100%'
+                treeSpan.style.width = '100%';
 
                 const treeText = document.createElement('span');
-                treeText.innerText = data.text;
+                treeText.textContent = data.text;
                 treeText.style.display = 'inline-block';
                 treeText.style.marginLeft = '10px';
-                treeText.style.maxWidth = '90%'
-                treeText.style.overflow = 'hidden'
-                treeText.style.textOverflow = 'ellipsis'
+                treeText.style.maxWidth = '90%';
+                treeText.style.overflow = 'hidden';
+                treeText.style.textOverflow = 'ellipsis';
                 treeText.addEventListener('click', (e) => {
                     onClick(e, data);
-                })
+                });
 
                 const treeToggle = document.createElement('span');
                 treeToggle.classList.add('far');
+                // Change the icon according to the toggle.
                 if(data.value.toggle) {
+                    // Using font awesome.
                     treeToggle.classList.add('fa-minus-square');
                     treeToggle.classList.remove('fa-plus-square');
                 }
                 else {
+                    // Using font awesome.
                     treeToggle.classList.add('fa-plus-square');
                     treeToggle.classList.remove('fa-minus-square');
                 }
                 treeToggle.style.fontSize = '0.85em';
+                // Add onClick event.
                 treeToggle.addEventListener('click', (e) => {
                     onClick(e, data);
-                })
+                });
 
                 const grid = window[data.gridId];
 
+                // If the cell one step lower (next column) is not of type 'tree'
                 if(data.col + 1 <= grid.getColCount() && grid.getCellDataType(data.row, data.col + 1) !== 'tree') {
                     if(data.value.toggle) {
                         grid.setCellDataType(data.row, data.col + 1, grid.getColDataType(data.col + 1));
@@ -1973,16 +2026,18 @@ function vanillagrid_onBeforeCreate (e, vg) {
                     }
                 }
 
+                // If the toggle of the upper tree is false, insert '..' into treeText.textContent.
                 for(let col = data.col; col > 3; col--) {
                     if(grid.getCellDataType(data.row, col) === 'tree') {
                         const preCellValue = grid.getCellValue(data.row, col - 1);
                         if(preCellValue && !preCellValue.toggle) {
-                            treeText.innerText = '..';
+                            treeText.textContent = '..';
                         }
                         break;
                     }
                 }
 
+                // Append treeToggle and treeText only if the data.text of the cell one row above in the same column is different.
                 if (data.row === 1) {
                     treeSpan.append(treeToggle);
                     treeSpan.append(treeText);
@@ -1991,13 +2046,16 @@ function vanillagrid_onBeforeCreate (e, vg) {
                     treeSpan.append(treeText);
                 }
                 
+                // Function called on click
                 function onClick(e, data) {
                     const grid = window[data.gridId];
                     const toggle = !data.value.toggle;
 
+                    // Open all lower cells
                     function openTree (nowRow, col) {
                         let startRow;
                         const title = grid.getCellText(nowRow, col);
+                        // Find the row to start opening
                         if(nowRow === 1) {
                             startRow = nowRow;
                         }
@@ -2025,7 +2083,7 @@ function vanillagrid_onBeforeCreate (e, vg) {
                                 }
                             }
                             else {
-                                //Logic to simply reload the cell
+                                // Logic to simply reload the cell
                                 for(let c = col + 1; c <= grid.getColCount(); c++) {
                                     if (grid.getCellDataType(row, c) === 'tree') {
                                         grid.setCellValue(row, c, grid.getCellValue(row, c));
@@ -2036,6 +2094,7 @@ function vanillagrid_onBeforeCreate (e, vg) {
                         }
                     }
 
+                    // Close all upper cells
                     function closeTree (nowRow, col) {
                         let startRow = nowRow;
                         const title = grid.getCellText(nowRow, col);
@@ -2067,15 +2126,17 @@ function vanillagrid_onBeforeCreate (e, vg) {
                         closeTree(data.row, data.col);
                     }
                 }
-            
                 return treeSpan;
-            },
+            }
         }
     };
 }
 </script>
 `
                     }
+                },
+                "DIVE-4400": {
+                    text: "※ The data types 'img', 'radio', and 'tree' are temporary data types created to explain the Deep Dive section. They may not be fully functional."
                 },
             },
             api: {
@@ -2827,7 +2888,7 @@ beforeDestroy: function() {
                             },
                             {
                                 text : 'dataType="link".\na태그 타입.\n객체 형식의 값을 가진다.\n{value: "https://vanilla-grid.github.io/", text: "이동", target: "_blank"}\n'
-                                        + 'a태그 생성 후 value는 herf, text는 innerText target은 target 속성의 값이 된다.\n수정 불가.\n화면 상에 a태그로 표현.',
+                                        + 'a태그 생성 후 value는 herf, text는 textContent target은 target 속성의 값이 된다.\n수정 불가.\n화면 상에 a태그로 표현.',
                             },
                             {
                                 text : 'dataType="code".\ncodes 속성으로 정한 문자열 입력 타입. codes에 없는 문자열은 삽입 불가.\ncodes 속성은 ";"을 구분자로 하는 문자열로 설정한다.\ndefault는 defaultCode 속성의 값이 들어감.\n 문자열 형식의 값을 가진다.\n수정 시 input 입력창 생성.\n화면 상에 span태그로 표현.',
@@ -3388,9 +3449,6 @@ grid01_onKeydownGrid (e) {
                     },
                     "STARTED-5008": {
                         text: '50개 행추가(setGridMount() 사용)'
-                    },
-                    "STARTED-5009": {
-                        text: 'clear'
                     },
                     "STARTED-5010": {
                         text: '※ 행 추가는 addRow(index)의 기능을 사용합니다. addRow() 메소드는 행 하나를 grid에 추가하는 메소드입니다. 위 버튼 클릭 시 해당 메소드를 50번 반복합니다. '
@@ -3990,13 +4048,13 @@ function vanillagrid_onBeforeCreate (e, vg) {
                         text: "vg.lessoreq0x7ffByte, vg.lessoreq0xffffByte, vg.greater0xffffByte는 maxByte체크시 사용하는 값입니다."
                     },
                     "DIVE-2602": {
-                        text: "vg.lessoreq0x7ffByte는 문자의 아스키 코드가 0x7ff Byte 보다 작거나 같은 경우."
+                        text: "vg.lessoreq0x7ffByte는 문자의 ASCII 코드가 0x7ff Byte 보다 작거나 같은 경우."
                     },
                     "DIVE-2603": {
-                        text: "vg.lessoreq0xffffByte는 문자의 아스키 코드가 0x7ff Byte 보다 크고, 0xffff Byte 보다 작거나 같은 경우."
+                        text: "vg.lessoreq0xffffByte는 문자의 ASCII 코드가 0x7ff Byte 보다 크고, 0xffff Byte 보다 작거나 같은 경우."
                     },
                     "DIVE-2604": {
-                        text: "vg.greater0xffffByte는 문자의 아스키 코드가 0xffff Byte 보다 큰 경우를 의미합니다."
+                        text: "vg.greater0xffffByte는 문자의 ASCII 코드가 0xffff Byte 보다 큰 경우를 의미합니다."
                     },
                     "DIVE-2605": {
                         text: "해당 문자에 대해 byte를 얼마나 부여할지에 대한 값이며 default로 각 2, 3, 4 입니다.(UTF-8 기준)"
@@ -4198,31 +4256,41 @@ function vanillagrid_onBeforeCreate (e, vg) {
                     "DIVE-4100": {
                         text: "'img' data type에 대한 vg.dataType 정의는 다음과 같습니다."
                     },
-                    "DIVE-4101": {
+                    "DIVE-4150": {
                         code: 
 `<script>
 function vanillagrid_onBeforeCreate (e, vg) {
     vg.dataType = {
         "img" : {
+            // cell의 style에 justify-content, text-align, padding 속성을 지정한다.
             cellStyle: {
                 justifyContent: "center",
                 textAlign: "center",
                 padding: 0,
             },
+            // cell 선택 시 cell의 첫번째 자식요소에게 opacity 0.2를 적용한다.
             onSelected : function (target, data) {
                 if(target.firstChild.children[0]) target.firstChild.children[0].style.setProperty("opacity", "0.2");
             },
+            // cell 선택 해재 시 cell의 첫번째 자식요소에게 opacity style 속성을 제거한다.
             onUnselected : function (target, data) {
                 if(target.firstChild.children[0]) target.firstChild.children[0].style.removeProperty("opacity");
             },
+            //value가 없는 경우를 제외하고 value자체를 반환한다.
             getValue: function (value) {
                 if(!value) return null;
                 return value;
             },
+            //value가 없는 경우를 제외하고 value의 alt를 반환한다.
             getText: function (value) {
                 if(!value) return null;
                 return value.alt;
             },
+            //부모 span(childNode)에 <img></img>와 span(alt)를 자식요소로 추가한다.
+            //img태그의 src는 value의 src, alt는 value의 alt를 삽입한다.
+            //alt의 textContent에 value의 alt를 삽입한다.
+            //childNode를 click과 dblclick시 이벤트를 삽입한다
+            //(cell은 자동으로 setTargetCell, editCell 이벤트가 발생하지만 childNode는 별도로 삽입해야한다).
             getChildNode: function (data) {
                 const childNode = document.createElement("span");
                 if(!data) return childNode;
@@ -4247,7 +4315,7 @@ function vanillagrid_onBeforeCreate (e, vg) {
                 alt.style.width = "100%";
                 alt.style.whiteSpace = "normal";
                 alt.style.wordBreak = "break-all";
-                alt.innerText = data.text;
+                alt.textContent = data.text;
                 
                 img.gridId = data.gridId;
                 img.cellRow = data.row;
@@ -4263,6 +4331,10 @@ function vanillagrid_onBeforeCreate (e, vg) {
                 })
                 return childNode;
             },
+            //cell edit 이벤트 발생 시 사용자에게 제공될 editor로 input 요소를 반환한다.
+            //input요소의 value에 data.text를 삽입한다.
+            //keydown 'Enter', 'Tab', 'F2' 시에 call_modify()를 호출하여 수정 사항을 반영한다.
+            //keydown 'Escape' 시에 call_endEdit()를 호출하여 수정 사항을 반영하지 않고 종료한다.
             getEditor: function (target, data, call_modify, call_endEdit) {
                 if(!data.value) return null;
 
@@ -4302,24 +4374,29 @@ function vanillagrid_onBeforeCreate (e, vg) {
                 });
                 return editor;
             },
+            //편집후 반환 될 newValue로 input에 입력된 value를 기존 data의 value의 alt에 삽입하여 반환한다.
             getEditedValue: function (target, data) {
                 if(!data.value) return null;
                 const newValue = data.value;
                 newValue.alt = target.value;
                 return newValue;
             },
+            //filter에 적용될 값들은 value의 alt값.
             getFilterValue: function (value) {
                 if(!value) return null;
                 return "title : " + value.alt;
             },
+            //sort에 적용될 값들은 value의 alt값.
             getSortValue: function (value) {
                 if(!value) return null;
                 return value.alt;
             },
+            //복사에 반환할 값들은 value의 alt값.
             getCopyValue: function (value) {
                 if(!value) return null;
                 return value.alt;
             },
+            //붙여넣기로 삽입될 값은 value의 alt값에 삽입한다.
             getPasteValue: function (data, text) {
                 if(!data.value) return null;
                 const value = data.value;
@@ -4336,36 +4413,42 @@ function vanillagrid_onBeforeCreate (e, vg) {
                     "DIVE-4200": {
                         text: "'radio' data type에 대한 vg.dataType 정의는 다음과 같습니다."
                     },
-                    "DIVE-4201": {
+                    "DIVE-4250": {
                         code: 
 `<script>
 function vanillagrid_onBeforeCreate (e, vg) {
     vg.dataType = {
         radio : {
+            //cell의 style에 justify-content, text-align 속성을 지정한다.
             cellStyle: {
                 justifyContent: "center",
                 textAlign: "center",
             },
+            //cell이 선택된 상태에서 'Enter' key가 눌리면 해당 cell의 value를 "Y"로 변경한다.
             onSelectedAndKeyDown : function (event, data) {
                 if(event.key === 'Enter' || event.key === ' ') {
                     window[data.gridId].setColSameValue(data.col, "N", true);
-                    window[data.gridId].setCellValue(data.row, data.col, data.value === "Y" ? "N" : "Y", true);
+                    window[data.gridId].setCellValue(data.row, data.col, "Y", true);
+                    event.stopPropagation();
+                    event.preventDefault();
                     return false;
                 }
             },
+            //cell을 마우스로 선택하면 cell의 value를 "Y"로 변경한다.
             onClick : function (event, data) {
-                if(event.target.tagName !== 'INPUT') return;
-                let value = event.target.checked;
-                window[event.target.gridId].setColSameValue(event.target.cellCol, "N", true);
-                window[event.target.gridId].setCellValue(event.target.cellRow, event.target.cellCol, value ? "Y" : "N", true);
+                window[data.gridId].setColSameValue(data.col, "N", true);
+                window[data.gridId].setCellValue(data.row, data.col, "Y", true);
             },
+            //value를 그대로 반환한다.
             getValue: function (value) {
                 return value;
             },
+            //value가 "Y"일 때 "true"를 아니면 "false"를 반환한다.
             getText: function (value) {
                 const text = value === "Y" ? "true" : "false";
                 return text;
             },
+            //radio type의 input이며 data가 "Y"일 때 checked 상태인 html 요소를 반환한다.
             getChildNode: function (data) {
                 const childNode = document.createElement("input");
                 childNode.setAttribute("type", "radio");
@@ -4377,6 +4460,7 @@ function vanillagrid_onBeforeCreate (e, vg) {
                 childNode.checked = data.value === "Y";
                 return childNode;
             },
+            //filter는 체크된 값은 "●", 아닌 값은 "○"를 적용한다.
             getFilterValue: function (value) {
                 const filterValue = value === "Y" ? "●" : "○";
                 return filterValue;
@@ -4392,34 +4476,59 @@ function vanillagrid_onBeforeCreate (e, vg) {
                         text: "'tree' data type에 대한 vg.dataType 정의는 다음과 같습니다.(tree data type에 대한 예시 grid는 최 상단의 Deep dive!섹션의 grid입니다.)"
                     },
                     "DIVE-4301": {
+                        text: "※ 'tree'에 data는 한 행이 연속된 계층을 표현하는 data를 삽입 해야하도록 만들었습니다. 예를들어 level1부터 level3까지 있을 때, "
+                            + 'level1은 A, level2는 AA인 level3의 AAA data가 있다면 그 행은{level1: "A", level2: "AA", level3: "AAA"}로 표현 됩니다. '
+                            + "즉 쿼리로 data를 출력 할 때, 계층을 지정하는 상위 컬럼(level1, level2)을 모두 가져와서 앞선 컬럼으로 배치하고 data를 삽입하면 됩니다."
+                    },
+                    "DIVE-4302": {
+                        text: "※ 'tree'는 font awesome을 사용합니다."
+                    },
+                    "DIVE-4350": {
                         code: 
 `<script>
 function vanillagrid_onBeforeCreate (e, vg) {
     vg.dataType = {
         tree : {
+            //cell의 style에 justify-content, text-align 속성을 지정한다.
             cellStyle: {
                 justifyContent: "left",
                 textAlign: "left",
             },
+            //삽입되는 value의 형태가 object인 경우 그대로 value를 반환한다. {title: (String), toggle: (boolean)}의 형태여야함.
+            //삽입되는 value의 형태가 String인 경우 해당 값을 title로 지정하고 {title: value, toggle: false}로 반환한다.
             getValue: function (value) {
+                //항상 {title: (String), toggle: (boolean)} 형태를 반환.
                 if(value.constructor === Object) {
                     return value;
                 } else {
                     return {title: value, toggle: false};
                 }
             },
+            //text는 value의 title을 반환한다.
             getText: function (value) {
                 if(!value) return null
                 return value.title
             },
+            //부모 div요소인 treeSpan를 생성한다. 자식 span요소인 treeText와 treeToggle를 생성한다.
+            //동일 column의 1칸 위 행의 data.text가 다를 경우만 treeToggle과 treeText을 삽입한다. (상위 계층의 동일한 데이터는 표기하지 않음)
+            //treeText와 treeToggle의 click이벤트에 onClick을 호출한다.
+            //onClick은 data.value의 toggle에 따라 상위와 하위 계층의 tree들을 open하거나 close한다.
+            //tree open시
+            //1. 닫혀있는 상위 계층의 tree를 모두 open한다(visible true).
+            //2. 그리고 하위 한칸(다음 column)의 cell을 open한다.
+            //2-1. 하위 한칸의 cell이 tree인 경우 동일한 상위계층의 tree를 보두 visible true처리 하고 title을 보여준다.
+            //2-2. 하위 한칸의 cell이 tree가 아닌 경우 해당 data type을 부여하고 fontColor를 "#333"으로 설정한다. (하위 한칸의 cell을 보여주는 효과)
+            //tree close시
+            //1. 열려있는 하위 계층의 tree를 모두 close한다(visible false).
+            //2. 하위 한칸의 cell이 tree가 아닌 경우 해당 data type을 "text"로 설정하고 fontColor를 "#fff"으로 설정한다. (하위 한칸의 cell을 감추는 효과)
             getChildNode: function (data) {
                 if(!data.value) return document.createElement('span');
 
-                const treeSpan = document.createElement('divs');
+                const treeSpan = document.createElement('div');
                 treeSpan.style.width = '100%'
 
                 const treeText = document.createElement('span');
-                treeText.innerText = data.text;
+                treeText.textContent = data.text;
                 treeText.style.display = 'inline-block';
                 treeText.style.marginLeft = '10px';
                 treeText.style.maxWidth = '90%'
@@ -4431,21 +4540,26 @@ function vanillagrid_onBeforeCreate (e, vg) {
 
                 const treeToggle = document.createElement('span');
                 treeToggle.classList.add('far');
+                //toggle에따라 icon을 변경한다.
                 if(data.value.toggle) {
+                    //font awesome 사용.
                     treeToggle.classList.add('fa-minus-square');
                     treeToggle.classList.remove('fa-plus-square');
                 }
                 else {
+                    //font awesome 사용.
                     treeToggle.classList.add('fa-plus-square');
                     treeToggle.classList.remove('fa-minus-square');
                 }
                 treeToggle.style.fontSize = '0.85em';
+                //onClick 이벤트 추가.
                 treeToggle.addEventListener('click', (e) => {
                     onClick(e, data);
                 })
 
                 const grid = window[data.gridId];
 
+                //만약 하위 한칸(다음 컬럼)의 cell data type이 'tree'가 아닌경우
                 if(data.col + 1 <= grid.getColCount() && grid.getCellDataType(data.row, data.col + 1) !== 'tree') {
                     if(data.value.toggle) {
                         grid.setCellDataType(data.row, data.col + 1, grid.getColDataType(data.col + 1));
@@ -4457,16 +4571,18 @@ function vanillagrid_onBeforeCreate (e, vg) {
                     }
                 }
 
+                //상위 tree가 toggle이 false인 경우 treeText.textContent를 '..'으로 삽입한다.
                 for(let col = data.col; col > 3; col--) {
                     if(grid.getCellDataType(data.row, col) === 'tree') {
                         const preCellValue = grid.getCellValue(data.row, col - 1);
                         if(preCellValue && !preCellValue.toggle) {
-                            treeText.innerText = '..';
+                            treeText.textContent = '..';
                         }
                         break;
                     }
                 }
 
+                //동일 column의 1칸 위 행의 data.text가 다를 경우만 treeToggle과 treeText을 삽입한다.
                 if (data.row === 1) {
                     treeSpan.append(treeToggle);
                     treeSpan.append(treeText);
@@ -4475,13 +4591,16 @@ function vanillagrid_onBeforeCreate (e, vg) {
                     treeSpan.append(treeText);
                 }
                 
+                //클릭 시 호출되는 함수
                 function onClick(e, data) {
                     const grid = window[data.gridId];
                     const toggle = !data.value.toggle;
 
+                    //하위 모든 cell을 open
                     function openTree (nowRow, col) {
                         let startRow;
                         const title = grid.getCellText(nowRow, col);
+                        //open을 시작할 행 검색
                         if(nowRow === 1) {
                             startRow = nowRow;
                         }
@@ -4520,6 +4639,7 @@ function vanillagrid_onBeforeCreate (e, vg) {
                         }
                     }
 
+                    //상위 모든 cell을 close
                     function closeTree (nowRow, col) {
                         let startRow = nowRow;
                         const title = grid.getCellText(nowRow, col);
@@ -4551,7 +4671,6 @@ function vanillagrid_onBeforeCreate (e, vg) {
                         closeTree(data.row, data.col);
                     }
                 }
-            
                 return treeSpan;
             },
         }
@@ -4559,6 +4678,9 @@ function vanillagrid_onBeforeCreate (e, vg) {
 }
 </script>
 `,
+                    },
+                    "DIVE-4400": {
+                        text: "※ dataType 'img', 'radio', 'tree'는 deep dive장을 설명하기 위해 만든 임시 data type으로. 기능이 완전하지 않을 수 있습니다."
                     },
                 },
             },
