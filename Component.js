@@ -557,18 +557,13 @@ function getComponents(CONSTS, SAMPLE_GRIDS) {
                     `
                         <div class="btn-group btn-group-justified" role="group" aria-label="...">
                             <div class="btn-group" role="group">
-                                <button type="button" class="btn btn-default" @click="addRowNo($event)">
+                                <button type="button" class="btn btn-default" @click="addRowNo($event)" style="wordBreak: break-word; whiteSpace: normal;">
                                     <span :id="getContentAnchor('STARTED-5007')" class="text-danger">{{getContentText("STARTED-5007")}}</span>
                                 </button>
                             </div>
                             <div class="btn-group" role="group">
-                                <button type="button" class="btn btn-default" @click="addRowYes($event)">
+                                <button type="button" class="btn btn-default" @click="addRowYes($event)" style="wordBreak: break-word; whiteSpace: normal;">
                                     <span :id="getContentAnchor('STARTED-5008')" class="text-success">{{getContentText("STARTED-5008")}}</span>
-                                </button>
-                            </div>
-                            <div class="btn-group" role="group">
-                                <button type="button" class="btn btn-default" @click="gridClear($event)">
-                                    <span :id="getContentAnchor('STARTED-5009')">{{getContentText("STARTED-5009")}}</span>
                                 </button>
                             </div>
                         </div>
@@ -609,7 +604,7 @@ function getComponents(CONSTS, SAMPLE_GRIDS) {
                         <p class="h6">{{getCommonContent("COMMON-0000")}}</p>
                         <pre><code>{{SAMPLE_GRIDS.dive[CONSTS.SAMPLE_KEYS_DIVE[0]]}}</code></pre>
                         <p class="h6">{{getCommonContent("COMMON-0001")}}</p>
-                        <pre><code>[\n{{getContentData(CONSTS.SAMPLE_KEYS_DIVE[0])}},\n...\n]</code></pre>
+                        <pre><code>[\n{{getContentData(CONSTS.SAMPLE_KEYS_DIVE[0])}},\n{{getContentData(CONSTS.SAMPLE_KEYS_DIVE[0], 1)}}\n{{getContentData(CONSTS.SAMPLE_KEYS_DIVE[0], 2)}}\n{{getContentData(CONSTS.SAMPLE_KEYS_DIVE[0], 3)}}\n{{getContentData(CONSTS.SAMPLE_KEYS_DIVE[0], 4)}}\n...\n]</code></pre>
                     </div>
                     <div class="explain-box">
                         <p class="h5" :id="getContentAnchor('DIVE-0001')"><b>{{getContentText("DIVE-0001")}}</b></p>
@@ -779,12 +774,18 @@ function getComponents(CONSTS, SAMPLE_GRIDS) {
                     <div class="explain-box">
                         <p class="h5" :id="getContentAnchor('DIVE-4050')"><b>{{getContentText("DIVE-4050")}}</b></p>
                         <pre><code>{{getContentCode("DIVE-4051")}}</code></pre>
+                        <br>
                         <p class="h5" :id="getContentAnchor('DIVE-4100')"><b>{{getContentText("DIVE-4100")}}</b></p>
-                        <pre><code>{{getContentCode("DIVE-4101")}}</code></pre>
+                        <pre><code>{{getContentCode("DIVE-4150")}}</code></pre>
+                        <br>
                         <p class="h5" :id="getContentAnchor('DIVE-4200')"><b>{{getContentText("DIVE-4200")}}</b></p>
-                        <pre><code>{{getContentCode("DIVE-4201")}}</code></pre>
+                        <pre><code>{{getContentCode("DIVE-4250")}}</code></pre>
+                        <br>
                         <p class="h5" :id="getContentAnchor('DIVE-4300')"><b>{{getContentText("DIVE-4300")}}</b></p>
-                        <pre><code>{{getContentCode("DIVE-4301")}}</code></pre>
+                        <p class="h6 text-danger" :id="getContentAnchor('DIVE-4301')">{{getContentText("DIVE-4301")}}</p>
+                        <p class="h6 text-danger" :id="getContentAnchor('DIVE-4302')">{{getContentText("DIVE-4302")}}</p>
+                        <pre><code>{{getContentCode("DIVE-4350")}}</code></pre>
+                        <p class="h6 text-danger" :id="getContentAnchor('DIVE-4400')">{{getContentText("DIVE-4400")}}</p>
                     </div>
 
                     <br><br><br>
