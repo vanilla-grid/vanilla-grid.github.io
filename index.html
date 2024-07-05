@@ -363,8 +363,8 @@
 			const row = urlParams.get('row');
 			const colId = urlParams.get('colId');
 
-			this.currentLang = lang ? lang : 'KOR';
-	        if(!viewId || ['intro','started','dive','api'].indexOf(viewId) < 0) viewId = 'dive';
+			this.currentLang = lang ? lang : 'ENG';
+	        if(!viewId || ['intro','started','dive','api'].indexOf(viewId) < 0) viewId = 'intro';
 	        this.currentView = viewId;
 	        if(anchorId) {
 				this.scrollAnchor(anchorId, null, 1000);
@@ -374,8 +374,8 @@
 			}
 		},
 	    data: {
-	    	currentLang : 'KOR',
-	        currentView : 'dive',
+	    	currentLang : 'ENG',
+	        currentView : 'intro',
 	        navItems: [
 	            { id: 'intro', name: 'Intro' },
 	            { id: 'started', name: 'Getting started' },
