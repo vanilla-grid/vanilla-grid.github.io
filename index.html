@@ -17,13 +17,13 @@
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
-	<script src="Vanillagrid.min.1.0.0.js?v=202407051655"></script>
-	<script src="DataType.js?v=202407051655"></script>
-	<script src="Consts.js?v=202407051655"></script>
-	<script src="Contents.js?v=202407051655"></script>
-	<script src="SampleDatas.js?v=202407051655"></script>
-	<script src="SampleGrids.js?v=202407051655"></script>
-	<script src="Component.js?v=202407051655"></script>
+	<script src="Vanillagrid.min.1.0.0.js?v=20240715"></script>
+	<script src="DataType.js?v=20240715"></script>
+	<script src="Consts.js?v=20240715"></script>
+	<script src="Contents.js?v=20240715"></script>
+	<script src="SampleDatas.js?v=20240715"></script>
+	<script src="SampleGrids.js?v=20240715"></script>
+	<script src="Component.js?v=20240715"></script>
 	<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
 	<style>
 	*, ::before, ::after {
@@ -802,6 +802,7 @@
 
 	            		switch(this.currentLang) {
 	            			case 'KOR' :
+								grid01.setHeaderText(2, '상태;;');
 								grid01.setHeaderText('col0', 'header;img;사진');
 								grid01.setHeaderText('col1', ';text;고래 이름');
 								grid01.setHeaderText('col2', ';code;크기\n코드');
@@ -815,6 +816,7 @@
 								grid01.setHeaderText('col10', ';link;더 알아보기');
 	            				break;
 	            			default :
+								grid01.setHeaderText(2, 'status;;');
 								grid01.setHeaderText('col1', 'header;img;Picture');
 								grid01.setHeaderText('col1', ';text;Whale Name');
 								grid01.setHeaderText('col2', ';code;Size\nCode');
