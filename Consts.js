@@ -71,14 +71,14 @@ function getConsts () {
                 "name": "visible",
                 "type": "Boolean",
                 "default": "true",
-                "remarkKor": "grid의 visible처리 여부. False이면 display none.",
+                "remarkKor": "grid의 visible처리 여부. false이면 display none.",
                 "remarkEng": "Indicates whether the grid is visible. If false, it will be display none."
             },
             {
                 "name": "headerVisible",
                 "type": "Boolean",
                 "default": "true",
-                "remarkKor": "grid header의 visible처리 여부. False이면 display none.",
+                "remarkKor": "grid header의 visible처리 여부. false이면 display none.",
                 "remarkEng": "Indicates whether the grid header is visible. If false, it will be display none."
             },
             {
@@ -134,15 +134,25 @@ function getConsts () {
                 "name": "dateFormat",
                 "type": "String",
                 "default": "yyyy-mm-dd",
-                "remarkKor": "grid에서 date의 format. 'yyyymmdd', 'yyyy-mm-dd', 'yyyy/mm/dd', 'yyyy. mm. dd' 가능.",
-                "remarkEng": "The format of the date in the grid. 'yyyymmdd', 'yyyy-mm-dd', 'yyyy/mm/dd', 'yyyy. mm. dd' are possible."
+                "remarkKor": "grid에서 date의 format.\n"
+                            + "'yyyy-mm-dd', 'yyyy/mm/dd', 'yyyy. mm. dd', 'yyyymmdd'\n"
+                            + "'mm-dd-yyyy', 'mm/dd/yyyy', 'mm. dd. yyyy', 'mmddyyyy'\n"
+                            + "'dd-mm-yyyy', 'dd/mm/yyyy', 'dd. mm. yyyy', 'ddmmyyyy' 가능",
+                "remarkEng": "The format of the date in the grid.\n"
+                            + "'yyyy-mm-dd', 'yyyy/mm/dd', 'yyyy. mm. dd', 'yyyymmdd'\n"
+                            + "'mm-dd-yyyy', 'mm/dd/yyyy', 'mm. dd. yyyy', 'mmddyyyy'\n"
+                            + "'dd-mm-yyyy', 'dd/mm/yyyy', 'dd. mm. yyyy', 'ddmmyyyy' are possible.",
             },
             {
                 "name": "monthFormat",
                 "type": "String",
                 "default": "yyyy-mm",
-                "remarkKor": "grid에서 month의 format. 'yyyymm', 'yyyy-mm', 'yyyy/mm', 'yyyy. mm' 가능.",
-                "remarkEng": "The format of the month in the grid. 'yyyymm', 'yyyy-mm', 'yyyy/mm', 'yyyy. mm' are possible."
+                "remarkKor": "grid에서 month의 format.\n"
+                            + "'yyyymm', 'yyyy-mm', 'yyyy/mm', 'yyyy. mm'\n"
+                            + "'mmyyyy', 'mm-yyyy', 'mm/yyyy', 'mm. yyyy' 가능.",
+                "remarkEng": "The format of the month in the grid.\n"
+                            + "'yyyymm', 'yyyy-mm', 'yyyy/mm', 'yyyy. mm'\n"
+                            + "'mmyyyy', 'mm-yyyy', 'mm/yyyy', 'mm. yyyy' are possible.",
             },
             {
                 "name": "alterRow",
@@ -155,8 +165,8 @@ function getConsts () {
                 "name": "frozenColCount",
                 "type": "Number",
                 "default": "0",
-                "remarkKor": "grid의 고정 열을 설정한다. Unvisible처리된 열도 계산해서 숫자를 설정해야한다.",
-                "remarkEng": "Sets the frozen columns of the grid. The number should be set by calculating the invisible columns as well."
+                "remarkKor": "grid의 고정 열을 설정한다. 숨김 처리된 열도 계산해서 숫자를 설정해야한다.\n(1열은 v-g-rownum, 2열은 v-g-status이다. 사용자 열은 최소 3열 부터)",
+                "remarkEng": "Sets the frozen columns of the grid. The number should be set by calculating the invisible columns as well.\n(Column 1 is v-g-rownum, and column 2 is v-g-status. The user column starts from at least 3 columns.)"
             },
             {
                 "name": "frozenRowCount",
@@ -746,13 +756,15 @@ function getConsts () {
                             + "Number format :\n"
                             + "정수 부 :\n"
                             + "\"#,###\" : 세자리수 컴마로 0이면 null 표기, \"#,##0\" : 세자리수 컴마로 0이면 0 표기,\n"
+                            + "Ex) format: \"AAA-991\", 값: \"ABC-123456\" => 결과: \"ABC-12\"\n\n"
                             + "\"#\" : 숫자 그대로 표기. 0이면 null표기, \"0\", : 숫자 그대로 표기. 0이면 0표기\n"
                             + "소수부 : \"#\" : 있으면 표기, \"0\" 없으면 0으로 표기.\n"
                             + " 그외 : 앞 뒤 문자는 문자 그대로 표기, 뒤 문자가 \"%\"이면 자동 백분율 표기\n"
                             + "Ex1) format : \"#,##0.## $\", 숫자 : 1234.1234 => 결과 : \"1,234.12 $\"\n"
-                            + "Ex2) format : \"0%\", 숫자 : 0.12 => 결과 : \"12 %\"",
+                            + "Ex2) format : \"0%\", 숫자 : 0.12 => 결과 : \"12%\"",
                 "remarkEng": "Sets the format for dataType mask, number.\n"
                             + "Mask format: A: Uppercase letter, a: Lowercase letter, 9: Number, others: Matching character.\n"
+                            + "Ex) format: \"AAA-991\", value: \"ABC-123456\" => result: \"ABC-12\"\n\n"
                             + "Number format:\n"
                             + "Integer part:\n"
                             + "\"#,###\": Display with thousand separators, 0 is displayed as null, \"#,##0\": Display with thousand separators,\n"
@@ -760,14 +772,14 @@ function getConsts () {
                             + "Decimal part: \"#\": Display if present, \"0\": Display as 0 if not present.\n"
                             + "Others: Characters before and after are displayed as is, and if the last character is \"%\", it is displayed as a percentage.\n"
                             + "Ex1) format: \"#,##0.## $\", number: 1234.1234 => result: \"1,234.12 $\"\n"
-                            + "Ex2) format: \"0%\", number: 0.12 => result: \"12 %\""
+                            + "Ex2) format: \"0%\", number: 0.12 => result: \"12%\""
             },
             {
                 "name": "codes",
                 "type": "String",
                 "default": "null",
-                "remarkKor": "dataType 이 code인 column에만 유효하다. \";\"를 구분자로한 코드를 설정한다. 해당 column은 정해진 코드값만 갖을 수 있다.\nEx) \"A1;A2;B1;B2\" => A1, A2, B1, B2의 값만을 갖을 수 있음.",
-                "remarkEng": "Valid only for columns with dataType code. Sets codes separated by \";\". This column can only have the specified code values.\nEx) \"A1;A2;B1;B2\" => Can only have the values A1, A2, B1, B2."
+                "remarkKor": "dataType 이 code인 column에만 유효하다. \";\"를 구분자로한 코드를 설정한다. 해당 column은 정해진 코드값만 갖을 수 있다.\nEx) \"US;KR;JP\" => \"US\", \"KR\", \"JP\"의 값만을 갖을 수 있음.",
+                "remarkEng": "Valid only for columns with dataType code. Sets codes separated by \";\". This column can only have the specified code values.\nEx) \"US;KR;JP\" => Can only have the values \"US\", \"KR\", \"JP\""
             },
             {
                 "name": "defaultCode",
@@ -1111,8 +1123,38 @@ function getConsts () {
                 "param": "e(event)",
                 "remarkKor": "grid에 focus를 둔채로 키보드 입력 시 발생하는 이벤트. event 자체를 parameter로 받는다. false 반환 시 keydown 이벤트를 막음.\n"
                             + "grid keydown 이벤트에 적용된 key 값 : \n"
-                            + "ctrl + z : 실행 취소.  ctrl + y : 재실행.  ctrl + a : 전체 cell 선택.  Tab : 다음 cell로 활성화 cell 이동.  F2 : focus cell 편집.  Enter : focus cell 편집, 편집 시작 시 cell의 내용을 drag함. checkbox 경우 토글 후 아래이동. select 경우 combo 오픈.  Space bar : checkbox 경우 토글, select 경우 combobox 오픈, button, link 경우 click함.  ArrowUp(↑) : 위 cell로 활성화 cell 이동.  ArrowDown(↓) : 아래 cell로 활성화 cell 이동.  ArrowLeft(←) : 왼쪽 cell로 활성화 cell 이동.  ArrowRight(→) : 오른쪽 cell로 활성화 cell 이동.  shift + ArrowUp(↑) : 최초 활성화 cell을 기준으로 위 cell을 다중 cell 선택.  shift + ArrowDown(↓) : 최초 활성화 cell을 기준으로 아래 cell을 다중 cell 선택.  shift + ArrowLeft(←) : 최초 활성화 cell을 기준으로 왼쪽 cell을 다중 cell 선택.  shift + ArrowRight(→) : 최초 활성화 cell을 기준으로 오른쪽 cell을 다중 cell 선택.",
-                "remarkEng": "Event occurs when a keyboard input is detected while the grid is focused. The event itself is passed as a parameter. Returning false prevents the keydown event. Key values applied to the grid keydown event: ctrl + z: Undo. ctrl + y: Redo. ctrl + a: Select all cells. Tab: Move active cell to next cell. F2: Edit focus cell. Enter: Edit focus cell, drag cell content when editing starts. Checkbox: Toggle and move down. Select: Open combo. Space bar: Toggle checkbox, open combobox for select, click for button and link. ArrowUp (↑): Move active cell up. ArrowDown (↓): Move active cell down. ArrowLeft (←): Move active cell left. ArrowRight (→): Move active cell right. shift + ArrowUp (↑): Multi-select cells above based on the initial active cell. shift + ArrowDown (↓): Multi-select cells below based on the initial active cell. shift + ArrowLeft (←): Multi-select cells to the left based on the initial active cell. shift + ArrowRight (→): Multi-select cells to the right based on the initial active cell."
+                            + "ctrl + z : 실행 취소.\n"
+                            + "ctrl + y : 재실행.\n"
+                            + "ctrl + a : 전체 cell 선택.\n"
+                            + "Tab : 다음 cell로 활성화 cell 이동.\n"
+                            + "F2 : focus cell 편집.\n"
+                            + "Enter : focus cell 편집, 편집 시작 시 cell의 내용을 drag함. checkbox 경우 토글 후 아래이동. select 경우 combo 오픈.\n"
+                            + "Space bar : checkbox 경우 토글, select 경우 combobox 오픈, button, link 경우 click함.\n"
+                            + "ArrowUp(↑) : 위 cell로 활성화 cell 이동.\n"
+                            + "ArrowDown(↓) : 아래 cell로 활성화 cell 이동.\n"
+                            + "ArrowLeft(←) : 왼쪽 cell로 활성화 cell 이동.\n"
+                            + "ArrowRight(→) : 오른쪽 cell로 활성화 cell 이동.\n"
+                            + "shift + ArrowUp(↑) : 최초 활성화 cell을 기준으로 위 cell을 다중 cell 선택.\n"
+                            + "shift + ArrowDown(↓) : 최초 활성화 cell을 기준으로 아래 cell을 다중 cell 선택.\n"
+                            + "shift + ArrowLeft(←) : 최초 활성화 cell을 기준으로 왼쪽 cell을 다중 cell 선택.\n"
+                            + "shift + ArrowRight(→) : 최초 활성화 cell을 기준으로 오른쪽 cell을 다중 cell 선택.",
+                "remarkEng": "Event occurs when a keyboard input is detected while the grid is focused. The event itself is passed as a parameter. Returning false prevents the keydown event.\n"
+                            + "Key values applied to the grid keydown event:\n"
+                            + "ctrl + z: Undo.\n"
+                            + "ctrl + y: Redo.\n"
+                            + "ctrl + a: Select all cells.\n"
+                            + "Tab: Move active cell to next cell.\n"
+                            + "F2: Edit focus cell.\n"
+                            + "Enter: Edit focus cell, drag cell content when editing starts. Checkbox: Toggle and move down. Select: Open combo.\n"
+                            + "Space bar: Toggle checkbox, open combobox for select, click for button and link.\n"
+                            + "ArrowUp(↑): Move active cell up.\n"
+                            + "ArrowDown(↓): Move active cell down.\n"
+                            + "ArrowLeft(←): Move active cell left.\n"
+                            + "ArrowRight(→): Move active cell right.\n"
+                            + "shift + ArrowUp(↑): Multi-select cells above based on the initial active cell.\n"
+                            + "shift + ArrowDown(↓): Multi-select cells below based on the initial active cell.\n"
+                            + "shift + ArrowLeft(←): Multi-select cells to the left based on the initial active cell.\n"
+                            + "shift + ArrowRight(→): Multi-select cells to the right based on the initial active cell."
             }
         ];
         this.METHODS = [
@@ -1137,8 +1179,10 @@ function getConsts () {
                 "name": "setHeaderText",
                 "param": "colId(String) or colIndex(Number), headerValue(String)",
                 "return": "Boolean",
-                "remarkKor": "colId or colIndex 열의 헤더를 ';'로 구분된 문자열인 headerValue로 변환한다. 정상 동작 시 true 반환.",
-                "remarkEng": "Sets the header of the colId or colIndex column to headerValue, a string separated by ';'. Returns true if it operates normally."
+                "remarkKor": "colId or colIndex 열의 헤더를 ';'로 구분된 문자열인 headerValue로 설정한다. 정상 동작 시 true 반환.\n"
+                            + "Ex) gridId.setHeaderText(colId,'test1;test2;test3') => colId열의 헤더가 1행은 'test1' 2행은 'test2' 3행은 'test3' 으로 설정됨.",
+                "remarkEng": "Sets the header of the colId or colIndex column to headerValue, a string separated by ';'. Returns true if it operates normally.\n"
+                            + "Ex) gridId.setHeaderText(colId,'test1;test2;test3') => The header of the colId column is set to 'test1' for row 1, 'test2' for row 2, and 'test3' for row 3.",
             },
             {
                 "related": "header",
@@ -1177,8 +1221,8 @@ function getConsts () {
                 "name": "setFooterValue",
                 "param": "rowIndex(Number), colId(String) or colIndex(Number), footerValue(String)",
                 "return": "Boolean",
-                "remarkKor": "rowIndex 행, colId or colIndex 열의 footer의 값을 설정한다. 정상 동작 시 true 반환. footer가 갱신되면 값이 변경 될 수 있다.",
-                "remarkEng": "Sets the footer value of the rowIndex row and colId or colIndex column. Returns true if it operates normally. The value may change when the footer is refreshed."
+                "remarkKor": "rowIndex 행, colId or colIndex 열의 footer의 보여지는 값을 설정한다. 정상 동작 시 true 반환. ※ footer가 갱신되면 다시 값이 변경 될 수 있다.",
+                "remarkEng": "Sets the footer visible value of the rowIndex row and colId or colIndex column. Returns true if it operates normally. ※ The value may rechange when the footer is refreshed."
             },
             {
                 "related": "footer",
@@ -1193,8 +1237,10 @@ function getConsts () {
                 "name": "setFooterFormula",
                 "param": "colId(String) or colIndex(Number), formula(String)",
                 "return": "Boolean",
-                "remarkKor": "colId or colIndex열의 footer의 formula값을 ';'로 구분된 문자열인 formula로 설정한다. 정상 동작 시 true 반환. Ex) $$MAX;$$MIN;$$SUM;$$AVG",
-                "remarkEng": "Sets the footer formula of the colId or colIndex column to formula, a string separated by ';'. Returns true if it operates normally. Ex) $$MAX;$$MIN;$$SUM;$$AVG"
+                "remarkKor": "colId or colIndex열의 footer의 formula값을 ';'로 구분된 문자열인 formula로 설정한다. 정상 동작 시 true 반환.\n"
+                            + "Ex) gridId.setFooterFormula(colId '$$MAX;$$MIN;$$SUM;$$AVG')",
+                "remarkEng": "Sets the footer formula of the colId or colIndex column to formula, a string separated by ';'. Returns true if it operates normally.\n"
+                            + "Ex) gridId.setFooterFormula(colId '$$MAX;$$MIN;$$SUM;$$AVG')"
             },
             {
                 "related": "footer",
@@ -1209,8 +1255,10 @@ function getConsts () {
                 "name": "setFooterFunction",
                 "param": "rowIndex(Number), colId(String) or colIndex(Number),  userFunction(function)",
                 "return": "Boolean",
-                "remarkKor": "rowIndex 행, colId or colIndex 열의 footer에 function을 정의한다. 정상 동작 시 true 반환. 해당 function은 파라메터로 grid의 getValues()의 결과값이 주어진다.",
-                "remarkEng": "Defines a function in the footer of the rowIndex row and colId or colIndex column. Returns true if it operates normally. The function is given the result of the grid's getValues() as a parameter."
+                "remarkKor": "rowIndex 행, colId or colIndex 열의 footer에 function을 정의한다. 정상 동작 시 true 반환. 해당 function은 파라메터로 grid의 getValues()의 결과값이 주어진다.\n"
+                            + "Ex) gridId.setFooterFunction(colId, function(values) {return '1'})",
+                "remarkEng": "Defines a function in the footer of the rowIndex row and colId or colIndex column. Returns true if it operates normally. The function is given the result of the grid's getValues() as a parameter.\n"
+                            + "Ex) gridId.setFooterFunction(colId, function(values) {return '1'})",
             },
             {
                 "related": "body",
@@ -1225,8 +1273,12 @@ function getConsts () {
                 "name": "load",
                 "param": "keyValueOrDatas ([{},{}...] or [[{},{}...]...])",
                 "return": "Boolean",
-                "remarkKor": "grid에 데이터를 load한다. 정상 동작 시 true 반환. keyValue의 형식은 [{col1:'value1-1', col2: 'value1-2'}, {col1:'value2-1', col2:'value2-2'}] Datas의 형식은 [[{id:'col1', value:'value1-1'}, {id:'col2', value:'value1-2'}], [{id:'col1', value:'value2-1'}, {id:'col2', value:'value2-2'}]]",
-                "remarkEng": "Loads data into the grid. Returns true if it operates normally. The format of keyValue is [{col1:'value1-1', col2: 'value1-2'}, {col1:'value2-1', col2:'value2-2'}] The format of Datas is [[{id:'col1', value:'value1-1'}, {id:'col2', value:'value1-2'}], [{id:'col1', value:'value2-1'}, {id:'col2', value:'value2-2'}]]"
+                "remarkKor": "grid에 데이터를 load한다. 정상 동작 시 true 반환.\n"
+                            + "keyValue의 형식은 [{col1:'value1-1', col2: 'value1-2'}, {col1:'value2-1', col2:'value2-2'}]\n"
+                            + "Datas의 형식은 [[{id:'col1', value:'value1-1'}, {id:'col2', value:'value1-2'}], [{id:'col1', value:'value2-1'}, {id:'col2', value:'value2-2'}]]",
+                "remarkEng": "Loads data into the grid. Returns true if it operates normally.\n"
+                            + "The format of keyValue is [{col1:'value1-1', col2: 'value1-2'}, {col1:'value2-1', col2:'value2-2'}]\n"
+                            + "The format of Datas is [[{id:'col1', value:'value1-1'}, {id:'col2', value:'value1-2'}], [{id:'col1', value:'value2-1'}, {id:'col2', value:'value2-2'}]]"
             },
             {
                 "related": "body",
@@ -1265,16 +1317,20 @@ function getConsts () {
                 "name": "getValues",
                 "param": "",
                 "return": "Array",
-                "remarkKor": "keyValue의 형식으로 데이터를 반환한다. 키와 값만 정의된 객체를 요소로 하는 배열 Ex) [{col1:'value1-1', col2: 'value1-2'}, {col1:'value2-1', col2:'value2-2'}]",
-                "remarkEng": "Returns data in keyValue format. An array of objects defined only by keys and values. Ex) [{col1:'value1-1', col2: 'value1-2'}, {col1:'value2-1', col2:'value2-2'}]"
+                "remarkKor": "keyValue의 형식으로 데이터를 반환한다. 키와 값만 정의된 객체를 요소로 하는 배열\n"
+                            + "Ex) [{col1:'value1-1', col2: 'value1-2'}, {col1:'value2-1', col2:'value2-2'}]",
+                "remarkEng": "Returns data in keyValue format. An array of objects defined only by keys and values.\n"
+                            + "Ex) [{col1:'value1-1', col2: 'value1-2'}, {col1:'value2-1', col2:'value2-2'}]"
             },
             {
                 "related": "body",
                 "name": "getDatas",
                 "param": "",
                 "return": "Array",
-                "remarkKor": "Datas의 형식으로 데이터를 반환한다. 각 cell의 값과 정보까지 정의된 객체의 배열(column)의 배열(row) Ex) [[{id:'col1', value:'value1-1'}, {id:'col2', value:'value1-2'}], [{id:'col1', value:'value2-1'}, {id:'col2', value:'value2-2'}]]",
-                "remarkEng": "Returns data in Datas format. An array of arrays (rows) of objects (columns) defined by each cell's value and information. Ex) [[{id:'col1', value:'value1-1'}, {id:'col2', value:'value1-2'}], [{id:'col1', value:'value2-1'}, {id:'col2', value:'value2-2'}]]"
+                "remarkKor": "Datas의 형식으로 데이터를 반환한다. 각 cell의 값과 정보까지 정의된 객체의 배열(column)의 배열(row)\n"
+                            + "Ex) [[{id:'col1', value:'value1-1'}, {id:'col2', value:'value1-2'}], [{id:'col1', value:'value2-1'}, {id:'col2', value:'value2-2'}]]",
+                "remarkEng": "Returns data in Datas format. An array of arrays (rows) of objects (columns) defined by each cell's value and information.\n"
+                            + "Ex) [[{id:'col1', value:'value1-1'}, {id:'col2', value:'value1-2'}], [{id:'col1', value:'value2-1'}, {id:'col2', value:'value2-2'}]]"
             },
             {
                 "related": "body",
@@ -1289,8 +1345,8 @@ function getConsts () {
                 "name": "checkRequired",
                 "param": "userFunction(function)",
                 "return": "Boolean",
-                "remarkKor": "각 cell을 순회하며 isRequired가 true인데 null인 cell이 조회되면 해당 cell의 getCellData()된 정보를 파라메터로 userFunction을 호출한다. userFunction이 없으면 자동 적용된 이벤트를 발생한다.(오류 메시지 후 해당 cell을 editCell로 전환) userFunction이 false를 반환하면 해당 cell을 editCell로 전환하지 않는다. 하나라도 필수 cell에 값이 없으면 false를 반환.",
-                "remarkEng": "Iterates over each cell and calls userFunction with getCellData() information of any cell where isRequired is true and the cell is null. If userFunction is not provided, an automatically applied event occurs (error message followed by switching the cell to editCell). If userFunction returns false, the cell is not switched to editCell. Returns false if any required cell is missing a value."
+                "remarkKor": "각 cell을 순회하며 isRequired가 true인데 null인 cell이 조회되면 해당 cell의 getCellData()된 정보를 파라메터로 userFunction을 호출한다. userFunction이 없으면 자동 적용된 이벤트를 발생한다.(오류 메시지 후 해당 cell을 editCell로 전환) userFunction이 false를 반환하면 자동 적용된 이벤트는 발생하지 않는다. 하나라도 필수 cell에 값이 없으면 false를 반환.",
+                "remarkEng": "Iterates over each cell and calls userFunction with getCellData() information of any cell where isRequired is true and the cell is null. If userFunction is not provided, an automatically applied event occurs (error message followed by switching the cell to editCell). If userFunction returns false, automatically applied events do not occur. Returns false if any required cell is missing a value."
             },
             {
                 "related": "body",
@@ -1601,8 +1657,14 @@ function getConsts () {
                 "name": "setGridDateFormat",
                 "param": "dateFormat(String)",
                 "return": "Boolean",
-                "remarkKor": "grid의 dateFormat을 설정한다. 정상 동작 시 true 반환. 'yyyy-mm-dd', 'yyyy/mm/dd', 'yyyy. mm. dd', 'yyyymmdd'",
-                "remarkEng": "Sets the date format of the grid. Returns true if it operates normally. 'yyyy-mm-dd', 'yyyy/mm/dd', 'yyyy. mm. dd', 'yyyymmdd'"
+                "remarkKor": "grid의 dateFormat을 설정한다. 정상 동작 시 true 반환.\n"
+                            + "'yyyy-mm-dd', 'yyyy/mm/dd', 'yyyy. mm. dd', 'yyyymmdd'\n"
+                            + "'mm-dd-yyyy', 'mm/dd/yyyy', 'mm. dd. yyyy', 'mmddyyyy'\n"
+                            + "'dd-mm-yyyy', 'dd/mm/yyyy', 'dd. mm. yyyy', 'ddmmyyyy'\n",
+                "remarkEng": "Sets the date format of the grid. Returns true if it operates normally.\n"
+                            + "'yyyy-mm-dd', 'yyyy/mm/dd', 'yyyy. mm. dd', 'yyyymmdd'\n"
+                            + "'mm-dd-yyyy', 'mm/dd/yyyy', 'mm. dd. yyyy', 'mmddyyyy'\n"
+                            + "'dd-mm-yyyy', 'dd/mm/yyyy', 'dd. mm. yyyy', 'ddmmyyyy'\n",
             },
             {
                 "related": "body",
@@ -1617,8 +1679,12 @@ function getConsts () {
                 "name": "setGridMonthFormat",
                 "param": "monthFormat(String)",
                 "return": "Boolean",
-                "remarkKor": "grid의 monthFormat을 설정한다. 정상 동작 시 true 반환. 'yyyy-mm', 'yyyy/mm', 'yyyy. mm', 'yyyymm'",
-                "remarkEng": "Sets the month format of the grid. Returns true if it operates normally. 'yyyy-mm', 'yyyy/mm', 'yyyy. mm', 'yyyymm'"
+                "remarkKor": "grid의 monthFormat을 설정한다. 정상 동작 시 true 반환.\n"
+                            + "'yyyymm', 'yyyy-mm', 'yyyy/mm', 'yyyy. mm'\n"
+                            + "'mmyyyy', 'mm-yyyy', 'mm/yyyy', 'mm. yyyy'",
+                "remarkEng": "Sets the month format of the grid. Returns true if it operates normally.\n"
+                            + "'yyyymm', 'yyyy-mm', 'yyyy/mm', 'yyyy. mm'\n"
+                            + "'mmyyyy', 'mm-yyyy', 'mm/yyyy', 'mm. yyyy'",
             },
             {
                 "related": "body",
@@ -1753,7 +1819,7 @@ function getConsts () {
                 "name": "addCol",
                 "param": "colId(String) or colIndex(Number), colInfo(Object)",
                 "return": "Boolean",
-                "remarkKor": "colId or colIndex 열의 뒤에 colInfo 객체의 정보로 column을 추가한다. 정상 동작 시 true 반환.",
+                "remarkKor": "colId or colIndex 열의 뒤에 colInfo 객체의 정보로 column을 추가한다. \n정상 동작 시 true 반환.",
                 "remarkEng": "Adds a column with the information of the colInfo object after the colId or colIndex column. Returns true if it operates normally."
             },
             {
