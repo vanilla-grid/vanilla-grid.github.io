@@ -146,6 +146,12 @@ function getComponents(CONSTS, SAMPLE_GRIDS) {
                     </ul>
                 </div>
                 <div class="text-left" :class="getMainClass">
+                    <audio id="whaleSound0" style="display: none;">
+                        <source src="sound/sound01.mp3" type="audio/mpeg">
+                    </audio>
+                    <audio id="whaleSound1" style="display: none;">
+                        <source src="sound/sound02.mp3" type="audio/mpeg">
+                    </audio>
                     <br>
                     <div class="text-right padding-right">
                         <a type="button" class="btn btn-default btn-md" href="https://github.com/vanilla-grid/vanillagrid.min" target="_blank">
