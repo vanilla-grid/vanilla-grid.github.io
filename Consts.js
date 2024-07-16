@@ -1337,24 +1337,38 @@ function getConsts () {
                 "name": "sort",
                 "param": "colId(String) or colIndex(Number), isAsc(Boolean) = true,  isNumSort(Boolean) = false",
                 "return": "Boolean",
-                "remarkKor": "colId or colIndex열을 정렬한다. 정상 동작 시 true 반환. isAsc가 true이면 오름차순 정렬 아니면 내림차순정렬, isNumSort가 true이면 문자열 타입도 숫자형식으로 정렬한다.",
-                "remarkEng": "Sorts the colId or colIndex column. Returns true if it operates normally. Ascending order if isAsc is true, otherwise descending order. Sorts string types as numeric if isNumSort is true."
+                "remarkKor": "colId or colIndex열을 정렬한다. 정상 동작 시 true 반환. isAsc가 true이면 오름차순 정렬 아니면 내림차순정렬, isNumSort가 true이면 문자열 타입도 숫자형식으로 정렬한다.\n"
+                            + "Ex) gridId.sort(colId, false, true) => gridId의 colId를 desc로 정렬하고 정렬 기준을 숫자 형식으로 한다.",
+                "remarkEng": "Sorts the colId or colIndex column. Returns true if it operates normally. Ascending order if isAsc is true, otherwise descending order. Sorts string types as numeric if isNumSort is true.\n"
+                            + "Ex) gridId.sort(colId, false, true) => Sort the colId of gridId by desc and set the sorting standard in numeric format.",
             },
             {
                 "related": "body",
                 "name": "checkRequired",
                 "param": "userFunction(function)",
                 "return": "Boolean",
-                "remarkKor": "각 cell을 순회하며 isRequired가 true인데 null인 cell이 조회되면 해당 cell의 getCellData()된 정보를 파라메터로 userFunction을 호출한다. userFunction이 없으면 자동 적용된 이벤트를 발생한다.(오류 메시지 후 해당 cell을 editCell로 전환) userFunction이 false를 반환하면 자동 적용된 이벤트는 발생하지 않는다. 하나라도 필수 cell에 값이 없으면 false를 반환.",
-                "remarkEng": "Iterates over each cell and calls userFunction with getCellData() information of any cell where isRequired is true and the cell is null. If userFunction is not provided, an automatically applied event occurs (error message followed by switching the cell to editCell). If userFunction returns false, automatically applied events do not occur. Returns false if any required cell is missing a value."
+                "remarkKor": "각 cell을 순회하며 required가 true인데 null인 cell이 조회되면 해당 cell의 getCellData()된 정보를 파라메터로 userFunction을 호출한다.\n"
+                            + "userFunction이 없으면 자동 적용된 이벤트를 발생한다.(오류 메시지 후 해당 cell을 editCell로 전환)\n"
+                            + "하나라도 필수 cell에 값이 없으면 false를 반환한다.\n"
+                            + "Ex) gridId.checkRequired(function(cellData) {alert(cellData.row + '행의, ' + cellData.name + '의 정보를 입력해주세요.');})",
+                "remarkEng": "Iterates over each cell and calls userFunction with getCellData() information of any cell where required is true and the cell is null.\n"
+                            + "If userFunction is not provided, an automatically applied event occurs (error message followed by switching the cell to editCell).\n"
+                            + "Returns false if any required cell is null.\n"
+                            + "Ex) gridId.checkRequired(function(cellData) {alert(cellData.row + 'For the row, please enter the information for ' + cellData.name + '.');})",
             },
             {
                 "related": "body",
                 "name": "setGridMount",
                 "param": "isGridMount(Boolean)",
                 "return": "Boolean",
-                "remarkKor": "isGridMount가 false이면 해당 grid를 재 mount 하지않는다. 정상 동작 시 true 반환. addRow등 메소드를 호출할 때마다 grid를 다시 그리는 기능이 많아 시스템 부하가 발생 할 수 있다. grid조작 기능 진행 전 setGridMount(false) 처리 후 모든 grid조작 기능을 완료 후 setGridMount(true) 처리를 하면 시스템 부하를 줄일 수 있다. setGridMount(true) 호출 시 변경된 사항이 적용된 그리드를 한번에 다시 로드한다.",
-                "remarkEng": "If isGridMount is false, the grid is not remounted. Returns true if it operates normally. Frequent redrawing of the grid when calling methods like addRow can cause system load. Set setGridMount(false) before performing grid operations and set setGridMount(true) after all grid operations are completed to reduce system load. When setGridMount(true) is called, the grid with the applied changes is reloaded at once."
+                "remarkKor": "isGridMount가 false이면 해당 grid를 재 mount 하지않는다. 정상 동작 시 true 반환.\n"
+                            + "addRow등 메소드를 호출할 때마다 grid를 다시 그리는 기능이 많아 시스템 부하가 발생 할 수 있다.\n"
+                            + "grid조작 기능 진행 전 setGridMount(false) 처리 후 모든 grid조작 기능을 완료 후 setGridMount(true) 처리를 하면 시스템 부하를 줄일 수 있다.\n"
+                            + "setGridMount(true) 호출 시 변경된 사항이 적용된 그리드를 한번에 다시 로드한다.",
+                "remarkEng": "If isGridMount is false, the grid is not remounted. Returns true if it operates normally.\n"
+                            + "Frequent redrawing of the grid when calling methods like addRow can cause system load.\n"
+                            + "Set setGridMount(false) before performing grid operations and set setGridMount(true) after all grid operations are completed to reduce system load.\n"
+                            + "When setGridMount(true) is called, the grid with the applied changes is reloaded at once."
             },
             {
                 "related": "body",
@@ -1707,8 +1721,10 @@ function getConsts () {
                 "name": "setGridFrozenColCount",
                 "param": "frozenColCount(Number)",
                 "return": "Boolean",
-                "remarkKor": "grid의 고정 열을 설정한다. 0포함 양의 정수만 입력 가능. frozenRowCount와 함께 사용할 수 없다. 정상 동작 시 true 반환. frozenColCount는 각 Column의 width가 '%'단위로 지정된 Column이 있으면 사용할 수 없다. 'px'단위일때만 사용 가능하다.",
-                "remarkEng": "Sets the fixed columns of the grid. Only positive integers including 0 can be entered. Cannot be used with frozenRowCount. Returns true if it operates normally. FrozenColCount cannot be used if any column width is specified in '%'. Can only be used when the unit is 'px'."
+                "remarkKor": "grid의 고정 열을 설정한다. 0포함 양의 정수만 입력 가능. frozenRowCount와 함께 사용할 수 없다. 정상 동작 시 true 반환.\n"
+                            + "frozenColCount는 각 Column의 width가 '%'단위로 지정된 Column이 있으면 사용할 수 없다. 'px'단위일때만 사용 가능하다.",
+                "remarkEng": "Sets the fixed columns of the grid. Only positive integers including 0 can be entered. Cannot be used with frozenRowCount. Returns true if it operates normally.\n"
+                            + "FrozenColCount cannot be used if any column width is specified in '%'. Can only be used when the unit is 'px'."
             },
             {
                 "related": "body",
@@ -1819,8 +1835,10 @@ function getConsts () {
                 "name": "addCol",
                 "param": "colId(String) or colIndex(Number), colInfo(Object)",
                 "return": "Boolean",
-                "remarkKor": "colId or colIndex 열의 뒤에 colInfo 객체의 정보로 column을 추가한다. \n정상 동작 시 true 반환.",
-                "remarkEng": "Adds a column with the information of the colInfo object after the colId or colIndex column. Returns true if it operates normally."
+                "remarkKor": "colId or colIndex 열의 뒤에 colInfo 객체의 정보로 column을 추가한다. 정상 동작 시 true 반환.\n"
+                            + "Ex) gridId.addCol(2,{id:'dpet', header: '부서', name:'부서', dataType:'mask', format:'AAA99'})",
+                "remarkEng": "Adds a column with the information of the colInfo object after the colId or colIndex column. Returns true if it operates normally.\n"
+                            + "Ex) gridId.addCol(2,{id:'dpet', header: 'department', name:'department', dataType:'mask', format:'AAA99'})",
             },
             {
                 "related": "column",
@@ -1835,8 +1853,10 @@ function getConsts () {
                 "name": "setColInfo",
                 "param": "colInfo(Object)",
                 "return": "Boolean",
-                "remarkKor": "colInfo의 정보를 갱신한다. 변경될 column은 colInfo.id로 정한다. 정상 동작 시 true 반환. colInfo에 삽입되지 않은 정보는 vg.defaultColInfo로 정의된 default값을 따른다.",
-                "remarkEng": "Updates the information of colInfo. The column to be changed is determined by colInfo.id. Returns true if it operates normally. Information not inserted into colInfo follows the default value defined by vg.defaultColInfo."
+                "remarkKor": "colInfo의 정보를 갱신한다. 변경될 column은 colInfo.id로 정한다. 정상 동작 시 true 반환.\n"
+                            + "Ex) gridId.setColInfo({id:'dpet', header: '부서', name:'부서', dataType:'text', format:'AAA99'})",
+                "remarkEng": "Updates the information of colInfo. The column to be changed is determined by colInfo.id. Returns true if it operates normally."
+                            + "Ex) gridId.setColInfo({id:'dpet', header: '부서', name:'부서', dataType:'text', format:'AAA99'})",
             },
             {
                 "related": "column",
@@ -1971,8 +1991,10 @@ function getConsts () {
                 "name": "setColRowMerge",
                 "param": "colId(String) or colIndex(Number), isRowMerge(Boolean)",
                 "return": "Boolean",
-                "remarkKor": "colId or colIndex 열의. rowMerge를 설정한다. RowMerge가 true 시 해당 col은 행으로 merge한다. 정상 동작 시 true 반환. Merge는 만나는 각 cell의 dataType, format, value가 동일할 시에 merge된다.",
-                "remarkEng": "Sets the rowMerge of the colId or colIndex column. If rowMerge is true, the column merges by row. Returns true if it operates normally. Merge occurs when the dataType, format, and value of each cell encountered are the same."
+                "remarkKor": "colId or colIndex 열의. rowMerge를 설정한다. RowMerge가 true 시 해당 col은 행으로 merge한다. 정상 동작 시 true 반환.\n"
+                            + "Merge는 만나는 각 cell의 dataType, format, value가 동일할 시에 merge된다.",
+                "remarkEng": "Sets the rowMerge of the colId or colIndex column. If rowMerge is true, the column merges by row. Returns true if it operates normally.\n"
+                            + "Merge occurs when the dataType, format, and value of each cell encountered are the same."
             },
             {
                 "related": "column",
@@ -1987,8 +2009,10 @@ function getConsts () {
                 "name": "setColColMerge",
                 "param": "colId(String) or colIndex(Number), isColMerge(Boolean)",
                 "return": "Boolean",
-                "remarkKor": "colId or colIndex 열의. colMerge를 설정한다. colMerge가 true 시 해당 col은 행으로 merge한다. 정상 동작 시 true 반환. Merge는 만나는 각 cell의 dataType, format, value가 동일할 시에 merge된다. colMerge는 colMerge가 true인 행을 기준으로 앞의 행과 col merge한다.",
-                "remarkEng": "Sets the colMerge of the colId or colIndex column. If colMerge is true, the column merges by column. Returns true if it operates normally. Merge occurs when the dataType, format, and value of each cell encountered are the same. colMerge merges with the previous row based on the row with colMerge set to true."
+                "remarkKor": "colId or colIndex 열의. colMerge를 설정한다. colMerge가 true 시 해당 col은 행으로 merge한다. 정상 동작 시 true 반환.\n"
+                            + "Merge는 만나는 각 cell의 dataType, format, value가 동일할 시에 merge된다. colMerge는 colMerge가 true인 행을 기준으로 앞의 행과 col merge한다.",
+                "remarkEng": "Sets the colMerge of the colId or colIndex column. If colMerge is true, the column merges by column. Returns true if it operates normally.\n"
+                            + "Merge occurs when the dataType, format, and value of each cell encountered are the same. colMerge merges with the previous row based on the row with colMerge set to true."
             },
             {
                 "related": "column",
@@ -2467,24 +2491,38 @@ function getConsts () {
                 "name": "addRow",
                 "param": "",
                 "return": "Boolean",
-                "remarkKor": "colInfo를 참조하여 1행을 마지막 행 뒤에 추가한다. 값은 모두 null삽입. 정상 동작 시 true 반환.",
-                "remarkEng": "Adds one row after the last row referencing colInfo. All values are inserted as null. Returns true if it operates normally."
+                "remarkKor": "colInfo를 참조하여 1행을 마지막 행 뒤에 추가한다. 값은 모두 null삽입. 정상 동작 시 true 반환.\n"
+                            + "Ex) gridId.addRow();",
+                "remarkEng": "Adds one row after the last row referencing colInfo. All values are inserted as null. Returns true if it operates normally.\n"
+                            + "Ex) gridId.addRow();",
             },
             {
                 "related": "row",
                 "name": "addRow",
                 "param": "keyValueOrDatas(1row) ({} or [{},{}...])",
                 "return": "Boolean",
-                "remarkKor": "1행 형태의 KeyValue 입력 시 colInfo를 참조하여 1행을 마지막 행 뒤에 추가하고. keyValue의 값을 삽입한다. 정상동작 시 true 반환. 1행 형태의 Datas 입력 시 Datas의 값과 cell정보를 참조하여 1행을 마지막 행 뒤에 추가한다. 정상동작 시 true 반환.",
-                "remarkEng": "When inputting one row in KeyValue form, it adds one row after the last row referencing colInfo and inserts the values of keyValue. Returns true if it operates normally. When inputting one row in Datas form, it adds one row after the last row referencing the values and cell information of Datas. Returns true if it operates normally."
+                "remarkKor": "1행 형태의 KeyValue 입력 시 colInfo를 참조하여 1행을 마지막 행 뒤에 추가하고. keyValue의 값을 삽입한다. 정상동작 시 true 반환.\n"
+                            + "1행 형태의 Datas 입력 시 Datas의 값과 cell정보를 참조하여 1행을 마지막 행 뒤에 추가한다. 정상동작 시 true 반환.\n"
+                            + "Ex1) gridId.addRow({colId1:'value1', colId2:'value2', colId3:'value3'});\n"
+                            + "Ex2) gridId.addRow([{id:'colId1', value:'value1'}, id:'colId2', value:'value2'}, id:'colId3', value:'value3'}]);",
+                "remarkEng": "When inputting one row in KeyValue form, it adds one row after the last row referencing colInfo and inserts the values of keyValue. Returns true if it operates normally.\n"
+                            + "When inputting one row in Datas form, it adds one row after the last row referencing the values and cell information of Datas. Returns true if it operates normally.\n"
+                            + "Ex1) gridId.addRow({colId1:'value1', colId2:'value2', colId3:'value3'});\n"
+                            + "Ex2) gridId.addRow([{id:'colId1', value:'value1'}, id:'colId2', value:'value2'}, id:'colId3', value:'value3'}]);",
             },
             {
                 "related": "row",
                 "name": "addRow",
                 "param": "row(Number), keyValueOrDatas(1row) ({} or [{},{}...])",
                 "return": "Boolean",
-                "remarkKor": "row번째 행 뒤에 1행 형태의 keyValueOrDatas를 참조하여 1행을 추가한다. 정상동작 시 true 반환.",
-                "remarkEng": "Adds one row referencing keyValueOrDatas in one row form behind the row-th row. Returns true if it operates normally."
+                "remarkKor": "row번째 1행 형태의 KeyValue 입력 시 colInfo를 참조하여 1행을 추가한다. 정상동작 시 true 반환.\n"
+                            + "row번째 1행 형태의 Datas 입력 시 Datas의 값과 cell정보를 참조하여 1행을 추가한다. 정상동작 시 true 반환.\n"
+                            + "Ex1) gridId.addRow(1, {colId1:'value1', colId2:'value2', colId3:'value3'});\n"
+                            + "Ex2) gridId.addRow(1, [{id:'colId1', value:'value1'}, id:'colId2', value:'value2'}, id:'colId3', value:'value3'}]);",
+                "remarkEng": "Adds one row referencing keyValueOrDatas in one row form behind the row-th row. Returns true if it operates normally.\n"
+                            + "Adds one row referencing the values and cell information of Datas in one row form behind the row-th row. Returns true if it operates normally.\n"
+                            + "Ex1) gridId.addRow(1, {colId1:'value1', colId2:'value2', colId3:'value3'});\n"
+                            + "Ex2) gridId.addRow(1, [{id:'colId1', value:'value1'}, id:'colId2', value:'value2'}, id:'colId3', value:'value3'}]);",
             },
             {
                 "related": "row",
@@ -2515,8 +2553,10 @@ function getConsts () {
                 "name": "setRowDatas",
                 "param": "row(Number), cellDatas([{},{}...])",
                 "return": "Boolean",
-                "remarkKor": "row번째 행을 cellDatas(각 cell에 대한 값과 정보가 담긴 배열)로 변경한다. 정상동작 시 true 반환.",
-                "remarkEng": "Changes the row-th row to cellDatas (an array containing values and information for each cell). Returns true if it operates normally."
+                "remarkKor": "row번째 행을 cellDatas(각 cell에 대한 값과 정보가 담긴 배열)로 변경한다. 정상동작 시 true 반환.\n"
+                            + "Ex) gridId.setRowDatas(1, [{id:'colId1', value:'value1'}, id:'colId2', value:'value2'}, id:'colId3', value:'value3'}]);",
+                "remarkEng": "Changes the row-th row to cellDatas (an array containing values and information for each cell). Returns true if it operates normally.\n"
+                            + "Ex) gridId.setRowDatas(1, [{id:'colId1', value:'value1'}, id:'colId2', value:'value2'}, id:'colId3', value:'value3'}]);",
             },
             {
                 "related": "row",
@@ -2531,8 +2571,12 @@ function getConsts () {
                 "name": "setRowValues",
                 "param": "row(Number) values({}), doRecode(Boolean) = false",
                 "return": "Boolean",
-                "remarkKor": "row번째 행의 cell에 values({colId:value, colId:value…})를 통해 값을 삽입한다. doRecode가 true일 시 사용자가 실행취소, 재실행을 할 수 있다. 정상 동작 시 true 반환.",
-                "remarkEng": "Inserts values into the cells of the row-th row through values({colId:value, colId:value…}). If doRecode is true, the user can undo or redo. Returns true if it operates normally."
+                "remarkKor": "row번째 행의 cell에 values({colId:value, colId:value…})를 통해 값을 삽입한다.\n"
+                            + "doRecode가 true일 시 사용자가 실행취소, 재실행을 할 수 있다. 정상 동작 시 true 반환.\n"
+                            + "Ex) gridId.setRowValues(1, {colId1:'value1', colId2:'value2', colId3:'value3'});",
+                "remarkEng": "Inserts values into the cells of the row-th row through values({colId:value, colId:value…}).\n"
+                            + "If doRecode is true, the user can undo or redo. Returns true if it operates normally.\n"
+                            + "Ex) gridId.setRowValues(1, {colId1:'value1', colId2:'value2', colId3:'value3'});",
             },
             {
                 "related": "row",
@@ -2659,48 +2703,60 @@ function getConsts () {
                 "name": "searchRowsWithMatched",
                 "param": "matches(Object)",
                 "return": "Array",
-                "remarkKor": "matches객체의 {colId:value, colId:value..} 조건을 통해 colId와 값이 일치하는 행을 반환한다. 조건이 모두 일치해야 반환한다. 행의 번호를 배열로 반환한다.",
-                "remarkEng": "Returns rows that match the colId and value based on the conditions of the matches object {colId:value, colId:value..}. All conditions must match to be returned. Returns the row numbers as an array."
+                "remarkKor": "matches객체의 {colId:value, colId:value..} 조건을 통해 colId와 값이 일치하는 행을 반환한다. 조건이 모두 일치해야 반환한다. 행의 번호를 배열로 반환한다.\n"
+                            + "Ex) gridId.searchRowsWithMatched({dept:'인사팀',salary:'5000'})",
+                "remarkEng": "Returns rows that match the colId and value based on the conditions of the matches object {colId:value, colId:value..}. All conditions must match to be returned. Returns the row numbers as an array.\n"
+                            + "Ex) gridId.searchRowsWithMatched({dept:'Human Resources Team',salary:'5000'})",
             },
             {
                 "related": "row",
                 "name": "searchRowDatasWithMatched",
                 "param": "matches(Object)",
                 "return": "Array",
-                "remarkKor": "matches객체의 {colId:value, colId:value..} 조건을 통해 colId와 값이 일치하는 행을 반환한다. 조건이 모두 일치해야 반환한다. 행을 Datas[[{},{}..],[{},{}..]...] 형태로 반환한다.",
-                "remarkEng": "Returns rows that match the colId and value based on the conditions of the matches object {colId:value, colId:value..}. All conditions must match to be returned. Returns the rows as Datas [[{},{}..],[{},{}..]...]."
+                "remarkKor": "matches객체의 {colId:value, colId:value..} 조건을 통해 colId와 값이 일치하는 행을 반환한다. 조건이 모두 일치해야 반환한다. 행을 Datas [[{},{}..],[{},{}..]...] 형태로 반환한다.\n"
+                            + "Ex) gridId.searchRowsWithMatched({dept:'인사팀',salary:'5000'})",
+                "remarkEng": "Returns rows that match the colId and value based on the conditions of the matches object {colId:value, colId:value..}. All conditions must match to be returned. Returns the rows as Datas [[{},{}..],[{},{}..]...].\n"
+                            + "Ex) gridId.searchRowsWithMatched({dept:'Human Resources Team',salary:'5000'})",
             },
             {
                 "related": "row",
                 "name": "searchRowValuesWithMatched",
                 "param": "matches(Object)",
                 "return": "Array",
-                "remarkKor": "matches객체의 {colId:value, colId:value..} 조건을 통해 colId와 값이 일치하는 행을 반환한다. 조건이 모두 일치해야 반환한다. 행을 keyValues[{},{}...] 형태로 반환한다.",
-                "remarkEng": "Returns rows that match the colId and value based on the conditions of the matches object {colId:value, colId:value..}. All conditions must match to be returned. Returns the rows as keyValues [ {},{}... ]."
+                "remarkKor": "matches객체의 {colId:value, colId:value..} 조건을 통해 colId와 값이 일치하는 행을 반환한다. 조건이 모두 일치해야 반환한다. 행을 keyValues [{},{}...] 형태로 반환한다.\n"
+                            + "Ex) gridId.searchRowsWithMatched({dept:'인사팀',salary:'5000'})",
+                "remarkEng": "Returns rows that match the colId and value based on the conditions of the matches object {colId:value, colId:value..}. All conditions must match to be returned. Returns the rows as keyValues [{},{}... ].\n"
+                            + "Ex) gridId.searchRowsWithMatched({dept:'Human Resources Team',salary:'5000'})",
             },
             {
                 "related": "row",
                 "name": "searchRowsWithFunction",
                 "param": "matchFunction(function)",
                 "return": "Array",
-                "remarkKor": "사용자가 삽입하는 matchFunction을 통해 반환값이 true인 행을 반환한다. matchFunction에는 파라메터로 getRowDatas(row)결과 값이 전달된다. 행의 번호를 배열로 반환한다.",
-                "remarkEng": "Returns rows for which the return value is true through the matchFunction inserted by the user. The result value of getRowDatas(row) is passed as a parameter to matchFunction. Returns the row numbers as an array."
+                "remarkKor": "사용자가 삽입하는 matchFunction을 통해 반환값이 true인 행을 반환한다. matchFunction에는 파라메터로 getRowDatas(row)결과 값이 전달된다. 행의 번호를 배열로 반환한다.\n"
+                            + "Ex) gridId.searchRowsWithFunction(function (rowDatas) {if(rowDatas[3].value === '인사팀' && rowDatas[4].value >= 5000) return true})",
+                "remarkEng": "Returns rows for which the return value is true through the matchFunction inserted by the user. The result value of getRowDatas(row) is passed as a parameter to matchFunction. Returns the row numbers as an array.\n"
+                            + "Ex) gridId.searchRowsWithFunction(function (rowDatas) {if(rowDatas[3].value === 'Human Resources Team' && rowDatas[4].value >= 5000) return true})",
             },
             {
                 "related": "row",
                 "name": "searchRowDatasWithFunction",
                 "param": "matchFunction(function)",
                 "return": "Array",
-                "remarkKor": "사용자가 삽입하는 matchFunction을 통해 반환값이 true인 행을 반환한다. matchFunction에는 파라메터로 getRowDatas(row)결과 값이 전달된다. 행을 Datas[[{},{}..],[{},{}..]...] 형태로 반환한다.",
-                "remarkEng": "Returns rows for which the return value is true through the matchFunction inserted by the user. The result value of getRowDatas(row) is passed as a parameter to matchFunction. Returns the rows as Datas [[{},{}..],[{},{}..]...]."
+                "remarkKor": "사용자가 삽입하는 matchFunction을 통해 반환값이 true인 행을 반환한다. matchFunction에는 파라메터로 getRowDatas(row)결과 값이 전달된다. 행을 Datas [[{},{}..],[{},{}..]...] 형태로 반환한다.\n"
+                            + "Ex) gridId.searchRowsWithFunction(function (rowDatas) {if(rowDatas[3].value === '인사팀' && rowDatas[4].value >= 5000) return true})",
+                "remarkEng": "Returns rows for which the return value is true through the matchFunction inserted by the user. The result value of getRowDatas(row) is passed as a parameter to matchFunction. Returns the rows as Datas [[{},{}..],[{},{}..]...].\n"
+                            + "Ex) gridId.searchRowsWithFunction(function (rowDatas) {if(rowDatas[3].value === 'Human Resources Team' && rowDatas[4].value >= 5000) return true})",
             },
             {
                 "related": "row",
                 "name": "searchRowValuesWithFunction",
                 "param": "matchFunction(function)",
                 "return": "Array",
-                "remarkKor": "사용자가 삽입하는 matchFunction을 통해 반환값이 true인 행을 반환한다. matchFunction에는 파라메터로 getRowDatas(row)결과 값이 전달된다. 행을 keyValues[{},{}...] 형태로 반환한다.",
-                "remarkEng": "Returns rows for which the return value is true through the matchFunction inserted by the user. The result value of getRowDatas(row) is passed as a parameter to matchFunction. Returns the rows as keyValues [ {},{}... ]."
+                "remarkKor": "사용자가 삽입하는 matchFunction을 통해 반환값이 true인 행을 반환한다. matchFunction에는 파라메터로 getRowDatas(row)결과 값이 전달된다. 행을 keyValues [{},{}...] 형태로 반환한다.\n"
+                            + "Ex) gridId.searchRowsWithFunction(function (rowDatas) {if(rowDatas[3].value === '인사팀' && rowDatas[4].value >= 5000) return true})",
+                "remarkEng": "Returns rows for which the return value is true through the matchFunction inserted by the user. The result value of getRowDatas(row) is passed as a parameter to matchFunction. Returns the rows as keyValues [{},{}... ].\n"
+                            + "Ex) gridId.searchRowsWithFunction(function (rowDatas) {if(rowDatas[3].value === 'Human Resources Team' && rowDatas[4].value >= 5000) return true})",
             },
             {
                 "related": "cell",
