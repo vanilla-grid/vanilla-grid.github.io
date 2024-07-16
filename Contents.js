@@ -1500,24 +1500,27 @@ function vanillagrid_onBeforeCreate (e, vg) {
                         "text": "etc"
                     },
                     "DIVE-2601": {
-                        "text": "vg.lessoreq0x7ffByte, vg.lessoreq0xffffByte, vg.greater0xffffByte are values used for maxByte checking."
+                        "text": "Byte Check"
                     },
                     "DIVE-2602": {
-                        "text": "vg.lessoreq0x7ffByte is for characters whose ASCII code is less than or equal to 0x7ff Byte."
+                        "text": "vg.lessoreq0x7ffByte, vg.lessoreq0xffffByte, vg.greater0xffffByte are values used for maxByte checking."
                     },
                     "DIVE-2603": {
-                        "text": "vg.lessoreq0xffffByte is for characters whose ASCII code is greater than 0x7ff Byte and less than or equal to 0xffff Byte."
+                        "text": "vg.lessoreq0x7ffByte is for characters whose ASCII code is less than or equal to 0x7ff Byte."
                     },
                     "DIVE-2604": {
-                        "text": "vg.greater0xffffByte is for characters whose ASCII code is greater than 0xffff Byte."
+                        "text": "vg.lessoreq0xffffByte is for characters whose ASCII code is greater than 0x7ff Byte and less than or equal to 0xffff Byte."
                     },
                     "DIVE-2605": {
-                        "text": "This value determines how many bytes to allocate for the character. The default values are 2, 3, and 4 respectively (based on UTF-8)."
+                        "text": "vg.greater0xffffByte is for characters whose ASCII code is greater than 0xffff Byte."
                     },
                     "DIVE-2606": {
-                        "text": "If the encoding used in the program is different, you can change these values accordingly."
+                        "text": "This value determines how many bytes to allocate for the character. The default values are 2, 3, and 4 respectively (based on UTF-8)."
                     },
                     "DIVE-2607": {
+                        "text": "If the encoding used in the program is different, you can change these values accordingly."
+                    },
+                    "DIVE-2608": {
                         code: 
 `<script>
 function vanillagrid_onBeforeCreate (e, vg) {
@@ -1530,6 +1533,32 @@ function vanillagrid_onBeforeCreate (e, vg) {
     vg.lessoreq0x7ffByte = 4;
     vg.lessoreq0xffffByte = 4;
     vg.greater0xffffByte = 4;
+}
+</script>
+`,
+                    },
+                    "DIVE-2650": {
+                        "text": "● vg.checkRequiredFunction"
+                    },
+                    "DIVE-2651": {
+                        "text": "When using the gridId.checkRequired(checkRequiredFunction) method, you can define an event function that occurs when a column with required='true' has a null value."
+                    },
+                    "DIVE-2652": {
+                        "text": "vg.checkRequiredFunction must be a function type. Receives cellData returned with getCellData() as a parameter."
+                    },
+                    "DIVE-2653": {
+                        "text": "The function defined as default gives focus to the relevant cell after an error alert occurs."
+                    },
+                    "DIVE-2659": {
+                        code: 
+`<script>
+function vanillagrid_onBeforeCreate (e, vg) {
+    vg.checkRequiredFunction = function (cellData) {
+        if(cellData && window[cellData.gridId]) {
+            alert(cellData.row + ' For the row, please enter the value for ' + cellData.name + '.');
+            window[cellData.gridId].editCell(cellData.row, cellData.col);
+        }
+    }
 }
 </script>
 `,
@@ -4045,24 +4074,27 @@ function vanillagrid_onBeforeCreate (e, vg) {
                         text: "기타"
                     },
                     "DIVE-2601": {
-                        text: "vg.lessoreq0x7ffByte, vg.lessoreq0xffffByte, vg.greater0xffffByte는 maxByte체크시 사용하는 값입니다."
+                        text: "● Byte 체크"
                     },
                     "DIVE-2602": {
-                        text: "vg.lessoreq0x7ffByte는 문자의 ASCII 코드가 0x7ff Byte 보다 작거나 같은 경우."
+                        text: "vg.lessoreq0x7ffByte, vg.lessoreq0xffffByte, vg.greater0xffffByte는 maxByte체크시 사용하는 값입니다."
                     },
                     "DIVE-2603": {
-                        text: "vg.lessoreq0xffffByte는 문자의 ASCII 코드가 0x7ff Byte 보다 크고, 0xffff Byte 보다 작거나 같은 경우."
+                        text: "vg.lessoreq0x7ffByte는 문자의 ASCII 코드가 0x7ff Byte 보다 작거나 같은 경우."
                     },
                     "DIVE-2604": {
-                        text: "vg.greater0xffffByte는 문자의 ASCII 코드가 0xffff Byte 보다 큰 경우를 의미합니다."
+                        text: "vg.lessoreq0xffffByte는 문자의 ASCII 코드가 0x7ff Byte 보다 크고, 0xffff Byte 보다 작거나 같은 경우."
                     },
                     "DIVE-2605": {
-                        text: "해당 문자에 대해 byte를 얼마나 부여할지에 대한 값이며 default로 각 2, 3, 4 입니다.(UTF-8 기준)"
+                        text: "vg.greater0xffffByte는 문자의 ASCII 코드가 0xffff Byte 보다 큰 경우를 의미합니다."
                     },
                     "DIVE-2606": {
-                        text: "프로그램에서 사용하는 인코딩이 다른 경우 해당값을 변경하여 사용할 수 있습니다."
+                        text: "해당 문자에 대해 byte를 얼마나 부여할지에 대한 값이며 default로 각 2, 3, 4 입니다.(UTF-8 기준)"
                     },
                     "DIVE-2607": {
+                        text: "프로그램에서 사용하는 인코딩이 다른 경우 해당값을 변경하여 사용할 수 있습니다."
+                    },
+                    "DIVE-2608": {
                         code: 
 `<script>
 function vanillagrid_onBeforeCreate (e, vg) {
@@ -4075,6 +4107,32 @@ function vanillagrid_onBeforeCreate (e, vg) {
     vg.lessoreq0x7ffByte = 4;
     vg.lessoreq0xffffByte = 4;
     vg.greater0xffffByte = 4;
+}
+</script>
+`,
+                    },
+                    "DIVE-2650": {
+                        "text": "● vg.checkRequiredFunction"
+                    },
+                    "DIVE-2651": {
+                        "text": "gridId.checkRequired(checkRequiredFunction) 메소드 사용 시 required='true'인 컬럼이 null 값이 있을 경우 발생하는 이벤트 함수를 정의할 수 있다."
+                    },
+                    "DIVE-2652": {
+                        "text": "vg.checkRequiredFunction는 반드시 함수 type이어야 한다. 파라메터로 getCellData()로 반환되는 cellData를 받는다."
+                    },
+                    "DIVE-2653": {
+                        "text": "default로 정의된 함수는 error alert 발생 후 해당 cell에 focus를 부여한다."
+                    },
+                    "DIVE-2659": {
+                        code: 
+`<script>
+function vanillagrid_onBeforeCreate (e, vg) {
+    vg.checkRequiredFunction = function (cellData) {
+        if(cellData && window[cellData.gridId]) {
+            alert(cellData.row + ' For the row, please enter the value for ' + cellData.name + '.');
+            window[cellData.gridId].editCell(cellData.row, cellData.col);
+        }
+    }
 }
 </script>
 `,
