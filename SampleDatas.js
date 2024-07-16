@@ -50,10 +50,10 @@ function getSampleDatas(CONSTS, CONTENTS) {
         const intro = {
             [CONSTS.SAMPLE_KEYS_INTRO[1]] : (() => {
                 const row = {
-                    col1 : {value: null, text: null, target: "_self"},
-                    col2 : {value: null, text: null, target: "_self"},
-                    col3 : {value: null, text: null, target: "_self"},
-                    col4 : {value: null, text: null, target: "_self"},
+                    col1 : {value: null, text: null, target: "_blank"},
+                    col2 : {value: null, text: null, target: "_blank"},
+                    col3 : {value: null, text: null, target: "_blank"},
+                    col4 : {value: null, text: null, target: "_blank"},
                 };
                 const rows = [];
                 for(let r = 0; r < CONTENTS.ENG.intro.grid[CONSTS.SAMPLE_KEYS_INTRO[1]].col4.length; r++) {
