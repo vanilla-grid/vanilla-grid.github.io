@@ -17,13 +17,13 @@
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
-	<script src="Vanillagrid.min.1.0.0.js?v=20240715"></script>
-	<script src="DataType.js?v=20240715"></script>
-	<script src="Consts.js?v=20240715"></script>
-	<script src="Contents.js?v=20240715"></script>
-	<script src="SampleDatas.js?v=20240715"></script>
-	<script src="SampleGrids.js?v=20240715"></script>
-	<script src="Component.js?v=20240715"></script>
+	<script src="Vanillagrid.min.1.0.0.js?v=20240716"></script>
+	<script src="DataType.js?v=20240716"></script>
+	<script src="Consts.js?v=20240716"></script>
+	<script src="Contents.js?v=20240716"></script>
+	<script src="SampleDatas.js?v=20240716"></script>
+	<script src="SampleGrids.js?v=20240716"></script>
+	<script src="Component.js?v=20240716"></script>
 	<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
 	<style>
 	*, ::before, ::after {
@@ -814,6 +814,18 @@
 								grid01.setHeaderText('col8', ';checkbox;보호 상태');
 								grid01.setHeaderText('col9', ';button;소리 재생');
 								grid01.setHeaderText('col10', ';link;더 알아보기');
+
+								grid01.setColName('col0', '사진');
+								grid01.setColName('col1', '고래 이름');
+								grid01.setColName('col2', '크기 코드');
+								grid01.setColName('col3', '식별 번호');
+								grid01.setColName('col4', '발견 최근 날짜');
+								grid01.setColName('col5', '서식지 발견 최근 년월');
+								grid01.setColName('col6', '평균 길이');
+								grid01.setColName('col7', '보호 등급');
+								grid01.setColName('col8', '보호 상태');
+								grid01.setColName('col9', '소리 재생');
+								grid01.setColName('col10', '더 알아보기');
 	            				break;
 	            			default :
 								grid01.setHeaderText(2, 'status;;');
@@ -828,6 +840,18 @@
 								grid01.setHeaderText('col8', ';checkbox;Protected');
 								grid01.setHeaderText('col9', ';button;Play Sound');
 								grid01.setHeaderText('col10', ';link;View More');
+
+								grid01.setColName('col0', 'Picture');
+								grid01.setColName('col1', 'Whale Name');
+								grid01.setColName('col2', 'Size Code');
+								grid01.setColName('col3', 'ID');
+								grid01.setColName('col4', 'Last Found Date');
+								grid01.setColName('col5', 'Last Found Habitat Month');
+								grid01.setColName('col6', 'Avg Length');
+								grid01.setColName('col7', 'Protection Status');
+								grid01.setColName('col8', 'Protected');
+								grid01.setColName('col9', 'Play Sound');
+								grid01.setColName('col10', 'View More');
 	            				break;
 						}
 					},
@@ -868,13 +892,43 @@
 					[CONSTS.SAMPLE_GRID_IDS_INTRO[0] + '_onRemove']() {	//gridIntro_onRemove
 						const targetRow = window[CONSTS.SAMPLE_GRID_IDS_INTRO[0]].getTargetRow();
 						if(!targetRow) {
-							alert("Please select row.");
+							switch(this.currentLang) {
+								case 'KOR' :
+									alert("셀을 선택해 주세요.");
+									break;
+								default :
+									alert("Please select row.");
+									break;
+							}
 							return false;
 						}
 						window[CONSTS.SAMPLE_GRID_IDS_INTRO[0]].removeRow(targetRow);
 					},
 					[CONSTS.SAMPLE_GRID_IDS_INTRO[0] + '_onSave']() {	//gridIntro_onSave
-						alert("It's completed!");
+						const currentLang = this.currentLang;
+						const checkRequiredFunc = function (cellData) {
+							switch(currentLang) {
+								case 'KOR' :
+									alert(cellData.row + ' 행의, ' + cellData.name + '의 정보를 입력해주세요.');
+									break;
+								default :
+									alert(cellData.row + ' For the row, please enter the information for ' + cellData.name + '.');
+									break;
+							}
+							window[CONSTS.SAMPLE_GRID_IDS_INTRO[0]].editCell(cellData.row, cellData.col);
+							return false;
+						}
+						if(!window[CONSTS.SAMPLE_GRID_IDS_INTRO[0]].checkRequired(checkRequiredFunc)) {
+							return false;
+						}
+						switch(currentLang) {
+							case 'KOR' :
+								alert("저장 완료!");
+								break;
+							default :
+							alert("It's completed!");
+								break;
+						}
 					},
 	            },
 	        },
