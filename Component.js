@@ -714,13 +714,19 @@ function getComponents(CONSTS, SAMPLE_GRIDS) {
                         <p class="h5" :id="getContentAnchor('DIVE-2508')">{{getContentText("DIVE-2508")}}</p>
                         <br>
                         <p class="h4"><span class="dot"><i class="fas fa-pencil-alt"></i></span><b :id="getContentAnchor('DIVE-2600')">{{ getContentText("DIVE-2600") }}</b></p>
-                        <p class="h5" :id="getContentAnchor('DIVE-2601')">{{getContentText("DIVE-2601")}}</p>
+                        <p class="h5" :id="getContentAnchor('DIVE-2601')"><b>{{getContentText("DIVE-2601")}}</b></p>
                         <p class="h5" :id="getContentAnchor('DIVE-2602')">{{getContentText("DIVE-2602")}}</p>
                         <p class="h5" :id="getContentAnchor('DIVE-2603')">{{getContentText("DIVE-2603")}}</p>
                         <p class="h5" :id="getContentAnchor('DIVE-2604')">{{getContentText("DIVE-2604")}}</p>
                         <p class="h5" :id="getContentAnchor('DIVE-2605')">{{getContentText("DIVE-2605")}}</p>
                         <p class="h5" :id="getContentAnchor('DIVE-2606')">{{getContentText("DIVE-2606")}}</p>
-                        <pre><code>{{getContentCode("DIVE-2607")}}</code></pre>
+                        <p class="h5" :id="getContentAnchor('DIVE-2607')">{{getContentText("DIVE-2607")}}</p>
+                        <pre><code>{{getContentCode("DIVE-2608")}}</code></pre>
+                        <p class="h5" :id="getContentAnchor('DIVE-2650')"><b>{{getContentText("DIVE-2650")}}</b></p>
+                        <p class="h5" :id="getContentAnchor('DIVE-2651')">{{getContentText("DIVE-2651")}}</p>
+                        <p class="h5" :id="getContentAnchor('DIVE-2652')">{{getContentText("DIVE-2652")}}</p>
+                        <p class="h5" :id="getContentAnchor('DIVE-2653')">{{getContentText("DIVE-2653")}}</p>
+                        <pre><code>{{getContentCode("DIVE-2659")}}</code></pre>
                     </div>
 
                     <br><br><br>
