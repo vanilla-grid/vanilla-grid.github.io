@@ -33,12 +33,12 @@ function getSampleGrids(CONSTS) {
             [CONSTS.SAMPLE_KEYS_INTRO[0]] :
 `<vanilla-grid id="` + CONSTS.SAMPLE_GRID_IDS_INTRO[0] + `" rownumSize="40px" verticalBorderSize="0">
     <v-col id="col0" header="header;img;Picture" dataType="img" width="140px"></v-col>
-    <v-col id="col1" header=";text;Whale Name" dataType="text" width="130px"></v-col>
-    <v-col id="col2" header=";code;Size Code" dataType="code" codes="L;M;S" width="60px"></v-col>
-    <v-col id="col3" header=";mask;ID" dataType="mask" format="99999" width="60px" align="center"></v-col>
+    <v-col id="col1" header=";text;Whale Name" dataType="text" width="130px" required="true"></v-col>
+    <v-col id="col2" header=";code;Size Code" dataType="code" codes="L;M;S" width="60px" required="true"></v-col>
+    <v-col id="col3" header=";mask;ID" dataType="mask" format="99999" width="60px" align="center" required="true"></v-col>
     <v-col id="col4" header=";date;Last Found\nDate" dataType="date" width="120px"></v-col>
-    <v-col id="col5" header=";month;Last Found\nHabitat Month" dataType="month" footer="MAX;MIN" width="120px"></v-col>
-    <v-col id="col6" header=";number;Avg\nLength" dataType="number" footer="$$MAX;$$MIN" format="#,##0.## (m)" width="80px"></v-col>
+    <v-col id="col5" header=";month;Last Found\nHabitat Month" dataType="month" width="120px" footer="MAX;MIN"></v-col>
+    <v-col id="col6" header=";number;Avg\nLength" dataType="number" width="80px" required="true" footer="$$MAX;$$MIN" format="#,##0.## (m)"></v-col>
     <v-col id="col7" header=";select;Protection\nStatus" dataType="select" width="150px"></v-col>
     <v-col id="col8" header=";checkbox;Protected" dataType="checkbox" width="90px"></v-col>
     <v-col id="col9" header=";button;Play sound" dataType="button" width="120px"></v-col>
