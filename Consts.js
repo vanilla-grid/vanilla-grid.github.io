@@ -924,177 +924,231 @@ function getConsts () {
                 "name": "onActiveCell",
                 "param": "row(Number), colId(String)",
                 "remarkKor": "cell 선택 시 cell 활성화 전 이벤트 발생.\n"
-                            + "_onActiveCell > _onAcriveRow > _onActiveCol > cell 선택 순으로 이벤트 발생. false 반환 시 cell 선택 막음.",
+                            + "_onActiveCell > _onAcriveRow > _onActiveCol > cell 선택 순으로 이벤트 발생. false 반환 시 cell 선택 막음.\n"
+                            + "Ex) function gridId_onActiveCell (row, colId) {console.log(row, colId)}",
                 "remarkEng": "Event occurs before cell activation when a cell is selected.\n"
-                            + "The event order is _onActiveCell > _onAcriveRow > _onActiveCol > cell selection. Returning false prevents cell selection."
+                            + "The event order is _onActiveCell > _onAcriveRow > _onActiveCol > cell selection. Returning false prevents cell selection.\n"
+                            + "Ex) function gridId_onActiveCell (row, colId) {console.log(row, colId)}",
             },
             {
                 "name": "onActiveRow",
                 "param": "row(Number)",
                 "remarkKor": "cell 선택 시 cell 활성화 전 이벤트 발생.\n"
-                            + "_onActiveCell > _onAcriveRow > _onActiveCol > cell 선택 순으로 이벤트 발생. false 반환 시 cell 선택 막음.",
+                            + "_onActiveCell > _onAcriveRow > _onActiveCol > cell 선택 순으로 이벤트 발생. false 반환 시 cell 선택 막음.\n"
+                            + "Ex) function gridId_onActiveRow (row) {console.log(row)}",
                 "remarkEng": "Event occurs before row activation when a cell is selected.\n"
-                            + "The event order is _onActiveCell > _onAcriveRow > _onActiveCol > cell selection. Returning false prevents cell selection."
+                            + "The event order is _onActiveCell > _onAcriveRow > _onActiveCol > cell selection. Returning false prevents cell selection.\n"
+                            + "Ex) function gridId_onActiveRow (row) {console.log(row)}",
             },
             {
                 "name": "onActiveCol",
                 "param": "colId(String)",
                 "remarkKor": "cell 선택 시 cell 활성화 전 이벤트 발생.\n"
-                            + "_onActiveCell > _onAcriveRow > _onActiveCol > cell 선택 순으로 이벤트 발생. false 반환 시 cell 선택 막음.",
+                            + "_onActiveCell > _onAcriveRow > _onActiveCol > cell 선택 순으로 이벤트 발생. false 반환 시 cell 선택 막음.\n"
+                            + "Ex) function gridId_onActiveCol (colId) {console.log(colId)}",
                 "remarkEng": "Event occurs before column activation when a cell is selected.\n"
-                            + "The event order is _onActiveCell > _onAcriveRow > _onActiveCol > cell selection. Returning false prevents cell selection."
+                            + "The event order is _onActiveCell > _onAcriveRow > _onActiveCol > cell selection. Returning false prevents cell selection.\n"
+                            + "Ex) function gridId_onActiveCol (colId) {console.log(colId)}",
             },
             {
                 "name": "onActiveCells",
                 "param": "startRow(Number), startColId(String), endRow(Number), endColId(String)",
                 "remarkKor": "다중 cell 선택 시 cell 활성화 전 이벤트 발생.\n"
-                            + "_onActiveCells > _onAcriveRows > _onActiveCols > cell 선택 순으로 이벤트 발생. false 반환 시 cell 선택 막음.",
+                            + "_onActiveCells > _onAcriveRows > _onActiveCols > cell 선택 순으로 이벤트 발생. false 반환 시 cell 선택 막음.\n"
+                            + "Ex) function gridId_onActiveCells (startRow, startColId, endRow, endColId) {console.log(startRow, startColId, endRow, endColId)}",
                 "remarkEng": "Event occurs before multiple cell activation when multiple cells are selected.\n"
-                            + "The event order is _onActiveCells > _onAcriveRows > _onActiveCols > cell selection. Returning false prevents cell selection."
+                            + "The event order is _onActiveCells > _onAcriveRows > _onActiveCols > cell selection. Returning false prevents cell selection.\n"
+                            + "Ex) function gridId_onActiveCells (startRow, startColId, endRow, endColId) {console.log(startRow, startColId, endRow, endColId)}",
             },
             {
                 "name": "onActiveRows",
                 "param": "startRow(Number), endRow(Number)",
                 "remarkKor": "다중 cell 선택 시 cell 활성화 전 이벤트 발생.\n"
-                            + "_onActiveCells > _onAcriveRows > _onActiveCols > cell 선택 순으로 이벤트 발생. false 반환 시 cell 선택 막음.",
+                            + "_onActiveCells > _onAcriveRows > _onActiveCols > cell 선택 순으로 이벤트 발생. false 반환 시 cell 선택 막음.\n"
+                            + "Ex) function gridId_onActiveRows (startRow, endRow) {console.log(startRow, endRow)}",
                 "remarkEng": "Event occurs before multiple row activation when multiple cells are selected.\n"
-                            + "The event order is _onActiveCells > _onAcriveRows > _onActiveCols > cell selection. Returning false prevents cell selection."
+                            + "The event order is _onActiveCells > _onAcriveRows > _onActiveCols > cell selection. Returning false prevents cell selection.\n"
+                            + "Ex) function gridId_onActiveRows (startRow, endRow) {console.log(startRow, endRow)}",
             },
             {
                 "name": "onActiveCols",
                 "param": "startColId(String), endColId(String)",
                 "remarkKor": "다중 cell 선택 시 cell 활성화 전 이벤트 발생.\n"
-                            + "_onActiveCells > _onAcriveRows > _onActiveCols > cell 선택 순으로 이벤트 발생. false 반환 시 cell 선택 막음.",
+                            + "_onActiveCells > _onAcriveRows > _onActiveCols > cell 선택 순으로 이벤트 발생. false 반환 시 cell 선택 막음.\n"
+                            + "Ex) function gridId_onActiveCols (startColId, endColId) {console.log(startColId, endColId)}",
                 "remarkEng": "Event occurs before multiple column activation when multiple cells are selected.\n"
-                            + "The event order is _onActiveCells > _onAcriveRows > _onActiveCols > cell selection. Returning false prevents cell selection."
+                            + "The event order is _onActiveCells > _onAcriveRows > _onActiveCols > cell selection. Returning false prevents cell selection.\n"
+                            + "Ex) function gridId_onActiveCols (startColId, endColId) {console.log(startColId, endColId)}",
             },
             {
                 "name": "onBeforeChange",
                 "param": "row(Number), colId(String), oldValue(var), newValue(var)",
-                "remarkKor": "cell value 변경 전 이벤트 발생. false 반환 시 cell 변경 막음.",
-                "remarkEng": "Event occurs before cell value change. Returning false prevents the cell change."
+                "remarkKor": "cell value 변경 전 이벤트 발생. false 반환 시 cell 변경 막음.\n"
+                            + "Ex) function gridId_onBeforeChange (row, colId, oldValue, newValue) {console.log(row, colId, oldValue, newValue)}",
+                "remarkEng": "Event occurs before cell value change. Returning false prevents the cell change.\n"
+                            + "Ex) function gridId_onBeforeChange (row, colId, oldValue, newValue) {console.log(row, colId, oldValue, newValue)}",
             },
             {
                 "name": "onAfterChange",
                 "param": "row(Number), colId(String), oldValue(var), newValue(var)",
-                "remarkKor": "cell value 변경 후 이벤트 발생.",
-                "remarkEng": "Event occurs after cell value change."
+                "remarkKor": "cell value 변경 후 이벤트 발생.\n"
+                            + "Ex) function gridId_onAfterChange (row, colId, oldValue, newValue) {console.log(row, colId, oldValue, newValue)}",
+                "remarkEng": "Event occurs after cell value change.\n"
+                            + "Ex) function gridId_onAfterChange (row, colId, oldValue, newValue) {console.log(row, colId, oldValue, newValue)}",
             },
             {
                 "name": "onBeforeClickCell",
                 "param": "row(Number), colId(String)",
-                "remarkKor": "cell 클릭 전 이벤트 발생. false 반환 시 cell 클릭 막음.",
-                "remarkEng": "Event occurs before cell click. Returning false prevents the cell click."
+                "remarkKor": "cell 클릭 전 이벤트 발생. false 반환 시 cell 클릭 막음.\n"
+                            + "Ex) function gridId_onBeforeClickCell (row, colId) {console.log(row, colId)}",
+                "remarkEng": "Event occurs before cell click. Returning false prevents the cell click.\n"
+                            + "Ex) function gridId_onBeforeClickCell (row, colId) {console.log(row, colId)}",
             },
             {
                 "name": "onAfterClickCell",
                 "param": "row(Number), colId(String)",
-                "remarkKor": "cell 클릭 후 이벤트 발생.",
-                "remarkEng": "Event occurs after cell click."
+                "remarkKor": "cell 클릭 후 이벤트 발생.\n"
+                            + "Ex) function gridId_onAfterClickCell (row, colId) {console.log(row, colId)}",
+                "remarkEng": "Event occurs after cell click.\n"
+                            + "Ex) function gridId_onAfterClickCell (row, colId) {console.log(row, colId)}",
             },
             {
                 "name": "onClickSelect",
                 "param": "row(Number), colId(String), selectNode(htmlNode)",
-                "remarkKor": "cell dataType이 select 일 경우 cell 클릭 시 이벤트 발생. onBeforeClickCell 이벤트 후에 발생한다. false 반환 시 cell 클릭 막음.",
-                "remarkEng": "Event occurs when a cell with dataType select is clicked. It occurs after the onBeforeClickCell event. Returning false prevents the cell click."
+                "remarkKor": "cell dataType이 select 일 경우 cell 클릭 시 이벤트 발생. onBeforeClickCell 이벤트 후에 발생한다. false 반환 시 cell 클릭 막음.\n"
+                            + "Ex) function gridId_onClickSelect (row, colId, selectNode) {console.log(row, colId, selectNode)}",
+                "remarkEng": "Event occurs when a cell with dataType select is clicked. It occurs after the onBeforeClickCell event. Returning false prevents the cell click.\n"
+                            + "Ex) function gridId_onClickSelect (row, colId, selectNode) {console.log(row, colId, selectNode)}",
             },
             {
                 "name": "onClickCheckbox",
                 "param": "row(Number), colId(String), checkboxNode(htmlNode)",
-                "remarkKor": "cell dataType이 checkbox 일 경우 cell 클릭 시 이벤트 발생. onBeforeClickCell 이벤트 후에 발생한다. false 반환 시 cell 클릭 막음.",
-                "remarkEng": "Event occurs when a cell with dataType checkbox is clicked. It occurs after the onBeforeClickCell event. Returning false prevents the cell click."
+                "remarkKor": "cell dataType이 checkbox 일 경우 cell 클릭 시 이벤트 발생. onBeforeClickCell 이벤트 후에 발생한다. false 반환 시 cell 클릭 막음.\n"
+                            + "Ex) function gridId_onClickCheckbox (row, colId, checkboxNode) {console.log(row, colId, checkboxNode)}",
+                "remarkEng": "Event occurs when a cell with dataType checkbox is clicked. It occurs after the onBeforeClickCell event. Returning false prevents the cell click.\n"
+                            + "Ex) function gridId_onClickCheckbox (row, colId, checkboxNode) {console.log(row, colId, checkboxNode)}",
             },
             {
                 "name": "onClickButton",
                 "param": "row(Number), colId(String), buttonNode(htmlNode)",
-                "remarkKor": "cell dataType이 button 일 경우 cell 클릭 시 이벤트 발생. onBeforeClickCell 이벤트 후에 발생한다. false 반환 시 cell 클릭 막음.",
-                "remarkEng": "Event occurs when a cell with dataType button is clicked. It occurs after the onBeforeClickCell event. Returning false prevents the cell click."
+                "remarkKor": "cell dataType이 button 일 경우 cell 클릭 시 이벤트 발생. onBeforeClickCell 이벤트 후에 발생한다. false 반환 시 cell 클릭 막음.\n"
+                            + "Ex) function gridId_onClickButton (row, colId, buttonNode) {console.log(row, colId, buttonNode)}",
+                "remarkEng": "Event occurs when a cell with dataType button is clicked. It occurs after the onBeforeClickCell event. Returning false prevents the cell click.\n"
+                            + "Ex) function gridId_onClickButton (row, colId, buttonNode) {console.log(row, colId, buttonNode)}",
             },
             {
                 "name": "onClickLink",
                 "param": "row(Number), colId(String), linkNode(htmlNode)",
-                "remarkKor": "cell dataType이 link 일 경우 cell 클릭 시 이벤트 발생. onBeforeClickCell 이벤트 후에 발생한다. false 반환 시 cell 클릭 막음.",
-                "remarkEng": "Event occurs when a cell with dataType link is clicked. It occurs after the onBeforeClickCell event. Returning false prevents the cell click."
+                "remarkKor": "cell dataType이 link 일 경우 cell 클릭 시 이벤트 발생. onBeforeClickCell 이벤트 후에 발생한다. false 반환 시 cell 클릭 막음.\n"
+                            + "Ex) function gridId_onClickLink (row, colId, linkNode) {console.log(row, colId, linkNode)}",
+                "remarkEng": "Event occurs when a cell with dataType link is clicked. It occurs after the onBeforeClickCell event. Returning false prevents the cell click.\n"
+                            + "Ex) function gridId_onClickLink (row, colId, linkNode) {console.log(row, colId, linkNode)}",
             },
             {
                 "name": "onBeforeDblClickCell",
                 "param": "row(Number), colId(String)",
-                "remarkKor": "cell 더블 클릭 전 이벤트 발생 false 반환 시 cell 더블 클릭 이벤트 막음.",
-                "remarkEng": "Event occurs before cell double click. Returning false prevents the cell double click event."
+                "remarkKor": "cell 더블 클릭 전 이벤트 발생 false 반환 시 cell 더블 클릭 이벤트 막음.\n"
+                            + "Ex) function gridId_onBeforeDblClickCell (row, colId) {console.log(row, colId)}",
+                "remarkEng": "Event occurs before cell double click. Returning false prevents the cell double click event.\n"
+                            + "Ex) function gridId_onBeforeDblClickCell (row, colId) {console.log(row, colId)}",
             },
             {
                 "name": "onAfterDblClickCell",
                 "param": "row(Number), colId(String)",
-                "remarkKor": "cell 더블 클릭 후 이벤트 발생.",
-                "remarkEng": "Event occurs after cell double click."
+                "remarkKor": "cell 더블 클릭 후 이벤트 발생.\n"
+                            + "Ex) function gridId_onAfterDblClickCell (row, colId) {console.log(row, colId)}",
+                "remarkEng": "Event occurs after cell double click.\n"
+                            + "Ex) function gridId_onAfterDblClickCell (row, colId) {console.log(row, colId)}",
             },
             {
                 "name": "onBeforeClickHeader",
                 "param": "row(Number), colId(String)",
-                "remarkKor": "header cell 클릭 전 이벤트 발생. false 반환 시 header cell 클릭 막음.",
-                "remarkEng": "Event occurs before header cell click. Returning false prevents the header cell click."
+                "remarkKor": "header cell 클릭 전 이벤트 발생. false 반환 시 header cell 클릭 막음.\n"
+                            + "Ex) function gridId_onBeforeClickHeader (row, colId) {console.log(row, colId)}",
+                "remarkEng": "Event occurs before header cell click. Returning false prevents the header cell click.\n"
+                            + "Ex) function gridId_onBeforeClickHeader (row, colId) {console.log(row, colId)}",
             },
             {
                 "name": "onAfterClickHeader",
                 "param": "row(Number), colId(String)",
-                "remarkKor": "header cell 클릭 후 이벤트 발생.",
-                "remarkEng": "Event occurs after header cell click."
+                "remarkKor": "header cell 클릭 후 이벤트 발생.\n"
+                            + "Ex) function gridId_onAfterClickHeader (row, colId) {console.log(row, colId)}",
+                "remarkEng": "Event occurs after header cell click.\n"
+                            + "Ex) function gridId_onAfterClickHeader (row, colId) {console.log(row, colId)}",
             },
             {
                 "name": "onBeforeDblClickHeader",
                 "param": "row(Number), colId(String)",
-                "remarkKor": "header cell 더블 클릭 전 이벤트 발생 false 반환 시 header cell 더블 클릭 이벤트 막음.",
-                "remarkEng": "Event occurs before header cell double click. Returning false prevents the header cell double click event."
+                "remarkKor": "header cell 더블 클릭 전 이벤트 발생 false 반환 시 header cell 더블 클릭 이벤트 막음.\n"
+                            + "Ex) function gridId_onBeforeDblClickHeader (row, colId) {console.log(row, colId)}",
+                "remarkEng": "Event occurs before header cell double click. Returning false prevents the header cell double click event.\n"
+                            + "Ex) function gridId_onBeforeDblClickHeader (row, colId) {console.log(row, colId)}",
             },
             {
                 "name": "onAfterDblClickHeader",
                 "param": "row(Number), colId(String)",
-                "remarkKor": "header cell 더블 클릭 후 이벤트 발생.",
-                "remarkEng": "Event occurs after header cell double click."
+                "remarkKor": "header cell 더블 클릭 후 이벤트 발생.\n"
+                            + "Ex) function gridId_onAfterDblClickHeader (row, colId) {console.log(row, colId)}",
+                "remarkEng": "Event occurs after header cell double click.\n"
+                            + "Ex) function gridId_onAfterDblClickHeader (row, colId) {console.log(row, colId)}",
             },
             {
                 "name": "onEditEnter",
                 "param": "row(Number), colId(String), editorNode(htmlNode)",
-                "remarkKor": "cell editing 시작 시 발생하는 이벤트. false 반환 시 editing 막음.",
-                "remarkEng": "Event occurs when cell editing starts. Returning false prevents editing."
+                "remarkKor": "cell editing 시작 시 발생하는 이벤트. false 반환 시 editing 막음.\n"
+                            + "Ex) function gridId_onEditEnter (row, colId, editorNode) {console.log(row, colId, editorNode)}",
+                "remarkEng": "Event occurs when cell editing starts. Returning false prevents editing.\n"
+                            + "Ex) function gridId_onEditEnter (row, colId, editorNode) {console.log(row, colId, editorNode)}",
             },
             {
                 "name": "onEditEnding",
                 "param": "row(Number), colId(String), oldValue(var), newValue(var)",
-                "remarkKor": "cell editing 종료 후 발생하는 이벤트.",
-                "remarkEng": "Event occurs after cell editing ends."
+                "remarkKor": "cell editing 종료 후 발생하는 이벤트.\n"
+                            + "Ex) function gridId_onEditEnding (row, colId, oldValue, newValue) {console.log(row, colId, oldValue, newValue)}",
+                "remarkEng": "Event occurs after cell editing ends.\n"
+                            + "Ex) function gridId_onEditEnding (row, colId, oldValue, newValue) {console.log(row, colId, oldValue, newValue)}",
             },
             {
                 "name": "onClickFilter",
                 "param": "row(Number), colId(String), filterNode(htmlNode)",
-                "remarkKor": "column의 filter 버튼을 클릭 시 발생하는 이벤트. false 반환 시 filter를 오픈하지 않는다.",
-                "remarkEng": "Event occurs when the column's filter button is clicked. Returning false prevents the filter from opening."
+                "remarkKor": "column의 filter 버튼을 클릭 시 발생하는 이벤트. false 반환 시 filter를 오픈하지 않는다.\n"
+                            + "Ex) function gridId_onClickFilter (row, colId, filterNode) {console.log(row, colId, filterNode)}",
+                "remarkEng": "Event occurs when the column's filter button is clicked. Returning false prevents the filter from opening.\n"
+                            + "Ex) function gridId_onClickFilter (row, colId, filterNode) {console.log(row, colId, filterNode)}",
             },
             {
                 "name": "onChooseFilter",
                 "param": "row(Number), colId(String), oldValue(var), newValue(var)",
-                "remarkKor": "filter 값을 선택 시 발생하는 이벤트. false 반환 시 filter를 적용하지 않는다.",
-                "remarkEng": "Event occurs when a filter value is selected. Returning false prevents the filter from being applied."
+                "remarkKor": "filter 값을 선택 시 발생하는 이벤트. false 반환 시 filter를 적용하지 않는다.\n"
+                            + "Ex) function gridId_onChooseFilter (row, colId, oldValue, newValue) {console.log(row, colId, oldValue, newValue)}",
+                "remarkEng": "Event occurs when a filter value is selected. Returning false prevents the filter from being applied.\n"
+                            + "Ex) function gridId_onChooseFilter (row, colId, oldValue, newValue) {console.log(row, colId, oldValue, newValue)}",
             },
             {
                 "name": "onPaste",
                 "param": "startRow(Number), startColId(String), clipboardText(String)",
                 "remarkKor": "cell에 붙여넣기 시 발생하는 이벤트. start row와 colId는 현재 target cell의 row와 colId이다. clipboardText는 window.clipboardData.getData(\"text\") 값이다.\n"
-                            + "false 반환 시 붙여넣기를 막음.",
+                            + "false 반환 시 붙여넣기를 막음.\n"
+                            + "Ex) function gridId_onPaste (startRow, startColId, clipboardText) {console.log(startRow, startColId, clipboardText)}",
                 "remarkEng": "Event occurs when pasting into a cell. The start row and colId are the row and colId of the current target cell.\n"
-                            + "clipboardText is the value of window.clipboardData.getData(\"text\"). Returning false prevents the paste."
+                            + "clipboardText is the value of window.clipboardData.getData(\"text\"). Returning false prevents the paste.\n"
+                            + "Ex) function gridId_onPaste (startRow, startColId, clipboardText) {console.log(startRow, startColId, clipboardText)}",
             },
             {
                 "name": "onCopy",
                 "param": "startRow(Number), startColId(String), endRow(Number), endColId(String), copyText(String)",
-                "remarkKor": "cell에 값을 복사할 때 발생하는 이벤트. copyText는 열은 \"\\t\", 행은 \"\\n\" 으로 연결된 문자열 값이다. false 반환 시 복사하기를 막음.",
-                "remarkEng": "Event occurs when copying a cell value. copyText is a string value joined by \"\\t\" for columns and \"\\n\" for rows. Returning false prevents copying."
+                "remarkKor": "cell에 값을 복사할 때 발생하는 이벤트. copyText는 열은 \"\\t\", 행은 \"\\n\" 으로 연결된 문자열 값이다. false 반환 시 복사하기를 막음.\n"
+                            + "Ex) function gridId_onCopy (startRow, startColId, endRow, endColId, copyText) {console.log(startRow, startColId, endRow, endColId, copyText)}",
+                "remarkEng": "Event occurs when copying a cell value. copyText is a string value joined by \"\\t\" for columns and \"\\n\" for rows. Returning false prevents copying.\n"
+                            + "Ex) function gridId_onCopy (startRow, startColId, endRow, endColId, copyText) {console.log(startRow, startColId, endRow, endColId, copyText)}",
             },
             {
                 "name": "onResize",
                 "param": "colId(String)",
-                "remarkKor": "사용자에 의한 column width size변경 시 발생하는 이벤트. false 반환 시 변경을 막음.",
-                "remarkEng": "Event occurs when the column width size is changed by the user. Returning false prevents the change."
+                "remarkKor": "사용자에 의한 column width size변경 시 발생하는 이벤트. false 반환 시 변경을 막음.\n"
+                            + "Ex) function gridId_onResize (colId) {console.log(colId)}",
+                "remarkEng": "Event occurs when the column width size is changed by the user. Returning false prevents the change.\n"
+                            + "Ex) function gridId_onResize (colId) {console.log(colId)}",
             },
             {
                 "name": "onKeydownEditor",
@@ -1104,19 +1158,23 @@ function getConsts () {
                             + "Enter : editor에 작성된 내용으로 cell 값을 변경하고 editing 종료. 활성화 cell을 하단으로 옮김.\n"
                             + "Escape(ESC) : cell 값을 변경하지 않고 editing 종료.\n"
                             + "Tab : editor에 작성된 내용으로 cell 값을 변경하고 editing 종료. 활성화 cell을 다음 cell로 옮김.\n"
-                            + "F2 : editor에 작성된 내용으로 cell 값을 변경하고 editing 종료.",
+                            + "F2 : editor에 작성된 내용으로 cell 값을 변경하고 editing 종료.\n"
+                            + "Ex) function gridId_onKeydownEditor (event) {console.log(event)}",
                 "remarkEng": "Event occurs during cell editing when a keyboard input is detected. The event itself is passed as a parameter.\n"
                             + "Returning false prevents the keydown event. Key values applied to the cell editing keydown event:\n"
                             + "Enter: Changes the cell value to the content written in the editor and ends editing. Moves the active cell down.\n"
                             + "Escape (ESC): Ends editing without changing the cell value.\n"
                             + "Tab: Changes the cell value to the content written in the editor and ends editing. Moves the active cell to the next cell.\n"
-                            + "F2: Changes the cell value to the content written in the editor and ends editing."
+                            + "F2: Changes the cell value to the content written in the editor and ends editing.\n"
+                            + "Ex) function gridId_onKeydownEditor (event) {console.log(event)}",
             },
             {
                 "name": "onInputEditor",
                 "param": "e(event)",
-                "remarkKor": "cell editing중 editor에 input시 발생하는 이벤트. event 자체를 parameter로 받는다.",
-                "remarkEng": "Event occurs during cell editing when input is detected in the editor. The event itself is passed as a parameter."
+                "remarkKor": "cell editing중 editor에 input시 발생하는 이벤트. event 자체를 parameter로 받는다.\n"
+                            + "Ex) function gridId_onInputEditor (event) {console.log(event)}",
+                "remarkEng": "Event occurs during cell editing when input is detected in the editor. The event itself is passed as a parameter.\n"
+                            + "Ex) function gridId_onInputEditor (event) {console.log(event)}",
             },
             {
                 "name": "onKeydownGrid",
@@ -1137,7 +1195,8 @@ function getConsts () {
                             + "shift + ArrowUp(↑) : 최초 활성화 cell을 기준으로 위 cell을 다중 cell 선택.\n"
                             + "shift + ArrowDown(↓) : 최초 활성화 cell을 기준으로 아래 cell을 다중 cell 선택.\n"
                             + "shift + ArrowLeft(←) : 최초 활성화 cell을 기준으로 왼쪽 cell을 다중 cell 선택.\n"
-                            + "shift + ArrowRight(→) : 최초 활성화 cell을 기준으로 오른쪽 cell을 다중 cell 선택.",
+                            + "shift + ArrowRight(→) : 최초 활성화 cell을 기준으로 오른쪽 cell을 다중 cell 선택.\n"
+                            + "Ex) function gridId_onKeydownGrid (event) {console.log(event)}",
                 "remarkEng": "Event occurs when a keyboard input is detected while the grid is focused. The event itself is passed as a parameter. Returning false prevents the keydown event.\n"
                             + "Key values applied to the grid keydown event:\n"
                             + "ctrl + z: Undo.\n"
@@ -1154,7 +1213,8 @@ function getConsts () {
                             + "shift + ArrowUp(↑): Multi-select cells above based on the initial active cell.\n"
                             + "shift + ArrowDown(↓): Multi-select cells below based on the initial active cell.\n"
                             + "shift + ArrowLeft(←): Multi-select cells to the left based on the initial active cell.\n"
-                            + "shift + ArrowRight(→): Multi-select cells to the right based on the initial active cell."
+                            + "shift + ArrowRight(→): Multi-select cells to the right based on the initial active cell.\n"
+                            + "Ex) function gridId_onKeydownGrid (event) {console.log(event)}",
             }
         ];
         this.METHODS = [
@@ -2251,8 +2311,10 @@ function getConsts () {
                 "name": "setColMaxByte",
                 "param": "colId(String) or colIndex(Number), maxByte(Number)",
                 "return": "Boolean",
-                "remarkKor": "colId or colIndex 열의 maxByte를 설정한다. maxByte는 cell의 dataType이 'text'일 때 유효하다. 정상 동작 시 true 반환. 특수기호 등의 byte 산정을 어떻게 할 지는 vg.lessoreq0x7ffByte(charCode <= 0x7FF), vg.lessoreq0xffffByte(charCode <= 0xFFFF), vg.greater0xffffByte(charCode > 0xFFFF)으로 설정할 수 있다. 기본값은 2, 3, 4.",
-                "remarkEng": "Sets the maxByte of the colId or colIndex column. MaxByte is valid when the cell's dataType is 'text'. Returns true if it operates normally. How to calculate the byte of special symbols can be set to vg.lessoreq0x7ffByte (charCode <= 0x7FF), vg.lessoreq0xffffByte (charCode <= 0xFFFF), vg.greater0xffffByte (charCode > 0xFFFF). The default values are 2, 3, 4."
+                "remarkKor": "colId or colIndex 열의 maxByte를 설정한다. maxByte는 cell의 dataType이 'text'일 때 유효하다. 정상 동작 시 true 반환.\n"
+                            + "특수기호 등의 byte 산정을 어떻게 할 지는 vg.lessoreq0x7ffByte(charCode <= 0x7FF), vg.lessoreq0xffffByte(charCode <= 0xFFFF), vg.greater0xffffByte(charCode > 0xFFFF)으로 설정할 수 있다. 기본값은 2, 3, 4.",
+                "remarkEng": "Sets the maxByte of the colId or colIndex column. MaxByte is valid when the cell's dataType is 'text'. Returns true if it operates normally.\n"
+                            + "How to calculate the byte of special symbols can be set to vg.lessoreq0x7ffByte (charCode <= 0x7FF), vg.lessoreq0xffffByte (charCode <= 0xFFFF), vg.greater0xffffByte (charCode > 0xFFFF). The default values are 2, 3, 4."
             },
             {
                 "related": "column",
@@ -2299,8 +2361,10 @@ function getConsts () {
                 "name": "setColRoundNumber",
                 "param": "colId(String) or colIndex(Number), roundNumber(Number)",
                 "return": "Boolean",
-                "remarkKor": "colId or colIndex 열의 roundNumber를 설정한다. roundNumber는 cell의 dataType이 'number'일 때 유효하다. 정상 동작 시 true 반환. roundNumber 양의 정수 : 반올림 할 소수점 자리 지정. roundNumber 음의 정수 : 반올림 할 정수부 자리 지정.",
-                "remarkEng": "Sets the roundNumber of the colId or colIndex column. RoundNumber is valid when the cell's dataType is 'number'. Returns true if it operates normally. roundNumber positive integer: specifies the decimal place to be rounded. roundNumber negative integer: specifies the integer place to be rounded."
+                "remarkKor": "colId or colIndex 열의 roundNumber를 설정한다. roundNumber는 cell의 dataType이 'number'일 때 유효하다. 정상 동작 시 true 반환.\n"
+                            + "roundNumber 양의 정수 : 반올림 할 소수점 자리 지정. roundNumber 음의 정수 : 반올림 할 정수부 자리 지정.",
+                "remarkEng": "Sets the roundNumber of the colId or colIndex column. RoundNumber is valid when the cell's dataType is 'number'. Returns true if it operates normally.\n"
+                            + "roundNumber positive integer: specifies the decimal place to be rounded. roundNumber negative integer: specifies the integer place to be rounded."
             },
             {
                 "related": "column",
@@ -2819,8 +2883,10 @@ function getConsts () {
                 "name": "setCellDataType",
                 "param": "row(Number), colId(String) or colIndex(Number), dataType(String)",
                 "return": "Boolean",
-                "remarkKor": "row행 colId or colIndex 열 cell의 dataType을 설정한다. 정상 동작 시 true 반환. dataType : 'text', 'date', 'month', 'mask', 'select', 'checkbox', 'button', 'link', 'code'",
-                "remarkEng": "Sets the dataType of the cell in the colId or colIndex column in the row-th row. Returns true if it operates normally. dataType: 'text', 'date', 'month', 'mask', 'select', 'checkbox', 'button', 'link', 'code'"
+                "remarkKor": "row행 colId or colIndex 열 cell의 dataType을 설정한다. 정상 동작 시 true 반환.\n"
+                            + "dataType : 'text', 'date', 'month', 'mask', 'select', 'checkbox', 'button', 'link', 'code'",
+                "remarkEng": "Sets the dataType of the cell in the colId or colIndex column in the row-th row. Returns true if it operates normally.\n"
+                            + "dataType: 'text', 'date', 'month', 'mask', 'select', 'checkbox', 'button', 'link', 'code'"
             },
             {
                 "related": "cell",
@@ -2899,8 +2965,8 @@ function getConsts () {
                 "name": "setCellDefaultCode",
                 "param": "row(Number), colId(String) or colIndex(Number), defaultCode(String)",
                 "return": "Boolean",
-                "remarkKor": "row행 colId or colIndex 열 cell의 defaultCode를 설정한다. defaultCode는 cell의 dataType이 'code'일 때 유효하다. 값이 없을 경우 default값. 정상 동작 시 true 반환.",
-                "remarkEng": "Sets the defaultCode of the cell in the colId or colIndex column in the row-th row. defaultCode is valid when the cell's dataType is 'code'. If there is no value, it uses the default value. Returns true if it operates normally."
+                "remarkKor": "row행 colId or colIndex 열 cell의 defaultCode를 설정한다. defaultCode는 cell의 dataType이 'code'일 때 유효하다. 값이 없을 경우 default값은 빈값이다. 정상 동작 시 true 반환.",
+                "remarkEng": "Sets the defaultCode of the cell in the colId or colIndex column in the row-th row. defaultCode is valid when the cell's dataType is 'code'. If there is no value, it uses the default value null. Returns true if it operates normally."
             },
             {
                 "related": "cell",
@@ -2931,8 +2997,10 @@ function getConsts () {
                 "name": "setCellMaxByte",
                 "param": "row(Number), colId(String) or colIndex(Number), maxByte(Number)",
                 "return": "Boolean",
-                "remarkKor": "row행 colId or colIndex 열 cell의 maxByte를 설정한다. maxByte는 cell의 dataType이 'text'일 때 유효하다. 정상 동작 시 true 반환. 특수기호 등의 byte 산정을 어떻게 할 지는 vg.lessoreq0x7ffByte(charCode <= 0x7FF), vg.lessoreq0xffffByte(charCode <= 0xFFFF), vg.greater0xffffByte(charCode > 0xFFFF)으로 설정할 수 있다. 기본값은 2, 3, 4.",
-                "remarkEng": "Sets the maxByte of the cell in the colId or colIndex column in the row-th row. maxByte is valid when the cell's dataType is 'text'. Returns true if it operates normally. How to calculate the byte of special characters can be set with vg.lessoreq0x7ffByte(charCode <= 0x7FF), vg.lessoreq0xffffByte(charCode <= 0xFFFF), vg.greater0xffffByte(charCode > 0xFFFF). Default values are 2, 3, 4."
+                "remarkKor": "row행 colId or colIndex 열 cell의 maxByte를 설정한다. maxByte는 cell의 dataType이 'text'일 때 유효하다. 정상 동작 시 true 반환.\n"
+                            + "특수기호 등의 byte 산정을 어떻게 할 지는 vg.lessoreq0x7ffByte(charCode <= 0x7FF), vg.lessoreq0xffffByte(charCode <= 0xFFFF), vg.greater0xffffByte(charCode > 0xFFFF)으로 설정할 수 있다. 기본값은 2, 3, 4.",
+                "remarkEng": "Sets the maxByte of the cell in the colId or colIndex column in the row-th row. maxByte is valid when the cell's dataType is 'text'. Returns true if it operates normally.\n"
+                            + "How to calculate the byte of special characters can be set with vg.lessoreq0x7ffByte(charCode <= 0x7FF), vg.lessoreq0xffffByte(charCode <= 0xFFFF), vg.greater0xffffByte(charCode > 0xFFFF). Default values are 2, 3, 4."
             },
             {
                 "related": "cell",
@@ -2979,8 +3047,10 @@ function getConsts () {
                 "name": "setCellRoundNumber",
                 "param": "row(Number), colId(String) or colIndex(Number), roundNumber(Number)",
                 "return": "Boolean",
-                "remarkKor": "row행 colId or colIndex 열 cell의 roundNumber를 설정한다. roundNumber는 cell의 dataType이 'number'일 때 유효하다. 정상 동작 시 true 반환. roundNumber 양의 정수 : 반올림 할 소수점 자리 지정. roundNumber 음의 정수 : 반올림 할 정수부 자리 지정.",
-                "remarkEng": "Sets the roundNumber of the cell in the colId or colIndex column in the row-th row. roundNumber is valid when the cell's dataType is 'number'. Returns true if it operates normally. roundNumber positive integer: specifies the decimal place to be rounded. roundNumber negative integer: specifies the integer place to be rounded."
+                "remarkKor": "row행 colId or colIndex 열 cell의 roundNumber를 설정한다. roundNumber는 cell의 dataType이 'number'일 때 유효하다. 정상 동작 시 true 반환.\n"
+                            + "roundNumber 양의 정수 : 반올림 할 소수점 자리 지정. roundNumber 음의 정수 : 반올림 할 정수부 자리 지정.",
+                "remarkEng": "Sets the roundNumber of the cell in the colId or colIndex column in the row-th row. roundNumber is valid when the cell's dataType is 'number'. Returns true if it operates normally.\n"
+                            + "roundNumber positive integer: specifies the decimal place to be rounded. roundNumber negative integer: specifies the integer place to be rounded."
             },
             {
                 "related": "cell",
@@ -3187,7 +3257,7 @@ function getConsts () {
                 "name": "setTargetCell",
                 "param": "row(Number), colId(String) or colIndex(Number)",
                 "return": "Boolean",
-                "remarkKor": "row행 colId or colIndex 열 cell을 선택한다. 해당 cell이 visible false처리 되어 있으면 동작하지 않는다. 정상 동작 시 true 반환.",
+                "remarkKor": "grid의 row행 colId or colIndex 열 cell을 선택한다. 해당 cell이 visible false처리 되어 있으면 동작하지 않는다. 정상 동작 시 true 반환.",
                 "remarkEng": "Selects the cell in the colId or colIndex column in the row-th row. If the cell is set to visible false, it does not operate. Returns true if it operates normally."
             },
             {
@@ -3267,8 +3337,10 @@ function getConsts () {
                 "name": "removeGridMethod",
                 "param": "",
                 "return": "",
-                "remarkKor": "grid id를 통해 호출하는 모든 함수를 삭제한다. 해킹 방지용 기능.(완벽한 보안은 아님) Vnilla-grid에서는 window[gridId]를 전역 변수로 선언하고 해당 변수를 통해 모든 method를 접근한다. removeGridMethod를 사용하면 window[gridId]를 삭제하여 method 접근이 불가하다. 예로 document에서 'F12'를 통해 개발자 모드 접근 시 removeGridMethod를 호출한다.",
-                "remarkEng": "Deletes all functions called through the grid id. This is an anti-hacking feature (not complete security). In Vnilla-grid, window[gridId] is declared as a global variable and all methods are accessed through this variable. If removeGridMethod is used, window[gridId] is deleted and method access is not possible. For example, removeGridMethod is called when accessing developer mode through 'F12' in the document."
+                "remarkKor": "grid id를 통해 호출하는 모든 함수를 삭제한다. 해킹 방지용 기능.(완벽한 보안은 아님) Vnilla-grid에서는 window[gridId]를 전역 변수로 선언하고 해당 변수를 통해 모든 method를 접근한다.\n"
+                            + "removeGridMethod를 사용하면 window[gridId]를 삭제하여 method 접근이 불가하다. 예로 document에서 'F12'를 통해 개발자 모드 접근 시 removeGridMethod를 호출한다.",
+                "remarkEng": "Deletes all functions called through the grid id. This is an anti-hacking feature (not complete security). In Vnilla-grid, window[gridId] is declared as a global variable and all methods are accessed through this variable.\n"
+                            + "If removeGridMethod is used, window[gridId] is deleted and method access is not possible. For example, removeGridMethod is called when accessing developer mode through 'F12' in the document."
             }
         ];
         this.VGO_FUNCTION = [
@@ -3283,8 +3355,8 @@ function getConsts () {
                 "function": "vanillagrid_onBeforeCreate",
                 "param": "e(event), vg(Object)",
                 "return": "Boolean",
-                "remarkKor": "grid를 생성 전에 호출하는 메소드. false 반환 시 _onCreate하지 않는다. _onCreate를 제어하기 위한 메소드.",
-                "remarkEng": "A method called before creating the grid. If it returns false, _onCreate is not executed. A method to control _onCreate."
+                "remarkKor": "grid를 생성 전에 호출하는 메소드. false 반환 시 _onCreate하지 않는다. _onCreate를 제어하기 위한 메소드. vanilla grid object에 대한 정의는 반드시 해당 메소드에서 이루어 져야한다.",
+                "remarkEng": "A method called before creating the grid. If it returns false, _onCreate is not executed. A method to control _onCreate. The definition of a vanilla grid object must be done in its method."
             },
             {
                 "function": "vg.create()",
@@ -3334,15 +3406,21 @@ function getConsts () {
                 "attribute": "vg.filterSpan",
                 "type": "Html node",
                 "default": "null",
-                "remarkKor": "Html node이다. vg.create()전에 사용자화된 Html node를 삽입하면 해당 node가 header의 filter span으로 대체된다. ex) vg.filterSpan = document.createElement('i'); vg.filterSpan.setAttribute('class', 'fas fa-search'); vg.create();",
-                "remarkEng": "Html node. If a customized Html node is inserted before vg.create(), it replaces the header's filter span. ex) vg.filterSpan = document.createElement('i'); vg.filterSpan.setAttribute('class', 'fas fa-search'); vg.create();"
+                "remarkKor": "Html node이다. vg.create()전에 사용자화된 Html node를 삽입하면 해당 node가 header의 filter span으로 대체된다.\n"
+                            + "Ex) vg.filterSpan = document.createElement('i'); vg.filterSpan.setAttribute('class', 'fas fa-search'); vg.create();",
+                "remarkEng": "Html node. If a customized Html node is inserted before vg.create(), it replaces the header's filter span.\n"
+                            + "Ex) vg.filterSpan = document.createElement('i'); vg.filterSpan.setAttribute('class', 'fas fa-search'); vg.create();"
             },
             {
                 "attribute": "vg.footerFormula",
                 "type": "Object",
                 "default": "{}",
-                "remarkKor": "key(String) - value(Function)으로 구성된 객체이다. vg.create()전에 설정하면 해당 footer에 key를 통해 자동으로 해당 function을 수행하여 값을 받는다. funxtion의 구조는 colValues를 파라메터로 받고 footer에 보여줄 값을 반환한다. ex) vg.footerFormula = { 'CONCAT' : function (colValues) { return colValues.join(','); }, 'CHECK_COUNT' : function (colValues) { let count = 1; colValues.forEach((val) => { if(val === 'true') count = count * 2; }); return count; } } <v-col id='check' dataType='checkbox' footer='CHECK_COUNT'></v-col>",
-                "remarkEng": "An object consisting of key(String) - value(Function). If set before vg.create(), the function associated with the key is automatically executed for the footer, and its value is obtained. The structure of the function receives colValues as a parameter and returns the value to be displayed in the footer. ex) vg.footerFormula = { 'CONCAT' : function (colValues) { return colValues.join(','); }, 'CHECK_COUNT' : function (colValues) { let count = 1; colValues.forEach((val) => { if(val === 'true') count = count * 2; }); return count; } } <v-col id='check' dataType='checkbox' footer='CHECK_COUNT'></v-col>"
+                "remarkKor": "key(String) - value(Function)으로 구성된 객체이다. vg.create()전에 설정하면 해당 footer에 key를 통해 자동으로 해당 function을 수행하여 값을 받는다.\n"
+                            + "function의 구조는 colValues를 파라메터로 받고 footer에 보여줄 값을 반환한다.\n"
+                            + "Ex) vg.footerFormula = { 'CONCAT' : function (colValues) { return colValues.join(','); }, 'CHECK_COUNT' : function (colValues) { let count = 1; colValues.forEach((val) => { if(val === 'true') count = count * 2; }); return count; } } <v-col id='check' dataType='checkbox' footer='CHECK_COUNT'></v-col>",
+                "remarkEng": "An object consisting of key(String) - value(Function). If set before vg.create(), the function associated with the key is automatically executed for the footer, and its value is obtained.\n"
+                            + "The structure of the function receives colValues as a parameter and returns the value to be displayed in the footer.\n"
+                            + "Ex) vg.footerFormula = { 'CONCAT' : function (colValues) { return colValues.join(','); }, 'CHECK_COUNT' : function (colValues) { let count = 1; colValues.forEach((val) => { if(val === 'true') count = count * 2; }); return count; } } <v-col id='check' dataType='checkbox' footer='CHECK_COUNT'></v-col>"
             },
             {
                 "attribute": "vg.dataType",
@@ -3397,15 +3475,19 @@ function getConsts () {
                 "attribute": "vg.dataType.getValue",
                 "type": "function",
                 "default": "null",
-                "remarkKor": "cell에 최종으로 저장될 값을 반환하는 function. 파라메터로 cell의 value를 받는다. 반환값은 cell의 최종 value로 삽입된다. cell value는 cell이 가지고 있는 값이다. 정의되지 않으면 기존 수정 value를 최종 value로 삽입함.",
-                "remarkEng": "Function that returns the final value to be stored in the cell. Receives the cell's value as a parameter. The return value is inserted as the cell's final value. The cell value is the value that the cell has. If not defined, the default modified value is inserted as the final value."
+                "remarkKor": "cell에 최종으로 저장될 값을 반환하는 function. 파라메터로 cell의 value를 받는다. 반환값은 cell의 최종 value로 삽입된다. cell value는 cell이 가지고 있는 값이다.\n"
+                            + "정의되지 않으면 기존 수정 value를 최종 value로 삽입함.",
+                "remarkEng": "Function that returns the final value to be stored in the cell. Receives the cell's value as a parameter. The return value is inserted as the cell's final value. The cell value is the value that the cell has.\n"
+                            + "If not defined, the default modified value is inserted as the final value."
             },
             {
                 "attribute": "vg.dataType.getText",
                 "type": "function",
                 "default": "null",
-                "remarkKor": "cell의 text값으로 삽입될 값을 반환하는 function. 파라메터로 cell의 value를 받는다. 반환 값은 cell의 최종 text값으로 삽입된다. text값은 화면에 표기되는 값이다. 정의되지 않으면 기존 수정 value를 최종 value로 삽입함.",
-                "remarkEng": "Function that returns the value to be inserted as the cell's text. Receives the cell's value as a parameter. The return value is inserted as the cell's final text value. The text value is the value displayed on the screen. If not defined, the default modified value is inserted as the final value."
+                "remarkKor": "cell의 text값으로 삽입될 값을 반환하는 function. 파라메터로 cell의 value를 받는다. 반환 값은 cell의 최종 text값으로 삽입된다. text값은 화면에 표기되는 값이다.\n"
+                            + "정의되지 않으면 기존 수정 value를 최종 value로 삽입함.",
+                "remarkEng": "Function that returns the value to be inserted as the cell's text. Receives the cell's value as a parameter. The return value is inserted as the cell's final text value. The text value is the value displayed on the screen.\n"
+                            + "If not defined, the default modified value is inserted as the final value."
             },
             {
                 "attribute": "vg.dataType.getChildNode",
@@ -3418,15 +3500,19 @@ function getConsts () {
                 "attribute": "vg.dataType.getEditor",
                 "type": "function",
                 "default": "null",
-                "remarkKor": "편집 node를 반환하는 function. cell 더블클릭 등으로 cell edit을 할때 editor를 불러오는 function이다. 파라메터로 cell node, cell의 getData()값, 변경호출 함수, edit종료 호출 함수를 받는다. 반환값은 Html node여야 한다. getEditor를 정의하지 않으면 해당 dataType은 edit 창을 생성하지 않는다.",
-                "remarkEng": "Function that returns the editor node. It is called when editing the cell, such as double-clicking the cell. Receives the cell node, the cell's getData() value, the change call function, and the edit end call function as parameters. The return value must be an Html node. If getEditor is not defined, the dataType does not create an edit window."
+                "remarkKor": "편집 node를 반환하는 function. cell 더블클릭 등으로 cell edit을 할때 editor를 불러오는 function이다. 파라메터로 cell node, cell의 getData()값, 변경호출 함수, edit종료 호출 함수를 받는다.\n"
+                            + "반환값은 Html node여야 한다. getEditor를 정의하지 않으면 해당 dataType은 edit 창을 생성하지 않는다.",
+                "remarkEng": "Function that returns the editor node. It is called when editing the cell, such as double-clicking the cell. Receives the cell node, the cell's getData() value, the change call function, and the edit end call function as parameters.\n"
+                            + "The return value must be an Html node. If getEditor is not defined, the dataType does not create an edit window."
             },
             {
                 "attribute": "vg.dataType.getEditedValue",
                 "type": "function",
                 "default": "null",
-                "remarkKor": "cell 편집 후 cell에 삽입 될 값을 반환하는 function. 파라메터로 cell에 editor node와 cell의 getData() 값을 받는다. 반환 값은 cell의 value로 삽입된다. 새 dataType은 있지만 getEditedValue 함수를 정의하지 않으면, 해당 dataType은 편집을 해도 수정되지 않는다.",
-                "remarkEng": "Function that returns the value to be inserted into the cell after editing. Receives the editor node of the cell and the cell's getData() value as parameters. The return value is inserted as the cell's value. If there is a new dataType but the getEditedValue function is not defined, the dataType is not modified even if edited."
+                "remarkKor": "cell 편집 후 cell에 삽입 될 값을 반환하는 function. 파라메터로 cell에 editor node와 cell의 getData() 값을 받는다. 반환 값은 cell의 value로 삽입된다.\n"
+                            + "새 dataType은 있지만 getEditedValue 함수를 정의하지 않으면, 해당 dataType은 편집을 해도 수정되지 않는다.",
+                "remarkEng": "Function that returns the value to be inserted into the cell after editing. Receives the editor node of the cell and the cell's getData() value as parameters. The return value is inserted as the cell's value\n"
+                            + "If there is a new dataType but the getEditedValue function is not defined, the dataType is not modified even if edited."
             },
             {
                 "attribute": "vg.dataType.getFilterValue",
@@ -3460,23 +3546,38 @@ function getConsts () {
                 "attribute": "vg.lessoreq0x7ffByte",
                 "type": "Number",
                 "default": "2",
-                "remarkKor": "문자열의 byte 체크 시 사용하는 값. 문자의 아스키 코드가 0x7ff Byte 보다 작거나 같은 경우 산정할 byte값이다. ex) UTF-8, 16 기준 2, UTF-32 기준 4",
-                "remarkEng": "The value used when checking the byte of a string. The byte value is calculated if the character's ASCII code is less than or equal to 0x7ff Byte. ex) 2 for UTF-8, 16, 4 for UTF-32"
+                "remarkKor": "문자열의 byte 체크 시 사용하는 값. 문자의 아스키 코드가 0x7ff Byte 보다 작거나 같은 경우 산정할 byte값이다. Ex) UTF-8, 16 기준 2, UTF-32 기준 4",
+                "remarkEng": "The value used when checking the byte of a string. The byte value is calculated if the character's ASCII code is less than or equal to 0x7ff Byte. Ex) 2 for UTF-8, 16, 4 for UTF-32"
             },
             {
                 "attribute": "vg.lessoreq0xffffByte",
                 "type": "Number",
                 "default": "3",
-                "remarkKor": "문자열의 byte 체크 시 사용하는 값. 문자의 아스키 코드가 0x7ff Byte 보다 크고, 0xffff Byte 보다 작거나 같은 경우 산정할 byte값이다. ex) UTF-8 기준 3, UTF-16 기준 2, UTF-32 기준 4",
-                "remarkEng": "The value used when checking the byte of a string. The byte value is calculated if the character's ASCII code is greater than 0x7ff Byte and less than or equal to 0xffff Byte. ex) 3 for UTF-8, 2 for UTF-16, 4 for UTF-32"
+                "remarkKor": "문자열의 byte 체크 시 사용하는 값. 문자의 아스키 코드가 0x7ff Byte 보다 크고, 0xffff Byte 보다 작거나 같은 경우 산정할 byte값이다. Ex) UTF-8 기준 3, UTF-16 기준 2, UTF-32 기준 4",
+                "remarkEng": "The value used when checking the byte of a string. The byte value is calculated if the character's ASCII code is greater than 0x7ff Byte and less than or equal to 0xffff Byte. Ex) 3 for UTF-8, 2 for UTF-16, 4 for UTF-32"
             },
             {
                 "attribute": "vg.greater0xffffByte",
                 "type": "Number",
                 "default": "4",
-                "remarkKor": "문자열의 byte 체크 시 사용하는 값. 문자의 아스키 코드가 0xffff Byte 보다 큰 경우 산정할 byte값이다. ex) UTF-8, 16, 32 기준 4",
-                "remarkEng": "The value used when checking the byte of a string. The byte value is calculated if the character's ASCII code is greater than 0xffff Byte. ex) 4 for UTF-8, 16, 32"
-            }
+                "remarkKor": "문자열의 byte 체크 시 사용하는 값. 문자의 아스키 코드가 0xffff Byte 보다 큰 경우 산정할 byte값이다. Ex) UTF-8, 16, 32 기준 4",
+                "remarkEng": "The value used when checking the byte of a string. The byte value is calculated if the character's ASCII code is greater than 0xffff Byte. Ex) 4 for UTF-8, 16, 32"
+            },
+            {
+                "attribute": "vg.checkRequiredFunction",
+                "type": "function",
+                "default": "function",
+                "remarkKor": "vg.checkRequiredFunction은 gridId.checkRequired() 메소드 사용 시 required='true'인 컬럼에 null 값이 있을 경우 호출하는 default 함수.\n"
+                            + "gridId.checkRequired() 호출 시 파라메터로 사용자 커스텀 checkRequiredFunction를 넘기지 않으면 vg.checkRequiredFunction이 자동으로 호출됨.\n"
+                            + "vg.checkRequiredFunction는 반드시 함수 type. 파라메터로 getCellData()로 반환되는 cellData를 받음.\n"
+                            + "default로 정의된 함수는 error alert 발생 후 해당 cell에 focus를 부여.\n"
+                            + "default) function(cellData) {alert(cellData.row + ' For the row, please enter the value for ' + cellData.name + '.');window[cellData.gridId].editCell(cellData.row, cellData.col);}",
+                "remarkEng": "vg.checkRequiredFunction is a default function that is called when the gridId.checkRequired() method is used when there is a null value in the column with required='true'.\n"
+                            + "When calling gridId.checkRequired(), if you do not pass a user-custom checkRequiredFunction as a parameter, vg.checkRequiredFunction is automatically called.\n"
+                            + "vg.checkRequiredFunction must be a function type. It receives cellData returned by getCellData() as a parameter.\n"
+                            + "The function defined as default gives focus to the cell after an error alert occurs.\n"
+                            + "default) function(cellData) {alert(cellData.row + ' For the row, please enter the value for ' + cellData.name + '.');window[cellData.gridId].editCell(cellData.row, cellData.col);}",
+            },
         ];
         this.VGO_GRID_INFO_ATTRIBUTES = [
             {
