@@ -1541,13 +1541,16 @@ function vanillagrid_onBeforeCreate (e, vg) {
                         "text": "● vg.checkRequiredFunction"
                     },
                     "DIVE-2651": {
-                        "text": "When using the gridId.checkRequired(checkRequiredFunction) method, you can define an event function that occurs when a column with required='true' has a null value."
+                        "text": "vg.checkRequiredFunction is a default function that is called when the gridId.checkRequired() method is used when there is a null value in the column with required='true'."
                     },
                     "DIVE-2652": {
-                        "text": "vg.checkRequiredFunction must be a function type. Receives cellData returned with getCellData() as a parameter."
+                        "text": "When calling gridId.checkRequired(), if you do not pass a user-custom checkRequiredFunction as a parameter, vg.checkRequiredFunction is automatically called."
                     },
                     "DIVE-2653": {
-                        "text": "The function defined as default gives focus to the relevant cell after an error alert occurs."
+                        "text": "vg.checkRequiredFunction must be a function type. It receives cellData returned by getCellData() as a parameter."
+                    },
+                    "DIVE-2654": {
+                        "text": "The function defined as default gives focus to the cell after an error alert occurs."
                     },
                     "DIVE-2659": {
                         code: 
@@ -4115,13 +4118,16 @@ function vanillagrid_onBeforeCreate (e, vg) {
                         "text": "● vg.checkRequiredFunction"
                     },
                     "DIVE-2651": {
-                        "text": "gridId.checkRequired(checkRequiredFunction) 메소드 사용 시 required='true'인 컬럼이 null 값이 있을 경우 발생하는 이벤트 함수를 정의할 수 있다."
+                        "text": "vg.checkRequiredFunction은 gridId.checkRequired() 메소드 사용 시 required='true'인 컬럼에 null 값이 있을 경우 호출하는 default 함수입니다."
                     },
                     "DIVE-2652": {
-                        "text": "vg.checkRequiredFunction는 반드시 함수 type이어야 한다. 파라메터로 getCellData()로 반환되는 cellData를 받는다."
+                        "text": "gridId.checkRequired() 호출 시 파라메터로 사용자 커스텀 checkRequiredFunction를 넘기지 않으면 vg.checkRequiredFunction이 자동으로 호출합니다."
                     },
                     "DIVE-2653": {
-                        "text": "default로 정의된 함수는 error alert 발생 후 해당 cell에 focus를 부여한다."
+                        "text": "vg.checkRequiredFunction는 반드시 함수 type이어야 합니다. 파라메터로 getCellData()로 반환되는 cellData를 받습니다."
+                    },
+                    "DIVE-2654": {
+                        "text": "default로 정의된 함수는 error alert 발생 후 해당 cell에 focus를 부여합니다."
                     },
                     "DIVE-2659": {
                         code: 
