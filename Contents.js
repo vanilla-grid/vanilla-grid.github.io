@@ -422,12 +422,36 @@ beforeDestroy: function() {
 `,
                     },
                     "STARTED-0006": {
-                        text: "1-2. or use npm."
+                        text: "1-2. Or use npm & webpack."
                     },
                     "STARTED-0007": {
                         code: 
 `npm i vanillagrid
 `,
+                    },
+                    "STARTED-0008": {
+                        code: 
+`//src/index.js
+import vg from 'vanillagrid';
+vg.create();
+`,
+                    },
+                    "STARTED-0009": {
+                        code: 
+`<!-- index.html -->
+<body>
+    <!--
+    <vanilla-grid id="grid"..
+    -->
+    <script src="dist/main.js"></script>
+<body>
+`,
+                    },
+                    "STARTED-0010": {
+                        text: "※ The dist/Vanillagrid.min.1.0.0.js file of git vanillagrid.min can be used as a header declaration."
+                    },
+                    "STARTED-0011": {
+                        text: "※ The dist/Vanillagrid.webpack.1.0.0.js file in git vanillagrid.min is used in the webpack method."
                     },
                     "STARTED-0004": {
                         text: "2. Create the grid in the body according to the specified format.",
@@ -2756,7 +2780,7 @@ const datas = [
 `,
                     },
                     "INTRO-0315": {
-                        text: "1-2. 또는 npm을 사용합니다.."
+                        text: "1-2. 또는 npm을 사용합니다."
                     },
                     "INTRO-0316": {
                         code: 
@@ -2999,12 +3023,36 @@ beforeDestroy: function() {
 `,
                     },
                     "STARTED-0006": {
-                        text: "1-2. 또는 npm을 사용합니다."
+                        text: "1-2. 또는 npm과 webpack을 사용합니다."
                     },
                     "STARTED-0007": {
                         code: 
 `npm i vanillagrid
 `,
+                    },
+                    "STARTED-0008": {
+                        code: 
+`//src/index.js
+import vg from 'vanillagrid';
+vg.create();
+`,
+                    },
+                    "STARTED-0009": {
+                        code: 
+`<!-- index.html -->
+<body>
+    <!--
+    <vanilla-grid id="grid"..
+    -->
+    <script src="dist/main.js"></script>
+<body>
+`,
+                    },
+                    "STARTED-0010": {
+                        text: "※ git vanillagrid.min의 dist/Vanillagrid.min.1.0.0.js 파일은 헤더 선언 방식으로 사용할 수 있습니다."
+                    },
+                    "STARTED-0011": {
+                        text: "※ git vanillagrid.min의 dist/Vanillagrid.webpack.1.0.0.js 파일은 webpack 방식으로 사용됩니다."
                     },
                     "STARTED-0004": {
                         text: "2. body에 grid를 정해진 양식에 맞게 생성합니다.",
