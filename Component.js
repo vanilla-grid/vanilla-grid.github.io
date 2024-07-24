@@ -349,6 +349,7 @@ function getComponents(CONSTS, SAMPLE_GRIDS) {
                         <pre><code>{{getContentCode("STARTED-0009")}}</code></pre>
                         <p class="h6 text-danger" :id="getContentAnchor('STARTED-0010')"><b>{{getContentText("STARTED-0010")}}</b></p>
                         <p class="h6 text-danger" :id="getContentAnchor('STARTED-0011')"><b>{{getContentText("STARTED-0011")}}</b></p>
+                        <p class="h6 text-danger" :id="getContentAnchor('STARTED-0012')"><b>{{getContentText("STARTED-0012")}}</b></p>
                         <br>
                         <p class="h5" :id="getContentAnchor('STARTED-0004')">{{getContentText("STARTED-0004")}}</p>
                         <pre><code>{{getContentCode("STARTED-0005")}}</code></pre>
