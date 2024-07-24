@@ -451,10 +451,10 @@ vg.create();
                         text: "※ The dist/Vanillagrid.min.1.0.0.js file of git vanillagrid.min can be used as a header declaration."
                     },
                     "STARTED-0011": {
-                        text: "※ The dist/Vanillagrid.webpack.1.0.0.js file in git vanillagrid.min is used in the webpack method."
+                        text: "※ The dist/Vanillagrid.bundle.js file in git vanillagrid.min is used in the webpack method."
                     },
                     "STARTED-0012": {
-                        text: "※ The header declaration method through the Vanillagrid.min file automatically manages the life cycle of the vanilla grid, while the webpack method through the Vanillagrid.webpack file requires the user to manage the life cycle."
+                        text: "※ The header declaration method through the Vanillagrid.min file automatically manages the life cycle of the vanilla grid, while the webpack method through the Vanillagrid.bundle file requires the user to manage the life cycle."
                     },
                     "STARTED-0004": {
                         text: "2. Create the grid in the body according to the specified format.",
@@ -3055,10 +3055,10 @@ vg.create();
                         text: "※ git vanillagrid.min의 dist/Vanillagrid.min.1.0.0.js 파일은 헤더 선언 방식으로 사용할 수 있습니다."
                     },
                     "STARTED-0011": {
-                        text: "※ git vanillagrid.min의 dist/Vanillagrid.webpack.1.0.0.js 파일은 webpack 방식으로 사용됩니다."
+                        text: "※ git vanillagrid.min의 dist/Vanillagrid.bundle.js 파일은 webpack 방식으로 사용됩니다."
                     },
                     "STARTED-0012": {
-                        text: "※ Vanillagrid.min파일을 통한 헤더 선언 방식은 vanilla grid의 생명주기를 자동으로 관리하며, Vanillagrid.webpack파일을 통한 webpack 방식은 생명주기를 사용자가 관리해야 합니다."
+                        text: "※ Vanillagrid.min 파일을 통한 헤더 선언 방식은 vanilla grid의 생명주기를 자동으로 관리하며, Vanillagrid.bundle 파일을 통한 webpack 방식은 생명주기를 사용자가 관리해야 합니다."
                     },
                     "STARTED-0004": {
                         text: "2. body에 grid를 정해진 양식에 맞게 생성합니다.",
