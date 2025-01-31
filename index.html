@@ -17,7 +17,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
-	<script src="Vanillagrid.min.1.0.0.js"></script>
+	<script src="Vanillagrid.1.0.0.js"></script>
 	<script src="DataType.js"></script>
 	<script src="Consts.js"></script>
 	<script src="Contents.js"></script>
@@ -814,6 +814,7 @@
 						window[CONSTS.SAMPLE_GRID_IDS_INTRO[0]].load(SAMPLE_DATAS[this.currentLang].intro[CONSTS.SAMPLE_KEYS_INTRO[0]]);
 						window[CONSTS.SAMPLE_GRID_IDS_INTRO[1]].load(SAMPLE_DATAS[this.currentLang].intro[CONSTS.SAMPLE_KEYS_INTRO[1]]);
 						const grid01 = window[CONSTS.SAMPLE_GRID_IDS_INTRO[0]];
+						console.log(grid01);
 
 	            		switch(this.currentLang) {
 	            			case 'KOR' :
@@ -844,7 +845,7 @@
 	            				break;
 	            			default :
 								grid01.setHeaderText(2, 'status;;');
-								grid01.setHeaderText('col1', 'header;img;Picture');
+								grid01.setHeaderText('col0', 'header;img;Picture');
 								grid01.setHeaderText('col1', ';text;Whale Name');
 								grid01.setHeaderText('col2', ';code;Size\nCode');
 								grid01.setHeaderText('col3', ';mask;ID');
@@ -1119,7 +1120,7 @@
 								grid02.setHeaderText('salary', ';sort2(number);salary');
 								grid02.setHeaderText('status', ';checkbox;status');
 								
-								grid04.setHeaderText('dt', 'dataType;');
+								grid04.setHeaderText('dt', 'data-type;');
 								grid04.setHeaderText('do', 'do it!;');
 								grid04.setHeaderText('val', 'value;load value');
 								grid04.setHeaderText('type', ';type');
@@ -1594,7 +1595,7 @@
 	//그리드가 있는 상태로 view를 변환 시 에러??
 	</script>
 	<script type="text/javascript">
-	vanillagrid_onBeforeCreate = function(e, vg) {
+	vanillagridOnBeforeCreate = function(e, vg) {
 		return false;
 	}
 	</script>

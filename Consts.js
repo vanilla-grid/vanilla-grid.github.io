@@ -40,7 +40,7 @@ function getConsts () {
                 "remarkEng": "Indicates whether the cell is editable. If true, the cell cannot be edited."
             },
             {
-                "name": "lockedColor",
+                "name": "locked-color",
                 "type": "Boolean",
                 "default": "true",
                 "remarkKor": "locked cell의 locked를 표현하는 배경 color를 표현할 지 여부이다.",
@@ -61,7 +61,7 @@ function getConsts () {
                 "remarkEng": "Indicates whether the user can use undo and redo shortcuts while editing the grid."
             },
             {
-                "name": "redoCount",
+                "name": "redo-count",
                 "type": "Number",
                 "default": "30",
                 "remarkKor": "실행취소, 재실행을 하기위해 grid 편집 상태를 기록할 횟수.",
@@ -75,63 +75,63 @@ function getConsts () {
                 "remarkEng": "Indicates whether the grid is visible. If false, it will be display none."
             },
             {
-                "name": "headerVisible",
+                "name": "header-visible",
                 "type": "Boolean",
                 "default": "true",
                 "remarkKor": "grid header의 visible처리 여부. false이면 display none.",
                 "remarkEng": "Indicates whether the grid header is visible. If false, it will be display none."
             },
             {
-                "name": "rownumVisible",
+                "name": "rownum-visible",
                 "type": "Boolean",
                 "default": "true",
                 "remarkKor": "순번 Column(v-g-rownum)을 화면에 표시 할지 여부.",
                 "remarkEng": "Indicates whether to display the row number column (v-g-rownum) on the screen."
             },
             {
-                "name": "rownumSize",
+                "name": "rownum-size",
                 "type": "String(cssText)",
                 "default": "60px",
                 "remarkKor": "순번 Column(v-g-rownum)의 width 사이즈.",
                 "remarkEng": "The width size of the row number column (v-g-rownum)."
             },
             {
-                "name": "rownumLockedColor",
+                "name": "rownum-locked-color",
                 "type": "Boolean",
                 "default": "info.locked",
                 "remarkKor": "순번 Column(v-g-rownum)의 locked color를 표현 할 지 여부.",
                 "remarkEng": "Indicates whether to display the locked color of the row number column (v-g-rownum)."
             },
             {
-                "name": "statusVisible",
+                "name": "status-visible",
                 "type": "Boolean",
                 "default": "true",
                 "remarkKor": "상태 Column(v-g-status)을 화면에 표시 할지 여부.",
                 "remarkEng": "Indicates whether to display the status column (v-g-status) on the screen."
             },
             {
-                "name": "statusLockedColor",
+                "name": "status-locked-color",
                 "type": "Boolean",
                 "default": "info.locked",
                 "remarkKor": "상태 Column(v-g-status)의 locked color를 표현 할 지 여부.",
                 "remarkEng": "Indicates whether to display the locked color of the status column (v-g-status)."
             },
             {
-                "name": "selectionPolicy",
+                "name": "selection-policy",
                 "type": "String",
                 "default": "range",
                 "remarkKor": "grid의 사용자 선택 범위 정책. 'range' : 범위선택. 'single': 단일 cell 선택, 'none': 선택불가)",
                 "remarkEng": "The user selection range policy of the grid. 'range': range selection, 'single': single cell selection, 'none': no selection)"
             },
             {
-                "name": "nullValue",
+                "name": "null-value",
                 "type": "var",
                 "default": "null",
                 "remarkKor": "grid에서 null값을 의미하는 값.",
                 "remarkEng": "Value representing null in the grid."
             },
             {
-                "name": "dateFormat",
+                "name": "date-format",
                 "type": "String",
                 "default": "yyyy-mm-dd",
                 "remarkKor": "grid에서 date의 format.\n"
@@ -144,7 +144,7 @@ function getConsts () {
                             + "'dd-mm-yyyy', 'dd/mm/yyyy', 'dd. mm. yyyy', 'ddmmyyyy' are possible.",
             },
             {
-                "name": "monthFormat",
+                "name": "month-format",
                 "type": "String",
                 "default": "yyyy-mm",
                 "remarkKor": "grid에서 month의 format.\n"
@@ -155,21 +155,21 @@ function getConsts () {
                             + "'mmyyyy', 'mm-yyyy', 'mm/yyyy', 'mm. yyyy' are possible.",
             },
             {
-                "name": "alterRow",
+                "name": "alter-row",
                 "type": "Boolean",
                 "default": "true",
-                "remarkKor": "grid의 alterRow(한 행씩 번갈아가며 색상을 다르게 표현하는 기능)을 설정한다.",
-                "remarkEng": "Sets the alterRow of the grid (the function that alternates the colors of each row)."
+                "remarkKor": "grid의 alter-row(한 행씩 번갈아가며 색상을 다르게 표현하는 기능)을 설정한다.",
+                "remarkEng": "Sets the alter-row of the grid (the function that alternates the colors of each row)."
             },
             {
-                "name": "frozenColCount",
+                "name": "frozen-col-count",
                 "type": "Number",
                 "default": "0",
                 "remarkKor": "grid의 고정 열을 설정한다. 숨김 처리된 열도 계산해서 숫자를 설정해야한다.\n(1열은 v-g-rownum, 2열은 v-g-status이다. 사용자 열은 최소 3열 부터)",
                 "remarkEng": "Sets the frozen columns of the grid. The number should be set by calculating the invisible columns as well.\n(Column 1 is v-g-rownum, and column 2 is v-g-status. The user column starts from at least 3 columns.)"
             },
             {
-                "name": "frozenRowCount",
+                "name": "frozen-row-count",
                 "type": "Number",
                 "default": "0",
                 "remarkKor": "grid의 고정 행을 설정한다.",
@@ -190,21 +190,21 @@ function getConsts () {
                 "remarkEng": "Indicates whether to use the filtering feature of the grid."
             },
             {
-                "name": "allCheckable",
+                "name": "all-checkable",
                 "type": "Boolean",
                 "default": "true",
                 "remarkKor": "checkbox의 헤더 더블클릭 시 해당 열의 checkbox를 checked, unchecked하는 기능을 사용할지 여부.",
                 "remarkEng": "Indicates whether to use the feature that checks or unchecks the column checkboxes when double-clicking the header of a checkbox."
             },
             {
-                "name": "checkedValue",
+                "name": "checked-value",
                 "type": "String",
                 "default": "Y",
                 "remarkKor": "checkbox type의 cell이 checked일 시 갖을 값.",
                 "remarkEng": "The value a checkbox type cell has when checked."
             },
             {
-                "name": "uncheckedValue",
+                "name": "unchecked-value",
                 "type": "String",
                 "default": "N",
                 "remarkKor": "checkbox type의 cell이 unchecked일 시 갖을 값.",
@@ -239,98 +239,98 @@ function getConsts () {
                 "remarkEng": "The padding of the grid. Insert cssText."
             },
             {
-                "name": "sizeLevel",
+                "name": "size-level",
                 "type": "Number",
                 "default": "5",
                 "remarkKor": "grid의 size level을 지정한다. 양의 정수를 입력. 5가 정비율이다.",
                 "remarkEng": "Specifies the size level of the grid. Enter a positive integer. 5 is the standard ratio."
             },
             {
-                "name": "verticalAlign",
+                "name": "vertical-align",
                 "type": "String",
                 "default": "center",
                 "remarkKor": "grid cell의 기본 vertical-align을 설정한다. 'top', 'center', 'bottom'중 하나.",
                 "remarkEng": "Sets the default vertical-align of the grid cell. Choose from 'top', 'center', 'bottom'."
             },
             {
-                "name": "cellFontSize",
+                "name": "cell-font-size",
                 "type": "Number",
                 "default": "14",
                 "remarkKor": "grid cell의 기본 font-size를 지정한다. 양의 정수를 삽입한다. 단위는 px이다.",
                 "remarkEng": "Specifies the default font-size of the grid cell. Enter a positive integer. The unit is px."
             },
             {
-                "name": "cellMinHeight",
+                "name": "cell-min-height",
                 "type": "Number",
                 "default": "21",
                 "remarkKor": "grid cell의 기본 min-height를 지정한다. 양의 정수를 삽입한다. 단위는 px이다.",
                 "remarkEng": "Specifies the default min-height of the grid cell. Enter a positive integer. The unit is px."
             },
             {
-                "name": "horizenBorderSize",
+                "name": "horizen-border-size",
                 "type": "Number",
                 "default": "1",
                 "remarkKor": "grid cell의 horizen border size를 설정한다. px단위이며 0과 양의 정수를 삽입한다.",
                 "remarkEng": "Sets the horizontal border size of the grid cell. The unit is px. Enter 0 or a positive integer."
             },
             {
-                "name": "verticalBorderSize",
+                "name": "vertical-border-size",
                 "type": "Number",
                 "default": "1",
                 "remarkKor": "grid cell의 vertical border size를 설정한다. px단위이며 0과 양의 정수를 삽입한다.",
                 "remarkEng": "Sets the vertical border size of the grid cell. The unit is px. Enter 0 or a positive integer."
             },
             {
-                "name": "gridFontFamily",
+                "name": "grid-font-family",
                 "type": "String",
                 "default": "Arial",
                 "remarkKor": "grid cell의 font-family를 설정한다. cssText의 font-family를 입력한다.",
                 "remarkEng": "Sets the font-family of the grid cell. Enter the font-family in cssText."
             },
             {
-                "name": "editorFontFamily",
+                "name": "editor-font-family",
                 "type": "String",
                 "default": "Arial",
                 "remarkKor": "grid editor의 font-family를 설정한다. cssText의 font-family를 입력한다.",
                 "remarkEng": "Sets the font-family of the grid editor. Enter the font-family in cssText."
             },
             {
-                "name": "overflowWrap",
+                "name": "overflow-wrap",
                 "type": "String",
                 "default": "null",
                 "remarkKor": "grid cell의 overflow-wrap를 설정한다. cssText의 overflow-wrap를 입력한다.",
                 "remarkEng": "Sets the overflow-wrap of the grid cell. Enter the overflow-wrap in cssText."
             },
             {
-                "name": "wordBreak",
+                "name": "word-break",
                 "type": "String",
                 "default": "null",
                 "remarkKor": "grid cell의 word-break를 설정한다. cssText의 word-break를 입력한다.",
                 "remarkEng": "Sets the word-break of the grid cell. Enter the word-break in cssText."
             },
             {
-                "name": "whiteSpace",
+                "name": "white-space",
                 "type": "String",
                 "default": "null",
                 "remarkKor": "grid cell의 white-space를 설정한다. cssText의 white-space를 입력한다.",
                 "remarkEng": "Sets the white-space of the grid cell. Enter the white-space in cssText."
             },
             {
-                "name": "linkHasUnderLine",
+                "name": "link-has-under-line",
                 "type": "Boolean",
                 "default": "true",
                 "remarkKor": "link type의 cell이 underLine을 표시할 지 여부를 설정한다.",
                 "remarkEng": "Indicates whether to display the underline for link type cells."
             },
             {
-                "name": "invertColor",
+                "name": "invert-color",
                 "type": "Boolean",
                 "default": "false",
                 "remarkKor": "grid의 색상을 반전한다.",
                 "remarkEng": "Inverts the colors of the grid."
             },
             {
-                "name": "colorSet",
+                "name": "color-set",
                 "type": "String",
                 "default": "null",
                 "remarkKor": "grid의 colorSet을 정한다. colorSet은 'skyblue', 'blue', 'light-red', 'red', 'light-green', 'green', 'orange', 'yellow', 'purple', 'brown', 'black' 이다.",
@@ -344,259 +344,259 @@ function getConsts () {
                 "remarkEng": "Sets the main color of the grid. Enter the 16-digit color code in cssText. Ex) '#ffffff'"
             },
             {
-                "name": "gridBorderColor",
+                "name": "grid-border-color",
                 "type": "String",
                 "default": "null",
                 "remarkKor": "grid border의 색상을 설정한다. cssText 16진수 색상을 입력한다. Ex) '#ffffff'",
                 "remarkEng": "Sets the border color of the grid. Enter the 16-digit color code in cssText. Ex) '#ffffff'"
             },
             {
-                "name": "headerCellBackColor",
+                "name": "header-cell-back-color",
                 "type": "String",
                 "default": "null",
                 "remarkKor": "header cell background의 색상을 설정한다. cssText 16진수 색상을 입력한다. Ex) '#ffffff'",
                 "remarkEng": "Sets the background color of the header cell. Enter the 16-digit color code in cssText. Ex) '#ffffff'"
             },
             {
-                "name": "headerCellBorderColor",
+                "name": "header-cell-border-color",
                 "type": "String",
                 "default": "null",
                 "remarkKor": "header cell border의 색상을 설정한다. cssText 16진수 색상을 입력한다. Ex) '#ffffff'",
                 "remarkEng": "Sets the border color of the header cell. Enter the 16-digit color code in cssText. Ex) '#ffffff'"
             },
             {
-                "name": "headerCellFontColor",
+                "name": "header-cell-font-color",
                 "type": "String",
                 "default": "null",
                 "remarkKor": "header cell font의 색상을 설정한다. cssText 16진수 색상을 입력한다. Ex) '#ffffff'",
                 "remarkEng": "Sets the font color of the header cell. Enter the 16-digit color code in cssText. Ex) '#ffffff'"
             },
             {
-                "name": "footerCellBackColor",
+                "name": "footer-cell-back-color",
                 "type": "String",
                 "default": "null",
                 "remarkKor": "footer cell background의 색상을 설정한다. cssText 16진수 색상을 입력한다. Ex) '#ffffff'",
                 "remarkEng": "Sets the background color of the footer cell. Enter the 16-digit color code in cssText. Ex) '#ffffff'"
             },
             {
-                "name": "footerCellBorderColor",
+                "name": "footer-cell-border-color",
                 "type": "String",
                 "default": "null",
                 "remarkKor": "footer cell border의 색상을 설정한다. cssText 16진수 색상을 입력한다. Ex) '#ffffff'",
                 "remarkEng": "Sets the border color of the footer cell. Enter the 16-digit color code in cssText. Ex) '#ffffff'"
             },
             {
-                "name": "footerCellFontColor",
+                "name": "footer-cell-font-color",
                 "type": "String",
                 "default": "null",
                 "remarkKor": "footer cell font의 색상을 설정한다. cssText 16진수 색상을 입력한다. Ex) '#ffffff'",
                 "remarkEng": "Sets the font color of the footer cell. Enter the 16-digit color code in cssText. Ex) '#ffffff'"
             },
             {
-                "name": "bodyBackColor",
+                "name": "body-back-color",
                 "type": "String",
                 "default": "null",
                 "remarkKor": "grid body back-ground의 색상을 설정한다. cssText 16진수 색상을 입력한다. Ex) '#ffffff'",
                 "remarkEng": "Sets the background color of the grid body. Enter the 16-digit color code in cssText. Ex) '#ffffff'"
             },
             {
-                "name": "bodyCellBackColor",
+                "name": "body-cell-back-color",
                 "type": "String",
                 "default": "null",
                 "remarkKor": "grid body cell background의 색상을 설정한다. cssText 16진수 색상을 입력한다. Ex) '#ffffff'",
                 "remarkEng": "Sets the background color of the grid body cell. Enter the 16-digit color code in cssText. Ex) '#ffffff'"
             },
             {
-                "name": "bodyCellBorderColor",
+                "name": "body-cell-border-color",
                 "type": "String",
                 "default": "null",
                 "remarkKor": "grid body cell border의 색상을 설정한다. cssText 16진수 색상을 입력한다. Ex) '#ffffff'",
                 "remarkEng": "Sets the border color of the grid body cell. Enter the 16-digit color code in cssText. Ex) '#ffffff'"
             },
             {
-                "name": "bodyCellFontColor",
+                "name": "body-cell-font-color",
                 "type": "String",
                 "default": "null",
                 "remarkKor": "grid body cell font의 색상을 설정한다. cssText 16진수 색상을 입력한다. Ex) '#ffffff'",
                 "remarkEng": "Sets the font color of the grid body cell. Enter the 16-digit color code in cssText. Ex) '#ffffff'"
             },
             {
-                "name": "editorBackColor",
+                "name": "editor-back-color",
                 "type": "String",
                 "default": "null",
                 "remarkKor": "editor background의 색상을 설정한다. cssText 16진수 색상을 입력한다. Ex) '#ffffff'",
                 "remarkEng": "Sets the background color of the editor. Enter the 16-digit color code in cssText. Ex) '#ffffff'"
             },
             {
-                "name": "editorFontColor",
+                "name": "editor-font-color",
                 "type": "String",
                 "default": "null",
                 "remarkKor": "editor font의 색상을 설정한다. cssText 16진수 색상을 입력한다. Ex) '#ffffff'",
                 "remarkEng": "Sets the font color of the editor. Enter the 16-digit color code in cssText. Ex) '#ffffff'"
             },
             {
-                "name": "selectCellBackColor",
+                "name": "select-cell-back-color",
                 "type": "String",
                 "default": "null",
                 "remarkKor": "select cell(선택된 활성화 cell) background의 색상을 설정한다. cssText 16진수 색상을 입력한다. Ex) '#ffffff'",
                 "remarkEng": "Sets the background color of the selected cell. Enter the 16-digit color code in cssText. Ex) '#ffffff'"
             },
             {
-                "name": "selectCellFontColor",
+                "name": "select-cell-font-color",
                 "type": "String",
                 "default": "null",
                 "remarkKor": "select cell(선택된 활성화 cell) font의 색상을 설정한다. cssText 16진수 색상을 입력한다. Ex) '#ffffff'",
                 "remarkEng": "Sets the font color of the selected cell. Enter the 16-digit color code in cssText. Ex) '#ffffff'"
             },
             {
-                "name": "selectColBackColor",
+                "name": "select-colBack-color",
                 "type": "String",
                 "default": "null",
                 "remarkKor": "select col(선택된 cell의 header) background의 색상을 설정한다. cssText 16진수 색상을 입력한다. Ex) '#ffffff'",
                 "remarkEng": "Sets the background color of the selected column header. Enter the 16-digit color code in cssText. Ex) '#ffffff'"
             },
             {
-                "name": "selectColFontColor",
+                "name": "select-col-font-color",
                 "type": "String",
                 "default": "null",
                 "remarkKor": "select col(선택된 cell의 header) font의 색상을 설정한다. cssText 16진수 색상을 입력한다. Ex) '#ffffff'",
                 "remarkEng": "Sets the font color of the selected column header. Enter the 16-digit color code in cssText. Ex) '#ffffff'"
             },
             {
-                "name": "selectRowBackColor",
+                "name": "select-row-back-color",
                 "type": "String",
                 "default": "null",
                 "remarkKor": "select row(선택된 cell과 같은 행의 cell들) background의 색상을 설정한다. cssText 16진수 색상을 입력한다. Ex) '#ffffff'",
                 "remarkEng": "Sets the background color of the selected row. Enter the 16-digit color code in cssText. Ex) '#ffffff'"
             },
             {
-                "name": "selectRowFontColor",
+                "name": "select-row-font-color",
                 "type": "String",
                 "default": "null",
                 "remarkKor": "select row(선택된 cell과 같은 행의 cell들) font의 색상을 설정한다. cssText 16진수 색상을 입력한다. Ex) '#ffffff'",
                 "remarkEng": "Sets the font color of the selected row. Enter the 16-digit color code in cssText. Ex) '#ffffff'"
             },
             {
-                "name": "mouseoverCellBackColor",
+                "name": "mouseover-cell-back-color",
                 "type": "String",
                 "default": "null",
                 "remarkKor": "mouse over cell(마우스가 위로 올라간 cell) background의 색상을 설정한다. cssText 16진수 색상을 입력한다. Ex) '#ffffff'",
                 "remarkEng": "Sets the background color of the mouseover cell. Enter the 16-digit color code in cssText. Ex) '#ffffff'"
             },
             {
-                "name": "mouseoverCellFontColor",
+                "name": "mouseover-cell-font-color",
                 "type": "String",
                 "default": "null",
                 "remarkKor": "mouse over cell(마우스가 위로 올라간 cell) font의 색상을 설정한다. cssText 16진수 색상을 입력한다. Ex) '#ffffff'",
                 "remarkEng": "Sets the font color of the mouseover cell. Enter the 16-digit color code in cssText. Ex) '#ffffff'"
             },
             {
-                "name": "lockCellBackColor",
+                "name": "lock-cell-back-color",
                 "type": "String",
                 "default": "null",
                 "remarkKor": "locked상태의 cell background의 색상을 설정한다. cssText 16진수 색상을 입력한다. Ex) '#ffffff'",
                 "remarkEng": "Sets the background color of the locked cell. Enter the 16-digit color code in cssText. Ex) '#ffffff'"
             },
             {
-                "name": "lockCellFontColor",
+                "name": "lock-cell-font-color",
                 "type": "String",
                 "default": "null",
                 "remarkKor": "locked상태의 cell editor font의 색상을 설정한다. cssText 16진수 색상을 입력한다. Ex) '#ffffff'",
                 "remarkEng": "Sets the font color of the locked cell editor. Enter the 16-digit color code in cssText. Ex) '#ffffff'"
             },
             {
-                "name": "alterRowBackColor",
+                "name": "alter-row-back-color",
                 "type": "String",
                 "default": "null",
                 "remarkKor": "2번째 행들의 cell background의 색상을 설정한다. cssText 16진수 색상을 입력한다. Ex) '#ffffff'",
                 "remarkEng": "Sets the background color of the alternate rows. Enter the 16-digit color code in cssText. Ex) '#ffffff'"
             },
             {
-                "name": "alterRowFontColor",
+                "name": "alter-row-font-color",
                 "type": "String",
                 "default": "null",
                 "remarkKor": "2번째 행들의 cell font의 색상을 설정한다. cssText 16진수 색상을 입력한다. Ex) '#ffffff'",
                 "remarkEng": "Sets the font color of the alternate rows. Enter the 16-digit color code in cssText. Ex) '#ffffff'"
             },
             {
-                "name": "buttonFontColor",
+                "name": "button-font-color",
                 "type": "String",
                 "default": "null",
                 "remarkKor": "button type cell font의 색상을 설정한다. cssText 16진수 색상을 입력한다. Ex) '#ffffff'",
                 "remarkEng": "Sets the font color of the button type cell. Enter the 16-digit color code in cssText. Ex) '#ffffff'"
             },
             {
-                "name": "buttonBorderColor",
+                "name": "button-border-color",
                 "type": "String",
                 "default": "null",
                 "remarkKor": "button type cell border의 색상을 설정한다. cssText 16진수 색상을 입력한다. Ex) '#ffffff'",
                 "remarkEng": "Sets the border color of the button type cell. Enter the 16-digit color code in cssText. Ex) '#ffffff'"
             },
             {
-                "name": "buttonBackColor",
+                "name": "button-back-color",
                 "type": "String",
                 "default": "null",
                 "remarkKor": "button type cell background의 색상을 설정한다. cssText 16진수 색상을 입력한다. Ex) '#ffffff'",
                 "remarkEng": "Sets the background color of the button type cell. Enter the 16-digit color code in cssText. Ex) '#ffffff'"
             },
             {
-                "name": "buttonHoverFontColor",
+                "name": "button-hover-font-color",
                 "type": "String",
                 "default": "null",
                 "remarkKor": "button type cell hover시 font의 색상을 설정한다. cssText 16진수 색상을 입력한다. Ex) '#ffffff'",
                 "remarkEng": "Sets the font color of the button type cell on hover. Enter the 16-digit color code in cssText. Ex) '#ffffff'"
             },
             {
-                "name": "buttonHoverBackColor",
+                "name": "button-hover-back-color",
                 "type": "String",
                 "default": "null",
                 "remarkKor": "button type cell hover시 background의 색상을 설정한다. cssText 16진수 색상을 입력한다. Ex) '#ffffff'",
                 "remarkEng": "Sets the background color of the button type cell on hover. Enter the 16-digit color code in cssText. Ex) '#ffffff'"
             },
             {
-                "name": "buttonActiveFontColor",
+                "name": "button-active-font-color",
                 "type": "String",
                 "default": "null",
                 "remarkKor": "button type cell active시 font의 색상을 설정한다. cssText 16진수 색상을 입력한다. Ex) '#ffffff'",
                 "remarkEng": "Sets the font color of the button type cell on active. Enter the 16-digit color code in cssText. Ex) '#ffffff'"
             },
             {
-                "name": "buttonActiveBackColor",
+                "name": "button-active-back-color",
                 "type": "String",
                 "default": "null",
                 "remarkKor": "button type cell active시 background의 색상을 설정한다. cssText 16진수 색상을 입력한다. Ex) '#ffffff'",
                 "remarkEng": "Sets the background color of the button type cell on active. Enter the 16-digit color code in cssText. Ex) '#ffffff'"
             },
             {
-                "name": "linkFontColor",
+                "name": "link-font-color",
                 "type": "String",
                 "default": "null",
                 "remarkKor": "link type cell font의 색상을 설정한다. cssText 16진수 색상을 입력한다. Ex) '#ffffff'",
                 "remarkEng": "Sets the font color of the link type cell. Enter the 16-digit color code in cssText. Ex) '#ffffff'"
             },
             {
-                "name": "linkHoverFontColor",
+                "name": "link-hover-font-color",
                 "type": "String",
                 "default": "null",
                 "remarkKor": "link type cell hover시 font의 색상을 설정한다. cssText 16진수 색상을 입력한다. Ex) '#ffffff'",
                 "remarkEng": "Sets the font color of the link type cell on hover. Enter the 16-digit color code in cssText. Ex) '#ffffff'"
             },
             {
-                "name": "linkActiveFontColor",
+                "name": "link-active-font-color",
                 "type": "String",
                 "default": "null",
                 "remarkKor": "link type cell active시 font의 색상을 설정한다. cssText 16진수 색상을 입력한다. Ex) '#ffffff'",
                 "remarkEng": "Sets the font color of the link type cell on active. Enter the 16-digit color code in cssText. Ex) '#ffffff'"
             },
             {
-                "name": "linkVisitedFontColor",
+                "name": "link-visited-font-color",
                 "type": "String",
                 "default": "null",
                 "remarkKor": "link type cell visited시 font의 색상을 설정한다. cssText 16진수 색상을 입력한다. Ex) '#ffffff'",
                 "remarkEng": "Sets the font color of the link type cell on visited. Enter the 16-digit color code in cssText. Ex) '#ffffff'"
             },
             {
-                "name": "linkFocusFontColor",
+                "name": "link-focus-font-color",
                 "type": "String",
                 "default": "null",
                 "remarkKor": "link type cell focus시 font의 색상을 설정한다. cssText 16진수 색상을 입력한다. Ex) '#ffffff'",
@@ -637,7 +637,7 @@ function getConsts () {
                             + "$$SUM: Calculate and display the sum in the footer. $$AVG: Calculate and display the average in the footer (excluding null)."
             },
             {
-                "name": "dataType",
+                "name": "data-type",
                 "type": "String",
                 "default": "text",
                 "remarkKor": "column의 타입을 설정한다.\n"
@@ -650,7 +650,7 @@ function getConsts () {
                             + "checkbox : input checkbox 타입. grid info의 checkedValue값과 같으면 checked, 다르면 unchecked이다.\n"
                             + "button : button 타입. 삽입되는 값이 button의 innerText로 표현된다. 값이 없으면 button이 생성되지 않는다.\n"
                             + "link : a 태그. {text:\"text\", value:\"https//..\", target:\"_blank\"} 객체 형식으로 값을 삽입한다. text는 innerText, value는 href, target은 target으로 설정.\n"
-                            + "code : 지정된 codes외에는 값을 갖거나 표현될 수 없는 타입이다. nullValue도 codes에 없다면 허용되지 않는다. 빈 값은 defaultCode로 저장된다.",
+                            + "code : 지정된 codes외에는 값을 갖거나 표현될 수 없는 타입이다. nullValue도 codes에 없다면 허용되지 않는다. 빈 값은 default-code로 저장된다.",
                 "remarkEng": "Sets the type of the column.\n"
                             + "text: Text input type. A textarea input box is created on double click.\n"
                             + "number: Number input type. An input number type is created on double click.\n"
@@ -661,7 +661,7 @@ function getConsts () {
                             + "checkbox: Input checkbox type. Checked if it matches the checkedValue of the grid info, unchecked otherwise.\n"
                             + "button: Button type. The inserted value is displayed as the innerText of the button. If there is no value, the button is not created.\n"
                             + "link: a tag. Insert the value as an object in the form {text:\"text\", value:\"https://..\", target:\"_blank\"}. The text is set as innerText, the value as href, and the target as target.\n"
-                            + "code: A type that cannot have or display values other than the specified codes. If nullValue is not in the codes, it is not allowed. Empty values are stored as defaultCode."
+                            + "code: A type that cannot have or display values other than the specified codes. If nullValue is not in the codes, it is not allowed. Empty values are stored as default-code."
             },
             {
                 "name": "width",
@@ -678,18 +678,18 @@ function getConsts () {
                 "remarkEng": "If untarget is true, the cells in this column cannot be selected."
             },
             {
-                "name": "rowMerge",
+                "name": "row-merge",
                 "type": "Boolean",
                 "default": "false",
-                "remarkKor": "rowMerge가 true일 시 해당 column은 위 cell의 값과 dataType, format이 동일하면 윗 cell을 기준으로 row merge한다.",
-                "remarkEng": "If rowMerge is true, this column merges rows based on the cell above if the value, dataType, and format are the same."
+                "remarkKor": "rowMerge가 true일 시 해당 column은 위 cell의 값과 data-type, format이 동일하면 윗 cell을 기준으로 row merge한다.",
+                "remarkEng": "If rowMerge is true, this column merges rows based on the cell above if the value, data-type, and format are the same."
             },
             {
-                "name": "colMerge",
+                "name": "col-merge",
                 "type": "Boolean",
                 "default": "false",
-                "remarkKor": "colMerge가 true일 시 해당 column은 가로축 앞의 cell의 값과 dataType, format이 동일하면 앞 cell을 기준으로 col merge한다.",
-                "remarkEng": "If colMerge is true, this column merges columns based on the cell in front if the value, dataType, and format are the same."
+                "remarkKor": "colMerge가 true일 시 해당 column은 가로축 앞의 cell의 값과 data-type, format이 동일하면 앞 cell을 기준으로 col merge한다.",
+                "remarkEng": "If colMerge is true, this column merges columns based on the cell in front if the value, data-type, and format are the same."
             },
             {
                 "name": "visible",
@@ -727,7 +727,7 @@ function getConsts () {
                 "remarkEng": "Indicates whether the user can use the filtering feature for this column."
             },
             {
-                "name": "selectSize",
+                "name": "select-size",
                 "type": "String",
                 "default": "100%",
                 "remarkKor": "해당 column의 select width size를 정한다. cssText를 삽입하며, 단위는 px, % 두개만 가능하다.",
@@ -741,17 +741,17 @@ function getConsts () {
                 "remarkEng": "If locked is true, the cells in this column cannot be changed."
             },
             {
-                "name": "lockedColor",
+                "name": "locked-color",
                 "type": "Boolean",
                 "default": "true",
-                "remarkKor": "lockedColor가 true일 시 해당 column의 cell이 locked상태이면 locked상태를 배경색으로 표현한다.",
+                "remarkKor": "locked-color가 true일 시 해당 column의 cell이 locked상태이면 locked상태를 배경색으로 표현한다.",
                 "remarkEng": "If lockedColor is true, the cells in this column will display a background color indicating the locked state when locked."
             },
             {
                 "name": "format",
                 "type": "String",
                 "default": "null",
-                "remarkKor": "dataType이 mask, number에 대한 format을 설정한다.\n"
+                "remarkKor": "data-type이 mask, number에 대한 format을 설정한다.\n"
                             + "Mask format : A : 대문자, a : 소문자, 9 : 숫자, 그외는 일치하는 문자를 받는다.\n"
                             + "Number format :\n"
                             + "정수 부 :\n"
@@ -762,7 +762,7 @@ function getConsts () {
                             + " 그외 : 앞 뒤 문자는 문자 그대로 표기, 뒤 문자가 \"%\"이면 자동 백분율 표기\n"
                             + "Ex1) format : \"#,##0.## $\", 숫자 : 1234.1234 => 결과 : \"1,234.12 $\"\n"
                             + "Ex2) format : \"0%\", 숫자 : 0.12 => 결과 : \"12%\"",
-                "remarkEng": "Sets the format for dataType mask, number.\n"
+                "remarkEng": "Sets the format for data-type mask, number.\n"
                             + "Mask format: A: Uppercase letter, a: Lowercase letter, 9: Number, others: Matching character.\n"
                             + "Ex) format: \"AAA-991\", value: \"ABC-123456\" => result: \"ABC-12\"\n\n"
                             + "Number format:\n"
@@ -778,62 +778,62 @@ function getConsts () {
                 "name": "codes",
                 "type": "String",
                 "default": "null",
-                "remarkKor": "dataType 이 code인 column에만 유효하다. \";\"를 구분자로한 코드를 설정한다. 해당 column은 정해진 코드값만 갖을 수 있다.\nEx) \"US;KR;JP\" => \"US\", \"KR\", \"JP\"의 값만을 갖을 수 있음.",
-                "remarkEng": "Valid only for columns with dataType code. Sets codes separated by \";\". This column can only have the specified code values.\nEx) \"US;KR;JP\" => Can only have the values \"US\", \"KR\", \"JP\""
+                "remarkKor": "data-type 이 code인 column에만 유효하다. \";\"를 구분자로한 코드를 설정한다. 해당 column은 정해진 코드값만 갖을 수 있다.\nEx) \"US;KR;JP\" => \"US\", \"KR\", \"JP\"의 값만을 갖을 수 있음.",
+                "remarkEng": "Valid only for columns with data-type code. Sets codes separated by \";\". This column can only have the specified code values.\nEx) \"US;KR;JP\" => Can only have the values \"US\", \"KR\", \"JP\""
             },
             {
-                "name": "defaultCode",
+                "name": "default-code",
                 "type": "String",
                 "default": "null",
-                "remarkKor": "dataType 이 code인 column에만 유효하다. dataType이 code인 column의 value가 없는 경우 grid.info의 nullValue가 아닌 defaultCode를 value로 갖는다.",
-                "remarkEng": "Valid only for columns with dataType code. If a column with dataType code has no value, the defaultCode is used as the value instead of grid.info's nullValue."
+                "remarkKor": "data-type 이 code인 column에만 유효하다. data-type이 code인 column의 value가 없는 경우 grid.info의 nullValue가 아닌 default-code를 value로 갖는다.",
+                "remarkEng": "Valid only for columns with data-type code. If a column with data-type code has no value, the default-code is used as the value instead of grid.info's nullValue."
             },
             {
-                "name": "maxLength",
+                "name": "max-length",
                 "type": "Number",
                 "default": "null",
-                "remarkKor": "dataType 이 text인 column에만 유효하다. value에 최대로 삽입할 수 있는 문자열 길이를 정한다. 양의 정수만 입력",
-                "remarkEng": "Valid only for columns with dataType text. Sets the maximum string length that can be inserted into the value. Enter only positive integers."
+                "remarkKor": "data-type 이 text인 column에만 유효하다. value에 최대로 삽입할 수 있는 문자열 길이를 정한다. 양의 정수만 입력",
+                "remarkEng": "Valid only for columns with data-type text. Sets the maximum string length that can be inserted into the value. Enter only positive integers."
             },
             {
-                "name": "maxByte",
+                "name": "max-byte",
                 "type": "Number",
                 "default": "null",
-                "remarkKor": "dataType 이 text인 column에만 유효하다. value에 최대로 삽입할 수 있는 문자열 byte 크기를 정한다. 양의 정수만 입력.\n"
+                "remarkKor": "data-type 이 text인 column에만 유효하다. value에 최대로 삽입할 수 있는 문자열 byte 크기를 정한다. 양의 정수만 입력.\n"
                             + "Byte크기 기준은 vg.lessoreq0x7ffByte, vg.lessoreq0xffffByte, vg.greater0xffffByte로 설정한다.\n"
                             + "lessoreq0x7ffByte : charCode가 ASCⅡ 0x7FF 이하인 문자, default값은 2. (UTF-8 기준 일반 기호 또는 일반 알파뱃)\n"
                             + "lessoreq0xffffByte : charCode가 ASCⅡ 0xFFFF 이하인 문자, default값은 3. (UTF-8 기준 라틴어 등 추가 알파뱃)\n"
                             + "greater0xffffByte : charCode가 ASCⅡ 0xFFFF 이하인 문자, default값은 4. (UTF-8 이모지, 한국어, 중국어, 일본어 등 다국 문자)",
-                "remarkEng": "Valid only for columns with dataType text. Sets the maximum byte size of the string that can be inserted into the value. Enter only positive integers.\n"
+                "remarkEng": "Valid only for columns with data-type text. Sets the maximum byte size of the string that can be inserted into the value. Enter only positive integers.\n"
                             + "Byte size criteria are set with vg.lessoreq0x7ffByte, vg.lessoreq0xffffByte, vg.greater0xffffByte.\n"
                             + "lessoreq0x7ffByte: Characters with charCode less than or equal to 0x7FF, default value is 2 (common symbols or English alphabet based on UTF-8).\n"
                             + "lessoreq0xffffByte: Characters with charCode less than or equal to 0xFFFF, default value is 3 (additional alphabets such as Latin based on UTF-8).\n"
                             + "greater0xffffByte: Characters with charCode greater than 0xFFFF, default value is 4 (emoji, Korean, Chinese, Japanese, etc. based on UTF-8)."
             },
             {
-                "name": "maxNumber",
+                "name": "max-number",
                 "type": "Number",
                 "default": "null",
-                "remarkKor": "dataType 이 number인 column에만 유효하다. 최대값을 지정한다. 이상의 값이 입력 시 최대값으로 저장됨. 숫자만 입력.",
-                "remarkEng": "Valid only for columns with dataType number. Sets the maximum value. If a value exceeding this is entered, it is stored as the maximum value. Enter only numbers."
+                "remarkKor": "data-type 이 number인 column에만 유효하다. 최대값을 지정한다. 이상의 값이 입력 시 최대값으로 저장됨. 숫자만 입력.",
+                "remarkEng": "Valid only for columns with data-type number. Sets the maximum value. If a value exceeding this is entered, it is stored as the maximum value. Enter only numbers."
             },
             {
-                "name": "minNumber",
+                "name": "min-number",
                 "type": "Number",
                 "default": "null",
-                "remarkKor": "dataType 이 number인 column에만 유효하다. 최소값을 지정한다. 이상의 값이 입력 시 최소값으로 저장됨. 숫자만 입력.",
-                "remarkEng": "Valid only for columns with dataType number. Sets the minimum value. If a value below this is entered, it is stored as the minimum value. Enter only numbers."
+                "remarkKor": "data-type 이 number인 column에만 유효하다. 최소값을 지정한다. 이상의 값이 입력 시 최소값으로 저장됨. 숫자만 입력.",
+                "remarkEng": "Valid only for columns with data-type number. Sets the minimum value. If a value below this is entered, it is stored as the minimum value. Enter only numbers."
             },
             {
-                "name": "roundNumber",
+                "name": "round-number",
                 "type": "Number",
                 "default": "null",
-                "remarkKor": "dataType 이 number인 column에만 유효하다. 반올림 자리수를 지정한다.\n"
+                "remarkKor": "data-type 이 number인 column에만 유효하다. 반올림 자리수를 지정한다.\n"
                             + "roundNumber 양의 정수 : 반올림 할 소수점 자리 지정.\n"
                             + "roundNumber 음의 정수 : 반올림 할 정수부 자리 지정.\n"
                             + "Ex) roundNumber : 2, 숫자 : 1234.1234 => 결과 : 1234.12\n"
                             + "Ex) roundNumber : -2, 숫자 : 1234.1234 => 결과 : 1200",
-                "remarkEng": "Valid only for columns with dataType number. Specifies the rounding place.\n"
+                "remarkEng": "Valid only for columns with data-type number. Specifies the rounding place.\n"
                             + "roundNumber positive integer: Specifies the decimal place to round.\n"
                             + "roundNumber negative integer: Specifies the integer place to round.\n"
                             + "Ex) roundNumber: 2, number: 1234.1234 => result: 1234.12\n"
@@ -843,48 +843,48 @@ function getConsts () {
                 "name": "align",
                 "type": "String",
                 "default": "null",
-                "remarkKor": "column의 align을 설정한다. 'left', 'center', 'right'중 하나. 값을 지정하지 않을 시 dataType에 따른 기본 align을 따라간다.\n"
+                "remarkKor": "column의 align을 설정한다. 'left', 'center', 'right'중 하나. 값을 지정하지 않을 시 data-type에 따른 기본 align을 따라간다.\n"
                             + "text, mask : left, number : right, date, month, code, select, checkbox, button, link : center.",
-                "remarkEng": "Sets the align of the column. Choose from 'left', 'center', 'right'. If no value is specified, the default align follows the dataType.\n"
+                "remarkEng": "Sets the align of the column. Choose from 'left', 'center', 'right'. If no value is specified, the default align follows the data-type.\n"
                             + "text, mask: left, number: right, date, month, code, select, checkbox, button, link: center."
             },
             {
-                "name": "verticalAlign",
+                "name": "vertical-align",
                 "type": "String",
                 "default": "null",
                 "remarkKor": "column의 기본 vertical-align을 설정한다. 'top', 'center', 'bottom'중 하나. 값을 지정하지 않을 시 center",
                 "remarkEng": "Sets the default vertical-align of the column. Choose from 'top', 'center', 'bottom'. If no value is specified, it defaults to center."
             },
             {
-                "name": "overflowWrap",
+                "name": "overflow-wrap",
                 "type": "String",
                 "default": "null",
                 "remarkKor": "column의 기본 overflow-wrap를 설정한다. cssText의 overflow-wrap를 입력한다.",
                 "remarkEng": "Sets the default overflow-wrap of the column. Enter the overflow-wrap in cssText."
             },
             {
-                "name": "wordBreak",
+                "name": "word-break",
                 "type": "String",
                 "default": "null",
                 "remarkKor": "column의 기본 word-break를 설정한다. cssText의 word-break를 입력한다.",
                 "remarkEng": "Sets the default word-break of the column. Enter the word-break in cssText."
             },
             {
-                "name": "whiteSpace",
+                "name": "white-space",
                 "type": "String",
                 "default": "null",
                 "remarkKor": "column의 기본 white-space를 설정한다. cssText의 white-space를 입력한다.",
                 "remarkEng": "Sets the default white-space of the column. Enter the white-space in cssText."
             },
             {
-                "name": "backColor",
+                "name": "back-color",
                 "type": "String",
                 "default": "null",
                 "remarkKor": "column의 background-color를 설정한다. cssText 16진수 색상을 삽입한다. Ex) \"#ffffff\"",
                 "remarkEng": "Sets the background color of the column. Insert the 16-digit color code in cssText. Ex) \"#ffffff\""
             },
             {
-                "name": "fontColor",
+                "name": "font-color",
                 "type": "String",
                 "default": "null",
                 "remarkKor": "column의 font-color를 설정한다. cssText 16진수 색상을 삽입한다. Ex) \"#ffffff\"",
@@ -898,21 +898,21 @@ function getConsts () {
                 "remarkEng": "If fontBold is true, the innerText of the column's cells will be bold."
             },
             {
-                "name": "fontItalic",
+                "name": "font-italic",
                 "type": "Boolean",
                 "default": "false",
                 "remarkKor": "fontItalic이 true이면 column의 cell의 innerText가 기울은 글씨.",
                 "remarkEng": "If fontItalic is true, the innerText of the column's cells will be italic."
             },
             {
-                "name": "fontThruline",
+                "name": "font-thruline",
                 "type": "Boolean",
                 "default": "false",
                 "remarkKor": "fontThruline이 true이면 column의 cell의 innerText가 취소선 글씨.",
                 "remarkEng": "If fontThruline is true, the innerText of the column's cells will have a strikethrough."
             },
             {
-                "name": "fontUnderline",
+                "name": "font-underline",
                 "type": "Boolean",
                 "default": "false",
                 "remarkKor": "fontUnderline이 true이면 column의 cell의 innerText가 밑줄 글씨.",
@@ -1015,33 +1015,33 @@ function getConsts () {
             {
                 "name": "onClickSelect",
                 "param": "row(Number), colId(String), selectNode(htmlNode)",
-                "remarkKor": "cell dataType이 select 일 경우 cell 클릭 시 이벤트 발생. onBeforeClickCell 이벤트 후에 발생한다. false 반환 시 cell 클릭 막음.\n"
+                "remarkKor": "cell data-type이 select 일 경우 cell 클릭 시 이벤트 발생. onBeforeClickCell 이벤트 후에 발생한다. false 반환 시 cell 클릭 막음.\n"
                             + "Ex) function gridId_onClickSelect (row, colId, selectNode) {console.log(row, colId, selectNode)}",
-                "remarkEng": "Event occurs when a cell with dataType select is clicked. It occurs after the onBeforeClickCell event. Returning false prevents the cell click.\n"
+                "remarkEng": "Event occurs when a cell with data-type select is clicked. It occurs after the onBeforeClickCell event. Returning false prevents the cell click.\n"
                             + "Ex) function gridId_onClickSelect (row, colId, selectNode) {console.log(row, colId, selectNode)}",
             },
             {
                 "name": "onClickCheckbox",
                 "param": "row(Number), colId(String), checkboxNode(htmlNode)",
-                "remarkKor": "cell dataType이 checkbox 일 경우 cell 클릭 시 이벤트 발생. onBeforeClickCell 이벤트 후에 발생한다. false 반환 시 cell 클릭 막음.\n"
+                "remarkKor": "cell data-type이 checkbox 일 경우 cell 클릭 시 이벤트 발생. onBeforeClickCell 이벤트 후에 발생한다. false 반환 시 cell 클릭 막음.\n"
                             + "Ex) function gridId_onClickCheckbox (row, colId, checkboxNode) {console.log(row, colId, checkboxNode)}",
-                "remarkEng": "Event occurs when a cell with dataType checkbox is clicked. It occurs after the onBeforeClickCell event. Returning false prevents the cell click.\n"
+                "remarkEng": "Event occurs when a cell with data-type checkbox is clicked. It occurs after the onBeforeClickCell event. Returning false prevents the cell click.\n"
                             + "Ex) function gridId_onClickCheckbox (row, colId, checkboxNode) {console.log(row, colId, checkboxNode)}",
             },
             {
                 "name": "onClickButton",
                 "param": "row(Number), colId(String), buttonNode(htmlNode)",
-                "remarkKor": "cell dataType이 button 일 경우 cell 클릭 시 이벤트 발생. onBeforeClickCell 이벤트 후에 발생한다. false 반환 시 cell 클릭 막음.\n"
+                "remarkKor": "cell data-type이 button 일 경우 cell 클릭 시 이벤트 발생. onBeforeClickCell 이벤트 후에 발생한다. false 반환 시 cell 클릭 막음.\n"
                             + "Ex) function gridId_onClickButton (row, colId, buttonNode) {console.log(row, colId, buttonNode)}",
-                "remarkEng": "Event occurs when a cell with dataType button is clicked. It occurs after the onBeforeClickCell event. Returning false prevents the cell click.\n"
+                "remarkEng": "Event occurs when a cell with data-type button is clicked. It occurs after the onBeforeClickCell event. Returning false prevents the cell click.\n"
                             + "Ex) function gridId_onClickButton (row, colId, buttonNode) {console.log(row, colId, buttonNode)}",
             },
             {
                 "name": "onClickLink",
                 "param": "row(Number), colId(String), linkNode(htmlNode)",
-                "remarkKor": "cell dataType이 link 일 경우 cell 클릭 시 이벤트 발생. onBeforeClickCell 이벤트 후에 발생한다. false 반환 시 cell 클릭 막음.\n"
+                "remarkKor": "cell data-type이 link 일 경우 cell 클릭 시 이벤트 발생. onBeforeClickCell 이벤트 후에 발생한다. false 반환 시 cell 클릭 막음.\n"
                             + "Ex) function gridId_onClickLink (row, colId, linkNode) {console.log(row, colId, linkNode)}",
-                "remarkEng": "Event occurs when a cell with dataType link is clicked. It occurs after the onBeforeClickCell event. Returning false prevents the cell click.\n"
+                "remarkEng": "Event occurs when a cell with data-type link is clicked. It occurs after the onBeforeClickCell event. Returning false prevents the cell click.\n"
                             + "Ex) function gridId_onClickLink (row, colId, linkNode) {console.log(row, colId, linkNode)}",
             },
             {
@@ -1563,7 +1563,7 @@ function getConsts () {
                 "name": "setGridLockedColor",
                 "param": "isLockedColor(Boolean)",
                 "return": "Boolean",
-                "remarkKor": "grid의 lockedColor를 설정한다. LockedColor가 true이면 locked인 cell은 색상이 lockedColor로 표현됨. 정상 동작 시 true 반환.",
+                "remarkKor": "grid의 lockedColor를 설정한다. locked-color가 true이면 locked인 cell은 색상이 lockedColor로 표현됨. 정상 동작 시 true 반환.",
                 "remarkEng": "Sets the grid's lockedColor. If lockedColor is true, locked cells are displayed in the lockedColor. Returns true if it operates normally."
             },
             {
@@ -1896,9 +1896,9 @@ function getConsts () {
                 "param": "colId(String) or colIndex(Number), colInfo(Object)",
                 "return": "Boolean",
                 "remarkKor": "colId or colIndex 열의 뒤에 colInfo 객체의 정보로 column을 추가한다. 정상 동작 시 true 반환.\n"
-                            + "Ex) gridId.addCol(2,{id:'dpet', header: '부서', name:'부서', dataType:'mask', format:'AAA99'})",
+                            + "Ex) gridId.addCol(2,{id:'dpet', header: '부서', name:'부서', data-type:'mask', format:'AAA99'})",
                 "remarkEng": "Adds a column with the information of the colInfo object after the colId or colIndex column. Returns true if it operates normally.\n"
-                            + "Ex) gridId.addCol(2,{id:'dpet', header: 'department', name:'department', dataType:'mask', format:'AAA99'})",
+                            + "Ex) gridId.addCol(2,{id:'dpet', header: 'department', name:'department', data-type:'mask', format:'AAA99'})",
             },
             {
                 "related": "column",
@@ -1914,9 +1914,9 @@ function getConsts () {
                 "param": "colInfo(Object)",
                 "return": "Boolean",
                 "remarkKor": "colInfo의 정보를 갱신한다. 변경될 column은 colInfo.id로 정한다. 정상 동작 시 true 반환.\n"
-                            + "Ex) gridId.setColInfo({id:'dpet', header: '부서', name:'부서', dataType:'text', format:'AAA99'})",
+                            + "Ex) gridId.setColInfo({id:'dpet', header: '부서', name:'부서', data-type:'text', format:'AAA99'})",
                 "remarkEng": "Updates the information of colInfo. The column to be changed is determined by colInfo.id. Returns true if it operates normally."
-                            + "Ex) gridId.setColInfo({id:'dpet', header: '부서', name:'부서', dataType:'text', format:'AAA99'})",
+                            + "Ex) gridId.setColInfo({id:'dpet', header: '부서', name:'부서', data-type:'text', format:'AAA99'})",
             },
             {
                 "related": "column",
@@ -2051,10 +2051,10 @@ function getConsts () {
                 "name": "setColRowMerge",
                 "param": "colId(String) or colIndex(Number), isRowMerge(Boolean)",
                 "return": "Boolean",
-                "remarkKor": "colId or colIndex 열의. rowMerge를 설정한다. RowMerge가 true 시 해당 col은 행으로 merge한다. 정상 동작 시 true 반환.\n"
-                            + "Merge는 만나는 각 cell의 dataType, format, value가 동일할 시에 merge된다.",
-                "remarkEng": "Sets the rowMerge of the colId or colIndex column. If rowMerge is true, the column merges by row. Returns true if it operates normally.\n"
-                            + "Merge occurs when the dataType, format, and value of each cell encountered are the same."
+                "remarkKor": "colId or colIndex 열의. row-merge를 설정한다. row-merge가 true 시 해당 col은 행으로 merge한다. 정상 동작 시 true 반환.\n"
+                            + "Merge는 만나는 각 cell의 data-type, format, value가 동일할 시에 merge된다.",
+                "remarkEng": "Sets the row-merge of the colId or colIndex column. If row-merge is true, the column merges by row. Returns true if it operates normally.\n"
+                            + "Merge occurs when the data-type, format, and value of each cell encountered are the same."
             },
             {
                 "related": "column",
@@ -2069,10 +2069,10 @@ function getConsts () {
                 "name": "setColColMerge",
                 "param": "colId(String) or colIndex(Number), isColMerge(Boolean)",
                 "return": "Boolean",
-                "remarkKor": "colId or colIndex 열의. colMerge를 설정한다. colMerge가 true 시 해당 col은 행으로 merge한다. 정상 동작 시 true 반환.\n"
-                            + "Merge는 만나는 각 cell의 dataType, format, value가 동일할 시에 merge된다. colMerge는 colMerge가 true인 행을 기준으로 앞의 행과 col merge한다.",
-                "remarkEng": "Sets the colMerge of the colId or colIndex column. If colMerge is true, the column merges by column. Returns true if it operates normally.\n"
-                            + "Merge occurs when the dataType, format, and value of each cell encountered are the same. colMerge merges with the previous row based on the row with colMerge set to true."
+                "remarkKor": "colId or colIndex 열의. col-merge를 설정한다. col-merge가 true 시 해당 col은 행으로 merge한다. 정상 동작 시 true 반환.\n"
+                            + "Merge는 만나는 각 cell의 data-type, format, value가 동일할 시에 merge된다. col-merge는 col-merge가 true인 행을 기준으로 앞의 행과 col merge한다.",
+                "remarkEng": "Sets the col-merge of the colId or colIndex column. If col-merge is true, the column merges by column. Returns true if it operates normally.\n"
+                            + "Merge occurs when the data-type, format, and value of each cell encountered are the same. col-merge merges with the previous row based on the row with col-merge set to true."
             },
             {
                 "related": "column",
@@ -2183,32 +2183,32 @@ function getConsts () {
                 "name": "setColDataType",
                 "param": "colId(String) or colIndex(Number), dataType(String)",
                 "return": "Boolean",
-                "remarkKor": "colId or colIndex 열의 dataType을 설정한다. 정상 동작 시 true 반환. dataType : 'text', 'date', 'month', 'mask', 'select', 'checkbox', 'button', 'link', 'code'",
-                "remarkEng": "Sets the dataType of the colId or colIndex column. Returns true if it operates normally. dataType: 'text', 'date', 'month', 'mask', 'select', 'checkbox', 'button', 'link', 'code'"
+                "remarkKor": "colId or colIndex 열의 data-type을 설정한다. 정상 동작 시 true 반환. data-type : 'text', 'date', 'month', 'mask', 'select', 'checkbox', 'button', 'link', 'code'",
+                "remarkEng": "Sets the data-type of the colId or colIndex column. Returns true if it operates normally. data-type: 'text', 'date', 'month', 'mask', 'select', 'checkbox', 'button', 'link', 'code'"
             },
             {
                 "related": "column",
                 "name": "getColDataType",
                 "param": "colId(String) or colIndex(Number)",
                 "return": "String",
-                "remarkKor": "colId or colIndex 열의 dataType을 반환한다.",
-                "remarkEng": "Returns the dataType of the colId or colIndex column."
+                "remarkKor": "colId or colIndex 열의 data-type을 반환한다.",
+                "remarkEng": "Returns the data-type of the colId or colIndex column."
             },
             {
                 "related": "column",
                 "name": "setColSelectSize",
                 "param": "colId(String) or colIndex(Number), cssTextSelectWidth(String)",
                 "return": "Boolean",
-                "remarkKor": "colId or colIndex 열의 selectSize를 cssText SelectWidth로 설정한다. 정상 동작 시 true 반환.",
-                "remarkEng": "Sets the selectSize of the colId or colIndex column to cssText SelectWidth. Returns true if it operates normally."
+                "remarkKor": "colId or colIndex 열의 select-size를 cssText SelectWidth로 설정한다. 정상 동작 시 true 반환.",
+                "remarkEng": "Sets the select-size of the colId or colIndex column to cssText SelectWidth. Returns true if it operates normally."
             },
             {
                 "related": "column",
                 "name": "getColSelectSize",
                 "param": "colId(String) or colIndex(Number)",
                 "return": "String",
-                "remarkKor": "colId or colIndex 열의 selectSize를 반환한다.",
-                "remarkEng": "Returns the selectSize of the colId or colIndex column."
+                "remarkKor": "colId or colIndex 열의 select-size를 반환한다.",
+                "remarkEng": "Returns the select-size of the colId or colIndex column."
             },
             {
                 "related": "column",
@@ -2231,24 +2231,24 @@ function getConsts () {
                 "name": "setColLockedColor",
                 "param": "colId(String) or colIndex(Number), isLockedColor(Boolean)",
                 "return": "Boolean",
-                "remarkKor": "colId or colIndex 열의 lockedColor를 설정한다. LockedColor가 true시 locked된 cell에 대해 배경색을 표현한다. 정상 동작 시 true 반환.",
-                "remarkEng": "Sets the lockedColor of the colId or colIndex column. If lockedColor is true, the background color is displayed for locked cells. Returns true if it operates normally."
+                "remarkKor": "colId or colIndex 열의 locked-color를 설정한다. locked-color가 true시 locked된 cell에 대해 배경색을 표현한다. 정상 동작 시 true 반환.",
+                "remarkEng": "Sets the locked-color of the colId or colIndex column. If locked-color is true, the background color is displayed for locked cells. Returns true if it operates normally."
             },
             {
                 "related": "column",
                 "name": "isColLockedColor",
                 "param": "colId(String) or colIndex(Number)",
                 "return": "Boolean",
-                "remarkKor": "colId or colIndex 열의 lockedColor를 반환한다.",
-                "remarkEng": "Returns the lockedColor of the colId or colIndex column."
+                "remarkKor": "colId or colIndex 열의 locked-color를 반환한다.",
+                "remarkEng": "Returns the locked-color of the colId or colIndex column."
             },
             {
                 "related": "column",
                 "name": "setColFormat",
                 "param": "colId(String) or colIndex(Number), format(String)",
                 "return": "Boolean",
-                "remarkKor": "colId or colIndex 열의 format을 설정한다. Format은 cell의 dataType이 'mask'와 'number'일 때 유효하다. 정상 동작 시 true 반환.",
-                "remarkEng": "Sets the format of the colId or colIndex column. Format is valid when the cell's dataType is 'mask' and 'number'. Returns true if it operates normally."
+                "remarkKor": "colId or colIndex 열의 format을 설정한다. Format은 cell의 data-type이 'mask'와 'number'일 때 유효하다. 정상 동작 시 true 반환.",
+                "remarkEng": "Sets the format of the colId or colIndex column. Format is valid when the cell's data-type is 'mask' and 'number'. Returns true if it operates normally."
             },
             {
                 "related": "column",
@@ -2263,8 +2263,8 @@ function getConsts () {
                 "name": "setColCodes",
                 "param": "colId(String) or colIndex(Number), codes(Array)",
                 "return": "Boolean",
-                "remarkKor": "colId or colIndex 열의 codes를 설정한다. Codes는 cell의 dataType이 'code'일 때 유효하다. 정상 동작 시 true 반환.",
-                "remarkEng": "Sets the codes of the colId or colIndex column. Codes are valid when the cell's dataType is 'code'. Returns true if it operates normally."
+                "remarkKor": "colId or colIndex 열의 codes를 설정한다. Codes는 cell의 data-type이 'code'일 때 유효하다. 정상 동작 시 true 반환.",
+                "remarkEng": "Sets the codes of the colId or colIndex column. Codes are valid when the cell's data-type is 'code'. Returns true if it operates normally."
             },
             {
                 "related": "column",
@@ -2279,24 +2279,24 @@ function getConsts () {
                 "name": "setColDefaultCode",
                 "param": "colId(String) or colIndex(Number), defaultCode(String)",
                 "return": "Boolean",
-                "remarkKor": "colId or colIndex 열의 defaultCode를 설정한다. defaultCode는 cell의 dataType이 'code'일 때 유효하다. 값이 없을 경우 default값. 정상 동작 시 true 반환.",
-                "remarkEng": "Sets the defaultCode of the colId or colIndex column. DefaultCode is valid when the cell's dataType is 'code'. If there is no value, it is the default value. Returns true if it operates normally."
+                "remarkKor": "colId or colIndex 열의 default-code를 설정한다. default-code는 cell의 data-type이 'code'일 때 유효하다. 값이 없을 경우 default값. 정상 동작 시 true 반환.",
+                "remarkEng": "Sets the default-code of the colId or colIndex column. default-code is valid when the cell's data-type is 'code'. If there is no value, it is the default value. Returns true if it operates normally."
             },
             {
                 "related": "column",
                 "name": "getColDefaultCode",
                 "param": "colId(String) or colIndex(Number)",
                 "return": "String",
-                "remarkKor": "colId or colIndex 열의 defaultCode를 반환한다.",
-                "remarkEng": "Returns the defaultCode of the colId or colIndex column."
+                "remarkKor": "colId or colIndex 열의 default-code를 반환한다.",
+                "remarkEng": "Returns the default-Code of the colId or colIndex column."
             },
             {
                 "related": "column",
                 "name": "setColMaxLength",
                 "param": "colId(String) or colIndex(Number), maxLength(Number)",
                 "return": "Boolean",
-                "remarkKor": "colId or colIndex 열의 maxLength를 설정한다. maxLength는 cell의 dataType이 'text'일 때 유효하다. 정상 동작 시 true 반환.",
-                "remarkEng": "Sets the maxLength of the colId or colIndex column. MaxLength is valid when the cell's dataType is 'text'. Returns true if it operates normally."
+                "remarkKor": "colId or colIndex 열의 maxLength를 설정한다. maxLength는 cell의 data-type이 'text'일 때 유효하다. 정상 동작 시 true 반환.",
+                "remarkEng": "Sets the maxLength of the colId or colIndex column. MaxLength is valid when the cell's data-type is 'text'. Returns true if it operates normally."
             },
             {
                 "related": "column",
@@ -2311,9 +2311,9 @@ function getConsts () {
                 "name": "setColMaxByte",
                 "param": "colId(String) or colIndex(Number), maxByte(Number)",
                 "return": "Boolean",
-                "remarkKor": "colId or colIndex 열의 maxByte를 설정한다. maxByte는 cell의 dataType이 'text'일 때 유효하다. 정상 동작 시 true 반환.\n"
+                "remarkKor": "colId or colIndex 열의 maxByte를 설정한다. maxByte는 cell의 data-type이 'text'일 때 유효하다. 정상 동작 시 true 반환.\n"
                             + "특수기호 등의 byte 산정을 어떻게 할 지는 vg.lessoreq0x7ffByte(charCode <= 0x7FF), vg.lessoreq0xffffByte(charCode <= 0xFFFF), vg.greater0xffffByte(charCode > 0xFFFF)으로 설정할 수 있다. 기본값은 2, 3, 4.",
-                "remarkEng": "Sets the maxByte of the colId or colIndex column. MaxByte is valid when the cell's dataType is 'text'. Returns true if it operates normally.\n"
+                "remarkEng": "Sets the maxByte of the colId or colIndex column. MaxByte is valid when the cell's data-type is 'text'. Returns true if it operates normally.\n"
                             + "How to calculate the byte of special symbols can be set to vg.lessoreq0x7ffByte (charCode <= 0x7FF), vg.lessoreq0xffffByte (charCode <= 0xFFFF), vg.greater0xffffByte (charCode > 0xFFFF). The default values are 2, 3, 4."
             },
             {
@@ -2329,8 +2329,8 @@ function getConsts () {
                 "name": "setColMaxNumber",
                 "param": "colId(String) or colIndex(Number), maxNumber(Number)",
                 "return": "Boolean",
-                "remarkKor": "colId or colIndex 열의 maxNumber를 설정한다. maxNumber는 cell의 dataType이 'number'일 때 유효하다. 정상 동작 시 true 반환.",
-                "remarkEng": "Sets the maxNumber of the colId or colIndex column. MaxNumber is valid when the cell's dataType is 'number'. Returns true if it operates normally."
+                "remarkKor": "colId or colIndex 열의 maxNumber를 설정한다. maxNumber는 cell의 data-type이 'number'일 때 유효하다. 정상 동작 시 true 반환.",
+                "remarkEng": "Sets the maxNumber of the colId or colIndex column. MaxNumber is valid when the cell's data-type is 'number'. Returns true if it operates normally."
             },
             {
                 "related": "column",
@@ -2345,8 +2345,8 @@ function getConsts () {
                 "name": "setColMinNumber",
                 "param": "colId(String) or colIndex(Number), minNumber(Number)",
                 "return": "Boolean",
-                "remarkKor": "colId or colIndex 열의 minNumber를 설정한다. minNumber는 cell의 dataType이 'number'일 때 유효하다. 정상 동작 시 true 반환.",
-                "remarkEng": "Sets the minNumber of the colId or colIndex column. MinNumber is valid when the cell's dataType is 'number'. Returns true if it operates normally."
+                "remarkKor": "colId or colIndex 열의 minNumber를 설정한다. minNumber는 cell의 data-type이 'number'일 때 유효하다. 정상 동작 시 true 반환.",
+                "remarkEng": "Sets the minNumber of the colId or colIndex column. MinNumber is valid when the cell's data-type is 'number'. Returns true if it operates normally."
             },
             {
                 "related": "column",
@@ -2361,9 +2361,9 @@ function getConsts () {
                 "name": "setColRoundNumber",
                 "param": "colId(String) or colIndex(Number), roundNumber(Number)",
                 "return": "Boolean",
-                "remarkKor": "colId or colIndex 열의 roundNumber를 설정한다. roundNumber는 cell의 dataType이 'number'일 때 유효하다. 정상 동작 시 true 반환.\n"
+                "remarkKor": "colId or colIndex 열의 roundNumber를 설정한다. roundNumber는 cell의 data-type이 'number'일 때 유효하다. 정상 동작 시 true 반환.\n"
                             + "roundNumber 양의 정수 : 반올림 할 소수점 자리 지정. roundNumber 음의 정수 : 반올림 할 정수부 자리 지정.",
-                "remarkEng": "Sets the roundNumber of the colId or colIndex column. RoundNumber is valid when the cell's dataType is 'number'. Returns true if it operates normally.\n"
+                "remarkEng": "Sets the roundNumber of the colId or colIndex column. RoundNumber is valid when the cell's data-type is 'number'. Returns true if it operates normally.\n"
                             + "roundNumber positive integer: specifies the decimal place to be rounded. roundNumber negative integer: specifies the integer place to be rounded."
             },
             {
@@ -2491,7 +2491,7 @@ function getConsts () {
                 "name": "setColFontBold",
                 "param": "colId(String) or colIndex(Number), isFontBold(Boolean)",
                 "return": "Boolean",
-                "remarkKor": "colId or colIndex 열의 fontBold를 설정한다. fontBold가 true이면 굵은 글씨 표현. 정상 동작 시 true 반환.",
+                "remarkKor": "colId or colIndex 열의 font-bold를 설정한다. font-bold가 true이면 굵은 글씨 표현. 정상 동작 시 true 반환.",
                 "remarkEng": "Sets the fontBold of the colId or colIndex column. If fontBold is true, the text is displayed in bold. Returns true if it operates normally."
             },
             {
@@ -2499,7 +2499,7 @@ function getConsts () {
                 "name": "isColFontBold",
                 "param": "colId(String) or colIndex(Number)",
                 "return": "Boolean",
-                "remarkKor": "colId or colIndex 열의 fontBold를 반환한다.",
+                "remarkKor": "colId or colIndex 열의 font-bold를 반환한다.",
                 "remarkEng": "Returns the fontBold of the colId or colIndex column."
             },
             {
@@ -2507,7 +2507,7 @@ function getConsts () {
                 "name": "setColFontItalic",
                 "param": "colId(String) or colIndex(Number), isFontItalic(Boolean)",
                 "return": "Boolean",
-                "remarkKor": "colId or colIndex 열의 fontItalic를 설정한다. fontItalic가 true이면 기울게 표현. 정상 동작 시 true 반환.",
+                "remarkKor": "colId or colIndex 열의 font-italic를 설정한다. font-italic가 true이면 기울게 표현. 정상 동작 시 true 반환.",
                 "remarkEng": "Sets the fontItalic of the colId or colIndex column. If fontItalic is true, the text is displayed in italics. Returns true if it operates normally."
             },
             {
@@ -2515,7 +2515,7 @@ function getConsts () {
                 "name": "isColFontItalic",
                 "param": "colId(String) or colIndex(Number)",
                 "return": "Boolean",
-                "remarkKor": "colId or colIndex 열의 fontItalic를 반환한다.",
+                "remarkKor": "colId or colIndex 열의 font-italic를 반환한다.",
                 "remarkEng": "Returns the fontItalic of the colId or colIndex column."
             },
             {
@@ -2523,7 +2523,7 @@ function getConsts () {
                 "name": "setColFontThruline",
                 "param": "colId(String) or colIndex(Number), isFontThruline(Boolean)",
                 "return": "Boolean",
-                "remarkKor": "colId or colIndex 열의 fontThruline를 설정한다. fontThruline가 true이면 취소선 글씨 표현. 정상 동작 시 true 반환.",
+                "remarkKor": "colId or colIndex 열의 font-thruline를 설정한다. font-thruline가 true이면 취소선 글씨 표현. 정상 동작 시 true 반환.",
                 "remarkEng": "Sets the fontThruline of the colId or colIndex column. If fontThruline is true, the text is displayed with a strikethrough. Returns true if it operates normally."
             },
             {
@@ -2531,7 +2531,7 @@ function getConsts () {
                 "name": "isColFontThruline",
                 "param": "colId(String) or colIndex(Number)",
                 "return": "Boolean",
-                "remarkKor": "colId or colIndex 열의 fontThruline를 반환한다.",
+                "remarkKor": "colId or colIndex 열의 font-thruline를 반환한다.",
                 "remarkEng": "Returns the fontThruline of the colId or colIndex column."
             },
             {
@@ -2539,7 +2539,7 @@ function getConsts () {
                 "name": "setColFontUnderline",
                 "param": "colId(String) or colIndex(Number), isFontUnderline(Boolean)",
                 "return": "Boolean",
-                "remarkKor": "colId or colIndex 열의 fontUnderline를 설정한다. fontUnderline가 true이면 밑줄 글씨 표현. 정상 동작 시 true 반환.",
+                "remarkKor": "colId or colIndex 열의 font-underline를 설정한다. font-underline가 true이면 밑줄 글씨 표현. 정상 동작 시 true 반환.",
                 "remarkEng": "Sets the fontUnderline of the colId or colIndex column. If fontUnderline is true, the text is displayed with an underline. Returns true if it operates normally."
             },
             {
@@ -2547,7 +2547,7 @@ function getConsts () {
                 "name": "isColFontUnderline",
                 "param": "colId(String) or colIndex(Number)",
                 "return": "Boolean",
-                "remarkKor": "colId or colIndex 열의 fontUnderline를 반환한다.",
+                "remarkKor": "colId or colIndex 열의 font-underline를 반환한다.",
                 "remarkEng": "Returns the fontUnderline of the colId or colIndex column."
             },
             {
@@ -2663,7 +2663,7 @@ function getConsts () {
                 "name": "setRowVisible",
                 "param": "row(Number), isVisible(Boolean)",
                 "return": "Boolean",
-                "remarkKor": "row번째 행의 visible을 설정한다. Visible이 false일 때 해당 행이 숨김처리 된다. 정상동작 시 true 반환.",
+                "remarkKor": "row번째 행의 visible을 설정한다. visible이 false일 때 해당 행이 숨김처리 된다. 정상동작 시 true 반환.",
                 "remarkEng": "Sets the visible status of the row-th row. If visible is false, the row is hidden. Returns true if it operates normally."
             },
             {
@@ -2679,8 +2679,8 @@ function getConsts () {
                 "name": "setRowDataType",
                 "param": "row(Number), dataType(String)",
                 "return": "Boolean",
-                "remarkKor": "row번째 행의 dataType을 설정한다. 정상동작 시 true 반환. dataType : 'text', 'date', 'month', 'mask', 'select', 'checkbox', 'button', 'link', 'code'",
-                "remarkEng": "Sets the dataType of the row-th row. Returns true if it operates normally. dataType: 'text', 'date', 'month', 'mask', 'select', 'checkbox', 'button', 'link', 'code'"
+                "remarkKor": "row번째 행의 data-type을 설정한다. 정상동작 시 true 반환. data-type : 'text', 'date', 'month', 'mask', 'select', 'checkbox', 'button', 'link', 'code'",
+                "remarkEng": "Sets the data-type of the row-th row. Returns true if it operates normally. data-type: 'text', 'date', 'month', 'mask', 'select', 'checkbox', 'button', 'link', 'code'"
             },
             {
                 "related": "row",
@@ -2695,7 +2695,7 @@ function getConsts () {
                 "name": "setRowLockedColor",
                 "param": "row(Number), isRowLockedColor(Boolean)",
                 "return": "Boolean",
-                "remarkKor": "row번째 행의 lockedColor를 설정한다. LockedColor가 true시 locked된 cell에 대해 배경색을 표현한다. 정상 동작 시 true 반환.",
+                "remarkKor": "row번째 행의 lockedColor를 설정한다. locked-color가 true시 locked된 cell에 대해 배경색을 표현한다. 정상 동작 시 true 반환.",
                 "remarkEng": "Sets the lockedColor of the row-th row. If lockedColor is true, the background color is displayed for locked cells. Returns true if it operates normally."
             },
             {
@@ -2883,18 +2883,18 @@ function getConsts () {
                 "name": "setCellDataType",
                 "param": "row(Number), colId(String) or colIndex(Number), dataType(String)",
                 "return": "Boolean",
-                "remarkKor": "row행 colId or colIndex 열 cell의 dataType을 설정한다. 정상 동작 시 true 반환.\n"
-                            + "dataType : 'text', 'date', 'month', 'mask', 'select', 'checkbox', 'button', 'link', 'code'",
-                "remarkEng": "Sets the dataType of the cell in the colId or colIndex column in the row-th row. Returns true if it operates normally.\n"
-                            + "dataType: 'text', 'date', 'month', 'mask', 'select', 'checkbox', 'button', 'link', 'code'"
+                "remarkKor": "row행 colId or colIndex 열 cell의 data-type을 설정한다. 정상 동작 시 true 반환.\n"
+                            + "data-type : 'text', 'date', 'month', 'mask', 'select', 'checkbox', 'button', 'link', 'code'",
+                "remarkEng": "Sets the data-type of the cell in the colId or colIndex column in the row-th row. Returns true if it operates normally.\n"
+                            + "data-type: 'text', 'date', 'month', 'mask', 'select', 'checkbox', 'button', 'link', 'code'"
             },
             {
                 "related": "cell",
                 "name": "getCellDataType",
                 "param": "row(Number), colId(String) or colIndex(Number)",
                 "return": "String",
-                "remarkKor": "row행 colId or colIndex 열 cell의 dataType을 반환한다.",
-                "remarkEng": "Returns the dataType of the cell in the colId or colIndex column in the row-th row."
+                "remarkKor": "row행 colId or colIndex 열 cell의 data-type을 반환한다.",
+                "remarkEng": "Returns the data-type of the cell in the colId or colIndex column in the row-th row."
             },
             {
                 "related": "cell",
@@ -2917,7 +2917,7 @@ function getConsts () {
                 "name": "setCellLockedColor",
                 "param": "row(Number), colId(String) or colIndex(Number), isLockedColor(Boolean)",
                 "return": "Boolean",
-                "remarkKor": "row행 colId or colIndex 열 cell의 lockedColor를 설정한다. LockedColor가 true시 locked된 cell에 대해 배경색을 표현한다. 정상 동작 시 true 반환.",
+                "remarkKor": "row행 colId or colIndex 열 cell의 lockedColor를 설정한다. locked-color가 true시 locked된 cell에 대해 배경색을 표현한다. 정상 동작 시 true 반환.",
                 "remarkEng": "Sets the lockedColor of the cell in the colId or colIndex column in the row-th row. If lockedColor is true, the background color is displayed for locked cells. Returns true if it operates normally."
             },
             {
@@ -2933,8 +2933,8 @@ function getConsts () {
                 "name": "setCellFormat",
                 "param": "row(Number), colId(String) or colIndex(Number), format(String)",
                 "return": "Boolean",
-                "remarkKor": "row행 colId or colIndex 열 cell의 format을 설정한다. Format은 cell의 dataType이 'mask'와 'number'일 때 유효하다. 정상 동작 시 true 반환.",
-                "remarkEng": "Sets the format of the cell in the colId or colIndex column in the row-th row. Format is valid when the cell's dataType is 'mask' and 'number'. Returns true if it operates normally."
+                "remarkKor": "row행 colId or colIndex 열 cell의 format을 설정한다. Format은 cell의 data-type이 'mask'와 'number'일 때 유효하다. 정상 동작 시 true 반환.",
+                "remarkEng": "Sets the format of the cell in the colId or colIndex column in the row-th row. Format is valid when the cell's data-type is 'mask' and 'number'. Returns true if it operates normally."
             },
             {
                 "related": "cell",
@@ -2949,8 +2949,8 @@ function getConsts () {
                 "name": "setCellCodes",
                 "param": "row(Number), colId(String) or colIndex(Number), codes(Array)",
                 "return": "Boolean",
-                "remarkKor": "row행 colId or colIndex 열 cell의 codes를 설정한다. Codes는 cell의 dataType이 'code'일 때 유효하다. 정상 동작 시 true 반환.",
-                "remarkEng": "Sets the codes of the cell in the colId or colIndex column in the row-th row. Codes are valid when the cell's dataType is 'code'. Returns true if it operates normally."
+                "remarkKor": "row행 colId or colIndex 열 cell의 codes를 설정한다. Codes는 cell의 data-type이 'code'일 때 유효하다. 정상 동작 시 true 반환.",
+                "remarkEng": "Sets the codes of the cell in the colId or colIndex column in the row-th row. Codes are valid when the cell's data-type is 'code'. Returns true if it operates normally."
             },
             {
                 "related": "cell",
@@ -2965,24 +2965,24 @@ function getConsts () {
                 "name": "setCellDefaultCode",
                 "param": "row(Number), colId(String) or colIndex(Number), defaultCode(String)",
                 "return": "Boolean",
-                "remarkKor": "row행 colId or colIndex 열 cell의 defaultCode를 설정한다. defaultCode는 cell의 dataType이 'code'일 때 유효하다. 값이 없을 경우 default값은 빈값이다. 정상 동작 시 true 반환.",
-                "remarkEng": "Sets the defaultCode of the cell in the colId or colIndex column in the row-th row. defaultCode is valid when the cell's dataType is 'code'. If there is no value, it uses the default value null. Returns true if it operates normally."
+                "remarkKor": "row행 colId or colIndex 열 cell의 default-code를 설정한다. default-code는 cell의 data-type이 'code'일 때 유효하다. 값이 없을 경우 default값은 빈값이다. 정상 동작 시 true 반환.",
+                "remarkEng": "Sets the default-code of the cell in the colId or colIndex column in the row-th row. default-code is valid when the cell's data-type is 'code'. If there is no value, it uses the default value null. Returns true if it operates normally."
             },
             {
                 "related": "cell",
                 "name": "getCellDefaultCode",
                 "param": "row(Number), colId(String) or colIndex(Number)",
                 "return": "String",
-                "remarkKor": "row행 colId or colIndex 열 cell의 defaultCode를 반환한다.",
-                "remarkEng": "Returns the defaultCode of the cell in the colId or colIndex column in the row-th row."
+                "remarkKor": "row행 colId or colIndex 열 cell의 default-code를 반환한다.",
+                "remarkEng": "Returns the default-code of the cell in the colId or colIndex column in the row-th row."
             },
             {
                 "related": "cell",
                 "name": "setCellMaxLength",
                 "param": "row(Number), colId(String) or colIndex(Number), maxLength(Number)",
                 "return": "Boolean",
-                "remarkKor": "row행 colId or colIndex 열 cell의 maxLength를 설정한다. maxLength는 cell의 dataType이 'text'일 때 유효하다. 정상 동작 시 true 반환.",
-                "remarkEng": "Sets the maxLength of the cell in the colId or colIndex column in the row-th row. maxLength is valid when the cell's dataType is 'text'. Returns true if it operates normally."
+                "remarkKor": "row행 colId or colIndex 열 cell의 maxLength를 설정한다. maxLength는 cell의 data-type이 'text'일 때 유효하다. 정상 동작 시 true 반환.",
+                "remarkEng": "Sets the maxLength of the cell in the colId or colIndex column in the row-th row. maxLength is valid when the cell's data-type is 'text'. Returns true if it operates normally."
             },
             {
                 "related": "cell",
@@ -2997,9 +2997,9 @@ function getConsts () {
                 "name": "setCellMaxByte",
                 "param": "row(Number), colId(String) or colIndex(Number), maxByte(Number)",
                 "return": "Boolean",
-                "remarkKor": "row행 colId or colIndex 열 cell의 maxByte를 설정한다. maxByte는 cell의 dataType이 'text'일 때 유효하다. 정상 동작 시 true 반환.\n"
+                "remarkKor": "row행 colId or colIndex 열 cell의 maxByte를 설정한다. maxByte는 cell의 data-type이 'text'일 때 유효하다. 정상 동작 시 true 반환.\n"
                             + "특수기호 등의 byte 산정을 어떻게 할 지는 vg.lessoreq0x7ffByte(charCode <= 0x7FF), vg.lessoreq0xffffByte(charCode <= 0xFFFF), vg.greater0xffffByte(charCode > 0xFFFF)으로 설정할 수 있다. 기본값은 2, 3, 4.",
-                "remarkEng": "Sets the maxByte of the cell in the colId or colIndex column in the row-th row. maxByte is valid when the cell's dataType is 'text'. Returns true if it operates normally.\n"
+                "remarkEng": "Sets the maxByte of the cell in the colId or colIndex column in the row-th row. maxByte is valid when the cell's data-type is 'text'. Returns true if it operates normally.\n"
                             + "How to calculate the byte of special characters can be set with vg.lessoreq0x7ffByte(charCode <= 0x7FF), vg.lessoreq0xffffByte(charCode <= 0xFFFF), vg.greater0xffffByte(charCode > 0xFFFF). Default values are 2, 3, 4."
             },
             {
@@ -3015,8 +3015,8 @@ function getConsts () {
                 "name": "setCellMaxNumber",
                 "param": "row(Number), colId(String) or colIndex(Number), maxNumber(Number)",
                 "return": "Boolean",
-                "remarkKor": "row행 colId or colIndex 열 cell의 maxNumber를 설정한다. maxNumber는 cell의 dataType이 'number'일 때 유효하다. 정상 동작 시 true 반환.",
-                "remarkEng": "Sets the maxNumber of the cell in the colId or colIndex column in the row-th row. maxNumber is valid when the cell's dataType is 'number'. Returns true if it operates normally."
+                "remarkKor": "row행 colId or colIndex 열 cell의 maxNumber를 설정한다. maxNumber는 cell의 data-type이 'number'일 때 유효하다. 정상 동작 시 true 반환.",
+                "remarkEng": "Sets the maxNumber of the cell in the colId or colIndex column in the row-th row. maxNumber is valid when the cell's data-type is 'number'. Returns true if it operates normally."
             },
             {
                 "related": "cell",
@@ -3031,8 +3031,8 @@ function getConsts () {
                 "name": "setCellMinNumber",
                 "param": "row(Number), colId(String) or colIndex(Number), minNumber(Number)",
                 "return": "Boolean",
-                "remarkKor": "row행 colId or colIndex 열 cell의 minNumber를 설정한다. minNumber는 cell의 dataType이 'number'일 때 유효하다. 정상 동작 시 true 반환.",
-                "remarkEng": "Sets the minNumber of the cell in the colId or colIndex column in the row-th row. minNumber is valid when the cell's dataType is 'number'. Returns true if it operates normally."
+                "remarkKor": "row행 colId or colIndex 열 cell의 minNumber를 설정한다. minNumber는 cell의 data-type이 'number'일 때 유효하다. 정상 동작 시 true 반환.",
+                "remarkEng": "Sets the minNumber of the cell in the colId or colIndex column in the row-th row. minNumber is valid when the cell's data-type is 'number'. Returns true if it operates normally."
             },
             {
                 "related": "cell",
@@ -3047,9 +3047,9 @@ function getConsts () {
                 "name": "setCellRoundNumber",
                 "param": "row(Number), colId(String) or colIndex(Number), roundNumber(Number)",
                 "return": "Boolean",
-                "remarkKor": "row행 colId or colIndex 열 cell의 roundNumber를 설정한다. roundNumber는 cell의 dataType이 'number'일 때 유효하다. 정상 동작 시 true 반환.\n"
+                "remarkKor": "row행 colId or colIndex 열 cell의 roundNumber를 설정한다. roundNumber는 cell의 data-type이 'number'일 때 유효하다. 정상 동작 시 true 반환.\n"
                             + "roundNumber 양의 정수 : 반올림 할 소수점 자리 지정. roundNumber 음의 정수 : 반올림 할 정수부 자리 지정.",
-                "remarkEng": "Sets the roundNumber of the cell in the colId or colIndex column in the row-th row. roundNumber is valid when the cell's dataType is 'number'. Returns true if it operates normally.\n"
+                "remarkEng": "Sets the roundNumber of the cell in the colId or colIndex column in the row-th row. roundNumber is valid when the cell's data-type is 'number'. Returns true if it operates normally.\n"
                             + "roundNumber positive integer: specifies the decimal place to be rounded. roundNumber negative integer: specifies the integer place to be rounded."
             },
             {
@@ -3352,7 +3352,7 @@ function getConsts () {
                 "remarkEng": "A closure function that creates and returns a Vanillagrid object. Includes advanced information about Vanillagrid. Referred to as 'vg' from below."
             },
             {
-                "function": "vanillagrid_onBeforeCreate",
+                "function": "vanillagridOnBeforeCreate",
                 "param": "e(event), vg(Object)",
                 "return": "Boolean",
                 "remarkKor": "grid를 생성 전에 호출하는 메소드. false 반환 시 _onCreate하지 않는다. _onCreate를 제어하기 위한 메소드. vanilla grid object에 대한 정의는 반드시 해당 메소드에서 이루어 져야한다.",
@@ -3366,7 +3366,7 @@ function getConsts () {
                 "remarkEng": "Creates the grid on the screen."
             },
             {
-                "function": "vanillagrid_onAfterCreate",
+                "function": "vanillagridOnAfterCreate",
                 "param": "e(event), vg(Object)",
                 "return": "",
                 "remarkKor": "grid 생성 후 호출되는 메소드. Vanillagrid 객체를 가지고있다.",
@@ -3417,24 +3417,24 @@ function getConsts () {
                 "default": "{}",
                 "remarkKor": "key(String) - value(Function)으로 구성된 객체이다. vg.create()전에 설정하면 해당 footer에 key를 통해 자동으로 해당 function을 수행하여 값을 받는다.\n"
                             + "function의 구조는 colValues를 파라메터로 받고 footer에 보여줄 값을 반환한다.\n"
-                            + "Ex) vg.footerFormula = { 'CONCAT' : function (colValues) { return colValues.join(','); }, 'CHECK_COUNT' : function (colValues) { let count = 1; colValues.forEach((val) => { if(val === 'true') count = count * 2; }); return count; } } <v-col id='check' dataType='checkbox' footer='CHECK_COUNT'></v-col>",
+                            + "Ex) vg.footerFormula = { 'CONCAT' : function (colValues) { return colValues.join(','); }, 'CHECK_COUNT' : function (colValues) { let count = 1; colValues.forEach((val) => { if(val === 'true') count = count * 2; }); return count; } } <v-col id='check' data-type='checkbox' footer='CHECK_COUNT'></v-col>",
                 "remarkEng": "An object consisting of key(String) - value(Function). If set before vg.create(), the function associated with the key is automatically executed for the footer, and its value is obtained.\n"
                             + "The structure of the function receives colValues as a parameter and returns the value to be displayed in the footer.\n"
-                            + "Ex) vg.footerFormula = { 'CONCAT' : function (colValues) { return colValues.join(','); }, 'CHECK_COUNT' : function (colValues) { let count = 1; colValues.forEach((val) => { if(val === 'true') count = count * 2; }); return count; } } <v-col id='check' dataType='checkbox' footer='CHECK_COUNT'></v-col>"
+                            + "Ex) vg.footerFormula = { 'CONCAT' : function (colValues) { return colValues.join(','); }, 'CHECK_COUNT' : function (colValues) { let count = 1; colValues.forEach((val) => { if(val === 'true') count = count * 2; }); return count; } } <v-col id='check' data-type='checkbox' footer='CHECK_COUNT'></v-col>"
             },
             {
                 "attribute": "vg.dataType",
                 "type": "Object",
                 "default": "{}",
-                "remarkKor": "새로운 dataType을 추가할 수 있는 객체. key(String) : value(Object)구조이며, value의 object는 정해진 keyword에 정해진 유형의 value를 넣는다.",
-                "remarkEng": "An object for adding new dataTypes. The structure is key(String) : value(Object), and the value object includes predefined keywords with specific value types."
+                "remarkKor": "새로운 data-type을 추가할 수 있는 객체. key(String) : value(Object)구조이며, value의 object는 정해진 keyword에 정해진 유형의 value를 넣는다.",
+                "remarkEng": "An object for adding new data-types. The structure is key(String) : value(Object), and the value object includes predefined keywords with specific value types."
             },
             {
                 "attribute": "vg.dataType.cellStyle",
                 "type": "Object",
                 "default": "null",
-                "remarkKor": "dataType의 cell의 style을 지정한다. element.style[key] = cellStyle[key]로 값이 삽입된다. 키는 js 요소 style지정 키로, 값은 css문자열 그대로 넣어야함.",
-                "remarkEng": "Specifies the style of the cell for the dataType. The value is inserted as element.style[key] = cellStyle[key]. The key is the JS element style key, and the value is the CSS string."
+                "remarkKor": "data-type의 cell의 style을 지정한다. element.style[key] = cellStyle[key]로 값이 삽입된다. 키는 js 요소 style지정 키로, 값은 css문자열 그대로 넣어야함.",
+                "remarkEng": "Specifies the style of the cell for the data-type. The value is inserted as element.style[key] = cellStyle[key]. The key is the JS element style key, and the value is the CSS string."
             },
             {
                 "attribute": "vg.dataType.onSelected",
@@ -3501,18 +3501,18 @@ function getConsts () {
                 "type": "function",
                 "default": "null",
                 "remarkKor": "편집 node를 반환하는 function. cell 더블클릭 등으로 cell edit을 할때 editor를 불러오는 function이다. 파라메터로 cell node, cell의 getData()값, 변경호출 함수, edit종료 호출 함수를 받는다.\n"
-                            + "반환값은 Html node여야 한다. getEditor를 정의하지 않으면 해당 dataType은 edit 창을 생성하지 않는다.",
+                            + "반환값은 Html node여야 한다. getEditor를 정의하지 않으면 해당 data-type은 edit 창을 생성하지 않는다.",
                 "remarkEng": "Function that returns the editor node. It is called when editing the cell, such as double-clicking the cell. Receives the cell node, the cell's getData() value, the change call function, and the edit end call function as parameters.\n"
-                            + "The return value must be an Html node. If getEditor is not defined, the dataType does not create an edit window."
+                            + "The return value must be an Html node. If getEditor is not defined, the data-type does not create an edit window."
             },
             {
                 "attribute": "vg.dataType.getEditedValue",
                 "type": "function",
                 "default": "null",
                 "remarkKor": "cell 편집 후 cell에 삽입 될 값을 반환하는 function. 파라메터로 cell에 editor node와 cell의 getData() 값을 받는다. 반환 값은 cell의 value로 삽입된다.\n"
-                            + "새 dataType은 있지만 getEditedValue 함수를 정의하지 않으면, 해당 dataType은 편집을 해도 수정되지 않는다.",
+                            + "새 data-type은 있지만 getEditedValue 함수를 정의하지 않으면, 해당 data-type은 편집을 해도 수정되지 않는다.",
                 "remarkEng": "Function that returns the value to be inserted into the cell after editing. Receives the editor node of the cell and the cell's getData() value as parameters. The return value is inserted as the cell's value\n"
-                            + "If there is a new dataType but the getEditedValue function is not defined, the dataType is not modified even if edited."
+                            + "If there is a new data-type but the getEditedValue function is not defined, the data-type is not modified even if edited."
             },
             {
                 "attribute": "vg.dataType.getFilterValue",
@@ -4183,8 +4183,8 @@ function getConsts () {
                 "attribute": "vg.defaultColInfo.dataType",
                 "type": "String",
                 "default": "text",
-                "remarkKor": "column의 dataType 속성의 default 값.",
-                "remarkEng": "The default value for the column's dataType attribute."
+                "remarkKor": "column의 data-type 속성의 default 값.",
+                "remarkEng": "The default value for the column's data-type attribute."
             },
             {
                 "attribute": "vg.defaultColInfo.selectSize",
@@ -4211,8 +4211,8 @@ function getConsts () {
                 "attribute": "vg.defaultColInfo.defaultCode",
                 "type": "String",
                 "default": "null",
-                "remarkKor": "column의 defaultCode 속성의 default 값.",
-                "remarkEng": "The default value for the column's defaultCode attribute."
+                "remarkKor": "column의 default-code 속성의 default 값.",
+                "remarkEng": "The default value for the column's default-code attribute."
             },
             {
                 "attribute": "vg.defaultColInfo.maxLength",
