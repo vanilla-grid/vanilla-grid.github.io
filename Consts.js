@@ -3352,7 +3352,7 @@ function getConsts () {
                 "remarkEng": "A closure function that creates and returns a Vanillagrid object. Includes advanced information about Vanillagrid. Referred to as 'vg' from below."
             },
             {
-                "function": "vanillagridOnBeforeCreate",
+                "function": "vanillagrid_onBeforeCreate",
                 "param": "e(event), vg(Object)",
                 "return": "Boolean",
                 "remarkKor": "grid를 생성 전에 호출하는 메소드. false 반환 시 _onCreate하지 않는다. _onCreate를 제어하기 위한 메소드. vanilla grid object에 대한 정의는 반드시 해당 메소드에서 이루어 져야한다.",
@@ -3366,7 +3366,7 @@ function getConsts () {
                 "remarkEng": "Creates the grid on the screen."
             },
             {
-                "function": "vanillagridOnAfterCreate",
+                "function": "vanillagrid_onAfterCreate",
                 "param": "e(event), vg(Object)",
                 "return": "",
                 "remarkKor": "grid 생성 후 호출되는 메소드. Vanillagrid 객체를 가지고있다.",

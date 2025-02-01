@@ -188,7 +188,7 @@ const datas = [
                     "INTRO-0306": {
                         code: 
 `<!--Prevent existing creation logic-->
-<script> vanillagridOnBeforeCreate = function(e, vn) {return false;} </script>
+<script> vanillagrid_onBeforeCreate = function(e, vn) {return false;} </script>
 `,
                     },
                     "INTRO-0307": {
@@ -854,7 +854,7 @@ grid01_onKeydownGrid (e) {
                     "STARTED-4008": {
                         code: 
 `<script>
-    vanillagridOnBeforeCreate = function(e, vg) {
+    vanillagrid_onBeforeCreate = function(e, vg) {
 		return false;
 	}
     
@@ -1190,16 +1190,16 @@ addRowWithSetGridMount_onClick(e) {
                         "text": "There are also two global functions related to the creation of the vanilla grid."
                     },
                     "DIVE-1300": {
-                        "text": "Global function vanillagridOnBeforeCreate(event, vanillagridObject)"
+                        "text": "Global function vanillagrid_onBeforeCreate(event, vanillagridObject)"
                     },
                     "DIVE-1301": {
-                        "text": "vanillagridOnBeforeCreate() is a global function called before vg.create(). It takes the window load event and the vanilla grid object as parameters. You can customize the vanilla grid object. You can redefine it in the script."
+                        "text": "vanillagrid_onBeforeCreate() is a global function called before vg.create(). It takes the window load event and the vanilla grid object as parameters. You can customize the vanilla grid object. You can redefine it in the script."
                     },
                     "DIVE-1350": {
-                        "text": "Global function vanillagridOnAfterCreate(event, vanillagridObject)"
+                        "text": "Global function vanillagrid_onAfterCreate(event, vanillagridObject)"
                     },
                     "DIVE-1351": {
-                        "text": "vanillagridOnAfterCreate() is a global function called after vg.create(). It takes the window load event and the vanilla grid object as parameters. You can customize the vanilla grid object. You can redefine it in the script."
+                        "text": "vanillagrid_onAfterCreate() is a global function called after vg.create(). It takes the window load event and the vanilla grid object as parameters. You can customize the vanilla grid object. You can redefine it in the script."
                     },
                     "DIVE-1400": {
                         "text": "The default creation process is as follows."
@@ -1210,11 +1210,11 @@ addRowWithSetGridMount_onClick(e) {
 (() => {
     window.addEventListener('load', function (e) {
         const vg = getVanillagrid();    //Create vg
-        //Call vanillagridOnBeforeCreate(e, vg) before vg.create()
-        //You can modify the vg object through vanillagridOnBeforeCreate(e, vg).
-        if (vanillagridOnBeforeCreate(e, vg) === false) return;
+        //Call vanillagrid_onBeforeCreate(e, vg) before vg.create()
+        //You can modify the vg object through vanillagrid_onBeforeCreate(e, vg).
+        if (vanillagrid_onBeforeCreate(e, vg) === false) return;
         vg.create();    //Create vanilla grid.
-        vanillagridOnAfterCreate(e, vg);   //Called after creation. vg can be modified.
+        vanillagrid_onAfterCreate(e, vg);   //Called after creation. vg can be modified.
     });
 })();
 `,
@@ -1222,12 +1222,12 @@ addRowWithSetGridMount_onClick(e) {
                     "DIVE-1402": {
                         code: 
 `<script>
-//Therefore, you can redefine vanillagridOnBeforeCreate(), vanillagridOnAfterCreate() in the <script> section to customize vg.
-function vanillagridOnBeforeCreate(e, vg) {
+//Therefore, you can redefine vanillagrid_onBeforeCreate(), vanillagrid_onAfterCreate() in the <script> section to customize vg.
+function vanillagrid_onBeforeCreate(e, vg) {
     console.log(vg);
     //If you return false here, vg will not be created.
 }
-function vanillagridOnAfterCreate(e, vg) {
+function vanillagrid_onAfterCreate(e, vg) {
     console.log(vg);
 }
 </script>
@@ -1264,7 +1264,7 @@ function vanillagridOnAfterCreate(e, vg) {
                     "DIVE-1504": {
                         "code": 
 `<!--Prevent existing creation logic-->
-<script> vanillagridOnBeforeCreate = function(e, vn) {return false;} </script>
+<script> vanillagrid_onBeforeCreate = function(e, vn) {return false;} </script>
 `
                     },
                     "DIVE-1505": {
@@ -1338,7 +1338,7 @@ beforeDestroy: function() {
                         code: 
 `<script>
 //e is the window load event, vg is the vanilla grid object.
-function vanillagridOnBeforeCreate (e, vg) {
+function vanillagrid_onBeforeCreate (e, vg) {
     //Redefine sortAscSpan
     vg.sortAscSpan = document.createElement("i");   //Using fontawesome
     vg.sortAscSpan.setAttribute("class", "fas fa-sort-up");
@@ -1366,7 +1366,7 @@ function vanillagridOnBeforeCreate (e, vg) {
                     "DIVE-2204": {
                         code: 
 `<script>
-function vanillagridOnBeforeCreate (e, vg) {
+function vanillagrid_onBeforeCreate (e, vg) {
     //Redefine filterSpan
     vg.filterSpan = document.createElement("i");   //Using fontawesome
     vg.filterSpan.setAttribute("class", "fas fa-search");
@@ -1392,7 +1392,7 @@ function vanillagridOnBeforeCreate (e, vg) {
                     "DIVE-2304": {
                         code: 
 `<script>
-function vanillagridOnBeforeCreate (e, vg) {
+function vanillagrid_onBeforeCreate (e, vg) {
     //Define the default value for dateFormat for all grids
     vg.defaultGridInfo.dateFormat = "yyyy/mm/dd";
     //Define the default value for monthFormat for all grids
@@ -1407,7 +1407,7 @@ function vanillagridOnBeforeCreate (e, vg) {
                     "DIVE-2306": {
                         code: 
 `<script>
-function vanillagridOnBeforeCreate (e, vg) {
+function vanillagrid_onBeforeCreate (e, vg) {
     //Define the default values for locked and lockedColor for all grids
     vg.defaultGridInfo.locked = true;   //Lock the grid
     vg.defaultGridInfo.lockedColor = false; //Do not display a different background color when the grid is locked
@@ -1436,7 +1436,7 @@ function vanillagridOnBeforeCreate (e, vg) {
                     "DIVE-2404": {
                         code: 
 `<script>
-function vanillagridOnBeforeCreate (e, vg) {
+function vanillagrid_onBeforeCreate (e, vg) {
     //Define default styles
     this.vg.defaultGridCssInfo.colorSet="green"
     this.vg.defaultGridCssInfo.mouseoverCellBackColor="#efefef"
@@ -1457,7 +1457,7 @@ function vanillagridOnBeforeCreate (e, vg) {
                     "DIVE-2407": {
                         code: 
 `<script>
-function vanillagridOnBeforeCreate (e, vg) {
+function vanillagrid_onBeforeCreate (e, vg) {
     //Redefine the filter span
     vg.filterSpan = document.createElement("i");
     vg.filterSpan.setAttribute("class", "fas fa-search");
@@ -1504,7 +1504,7 @@ function vanillagridOnBeforeCreate (e, vg) {
                     "DIVE-2504": {
                         code: 
 `<script>
-function vanillagridOnBeforeCreate (e, vg) {
+function vanillagrid_onBeforeCreate (e, vg) {
     vg.defaultColInfo.dataType = "number";
     vg.defaultColInfo.originWidth = "120px";
 }
@@ -1550,7 +1550,7 @@ function vanillagridOnBeforeCreate (e, vg) {
                     "DIVE-2608": {
                         code: 
 `<script>
-function vanillagridOnBeforeCreate (e, vg) {
+function vanillagrid_onBeforeCreate (e, vg) {
     //UTF-16
     vg.lessoreq0x7ffByte = 2;
     vg.lessoreq0xffffByte = 2;
@@ -1582,7 +1582,7 @@ function vanillagridOnBeforeCreate (e, vg) {
                     "DIVE-2659": {
                         code: 
 `<script>
-function vanillagridOnBeforeCreate (e, vg) {
+function vanillagrid_onBeforeCreate (e, vg) {
     vg.checkRequiredFunction = function (cellData) {
         if(cellData && window[cellData.gridId]) {
             alert(cellData.row + ' For the row, please enter the value for ' + cellData.name + '.');
@@ -1614,7 +1614,7 @@ function vanillagridOnBeforeCreate (e, vg) {
                     "DIVE-3006": {
                         "code": 
 `<script>
-function vanillagridOnBeforeCreate (e, vg) {
+function vanillagrid_onBeforeCreate (e, vg) {
     this.vg.footerFormula = {
         "CHECK_COUNT" : function (colValues) {
             let count = 0;
@@ -1644,7 +1644,7 @@ function vanillagridOnBeforeCreate (e, vg) {
                     "DIVE-3010": {
                         "code": 
 `<script>
-function vanillagridOnBeforeCreate (e, vg) {
+function vanillagrid_onBeforeCreate (e, vg) {
     vg.footerFormula = {
         "CHECK_COUNT" : function (colValues) {
             let count = 0;
@@ -1691,7 +1691,7 @@ function vanillagridOnBeforeCreate (e, vg) {
                     "DIVE-4051": {
                         "code": 
 `<script>
-function vanillagridOnBeforeCreate (e, vg) {
+function vanillagrid_onBeforeCreate (e, vg) {
     vg.dataType = {
         "newDataType" : {
             //Specify the style of the cell. Insert camelCase cssKey and cssValue as key-value pairs in the format element.style.{key} = {value}.
@@ -1773,7 +1773,7 @@ function vanillagridOnBeforeCreate (e, vg) {
                     "DIVE-4150": {
                         "code": 
 `<script>
-function vanillagridOnBeforeCreate (e, vg) {
+function vanillagrid_onBeforeCreate (e, vg) {
     vg.dataType = {
         "img" : {
             // Specify the justify-content, text-align, padding properties for the cell's style.
@@ -1929,7 +1929,7 @@ function vanillagridOnBeforeCreate (e, vg) {
                     "DIVE-4250": {
                         "code": 
 `<script>
-function vanillagridOnBeforeCreate (e, vg) {
+function vanillagrid_onBeforeCreate (e, vg) {
     vg.dataType = {
         radio : {
             // Specify the justify-content, text-align properties for the cell's style.
@@ -1999,7 +1999,7 @@ function vanillagridOnBeforeCreate (e, vg) {
                     "DIVE-4350": {
                         "code": 
 `<script>
-function vanillagridOnBeforeCreate (e, vg) {
+function vanillagrid_onBeforeCreate (e, vg) {
     vg.dataType = {
         tree : {
             // Specify the justify-content, text-align properties for the cell's style.
@@ -2796,7 +2796,7 @@ const datas = [
                     "INTRO-0306": {
                         code: 
 `<!--기존 생성 로직 방지-->
-<script> vanillagridOnBeforeCreate = function(e, vn) {return false;} </script>
+<script> vanillagrid_onBeforeCreate = function(e, vn) {return false;} </script>
 `,
                     },
                     "INTRO-0307": {
@@ -3458,7 +3458,7 @@ grid01_onKeydownGrid (e) {
                     "STARTED-4008": {
                         code: 
 `<script>
-    vanillagridOnBeforeCreate = function(e, vg) {
+    vanillagrid_onBeforeCreate = function(e, vg) {
 		return false;
 	}
     
@@ -3794,16 +3794,16 @@ addRowWithSetGridMount_onClick(e) {
                         text: "그리고, vanilla grid 생성에 관련된 두개의 전역함수가 있습니다."
                     },
                     "DIVE-1300": {
-                        text: "전역함수 vanillagridOnBeforeCreate(event, vanillagridObject)"
+                        text: "전역함수 vanillagrid_onBeforeCreate(event, vanillagridObject)"
                     },
                     "DIVE-1301": {
-                        text: "vanillagridOnBeforeCreate()는 vg.create() 전에 호출되는 전역 함수 입니다. 파라메터로 window load event와 vanilla grid object를 받습니다. vanilla grid object를 커스터마이징 할 수 있습니다. script에 재정의하여 사용할 수 있습니다."
+                        text: "vanillagrid_onBeforeCreate()는 vg.create() 전에 호출되는 전역 함수 입니다. 파라메터로 window load event와 vanilla grid object를 받습니다. vanilla grid object를 커스터마이징 할 수 있습니다. script에 재정의하여 사용할 수 있습니다."
                     },
                     "DIVE-1350": {
-                        text: "전역함수 vanillagridOnAfterCreate(event, vanillagridObject)"
+                        text: "전역함수 vanillagrid_onAfterCreate(event, vanillagridObject)"
                     },
                     "DIVE-1351": {
-                        text: "vanillagridOnAfterCreate()는 vg.create() 후에 호출되는 전역 함수 입니다. 파라메터로 window load event와 vanilla grid object를 받습니다. vanilla grid object를 커스터마이징 할 수 있습니다. script에 재정의하여 사용할 수 있습니다."
+                        text: "vanillagrid_onAfterCreate()는 vg.create() 후에 호출되는 전역 함수 입니다. 파라메터로 window load event와 vanilla grid object를 받습니다. vanilla grid object를 커스터마이징 할 수 있습니다. script에 재정의하여 사용할 수 있습니다."
                     },
                     "DIVE-1400": {
                         text: "기본으로 정의된 Create과정은 아래와 같습니다."
@@ -3814,11 +3814,11 @@ addRowWithSetGridMount_onClick(e) {
 (() => {
 	window.addEventListener('load', function (e) {
 		const vg = getVanillagrid();    //vg를 생성
-        //vg.create()전에 vanillagridOnBeforeCreate(e, vg)를 호출함
-        //vanillagridOnBeforeCreate(e, vg)를 통해 vg 객체를 수정할 수 있음.
-		if (vanillagridOnBeforeCreate(e, vg) === false) return;
+        //vg.create()전에 vanillagrid_onBeforeCreate(e, vg)를 호출함
+        //vanillagrid_onBeforeCreate(e, vg)를 통해 vg 객체를 수정할 수 있음.
+		if (vanillagrid_onBeforeCreate(e, vg) === false) return;
 		vg.create();    //vanilla grid 생성.
-		vanillagridOnAfterCreate(e, vg);   //생성후에 호출됨. vg 수정 가능
+		vanillagrid_onAfterCreate(e, vg);   //생성후에 호출됨. vg 수정 가능
 	});
 })();
 `,
@@ -3826,12 +3826,12 @@ addRowWithSetGridMount_onClick(e) {
                     "DIVE-1402": {
                         code: 
 `<script>
-//때문에 <script> 부분에 vanillagridOnBeforeCreate(), vanillagridOnAfterCreate()를 재정의 하여 vg를 커스터마이징 할 수 있다.
-function vanillagridOnBeforeCreate(e, vg) {
+//때문에 <script> 부분에 vanillagrid_onBeforeCreate(), vanillagrid_onAfterCreate()를 재정의 하여 vg를 커스터마이징 할 수 있다.
+function vanillagrid_onBeforeCreate(e, vg) {
     console.log(vg);
     //여기서 return false를 반환하면 vg를 create하지 않는다.
 }
-function vanillagridOnAfterCreate(e, vg) {
+function vanillagrid_onAfterCreate(e, vg) {
     console.log(vg);
 }
 </script>
@@ -3868,7 +3868,7 @@ function vanillagridOnAfterCreate(e, vg) {
                     "DIVE-1504": {
                         code: 
 `<!--기존 생성 로직 방지-->
-<script> vanillagridOnBeforeCreate = function(e, vn) {return false;} </script>
+<script> vanillagrid_onBeforeCreate = function(e, vn) {return false;} </script>
 `,
                     },
                     "DIVE-1505": {
@@ -3942,7 +3942,7 @@ beforeDestroy: function() {
                         code: 
 `<script>
 //e는 window load event, vg는 vanilla grid object이다.
-function vanillagridOnBeforeCreate (e, vg) {
+function vanillagrid_onBeforeCreate (e, vg) {
     //sortAscSpan 재정의
     vg.sortAscSpan = document.createElement("i");   //fontawesome 사용 시
     vg.sortAscSpan.setAttribute("class", "fas fa-sort-up");
@@ -3970,7 +3970,7 @@ function vanillagridOnBeforeCreate (e, vg) {
                     "DIVE-2204": {
                         code: 
 `<script>
-function vanillagridOnBeforeCreate (e, vg) {
+function vanillagrid_onBeforeCreate (e, vg) {
     //filterSpan 재정의
     vg.filterSpan = document.createElement("i");   //fontawesome 사용 시
     vg.filterSpan.setAttribute("class", "fas fa-search");
@@ -3996,7 +3996,7 @@ function vanillagridOnBeforeCreate (e, vg) {
                     "DIVE-2304": {
                         code: 
 `<script>
-function vanillagridOnBeforeCreate (e, vg) {
+function vanillagrid_onBeforeCreate (e, vg) {
     //모든 grid의 dateFormat의 default 값을 정의
     vg.defaultGridInfo.dateFormat = "yyyy/mm/dd";
     //모든 grid의 monthFormat의 default 값을 정의
@@ -4011,7 +4011,7 @@ function vanillagridOnBeforeCreate (e, vg) {
                     "DIVE-2306": {
                         code: 
 `<script>
-function vanillagridOnBeforeCreate (e, vg) {
+function vanillagrid_onBeforeCreate (e, vg) {
     //모든 grid의 locked와 lockedColor의 default 값을 정의
     vg.defaultGridInfo.locked = true;   //grid 잠금
     vg.defaultGridInfo.lockedColor = false; //grid가 locked 상태일 시 background-color를 다르게 표기하지 않음
@@ -4040,7 +4040,7 @@ function vanillagridOnBeforeCreate (e, vg) {
                     "DIVE-2404": {
                         code: 
 `<script>
-function vanillagridOnBeforeCreate (e, vg) {
+function vanillagrid_onBeforeCreate (e, vg) {
     //default style을 정의
     this.vg.defaultGridCssInfo.colorSet="green"
     this.vg.defaultGridCssInfo.mouseoverCellBackColor="#efefef"
@@ -4061,7 +4061,7 @@ function vanillagridOnBeforeCreate (e, vg) {
                     "DIVE-2407": {
                         code: 
 `<script>
-function vanillagridOnBeforeCreate (e, vg) {
+function vanillagrid_onBeforeCreate (e, vg) {
     //filter span 재정의
     vg.filterSpan = document.createElement("i");
     vg.filterSpan.setAttribute("class", "fas fa-search");
@@ -4108,7 +4108,7 @@ function vanillagridOnBeforeCreate (e, vg) {
                     "DIVE-2504": {
                         code: 
 `<script>
-function vanillagridOnBeforeCreate (e, vg) {
+function vanillagrid_onBeforeCreate (e, vg) {
     vg.defaultColInfo.dataType = "number";
     vg.defaultColInfo.originWidth = "120px";
 }
@@ -4154,7 +4154,7 @@ function vanillagridOnBeforeCreate (e, vg) {
                     "DIVE-2608": {
                         code: 
 `<script>
-function vanillagridOnBeforeCreate (e, vg) {
+function vanillagrid_onBeforeCreate (e, vg) {
     //UTF-16
     vg.lessoreq0x7ffByte = 2;
     vg.lessoreq0xffffByte = 2;
@@ -4186,7 +4186,7 @@ function vanillagridOnBeforeCreate (e, vg) {
                     "DIVE-2659": {
                         code: 
 `<script>
-function vanillagridOnBeforeCreate (e, vg) {
+function vanillagrid_onBeforeCreate (e, vg) {
     vg.checkRequiredFunction = function (cellData) {
         if(cellData && window[cellData.gridId]) {
             alert(cellData.row + ' For the row, please enter the value for ' + cellData.name + '.');
@@ -4218,7 +4218,7 @@ function vanillagridOnBeforeCreate (e, vg) {
                     "DIVE-3006": {
                         code: 
 `<script>
-function vanillagridOnBeforeCreate (e, vg) {
+function vanillagrid_onBeforeCreate (e, vg) {
     this.vg.footerFormula = {
         "CHECK_COUNT" : function (colValues) {
             let count = 0;
@@ -4248,7 +4248,7 @@ function vanillagridOnBeforeCreate (e, vg) {
                     "DIVE-3010": {
                         code: 
 `<script>
-function vanillagridOnBeforeCreate (e, vg) {
+function vanillagrid_onBeforeCreate (e, vg) {
     vg.footerFormula = {
         "CHECK_COUNT" : function (colValues) {
             let count = 0;
@@ -4295,7 +4295,7 @@ function vanillagridOnBeforeCreate (e, vg) {
                     "DIVE-4051": {
                         code: 
 `<script>
-function vanillagridOnBeforeCreate (e, vg) {
+function vanillagrid_onBeforeCreate (e, vg) {
     vg.dataType = {
         "newDataType" : {
             //cell의 style을 지정. element.style.{key} = {value} 형식의 카멜표현식 cssKey와 cssValue를 key-value로 삽입함.
@@ -4377,7 +4377,7 @@ function vanillagridOnBeforeCreate (e, vg) {
                     "DIVE-4150": {
                         code: 
 `<script>
-function vanillagridOnBeforeCreate (e, vg) {
+function vanillagrid_onBeforeCreate (e, vg) {
     vg.dataType = {
         "img" : {
             // cell의 style에 justify-content, text-align, padding 속성을 지정한다.
@@ -4534,7 +4534,7 @@ function vanillagridOnBeforeCreate (e, vg) {
                     "DIVE-4250": {
                         code: 
 `<script>
-function vanillagridOnBeforeCreate (e, vg) {
+function vanillagrid_onBeforeCreate (e, vg) {
     vg.dataType = {
         radio : {
             //cell의 style에 justify-content, text-align 속성을 지정한다.
@@ -4604,7 +4604,7 @@ function vanillagridOnBeforeCreate (e, vg) {
                     "DIVE-4350": {
                         code: 
 `<script>
-function vanillagridOnBeforeCreate (e, vg) {
+function vanillagrid_onBeforeCreate (e, vg) {
     vg.dataType = {
         tree : {
             //cell의 style에 justify-content, text-align 속성을 지정한다.
