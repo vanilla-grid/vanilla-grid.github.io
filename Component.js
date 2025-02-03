@@ -224,6 +224,8 @@ function getComponents(CONSTS, SAMPLE_GRIDS) {
                         <p class="h5" :id="getContentAnchor('INTRO-0312')">{{getContentText("INTRO-0312")}}</p>
                         <pre><code>{{getContentCode("INTRO-0313")}}</code></pre>
                         <p class="h5" :id="getContentAnchor('INTRO-0314')">{{getContentText("INTRO-0314")}}</p>
+                        <pre><code>{{getContentCode("INTRO-0317")}}</code></pre>
+                        <p class="h5" :id="getContentAnchor('INTRO-0318')">{{getContentText("INTRO-0318")}}</p>
                     </div>
 
                     <br><br><br>
@@ -350,9 +352,14 @@ function getComponents(CONSTS, SAMPLE_GRIDS) {
                         <p class="h6 text-danger" :id="getContentAnchor('STARTED-0010')"><b>{{getContentText("STARTED-0010")}}</b></p>
                         <p class="h6 text-danger" :id="getContentAnchor('STARTED-0011')"><b>{{getContentText("STARTED-0011")}}</b></p>
                         <p class="h6 text-danger" :id="getContentAnchor('STARTED-0012')"><b>{{getContentText("STARTED-0012")}}</b></p>
-                        <br>
                         <p class="h5" :id="getContentAnchor('STARTED-0004')">{{getContentText("STARTED-0004")}}</p>
                         <pre><code>{{getContentCode("STARTED-0005")}}</code></pre>
+                        <p class="h5" :id="getContentAnchor('STARTED-0013')">{{getContentText("STARTED-0013")}}</p>
+                        <p class="h5" :id="getContentAnchor('STARTED-0014')">{{getContentText("STARTED-0014")}}</p>
+                        <pre><code>{{getContentCode("STARTED-0015")}}</code></pre>
+                        <p class="h5" :id="getContentAnchor('STARTED-0016')">{{getContentText("STARTED-0016")}}</p>
+                        <pre><code>{{getContentCode("STARTED-0017")}}</code></pre>
+                        <br>
                         <p class="h5">{{getCommonContent("COMMON-0009")}}</p>
                     </div>
                     <div class="grid-box">`
@@ -661,7 +668,20 @@ function getComponents(CONSTS, SAMPLE_GRIDS) {
                         <pre><code>{{getContentCode("DIVE-1509")}}</code></pre>
                         <p class="h5" :id="getContentAnchor('DIVE-1510')"><b>{{getContentText("DIVE-1510")}}</b></p>
                         <pre><code>{{getContentCode("DIVE-1511")}}</code></pre>
+                        <p class="h5" :id="getContentAnchor('DIVE-1515')">{{getContentText("DIVE-1515")}}</p>
+                        <pre><code>{{getContentCode("DIVE-1516")}}</code></pre>
                         <p class="h5" :id="getContentAnchor('DIVE-1512')">{{getContentText("DIVE-1512")}}</p>
+                        <br>
+                        <p class="h4"><span class="dot"><i class="fas fa-pencil-alt"></i></span><b :id="getContentAnchor('DIVE-1600')">{{ getContentText("DIVE-1600") }}</b></p>
+                        <p class="h5" :id="getContentAnchor('DIVE-1601')">{{getContentText("DIVE-1601")}}</p>
+                        <p class="h5" :id="getContentAnchor('DIVE-1602')">{{getContentText("DIVE-1602")}}</p>
+                        <p class="h5" :id="getContentAnchor('DIVE-1603')"><b>{{getContentText("DIVE-1603")}}</b></p>
+                        <p class="h5" :id="getContentAnchor('DIVE-1604')">{{getContentText("DIVE-1604")}}</p>
+                        <pre><code>{{getContentCode("DIVE-1605")}}</code></pre>
+                        <p class="h5" :id="getContentAnchor('DIVE-1606')">{{getContentText("DIVE-1606")}}</p>
+                        <pre><code>{{getContentCode("DIVE-1607")}}</code></pre>
+                        <p class="h5" :id="getContentAnchor('DIVE-1608')"><b>{{getContentText("DIVE-1608")}}</b></p>
+                        <pre><code>{{getContentCode("DIVE-1609")}}</code></pre>
                     </div>
 
                     <br><br><br>
