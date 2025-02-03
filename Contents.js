@@ -232,7 +232,25 @@ beforeDestroy: function() {
 `,
                     },
                     "INTRO-0314": {
-                        text: "6. This allows the grid to be redrawn whenever the vue component is destroyed and mounted.",
+                        text: "6. loadGrid on methods in vue :",
+                    },
+                    "INTRO-0317": {
+                        code: 
+`//vanilla grid load
+methods: {
+    // If you use declareWindowGridVariable, you can call gridId directly. (Automatically declared as a Windows global variable)
+    // If declareWindowGridVariable is set to false, the get method of vg obtained with getVanillagrid() is used.
+    const grid = this.vg.get(
+        //real gridId(string)
+        );
+    grid.load(
+    //data
+    );
+},
+`,
+                    },
+                    "INTRO-0318": {
+                        text: "7. This allows the grid to be redrawn whenever the vue component is destroyed and mounted.",
                     },
                     "INTRO-0400": {
                         text: "Purpose of Production"
@@ -451,10 +469,10 @@ vg.create();
                         text: "※ The dist/Vanillagrid.min.1.0.0.js file of git vanillagrid.min can be used as a header declaration."
                     },
                     "STARTED-0011": {
-                        text: "※ The dist/Vanillagrid.bundle.js file in git vanillagrid.min is used in the webpack method."
+                        text: "※ The dist/Vanillagrid.bundle.js file in git vanillagrid.min is used in the webpack style."
                     },
                     "STARTED-0012": {
-                        text: "※ The header declaration method through the Vanillagrid.min file automatically manages the life cycle of the vanilla grid, while the webpack method through the Vanillagrid.bundle file requires the user to manage the life cycle."
+                        text: "※ The header declaration style through the Vanillagrid.min file automatically manages the life cycle of the vanilla grid, while the webpack style through the Vanillagrid.bundle file requires the user to manage the life cycle."
                     },
                     "STARTED-0004": {
                         text: "2. Create the grid in the body according to the specified format.",
@@ -468,6 +486,35 @@ The id attribute of grid and column is mandatory.
     ... columns
 </vanilla-grid>
 -->
+`,
+                    },
+                    "STARTED-0013": {
+                        text: "3. There are two ways to access the grid style."
+                    },
+                    "STARTED-0014": {
+                        text: "3-1. How to use a global variable declared as gridId (header declaration style through Vanillagrid.min file)"
+                    },
+                    "STARTED-0015": {
+                        code: 
+`<script>
+gridId.load(
+//data
+)
+<script>
+`,
+                    },
+                    "STARTED-0016": {
+                        text: "3-2. How to get grid accessor through get(gridId) method of vg imported through import (webpack style)"
+                    },
+                    "STARTED-0017": {
+                        code: 
+`<script>
+import vg from 'vanillagrid';
+const grid = vg.get(gridId);
+grid.load(
+//data
+)
+<script>
 `,
                     },
                     "STARTED-1000": {
@@ -1206,7 +1253,7 @@ addRowWithSetGridMount_onClick(e) {
                     },
                     "DIVE-1401": {
                         code: 
-`//The following source is already declared in the Vanillagrid.js file.
+`//The following source is already declared in the Vanillagrid.min.x.x.xjs file.
 (() => {
     window.addEventListener('load', function (e) {
         const vg = getVanillagrid();    //Create vg
@@ -1307,8 +1354,87 @@ beforeDestroy: function() {
 },
 `
                     },
+                    "DIVE-1515": {
+                        text: "6. loadGrid on methods in vue :",
+                    },
+                    "DIVE-1516": {
+                        code: 
+`//vanilla grid load
+methods: {
+    // If you use declareWindowGridVariable, you can call gridId directly. (Automatically declared as a Windows global variable)
+    // If declareWindowGridVariable is set to false, the get method of vg obtained with getVanillagrid() is used.
+    const grid = this.vg.get(
+        //real gridId(string)
+        );
+    grid.load(
+    //data
+    );
+},
+`,
+                    },
                     "DIVE-1512": {
-                        "text": "6. This way, you can redraw the grid when the Vue component is destroyed and mounted."
+                        "text": "7. This way, you can redraw the grid when the Vue component is destroyed and mounted."
+                    },
+                    "DIVE-1600": {
+                        text: "vg.get()"
+                    },
+                    "DIVE-1601": {
+                        text: "Returns the method accessor of grid. It receives gridId(string), which is the id attribute value of the vanilla-grid tag in HTML, as a parameter and returns the corresponding grid method accessor. An error occurs when inserting an undefined gridId."
+                    },
+                    "DIVE-1602": {
+                        text: "There are two ways to use vanillagrid. One is to declare Vanillagrid.min.x.x.x.js in the header, and the other is to install it via npm and import it with import vg from 'vanillagrid'."
+                    },
+                    "DIVE-1603": {
+                        text: "The method of declaring Vanillagrid.min.x.x.x.js in the header creates a global variable that can access the grid's method with the id attribute value of vanilla-grid declared in html for developer convenience. (This may be vulnerable to security)"
+                    },
+                    "DIVE-1604": {
+                        text: "If you do not want to use a global variable, you can handle vg.declareWindowGridVariable = false; in vanillagrid_onBeforeCreate."
+                    },
+                    "DIVE-1605": {
+                        code:
+`<script>
+vanillagrid_onBeforeCreate = function (e, vg) {
+    vg.declareWindowGridVariable = false;
+    return false;
+}
+</script>
+`
+                    },
+                    "DIVE-1606": {
+                        text: "If you do not want to use global variables when importing via import vg from 'vanillagrid' by installing via npm, handle vg.declareWindowGridVariable = false; before vg.create()."
+                    },
+                    "DIVE-1607": {
+                        code:
+`<script>
+import vg from 'vanillagrid'
+vg.declareWindowGridVariable = false;
+vg.create();
+</script>
+`
+                    },
+                    "DIVE-1608": {
+                        text: "If you do not use global variables, you can get the grid's method accessor through vg.get(gridId). (It is advantageous for security)"
+                    },
+                    "DIVE-1609": {
+                        code:
+`<script>
+//When using a style that declares Vanillagrid.min.x.x.x.js in the header
+vanillagrid_onAfterCreate = function (e, vg) {
+    const grid = vg.get(gridId);
+    //grid method accessor available
+}
+</script>
+
+<script>
+//When using styles imported via import vg from 'vanillagrid' by installing via npm
+import vg from 'vanillagrid'
+vg.declareWindowGridVariable = false;
+vg.create();
+
+const grid = vg.get(gridId);
+//grid method accessor available
+</script>
+`
                     },
                     "DIVE-2000": {
                         "text": "Vanilla grid object"
@@ -2824,7 +2950,7 @@ data () {
 mounted: function() {
     this.vg = getVanillagrid();
     this.vg.create();
-    this.loadGrid();
+    this.loadGrid(); //this.methods 호출
 },
 `,
                     },
@@ -2840,7 +2966,25 @@ beforeDestroy: function() {
 `,
                     },
                     "INTRO-0314": {
-                        text: "6. 이렇게 하면 vue의 해당 컴포넌트가 destroy, mount될때 grid를 새로 그릴 수 있습니다.",
+                        text: "6. vue의 methods에 loadGrid :",
+                    },
+                    "INTRO-0317": {
+                        code: 
+`//vanilla grid load
+methods: {
+    // 만약 declareWindowGridVariable를 사용한다면 바로 gridId를 호출할 수 있음. (윈도우 전역변수로 자동 선언함)
+    // declareWindowGridVariable를 false로 한다면 getVanillagrid()로 가져온 vg의 get메서드를 활용.
+    const grid = this.vg.get(
+        //실제 gridId(string)
+        );
+    grid.load(
+    //data
+    );
+},
+`,
+                    },
+                    "INTRO-0318": {
+                        text: "7. 이렇게 하면 vue의 해당 컴포넌트가 destroy, mount될때 grid를 새로 그릴 수 있습니다.",
                     },
                     "INTRO-0400": {
                         text: "제작 목적",
@@ -3072,6 +3216,35 @@ grid와 column의 id속성은 필수 값 입니다.
     ... columns
 </vanilla-grid>
 -->
+`,
+                    },
+                    "STARTED-0013": {
+                        text: "3. grid 메서드에 접근하는 방법은 2가지 입니다."
+                    },
+                    "STARTED-0014": {
+                        text: "3-1. gridId로 선언된 전역 변수를 사용하는 방식(Vanillagrid.min 파일을 통한 헤더 선언 방식)"
+                    },
+                    "STARTED-0015": {
+                        code: 
+`<script>
+gridId.load(
+//data
+)
+<script>
+`,
+                    },
+                    "STARTED-0016": {
+                        text: "3-2. import를 통해 가져온 vg의 get(gridId)메서드를 통해 grid 접근자를 가져오는 방식(webpack 방식)"
+                    },
+                    "STARTED-0017": {
+                        code: 
+`<script>
+import vg from 'vanillagrid';
+const grid = vg.get(gridId);
+grid.load(
+//data
+)
+<script>
 `,
                     },
                     "STARTED-1000": {
@@ -3810,7 +3983,7 @@ addRowWithSetGridMount_onClick(e) {
                     },
                     "DIVE-1401": {
                         code: 
-`//하단 소스는 이미 Vanillagrid.js 파일에 선언되어있음.
+`//하단 소스는 이미 Vanillagrid.min.x.x.x.js 파일에 선언되어있음.
 (() => {
 	window.addEventListener('load', function (e) {
 		const vg = getVanillagrid();    //vg를 생성
@@ -3911,8 +4084,87 @@ beforeDestroy: function() {
 },
 `,
                     },
+                    "DIVE-1515": {
+                        text: "6. vue의 methods에 loadGrid :",
+                    },
+                    "DIVE-1516": {
+                        code: 
+`//vanilla grid load
+methods: {
+    // 만약 declareWindowGridVariable를 사용한다면 바로 gridId를 호출할 수 있음. (윈도우 전역변수로 자동 선언함)
+    // declareWindowGridVariable를 false로 한다면 getVanillagrid()로 가져온 vg의 get메서드를 활용.
+    const grid = this.vg.get(
+        //실제 gridId(string)
+        );
+    grid.load(
+    //data
+    );
+},
+`,
+                    },
                     "DIVE-1512": {
-                        text: "6. 이렇게 하면 vue의 해당 컴포넌트가 destroy, mount될때 grid를 새로 그릴 수 있습니다.",
+                        text: "7. 이렇게 하면 vue의 해당 컴포넌트가 destroy, mount될때 grid를 새로 그릴 수 있습니다.",
+                    },
+                    "DIVE-1600": {
+                        text: "vg.get()"
+                    },
+                    "DIVE-1601": {
+                        text: "grid의 메소드 접근자를 반환합니다. html의 vanilla-grid태그에 id속성값인 gridId(string)를 파라메터로 받아 해당 grid 메소드 접근자를 반환한다. 정의되지 않은 gridId를 삽입 시 Error발생함."
+                    },
+                    "DIVE-1602": {
+                        text: "vanillagrid를 사용하는 방식은 2가지 입니다. header에 Vanillagrid.min.x.x.x.js를 선언하는 방식, npm을 통해 install하여 import vg from 'vanillagrid'로 가져오는 방식."
+                    },
+                    "DIVE-1603": {
+                        text: "header에 Vanillagrid.min.x.x.x.js를 선언하는 방식으로는 개발자 편의를 위해 일반적으로 html에 선언한 vanilla-grid의 id속성값으로 해당 grid의 메소드에 접근할 수 있는 전역변수를 생성합니다.(보안에 취약할 수 있음)"
+                    },
+                    "DIVE-1604": {
+                        text: "전역변수를 사용하지 않으려면 vanillagrid_onBeforeCreate에 vg.declareWindowGridVariable = false; 처리를 할 수 있습니다."
+                    },
+                    "DIVE-1605": {
+                        code:
+`<script>
+vanillagrid_onBeforeCreate = function (e, vg) {
+    vg.declareWindowGridVariable = false;
+    return false;
+}
+</script>
+`
+                    },
+                    "DIVE-1606": {
+                        text: "npm을 통해 install하여 import vg from 'vanillagrid'로 가져오는 방식에서 전역변수를 사용하지 않으려면 vg.create()전에 vg.declareWindowGridVariable = false; 처리를 합니다."
+                    },
+                    "DIVE-1607": {
+                        code:
+`<script>
+import vg from 'vanillagrid'
+vg.declareWindowGridVariable = false;
+vg.create();
+</script>
+`
+                    },
+                    "DIVE-1608": {
+                        text: "전역변수를 사용안하면 vg.get(gridId)를 통해 grid의 메소드 접근자를 가져올 수 있습니다.(보안에 유리)"
+                    },
+                    "DIVE-1609": {
+                        code:
+`<script>
+//header에 Vanillagrid.min.x.x.x.js를 선언하는 방식
+vanillagrid_onAfterCreate = function (e, vg) {
+    const grid = vg.get(gridId);
+    //grid 메서드 접근자 활용가능
+}
+</script>
+
+<script>
+//npm을 통해 install하여 import vg from 'vanillagrid'로 가져오는 방식
+import vg from 'vanillagrid'
+vg.declareWindowGridVariable = false;
+vg.create();
+
+const grid = vg.get(gridId);
+//grid 메서드 접근자 활용가능
+</script>
+`
                     },
                     "DIVE-2000": {
                         text: "Vanilla grid 객체"
