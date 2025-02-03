@@ -3378,7 +3378,14 @@ function getConsts () {
                 "return": "",
                 "remarkKor": "document에 mount된 vanillagrid와 모든 관련 객체를 삭제한다. 다시 getVanillagrid하여 grid를 생성할 수 있다.",
                 "remarkEng": "Deletes the mounted vanillagrid and all related objects from the document. The grid can be created again by calling getVanillagrid."
-            }
+            },
+            {
+                "function": "vg.get()",
+                "param": "gridId(string)",
+                "return": "Object(Accessible to grid's methods)",
+                "remarkKor": "grid의 메소드 접근자를 반환한다. html의 vanilla-grid태그에 id속성값인 gridId(string)를 파라메터로 받아 해당 grid 메소드 접근자를 반환한다. 정의되지 않은 gridId를 삽입 시 Error발생함.",
+                "remarkEng": "Returns the method accessor of grid. It receives gridId(string), which is the id attribute value of the vanilla-grid tag in HTML, as a parameter and returns the corresponding grid method accessor. An error occurs when inserting an undefined gridId."
+            },
         ];
         this.VGO_ATTRIBUTES = [
             {
@@ -3387,6 +3394,13 @@ function getConsts () {
                 "default": "",
                 "remarkKor": "getVanillagrid로 가져오는 객체. vg.create()로 grid를 생성한다.",
                 "remarkEng": "An object obtained via getVanillagrid. Creates the grid with vg.create()."
+            },
+            {
+                "attribute": "vg.declareWindowGridVariable ",
+                "type": "boolean",
+                "default": "true",
+                "remarkKor": "html태그로 선언된 grid의 id속성 문자열 값으로 Window 전역변수를 선언할지 여부. default는 true로 전역변수로 선언됨. false로 할 시 vg.get(gridId)메서드를 통해서만 grid의 메서드에 접근할 수 있다.",
+                "remarkEng": "Whether to declare a Window global variable with the string value of the id attribute of the grid declared with the html tag. The default is true, which declares it as a global variable. If false, the grid's methods can only be accessed through the vg.get(gridId) method."
             },
             {
                 "attribute": "vg.sortAscSpan",
