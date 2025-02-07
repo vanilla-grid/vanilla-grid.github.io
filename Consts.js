@@ -3396,13 +3396,6 @@ function getConsts () {
                 "remarkEng": "An object obtained via getVanillagrid. Creates the grid with vg.create()."
             },
             {
-                "attribute": "vg.declareWindowGridVariable ",
-                "type": "boolean",
-                "default": "true",
-                "remarkKor": "html태그로 선언된 grid의 id속성 문자열 값으로 Window 전역변수를 선언할지 여부. default는 true로 전역변수로 선언됨. false로 할 시 vg.get(gridId)메서드를 통해서만 grid의 메서드에 접근할 수 있다.",
-                "remarkEng": "Whether to declare a Window global variable with the string value of the id attribute of the grid declared with the html tag. The default is true, which declares it as a global variable. If false, the grid's methods can only be accessed through the vg.get(gridId) method."
-            },
-            {
                 "attribute": "vg.sortAscSpan",
                 "type": "Html node",
                 "default": "null",
