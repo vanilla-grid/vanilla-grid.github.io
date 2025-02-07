@@ -214,6 +214,7 @@ data () {
                         code: 
 `//Create vanilla grid object
 mounted: function() {
+    //Here i use the Vanillagrid.min.1.0.x.js header declaration method.
     this.vg = getVanillagrid();
     this.vg.create();
     this.loadGrid();
@@ -238,8 +239,8 @@ beforeDestroy: function() {
                         code: 
 `//vanilla grid load
 methods: {
-    // If you use declareWindowGridVariable, you can call gridId directly. (Automatically declared as a Windows global variable)
-    // If declareWindowGridVariable is set to false, the get method of vg obtained with getVanillagrid() is used.
+    // you can call gridId directly. (Automatically declared as a Windows global variable)
+    // or the get method of vg obtained with getVanillagrid() is used.
     const grid = this.vg.get(
         //real gridId(string)
         );
@@ -1361,8 +1362,8 @@ beforeDestroy: function() {
                         code: 
 `//vanilla grid load
 methods: {
-    // If you use declareWindowGridVariable, you can call gridId directly. (Automatically declared as a Windows global variable)
-    // If declareWindowGridVariable is set to false, the get method of vg obtained with getVanillagrid() is used.
+    // You can call gridId directly. (Automatically declared as a Windows global variable)
+    // or, the get method of vg obtained with getVanillagrid() is used.
     const grid = this.vg.get(
         //real gridId(string)
         );
@@ -1388,51 +1389,23 @@ methods: {
                         text: "The method of declaring Vanillagrid.min.x.x.x.js in the header creates a global variable that can access the grid's method with the id attribute value of vanilla-grid declared in html for developer convenience. (This may be vulnerable to security)"
                     },
                     "DIVE-1604": {
-                        text: "If you do not want to use a global variable, you can handle vg.declareWindowGridVariable = false; in vanillagrid_onBeforeCreate."
+                        text: "If you do not use global variables, you can get the grid's method accessor through vg.get(gridId). (It is advantageous for security)"
                     },
                     "DIVE-1605": {
                         code:
 `<script>
-vanillagrid_onBeforeCreate = function (e, vg) {
-    vg.declareWindowGridVariable = false;
-    return false;
-}
-</script>
-`
-                    },
-                    "DIVE-1606": {
-                        text: "If you do not want to use global variables when importing via import vg from 'vanillagrid' by installing via npm, handle vg.declareWindowGridVariable = false; before vg.create()."
-                    },
-                    "DIVE-1607": {
-                        code:
-`<script>
-import vg from 'vanillagrid'
-vg.declareWindowGridVariable = false;
-vg.create();
-</script>
-`
-                    },
-                    "DIVE-1608": {
-                        text: "If you do not use global variables, you can get the grid's method accessor through vg.get(gridId). (It is advantageous for security)"
-                    },
-                    "DIVE-1609": {
-                        code:
-`<script>
 //When using a style that declares Vanillagrid.min.x.x.x.js in the header
-vanillagrid_onAfterCreate = function (e, vg) {
-    const grid = vg.get(gridId);
-    //grid method accessor available
-}
+//You can just use the global variables
+grid.load(data);
 </script>
 
 <script>
 //When using styles imported via import vg from 'vanillagrid' by installing via npm
 import vg from 'vanillagrid'
-vg.declareWindowGridVariable = false;
 vg.create();
 
 const grid = vg.get(gridId);
-//grid method accessor available
+grid.load(data);
 </script>
 `
                     },
@@ -2948,6 +2921,7 @@ data () {
                         code: 
 `//vanilla grid 객체 생성
 mounted: function() {
+    //여기선 Vanillagrid.min.1.0.x.js 헤더 선언 방식 사용
     this.vg = getVanillagrid();
     this.vg.create();
     this.loadGrid(); //this.methods 호출
@@ -2972,8 +2946,8 @@ beforeDestroy: function() {
                         code: 
 `//vanilla grid load
 methods: {
-    // 만약 declareWindowGridVariable를 사용한다면 바로 gridId를 호출할 수 있음. (윈도우 전역변수로 자동 선언함)
-    // declareWindowGridVariable를 false로 한다면 getVanillagrid()로 가져온 vg의 get메서드를 활용.
+    // 바로 gridId를 호출할 수 있음. (윈도우 전역변수로 자동 선언함)
+    // 또는 getVanillagrid()로 가져온 vg의 get메서드를 활용.
     const grid = this.vg.get(
         //실제 gridId(string)
         );
@@ -4091,8 +4065,8 @@ beforeDestroy: function() {
                         code: 
 `//vanilla grid load
 methods: {
-    // 만약 declareWindowGridVariable를 사용한다면 바로 gridId를 호출할 수 있음. (윈도우 전역변수로 자동 선언함)
-    // declareWindowGridVariable를 false로 한다면 getVanillagrid()로 가져온 vg의 get메서드를 활용.
+    // 바로 gridId를 호출할 수 있음. (윈도우 전역변수로 자동 선언함)
+    // 또는 getVanillagrid()로 가져온 vg의 get메서드를 활용.
     const grid = this.vg.get(
         //실제 gridId(string)
         );
@@ -4118,51 +4092,23 @@ methods: {
                         text: "header에 Vanillagrid.min.x.x.x.js를 선언하는 방식으로는 개발자 편의를 위해 일반적으로 html에 선언한 vanilla-grid의 id속성값으로 해당 grid의 메소드에 접근할 수 있는 전역변수를 생성합니다.(보안에 취약할 수 있음)"
                     },
                     "DIVE-1604": {
-                        text: "전역변수를 사용하지 않으려면 vanillagrid_onBeforeCreate에 vg.declareWindowGridVariable = false; 처리를 할 수 있습니다."
+                        text: "전역변수를 사용안하면 vg.get(gridId)를 통해 grid의 메소드 접근자를 가져올 수 있습니다."
                     },
                     "DIVE-1605": {
                         code:
 `<script>
-vanillagrid_onBeforeCreate = function (e, vg) {
-    vg.declareWindowGridVariable = false;
-    return false;
-}
-</script>
-`
-                    },
-                    "DIVE-1606": {
-                        text: "npm을 통해 install하여 import vg from 'vanillagrid'로 가져오는 방식에서 전역변수를 사용하지 않으려면 vg.create()전에 vg.declareWindowGridVariable = false; 처리를 합니다."
-                    },
-                    "DIVE-1607": {
-                        code:
-`<script>
-import vg from 'vanillagrid'
-vg.declareWindowGridVariable = false;
-vg.create();
-</script>
-`
-                    },
-                    "DIVE-1608": {
-                        text: "전역변수를 사용안하면 vg.get(gridId)를 통해 grid의 메소드 접근자를 가져올 수 있습니다.(보안에 유리)"
-                    },
-                    "DIVE-1609": {
-                        code:
-`<script>
 //header에 Vanillagrid.min.x.x.x.js를 선언하는 방식
-vanillagrid_onAfterCreate = function (e, vg) {
-    const grid = vg.get(gridId);
-    //grid 메서드 접근자 활용가능
-}
+//바로 전역변수 사용가능
+grid.load(data);
 </script>
 
 <script>
 //npm을 통해 install하여 import vg from 'vanillagrid'로 가져오는 방식
 import vg from 'vanillagrid'
-vg.declareWindowGridVariable = false;
 vg.create();
 
 const grid = vg.get(gridId);
-//grid 메서드 접근자 활용가능
+grid.load(data);
 </script>
 `
                     },
