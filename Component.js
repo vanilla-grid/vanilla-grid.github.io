@@ -678,10 +678,6 @@ function getComponents(CONSTS, SAMPLE_GRIDS) {
                         <p class="h5" :id="getContentAnchor('DIVE-1603')"><b>{{getContentText("DIVE-1603")}}</b></p>
                         <p class="h5" :id="getContentAnchor('DIVE-1604')">{{getContentText("DIVE-1604")}}</p>
                         <pre><code>{{getContentCode("DIVE-1605")}}</code></pre>
-                        <p class="h5" :id="getContentAnchor('DIVE-1606')">{{getContentText("DIVE-1606")}}</p>
-                        <pre><code>{{getContentCode("DIVE-1607")}}</code></pre>
-                        <p class="h5" :id="getContentAnchor('DIVE-1608')"><b>{{getContentText("DIVE-1608")}}</b></p>
-                        <pre><code>{{getContentCode("DIVE-1609")}}</code></pre>
                     </div>
 
                     <br><br><br>
